@@ -1,0 +1,21 @@
+<div class="materialContainer">
+  <div class="box">
+    <div layout="column" class="login">
+      <div flex>
+        <div id="logo"></div>
+      </div>
+      <div flex>
+            <p>User dashboard works?</p>
+      </div>
+      <div flex>
+          <button class="full-width rbtn" md-raised-button color="primary" *ngIf="(user|async)?.uid">New</button>
+      </div>
+      <div flex>
+          <button class="full-width rbtn" md-raised-button color="primary" *ngIf="(user|async)?.uid">Previous</button>
+      </div>
+      <div flex>
+          <button class="full-width rbtn" md-raised-button color="primary" *ngIf="(user|async)?.uid" href="#" (click)="logout()">Sign Out</button>
+      </div>
+    </div>
+  </div>
+</div>

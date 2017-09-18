@@ -1,1 +1,22 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/purple-green.css";
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+
+.dash-wrapper {
+  background: rgba(181,121,62,1);
+  background: -moz-linear-gradient(top, rgba(181,121,62,1) 0%, rgba(93,57,138,1) 51%, rgba(93,57,138,1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(181,121,62,1)), color-stop(51%, rgba(93,57,138,1)), color-stop(100%, rgba(93,57,138,1)));
+  background: -webkit-linear-gradient(top, rgba(181,121,62,1) 0%, rgba(93,57,138,1) 51%, rgba(93,57,138,1) 100%);
+  background: -o-linear-gradient(top, rgba(181,121,62,1) 0%, rgba(93,57,138,1) 51%, rgba(93,57,138,1) 100%);
+  background: -ms-linear-gradient(top, rgba(181,121,62,1) 0%, rgba(93,57,138,1) 51%, rgba(93,57,138,1) 100%);
+  background: linear-gradient(to bottom, rgba(181,121,62,1) 0%, rgba(93,57,138,1) 51%, rgba(93,57,138,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b5793e', endColorstr='#5d398a', GradientType=0 );
+  overflow-y: hidden;
+}
+
+#logo {
+  display:inline-block;
+  background: url('./assets/img/logo.png') no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 110px;
+}

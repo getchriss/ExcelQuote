@@ -1,0 +1,62 @@
+@import "~@angular/material/prebuilt-themes/purple-green.css";
+
+.box {
+   position: relative;
+   top: 0;
+   opacity: 1;
+   float: left;
+   padding: 30px 50px 40px 50px;
+   width: 100%;
+   /*background: #fff;*/
+   transform: scale(1);
+   -webkit-transform: scale(1);
+   -ms-transform: scale(1);
+   z-index: 5;
+}
+
+.full-width {
+  width:100%;
+}
+
+.material-icons {
+  color:#FFF;
+  font-weight: 200!important;
+  margin-right: 10px;
+}
+
+.rbtn {
+  border-radius: 20px;
+  overflow:hidden;
+  background-color: #2D0C48!important;
+  margin-top:3%;
+  height: 37px;
+}
+
+.materialContainer {
+   width: 100%;
+   max-width: 360px;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   -webkit-transform: translate(-50%, -50%);
+   -ms-transform: translate(-50%, -50%);
+}
+
+#logo {
+  margin-bottom: 35%;
+  margin-top:20%;
+}
+
+
+*,
+*:after,
+*::before {
+   -webkit-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+   text-decoration: none;
+   list-style-type: none;
+}
