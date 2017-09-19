@@ -1,0 +1,38 @@
+<md-card class="mat-elevation-z0">
+  <md-card-content>
+    <div class="newFormContainer">
+      <form name="newQuoteForm">
+        <md-form-field class="full-width">
+          <input mdInput placeholder="Fullname">
+        </md-form-field>
+        <p>
+          <md-form-field class="full-width">
+            <textarea mdInput placeholder="Address"></textarea>
+          </md-form-field>
+        </p>
+        <p>
+          <md-form-field class="full-width">
+            <input mdInput placeholder="City">
+          </md-form-field>
+        </p>
+        <p>
+          <md-form-field class="full-width">
+            <input mdInput #postalCode maxlength="5" placeholder="Postal Code">
+          </md-form-field>
+        </p>
+        <p>
+          <md-form-field class="full-width">
+            <input mdInput #postalCode maxlength="5" placeholder="Phone">
+          </md-form-field>
+        </p>
+        <p>
+          datepicker to come...
+        </p>
+      </form>
+    </div>
+  </md-card-content>
+  <!-- <md-card-actions>
+    <button md-button>SUBMIT</button>
+  </md-card-actions> -->
+</md-card>
+<app-navfooter></app-navfooter>
