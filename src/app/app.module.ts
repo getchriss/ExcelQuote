@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { MdButtonModule,  MdToolbarModule, MdIconModule, MdDialogModule, MdInputModule, MdCheckboxModule } from '@angular/material';
+import { MdButtonModule,  MdToolbarModule, MdIconModule, MdDialogModule, MdInputModule, MdCheckboxModule, MdGridListModule, MdCardModule, MdSlideToggleModule, MdDatepickerModule } from '@angular/material';
 
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
@@ -23,6 +23,8 @@ import { AuthService } from './services/auth.service';
 
 import { appRoutes } from '../routes';
 import { environment } from '../environments/environment';
+import { NewFormComponent } from './new-form/new-form.component';
+import { NavfooterComponent } from './navfooter/navfooter.component';
 
 
 @NgModule({
@@ -35,6 +37,8 @@ import { environment } from '../environments/environment';
     QuoteManagementComponent,
     QuotePreviewComponent,
     QuoteFormComponent,
+    NewFormComponent,
+    NavfooterComponent,
   ],
 
   imports: [
@@ -52,6 +56,10 @@ import { environment } from '../environments/environment';
     MdDialogModule,
     MdInputModule,
     MdCheckboxModule,
+    MdGridListModule,
+    MdCardModule,
+    MdSlideToggleModule,
+    MdDatepickerModule,
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
