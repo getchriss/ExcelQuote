@@ -4,6 +4,21 @@
   width:100%;
 }
 
+#logo {
+  display: inline-block;
+  background: url('../../assets/img/logo.png') no-repeat;
+  background-size: cover;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 55%;
+  left: 0;
+  width: 270px;
+  height: 128px;
+  min-width: 60px;
+}
+
 .material-icons {
   color:#FFF;
   font-weight: 200!important;

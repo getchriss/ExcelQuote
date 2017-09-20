@@ -1,32 +1,41 @@
-<md-card class="signUpContainer mat-elevation-z0" flex="flex">
-<!-- asasasasasasasaasas  -->
-<div class="materialContainer">
-  <div class="box">
-    <div layout="column" class="signUpCard">
-      <form #signupForm="ngForm">
-        <div flex>
-          <div id="logo"></div>
-        </div>
-        <div flex style="margin-bottom:15%;">
-          <md-form-field class="full-width">
-            <input mdInput type="email" name="email" placeholder="Enter your email address" [(ngModel)]="email" class="formInput" maxlength="60" required/>
-          </md-form-field>
-        </div>
-        <div flex>
-          <md-form-field class="full-width">
-            <input mdInput type="password" name="password" placeholder="Choose a password" [(ngModel)]="password" class="formInput" required/>
-          </md-form-field>
-        </div>
-        <div flex>
-          <md-form-field class="full-width">
-            <input mdInput name="displayName" placeholder="Enter a display name" [(ngModel)]="displayName" class="formInput" maxlength="12" required/>
-          </md-form-field>
-        </div>
-        <div flex>
-          <button [disabled]="!signupForm.form.valid" type="submit" (click)="signUp()" class="btn" id="btn-signUp">Sign Up</button>
-        </div>
-      </form>
-    </div>
-  </div>
+<div class="dash-wrapper">
+  <div id="logo"></div>
 </div>
+<md-card class="signUpContainer mat-elevation-z0" flex="flex">
+  <div class="signUpCard">
+    <form #signupForm="ngForm">
+      <md-card-content>
+        <md-grid-list cols="1" rows="4" [rowHeight]="70">
+          <md-grid-tile>
+            <md-form-field class="full-width">
+              <input mdInput type="email" name="email" placeholder="Enter your email address" [(ngModel)]="email" class="formInput" maxlength="60"
+                required/>
+            </md-form-field>
+          </md-grid-tile>
+          <md-grid-tile>
+            <md-form-field class="full-width">
+              <input mdInput type="password" name="password" placeholder="Choose a password" [(ngModel)]="password" class="formInput" required/>
+            </md-form-field>
+          </md-grid-tile>
+          <md-grid-tile>
+            <md-form-field class="full-width">
+              <input mdInput name="displayName" placeholder="Enter a display name" [(ngModel)]="displayName" class="formInput" maxlength="12"
+                required/>
+            </md-form-field>
+          </md-grid-tile>
+        </md-grid-list>
+        <md-grid-list cols="1" rows="4" [rowHeight]="50" style="margin-top:40px;">
+          <md-grid-tile>
+            <button [disabled]="!signupForm.form.valid" class="full-width rbtn" type="submit" (click)="signUp()" md-raised-button color="primary"
+              id="btn-signUp">
+                Sign Up</button>
+          </md-grid-tile>
+          <md-grid-tile>
+            <button class="full-width rbtn" md-raised-button color="primary" routerLink="/login">
+                Back</button>
+          </md-grid-tile>
+        </md-grid-list>
+      </md-card-content>
+    </form>
+  </div>
 </md-card>
