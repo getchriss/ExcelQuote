@@ -1,12 +1,13 @@
 .navBar{
     width: 100%;
-    height: 240px;
-    display: flex;
+    /*height: 100px;*/
+    flex: none;
     flex-direction: row;
 }
 
 md-toolbar {
-  background-color: rgba(0, 0, 0, 0);
+  /*background-color: rgba(0, 0, 0, 0);*/
+  background-color: red;
 }
 
 #logo{

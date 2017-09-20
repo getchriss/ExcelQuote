@@ -1,27 +1,48 @@
-.newFormContainer {
-    position: absolute;
-    margin: auto;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    max-width: 90%;
-    height: 100px;
-    background-color: rgba(0, 0, 0, 0);
-    border: 0px;
-    border-radius: 3px;
-}
 .full-width {
   width:100%!important;
 }
 
-/*.full-card {
-    position: fixed!important;
-    right: 0!important;
-    border-radius: 0;
-    margin-top:20%;
-    background-color: #F0F0F0;
-    width: 100vh;
-    height: 100vh;
+.container {
+  flex: 1 0 auto; /* 2 */
+  padding: var(--space) var(--space) 0;
+  width: 100%;
+  background-color: #F0F0F0;
+}
+
+.container::after {
+  content: '\00a0';
+  display: block;
+  margin-top: var(--space);
+  height: 0px;
+  visibility: hidden;
+}
+
+main {
+  overflow-y: auto;
+  margin-top: 100px;
+  margin-bottom: 180px;
+}
+
+md-select {
+  width:100%;
+}
+
+
+.flex-nav {
+  position:fixed;
+  width:100%;
+  z-index: 999;
+}
+
+.flex-foot {
+  position:fixed;
+  bottom:0;
+  width:100%;
+}
+
+/*/deep/ .mat-input-underline {
+    background-color: #472155;
+}
+.mat-input-wrapper {
+    background: #472155;
 }*/

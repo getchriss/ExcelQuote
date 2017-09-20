@@ -1,38 +1,163 @@
-<md-card class="mat-elevation-z0">
-  <md-card-content>
-    <div class="newFormContainer">
-      <form name="newQuoteForm">
-        <md-form-field class="full-width">
-          <input mdInput placeholder="Fullname">
-        </md-form-field>
-        <p>
-          <md-form-field class="full-width">
-            <textarea mdInput placeholder="Address"></textarea>
-          </md-form-field>
-        </p>
-        <p>
-          <md-form-field class="full-width">
-            <input mdInput placeholder="City">
-          </md-form-field>
-        </p>
-        <p>
-          <md-form-field class="full-width">
-            <input mdInput #postalCode maxlength="5" placeholder="Postal Code">
-          </md-form-field>
-        </p>
-        <p>
-          <md-form-field class="full-width">
-            <input mdInput #postalCode maxlength="5" placeholder="Phone">
-          </md-form-field>
-        </p>
-        <p>
-          datepicker to come...
-        </p>
-      </form>
+<div fxLayout="column" fxLayoutAlign="start none">
+  <div fxFlex="100" class="flex-nav">
+    <app-navbar></app-navbar>
+  </div>
+  <div fxFlex="100" class="container">
+    <main>
+      <md-card class="mat-elevation-z0" style="background-color: transparent;">
+        <md-card-content>
+          <div class="newFormContainer">
+            <form name="newQuoteForm">
+              <md-form-field class="full-width">
+                <input mdInput ([ngModel])="quoteClient" placeholder="Client">
+              </md-form-field>
+              <md-form-field class="full-width">
+                <textarea mdInput ([ngModel])="quoteEmail" placeholder="Email"></textarea>
+              </md-form-field>
+              <md-form-field class="full-width">
+                <textarea mdInput ([ngModel])="quoteAddress" placeholder="Address"></textarea>
+              </md-form-field>
+              <md-form-field class="full-width">
+                <input mdInput ([ngModel])="quotePhone" maxlength="5" placeholder="Phone">
+              </md-form-field>
+              <p>Date quote required back by -- element to come</p>
+              <p>Upload Artwork to come.</p>
+              <md-form-field class="full-width">
+                <textarea mdInput ([ngModel])="quoteNokinds" placeholder="Number of kinds"></textarea>
+              </md-form-field>
+              <md-form-field class="full-width">
+                <textarea mdInput ([ngModel])="quoteNokinds" placeholder="Quantity per kind"></textarea>
+              </md-form-field>
+              <p>Include delivery costs?</p>
+              <md-button-toggle-group ([ngModel])="quoteCost" #group="mdButtonToggleGroup">
+                <md-button-toggle value="Yes">Yes</md-button-toggle>
+                <md-button-toggle value="No">No</md-button-toggle>
+              </md-button-toggle-group>
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <md-form-field class="full-width">
+                        <input mdInput ([ngModel])="quoteWidth" maxlength="5" placeholder="Width">
+                        <span mdSuffix>mm</span>
+                      </md-form-field>
+                    </td>
+                    <td>
+                      <md-form-field class="full-width">
+                        <input mdInput ([ngModel])="quoteHeight" maxlength="5" placeholder="Height">
+                        <span mdSuffix>mm</span>
+                      </md-form-field>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <md-form-field class="full-width">
+                <input mdInput ([ngModel])="quoteLabelsPer" maxlength="5" placeholder="Labels per roll or Max O/D">
+              </md-form-field>
+              <md-form-field class="full-width">
+                <input mdInput ([ngModel])="quoteGap" maxlength="5" placeholder="Gap Between Labels" value="4mm">
+              </md-form-field>
+              <p>
+                Knife<br /><br />
+                <md-button-toggle-group ([ngModel])="quoteHeight" #group="mdButtonToggleGroup">
+                  <md-button-toggle value="New">
+                    New
+                  </md-button-toggle>
+                  <md-button-toggle value="Existing">
+                    Existing
+                  </md-button-toggle>
+                  <md-button-toggle value="Similar">
+                    Similar
+                  </md-button-toggle>
+                </md-button-toggle-group>
+              </p>
+              <p>Charges</p>
+                <md-select class="full-width" placeholder="Tooling charge" [(ngModel)]="selectedCharge" name="charge">
+                 <md-option *ngFor="let charge of charge" [value]="charge.value">
+                   {{charge.viewCharge}}
+                 </md-option>
+               </md-select>
+               <p> Selected value: {{selectedCharge}} </p> <!-- temp listeners -->
+               <md-select class="full-width" placeholder="Select Stock" [(ngModel)]="selectedStock" name="stock">
+                <md-option *ngFor="let stock of stock" [value]="stock.value">
+                  {{stock.viewStock}}
+                </md-option>
+              </md-select>
+              <p> Selected value: {{selectedStock}} </p> <!-- temp listeners -->
+             </form>
+          </div>
+        </md-card-content>
+      </md-card>
+    </main>
+  </div>
+  <div fxFlex fxFlex="100" class="flex-foot">
+    <app-navfooter></app-navfooter>
+  </div>
+</div>
+<!-- <header>
+  <app-navbar></app-navbar>
+</header>
+<div fxLayout="column" fxLayoutAlign="none">
+  <div>
+      <md-card class="mat-elevation-z0" style="background-color: transparent;">
+        <md-card-content>
+          <div class="newFormContainer">
+            <form name="newQuoteForm">
+              <md-form-field class="full-width">
+                <input mdInput placeholder="Fullname">
+              </md-form-field>
+              <p>
+                <md-form-field class="full-width">
+                  <textarea mdInput placeholder="Address"></textarea>
+                </md-form-field>
+              </p>
+              <p>
+                <md-form-field class="full-width">
+                  <input mdInput placeholder="City">
+                </md-form-field>
+              </p>
+              <p>
+                <md-form-field class="full-width">
+                  <input mdInput maxlength="5" placeholder="Postal Code">
+                </md-form-field>
+              </p>
+              <p>
+                <md-form-field class="full-width">
+                  <input mdInput maxlength="5" placeholder="Phone">
+                </md-form-field>
+              </p>
+              <p>
+                datepicker to come...
+              </p>
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <md-form-field class="full-width">
+                        <input mdInput maxlength="5" placeholder="Width">
+                        <span mdSuffix>mm</span>
+                      </md-form-field>
+                    </td>
+                    <td>
+                      <md-form-field class="full-width">
+                        <input mdInput maxlength="5" placeholder="Height">
+                        <span mdSuffix>mm</span>
+                      </md-form-field>
+                    </td>
+                  </tr>
+                  <p>
+                    Knife<br /><br /><br />dfasdsa
+                  </p>
+                </tbody>
+              </table>
+            </form>
+          </div>
+        </md-card-content>
+      </md-card>
     </div>
-  </md-card-content>
-  <!-- <md-card-actions>
-    <button md-button>SUBMIT</button>
-  </md-card-actions> -->
-</md-card>
-<app-navfooter></app-navfooter>
+    <div>
+      <app-navfooter></app-navfooter>
+    </div>
+</div>
+<footer>
+</footer> -->

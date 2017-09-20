@@ -2,7 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { MdButtonModule,  MdToolbarModule, MdIconModule, MdDialogModule, MdInputModule, MdCheckboxModule, MdGridListModule, MdCardModule, MdSlideToggleModule, MdDatepickerModule } from '@angular/material';
+import { MdButtonModule,  MdToolbarModule, MdIconModule, MdDialogModule, MdInputModule, MdCheckboxModule,
+  MdGridListModule, MdCardModule, MdSlideToggleModule, MdDatepickerModule,
+  MdButtonToggleModule, MdSelectModule } from '@angular/material';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
@@ -60,6 +63,9 @@ import { NavfooterComponent } from './navfooter/navfooter.component';
     MdCardModule,
     MdSlideToggleModule,
     MdDatepickerModule,
+    FlexLayoutModule,
+    MdButtonToggleModule,
+    MdSelectModule,
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

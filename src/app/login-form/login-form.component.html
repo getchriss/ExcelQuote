@@ -1,33 +1,4 @@
-<!-- <div class="loginContainer">
-      <div flex>
-        <md-form-field class="full-width">
-          <i mdPrefix class="material-icons">person_outline</i>
-          <input mdInput [(ngModel)]="email" type="email" name="email" class="formInput" placeholder="Username" />
-        </md-form-field>
-      </div>
-      <div flex>
-        <md-form-field class="full-width">
-          <i mdPrefix class="material-icons">lock_outline</i>
-          <input mdInput type="password" [(ngModel)]="password" name="password" class="formInput" placeholder="Password" />
-        </md-form-field>
-      </div>
-      <div flex>
-        <md-checkbox align="end" style="float:right; color: #FFF;">Remember me</md-checkbox>
-      </div>
-      <div flex>
-        <button class="full-width rbtn" md-raised-button color="primary" id="btn-login" *ngIf="!(user|async)?.uid" routerLink="/signup">Register User</button>
-      </div>
-      <div flex>
-        <button class="full-width rbtn" md-raised-button color="primary" id="btn-login" (click)="login()">Log In</button>
-      </div>
-      <div flex>
-        <br />
-        <p><a style="color:#FFF;" href="#" target="_self">Forgot your password?</a></p>
-      </div>
-
-    </div>
-  </div>
-</div> -->
+<div class="dash-wrapper"></div>
 <md-card class="loginContainer mat-elevation-z0" flex="flex">
   <md-card-content>
     <md-grid-list cols="1" rows="4" [rowHeight]="70">
@@ -45,9 +16,9 @@
       </md-grid-tile>
     </md-grid-list>
     <md-grid-list cols="2" [rowHeight]="55">
-    <md-grid-tile-footer cols="2">
-          <md-slide-toggle class="rememberMe"><span class="rememberMe">&nbsp; &nbsp; Remember me</span></md-slide-toggle>
-          <span class="forgot full-width"><a style="text-decoration:none;color:#FFF;" href="#" target="_self">Forgot your password?</a></span>
+      <md-grid-tile-footer cols="2">
+        <md-slide-toggle class="rememberMe"><span class="rememberMe">&nbsp; &nbsp; Remember me</span></md-slide-toggle>
+        <span class="forgot full-width"><a style="text-decoration:none;color:#FFF;" href="#" target="_self">Forgot your password?</a></span>
       </md-grid-tile-footer>
     </md-grid-list>
     <md-grid-list cols="1" rows="4" [rowHeight]="50" style="margin-top:57px;">
