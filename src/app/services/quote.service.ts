@@ -24,13 +24,23 @@ export class QuoteService {
 
   sendQuote(quote: any) {
     this.quoteFiles = this.getQuotes();
+    console.log(quote)
     if (quote.client !== undefined) {  //set any required fields here. Any fields not needed will need to be defined above.
       this.quoteFiles.push({
         client: quote.client,
         email: quote.email,
         address: quote.address,
-        addressCont: quote.addressCont,
-        phone: quote.phone
+        phone: quote.phone,
+        noKinds: quote.noKinds,
+        qKinds: quote.qKinds,
+        cost: quote.cost,
+        width: quote.width,
+        height: quote.height,
+        labelsPer: quote.labelsPer,
+        gap: quote.gap,
+        knife: quote.knife,
+        charge: quote.charge,
+        stock: quote.stock
       });
       console.log('Called sendQuote()...')
     } else {
@@ -46,4 +56,27 @@ export class QuoteService {
     });
   }
 
+  getStocks(): FirebaseListObservable<QuoteFile[]> {
+    return this.db.list('/misc/stock', {
+      preserveSnapshot: true
+    });
+  }
+
+  getFinishes(): FirebaseListObservable<QuoteFile[]> {
+    return this.db.list('/misc/finish', {
+      preserveSnapshot: true
+    });
+  }
+
+  getEmbelishment(): FirebaseListObservable<QuoteFile[]> {
+    return this.db.list('/misc/embelishment', {
+      preserveSnapshot: true
+    });
+  }
+
+  getAdhesive(): FirebaseListObservable<QuoteFile[]> {
+    return this.db.list('/misc/adhesive', {
+      preserveSnapshot: true
+    });
+  }
 }

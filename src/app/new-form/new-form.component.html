@@ -9,42 +9,48 @@
           <div class="newFormContainer">
             <form name="newQuoteForm">
               <md-form-field class="full-width">
-                <input mdInput ([ngModel])="quoteClient" placeholder="Client">
+                <input mdInput ([ngModel])="quote.client" placeholder="Client">
               </md-form-field>
               <md-form-field class="full-width">
-                <textarea mdInput ([ngModel])="quoteEmail" placeholder="Email"></textarea>
+                <textarea mdInput ([ngModel])="quote.email" placeholder="Email"></textarea>
               </md-form-field>
               <md-form-field class="full-width">
-                <textarea mdInput ([ngModel])="quoteAddress" placeholder="Address"></textarea>
+                <textarea mdInput ([ngModel])="quote.address" placeholder="Address"></textarea>
               </md-form-field>
               <md-form-field class="full-width">
-                <input mdInput ([ngModel])="quotePhone" maxlength="5" placeholder="Phone">
+                <input mdInput ([ngModel])="quote.phone" maxlength="5" placeholder="Phone">
               </md-form-field>
-              <p>Date quote required back by -- element to come</p>
-              <p>Upload Artwork to come.</p>
+              <md-form-field>
+                <input mdInput [mdDatepicker]="picker" placeholder="Choose a date">
+                <md-datepicker-toggle mdSuffix [for]="picker"></md-datepicker-toggle>
+                <md-datepicker #picker></md-datepicker>
+              </md-form-field>
+              <!-- <p>Upload Artwork to come.</p> -->
               <md-form-field class="full-width">
-                <textarea mdInput ([ngModel])="quoteNokinds" placeholder="Number of kinds"></textarea>
+                <textarea mdInput ([ngModel])="quote.nokinds" placeholder="Number of kinds"></textarea>
               </md-form-field>
               <md-form-field class="full-width">
-                <textarea mdInput ([ngModel])="quoteNokinds" placeholder="Quantity per kind"></textarea>
+                <textarea mdInput ([ngModel])="quote.nokinds" placeholder="Quantity per kind"></textarea>
               </md-form-field>
               <p>Include delivery costs?</p>
-              <md-button-toggle-group ([ngModel])="quoteCost" #group="mdButtonToggleGroup">
+              <md-button-toggle-group ([ngModel])="quote.cost" #group="mdButtonToggleGroup">
                 <md-button-toggle value="Yes">Yes</md-button-toggle>
                 <md-button-toggle value="No">No</md-button-toggle>
               </md-button-toggle-group>
+              <br>
+              <br>
               <table>
                 <tbody>
                   <tr>
                     <td>
                       <md-form-field class="full-width">
-                        <input mdInput ([ngModel])="quoteWidth" maxlength="5" placeholder="Width">
+                        <input mdInput ([ngModel])="quote.width" maxlength="5" placeholder="Width">
                         <span mdSuffix>mm</span>
                       </md-form-field>
                     </td>
                     <td>
                       <md-form-field class="full-width">
-                        <input mdInput ([ngModel])="quoteHeight" maxlength="5" placeholder="Height">
+                        <input mdInput ([ngModel])="quote.height" maxlength="5" placeholder="Height">
                         <span mdSuffix>mm</span>
                       </md-form-field>
                     </td>
@@ -52,39 +58,35 @@
                 </tbody>
               </table>
               <md-form-field class="full-width">
-                <input mdInput ([ngModel])="quoteLabelsPer" maxlength="5" placeholder="Labels per roll or Max O/D">
+                <input mdInput ([ngModel])="quote.labelsPer" maxlength="5" placeholder="Labels per roll or Max O/D">
               </md-form-field>
               <md-form-field class="full-width">
-                <input mdInput ([ngModel])="quoteGap" maxlength="5" placeholder="Gap Between Labels" value="4mm">
+                <input mdInput ([ngModel])="quote.gap" maxlength="5" placeholder="Gap Between Labels" value="4mm">
               </md-form-field>
-              <p>
-                Knife<br /><br />
-                <md-button-toggle-group ([ngModel])="quoteHeight" #group="mdButtonToggleGroup">
-                  <md-button-toggle value="New">
-                    New
-                  </md-button-toggle>
-                  <md-button-toggle value="Existing">
-                    Existing
-                  </md-button-toggle>
-                  <md-button-toggle value="Similar">
-                    Similar
-                  </md-button-toggle>
-                </md-button-toggle-group>
-              </p>
+              <p>Knife</p>
+              <md-button-toggle-group ([ngModel])="quote.knife" #group="mdButtonToggleGroup">
+                <md-button-toggle value="New">New</md-button-toggle>
+                <md-button-toggle value="Existing">Existing</md-button-toggle>
+                <md-button-toggle value="Similar">Similar</md-button-toggle>
+              </md-button-toggle-group>
+              <br>
+              <br>
               <p>Charges</p>
-                <md-select class="full-width" placeholder="Tooling charge" [(ngModel)]="selectedCharge" name="charge">
-                 <md-option *ngFor="let charge of charge" [value]="charge.value">
-                   {{charge.viewCharge}}
-                 </md-option>
-               </md-select>
-               <p> Selected value: {{selectedCharge}} </p> <!-- temp listeners -->
-               <md-select class="full-width" placeholder="Select Stock" [(ngModel)]="selectedStock" name="stock">
-                <md-option *ngFor="let stock of stock" [value]="stock.value">
-                  {{stock.viewStock}}
+              <md-select class="full-width" placeholder="Tooling charge" [(ngModel)]="quote.charge" name="charge">
+                <md-option value="Charge">Charge</md-option>
+                <md-option value="No Charge">No charge</md-option>
+              </md-select>
+              <!-- temp listeners -->
+              <md-select class="full-width" placeholder="Select Stock" [(ngModel)]="quote.stock" name="stock">
+                <md-option *ngFor="let stock of $stocks | async" [value]="stock">
+                  {{stock.val()}}
                 </md-option>
               </md-select>
-              <p> Selected value: {{selectedStock}} </p> <!-- temp listeners -->
-             </form>
+              <!-- temp listeners -->
+              <br>
+              <br>
+              <button md-raised-button (click)="submitQuote()">Submit</button>
+            </form>
           </div>
         </md-card-content>
       </md-card>
@@ -94,70 +96,3 @@
     <app-navfooter></app-navfooter>
   </div>
 </div>
-<!-- <header>
-  <app-navbar></app-navbar>
-</header>
-<div fxLayout="column" fxLayoutAlign="none">
-  <div>
-      <md-card class="mat-elevation-z0" style="background-color: transparent;">
-        <md-card-content>
-          <div class="newFormContainer">
-            <form name="newQuoteForm">
-              <md-form-field class="full-width">
-                <input mdInput placeholder="Fullname">
-              </md-form-field>
-              <p>
-                <md-form-field class="full-width">
-                  <textarea mdInput placeholder="Address"></textarea>
-                </md-form-field>
-              </p>
-              <p>
-                <md-form-field class="full-width">
-                  <input mdInput placeholder="City">
-                </md-form-field>
-              </p>
-              <p>
-                <md-form-field class="full-width">
-                  <input mdInput maxlength="5" placeholder="Postal Code">
-                </md-form-field>
-              </p>
-              <p>
-                <md-form-field class="full-width">
-                  <input mdInput maxlength="5" placeholder="Phone">
-                </md-form-field>
-              </p>
-              <p>
-                datepicker to come...
-              </p>
-              <table>
-                <tbody>
-                  <tr>
-                    <td>
-                      <md-form-field class="full-width">
-                        <input mdInput maxlength="5" placeholder="Width">
-                        <span mdSuffix>mm</span>
-                      </md-form-field>
-                    </td>
-                    <td>
-                      <md-form-field class="full-width">
-                        <input mdInput maxlength="5" placeholder="Height">
-                        <span mdSuffix>mm</span>
-                      </md-form-field>
-                    </td>
-                  </tr>
-                  <p>
-                    Knife<br /><br /><br />dfasdsa
-                  </p>
-                </tbody>
-              </table>
-            </form>
-          </div>
-        </md-card-content>
-      </md-card>
-    </div>
-    <div>
-      <app-navfooter></app-navfooter>
-    </div>
-</div>
-<footer>
-</footer> -->
