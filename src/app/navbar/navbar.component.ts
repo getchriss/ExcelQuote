@@ -9,8 +9,8 @@ import * as firebase from 'firebase/app';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-    user: Observable<firebase.User>;
-    userEmail: string;
+  user: Observable<firebase.User>;
+  userEmail: string;
 
 
   constructor(private authService: AuthService) { }
@@ -19,12 +19,12 @@ export class NavbarComponent implements OnInit {
     this.user = this.authService.authUser();
     this.user.subscribe(user => {
       if (user) {
-        this.userEmail =  user.email;
+        this.userEmail = user.email;
       }
     });
   }
 
-    logout() {
-      this.authService.logout();
-    }
+  logout() {
+    this.authService.logout();
+  }
 }

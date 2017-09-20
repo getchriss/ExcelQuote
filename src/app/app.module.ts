@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MdButtonModule,  MdToolbarModule, MdIconModule, MdDialogModule, MdInputModule, MdCheckboxModule } from '@angular/material';
 
 import { FormsModule } from '@angular/forms';
@@ -18,8 +18,11 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { QuoteManagementComponent } from './quote-management/quote-management.component';
 import { QuotePreviewComponent } from './quote-preview/quote-preview.component';
 import { QuoteFormComponent } from './quote-form/quote-form.component';
+// import { HTTP_PROVIDERS } from '@angular/http';
 
 import { AuthService } from './services/auth.service';
+import { QuoteService } from './services/quote.service';
+import { FirebaseDatabaseService } from './services/firebase-database.service';
 
 import { appRoutes } from '../routes';
 import { environment } from '../environments/environment';
@@ -53,7 +56,7 @@ import { environment } from '../environments/environment';
     MdInputModule,
     MdCheckboxModule,
   ],
-  providers: [AuthService],
+  providers: [AuthService, QuoteService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

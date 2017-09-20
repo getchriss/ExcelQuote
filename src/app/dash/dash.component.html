@@ -5,16 +5,16 @@
         <div id="logo"></div>
       </div>
       <div flex>
-            <p>User dashboard works?</p>
+        <p>User dashboard works?</p>
       </div>
       <div flex>
-          <button class="full-width rbtn" md-raised-button color="primary" *ngIf="(user|async)?.uid">New</button>
+        <button class="full-width rbtn" md-raised-button color="primary" *ngIf="(user|async)?.uid" (click)="newForm()">New</button>
       </div>
       <div flex>
-          <button class="full-width rbtn" md-raised-button color="primary" *ngIf="(user|async)?.uid">Previous</button>
+        <button class="full-width rbtn" md-raised-button color="primary" *ngIf="(user|async)?.uid">Previous</button>
       </div>
       <div flex>
-          <button class="full-width rbtn" md-raised-button color="primary" *ngIf="(user|async)?.uid" href="#" (click)="logout()">Sign Out</button>
+        <button class="full-width rbtn" md-raised-button color="primary" *ngIf="(user|async)?.uid" href="#" (click)="logout()">Sign Out</button>
       </div>
     </div>
   </div>

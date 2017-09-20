@@ -1,8 +1,8 @@
-// export class quoteForm {
-//   $key?: string;
-//   uid?: string;
-//   jobid: string;
-//   userName: string;
-//   message: string;
-//   timeStamp?: Date = newDate();
-// }
+export class QuoteFile {
+  $key?: string;
+  client?: string;
+  email?: string;
+  address?: string;
+  addressCont?: string;
+  phone?: string;
+}

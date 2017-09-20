@@ -24,30 +24,28 @@
   <div class="box">
     <div layout="column" class="signUpCard">
       <form #signupForm="ngForm">
-      <div flex>
-        <div id="logo"></div>
-      </div>
-      <div flex style="margin-bottom:15%;">
-        <md-form-field class="full-width">
-              <input mdInput type="email" name="email" placeholder="Enter your email address" [(ngModel)]="email" class="formInput" maxlength="60" required/>
-        </md-form-field>
-      </div>
-      <div flex>
-        <md-form-field class="full-width">
-              <input mdInput type="password" name="password" placeholder="Choose a password" [(ngModel)]="password" class="formInput" required/>
-        </md-form-field>
-      </div>
-      <div flex>
-        <md-form-field class="full-width">
+        <div flex>
+          <div id="logo"></div>
+        </div>
+        <div flex style="margin-bottom:15%;">
+          <md-form-field class="full-width">
+            <input mdInput type="email" name="email" placeholder="Enter your email address" [(ngModel)]="email" class="formInput" maxlength="60" required/>
+          </md-form-field>
+        </div>
+        <div flex>
+          <md-form-field class="full-width">
+            <input mdInput type="password" name="password" placeholder="Choose a password" [(ngModel)]="password" class="formInput" required/>
+          </md-form-field>
+        </div>
+        <div flex>
+          <md-form-field class="full-width">
             <input mdInput name="displayName" placeholder="Enter a display name" [(ngModel)]="displayName" class="formInput" maxlength="12" required/>
-        </md-form-field>
-      </div>
-      <div flex>
-        <button [disabled]="!signupForm.form.valid" type="submit" (click)="signUp()" class="btn" id="btn-signUp">
-                Sign Up
-        </button>
-      </div>
-    </form>
+          </md-form-field>
+        </div>
+        <div flex>
+          <button [disabled]="!signupForm.form.valid" type="submit" (click)="signUp()" class="btn" id="btn-signUp">Sign Up</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
