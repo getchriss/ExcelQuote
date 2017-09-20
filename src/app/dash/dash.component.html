@@ -1,3 +1,26 @@
+<<<<<<< HEAD
+<div class="materialContainer">
+  <div class="box">
+    <div layout="column" class="login">
+      <div flex>
+        <div id="logo"></div>
+      </div>
+      <div flex>
+        <p>User dashboard works?</p>
+      </div>
+      <div flex>
+        <button class="full-width rbtn" md-raised-button color="primary" *ngIf="(user|async)?.uid" (click)="newForm()">New</button>
+      </div>
+      <div flex>
+        <button class="full-width rbtn" md-raised-button color="primary" *ngIf="(user|async)?.uid">Previous</button>
+      </div>
+      <div flex>
+        <button class="full-width rbtn" md-raised-button color="primary" *ngIf="(user|async)?.uid" href="#" (click)="logout()">Sign Out</button>
+      </div>
+    </div>
+  </div>
+</div>
+=======
 <div class="dash-wrapper"></div>
 <md-card class="dashWrapper mat-elevation-z0" flex="flex" flex-gt-sm="50" flex-gt-md="33">
   <md-card-content>
@@ -15,3 +38,4 @@
     </md-grid-list>
   </md-card-content>
 </md-card>
+>>>>>>> ca30e19548f5e2917a1252d428b5da8068f3c251

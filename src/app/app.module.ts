@@ -1,11 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+<<<<<<< HEAD
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MdButtonModule,  MdToolbarModule, MdIconModule, MdDialogModule, MdInputModule, MdCheckboxModule } from '@angular/material';
+=======
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MdButtonModule,  MdToolbarModule, MdIconModule, MdDialogModule, MdInputModule, MdCheckboxModule,
   MdGridListModule, MdCardModule, MdSlideToggleModule, MdDatepickerModule,
   MdButtonToggleModule, MdSelectModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
+>>>>>>> ca30e19548f5e2917a1252d428b5da8068f3c251
 
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
@@ -21,8 +26,11 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { QuoteManagementComponent } from './quote-management/quote-management.component';
 import { QuotePreviewComponent } from './quote-preview/quote-preview.component';
 import { QuoteFormComponent } from './quote-form/quote-form.component';
+// import { HTTP_PROVIDERS } from '@angular/http';
 
 import { AuthService } from './services/auth.service';
+import { QuoteService } from './services/quote.service';
+import { FirebaseDatabaseService } from './services/firebase-database.service';
 
 import { appRoutes } from '../routes';
 import { environment } from '../environments/environment';
@@ -67,7 +75,7 @@ import { NavfooterComponent } from './navfooter/navfooter.component';
     MdButtonToggleModule,
     MdSelectModule,
   ],
-  providers: [AuthService],
+  providers: [AuthService, QuoteService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
