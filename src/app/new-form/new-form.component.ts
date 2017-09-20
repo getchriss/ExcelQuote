@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { Observable } from 'rxjs/Observable';
+import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'app-new-form',
@@ -7,11 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewFormComponent implements OnInit {
   date;
+  item;
   selectedCharge: string;
   selectedStock: string;
 
-  constructor() { }
-
+  constructor(public af:AngularFireDatabase) {
+    this.item = af.object('/msic/stock');
+  }
   ngOnInit() {
   }
 
