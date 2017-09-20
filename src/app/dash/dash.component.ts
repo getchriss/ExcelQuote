@@ -19,6 +19,7 @@ export class DashComponent implements OnInit {
 
   user: Observable<firebase.User>;
   userEmail: string;
+  tiles: any[];
 
   constructor(private authService: AuthService, private router: Router) { }
 
@@ -28,8 +29,16 @@ export class DashComponent implements OnInit {
       if (user) {
         this.userEmail = user.email;
       }
-<<<<<<< HEAD
+
     });
+    this.tiles = [
+      {text: 'One', cols: 4, rows: 1, color: 'lightblue'},
+      {text: 'Two', cols: 4, rows: 1, color: 'lightgreen'},
+      {text: 'Three', cols: 4, rows: 1, color: 'lightpink'},
+      {text: 'Four', cols: 4, rows: 1, color: '#DDBDF1'},
+      {text: 'Five', cols: 4, rows: 1, color: '#DDBDF1'},
+      {text: 'Six', cols: 4, rows: 1, color: '#DDBDF1'},
+    ];
   }
 
   logout() {
@@ -38,16 +47,8 @@ export class DashComponent implements OnInit {
 
   newForm() {
     this.router.navigate(['quote-form']);
-=======
-      tiles = [
-  {text: 'One', cols: 4, rows: 1, color: 'lightblue'},
-  {text: 'Two', cols: 4, rows: 1, color: 'lightgreen'},
-  {text: 'Three', cols: 4, rows: 1, color: 'lightpink'},
-  {text: 'Four', cols: 4, rows: 1, color: '#DDBDF1'},
-  {text: 'Five', cols: 4, rows: 1, color: '#DDBDF1'},
-  {text: 'Six', cols: 4, rows: 1, color: '#DDBDF1'},
-];
 
->>>>>>> ca30e19548f5e2917a1252d428b5da8068f3c251
+      
+
   }
 }
