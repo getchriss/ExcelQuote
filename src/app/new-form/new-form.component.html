@@ -6,6 +6,7 @@
     <main>
       <md-card class="mat-elevation-z0" style="background-color: transparent;">
         <md-card-content>
+          <h2>QUOTE FORM</h2>
           <div class="newFormContainer">
             <form name="newQuoteForm">
               <md-form-field class="full-width">
@@ -28,11 +29,14 @@
               <md-form-field class="full-width">
                 <textarea mdInput ([ngModel])="quoteNokinds" placeholder="Quantity per kind"></textarea>
               </md-form-field>
+
+
               <p>Include delivery costs?</p>
               <md-button-toggle-group ([ngModel])="quoteCost" #group="mdButtonToggleGroup">
                 <md-button-toggle value="Yes">Yes</md-button-toggle>
                 <md-button-toggle value="No">No</md-button-toggle>
               </md-button-toggle-group>
+
               <table>
                 <tbody>
                   <tr>
@@ -51,46 +55,105 @@
                   </tr>
                 </tbody>
               </table>
+
               <md-form-field class="full-width">
                 <input mdInput ([ngModel])="quoteLabelsPer" maxlength="5" placeholder="Labels per roll or Max O/D">
               </md-form-field>
               <md-form-field class="full-width">
                 <input mdInput ([ngModel])="quoteGap" maxlength="5" placeholder="Gap Between Labels" value="4mm">
               </md-form-field>
-              <p>
-                Knife<br /><br />
-                <md-button-toggle-group ([ngModel])="quoteHeight" #group="mdButtonToggleGroup">
+              <div>
+                Knife
+              </div>
+              <md-button-toggle-group ([ngModel])="quoteHeight" #group="mdButtonToggleGroup">
+                <md-button-toggle value="New">
+                  New
+                </md-button-toggle>
+                <md-button-toggle value="Existing">
+                  Existing
+                </md-button-toggle>
+                <md-button-toggle value="Similar">
+                Similar
+                </md-button-toggle>
+              </md-button-toggle-group>
+
+              <div>
+                <p>Charges</p>
+              </div>
+
+              <md-button-toggle-group ([ngModel])="quoteCharges" #group="mdButtonToggleGroup">
+                <md-button-toggle value="New">
+                  No Charge
+                </md-button-toggle>
+                <md-button-toggle value="Existing">
+                  Charge All
+                </md-button-toggle>
+                <md-button-toggle value="Similar">
+                  Other Charge
+                </md-button-toggle>
+              </md-button-toggle-group>
+              <!-- <md-select class="full-width" placeholder="Tooling charge" [(ngModel)]="selectedCharge" name="charge">
+                <md-option *ngFor="let charge of charge" [value]="charge.value">
+                  {{charge.viewCharge}}
+                </md-option> 
+              </md-select> -->
+              <md-select class="full-width" placeholder="Select Stock" [(ngModel)]="selectedStock" name="stock">
+                  <md-option *ngFor="let stock of stocks | async" [value]="stock">
+                      {{stock.val()}}
+                  </md-option>
+              </md-select>
+              <md-button-toggle-group ([ngModel])="quoteColor" #group="mdButtonToggleGroup">
                   <md-button-toggle value="New">
-                    New
+                    Black
                   </md-button-toggle>
                   <md-button-toggle value="Existing">
-                    Existing
+                    White
                   </md-button-toggle>
                   <md-button-toggle value="Similar">
-                    Similar
+                    Full Colour
                   </md-button-toggle>
                 </md-button-toggle-group>
-              </p>
-              <p>Charges</p>
-                <md-select class="full-width" placeholder="Tooling charge" [(ngModel)]="selectedCharge" name="charge">
-                 <md-option *ngFor="let charge of charge" [value]="charge.value">
-                   {{charge.viewCharge}}
-                 </md-option>
-               </md-select>
-               <p> Selected value: {{selectedCharge}} </p> <!-- temp listeners -->
-               <md-select class="full-width" placeholder="Select Stock" [(ngModel)]="selectedStock" name="stock">
-                <md-option *ngFor="let stock of stock" [value]="stock.value">
-                  {{stock.viewStock}}
-                </md-option>
-              </md-select>
-              <p> Selected value: {{selectedStock}} </p> <!-- temp listeners -->
-             </form>
+                <md-select class="full-width" placeholder="Embleishments" [(ngModel)]="selectedEmble" name="emble">
+                    <md-option *ngFor="let emble of emble" [value]="emble.value">
+                      {{emble.viewEmble}}
+                    </md-option> 
+                  </md-select>
+                  <p>Label applied by</p>
+                  <md-button-toggle-group ([ngModel])="quoteApply" #group="mdButtonToggleGroup">
+                      <md-button-toggle value="Mach">
+                        Machine
+                      </md-button-toggle>
+                      <md-button-toggle value="Hand">
+                        Hand
+                      </md-button-toggle>
+                    </md-button-toggle-group>
+                    <md-select class="full-width" placeholder="Adhesive" [(ngModel)]="selectedAdhesive" name="adhesive">
+                        <md-option *ngFor="let adhesive of adhesive" [value]="adhesive.value">
+                          {{adhesive.viewAdhesive}}
+                        </md-option> 
+                      </md-select>
+                      <p>Overprinting</p>
+                      <md-button-toggle-group ([ngModel])="quoteApply" #group="mdButtonToggleGroup">
+                          <md-button-toggle value="Direct">
+                            Direct
+                          </md-button-toggle>
+                          <md-button-toggle value="Thermal">
+                            Thermal
+                          </md-button-toggle>
+                          <md-button-toggle value="None">
+                            None
+                          </md-button-toggle>
+                        </md-button-toggle-group>
+                        <p>Core size to come</p>
+                        <p>Winding style [require images]</p>
+            </form>
           </div>
         </md-card-content>
       </md-card>
     </main>
   </div>
-  <div fxFlex fxFlex="100" class="flex-foot">
+  <!-- <div fxFlex fxFlex="100" class="flex-foot">
     <app-navfooter></app-navfooter>
-  </div>
+  </div> -->
 </div>
+
