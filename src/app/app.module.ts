@@ -1,8 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+<<<<<<< HEAD
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MdButtonModule,  MdToolbarModule, MdIconModule, MdDialogModule, MdInputModule, MdCheckboxModule } from '@angular/material';
+=======
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { MdButtonModule,  MdToolbarModule, MdIconModule, MdDialogModule, MdInputModule, MdCheckboxModule,
+  MdGridListModule, MdCardModule, MdSlideToggleModule, MdDatepickerModule,
+  MdButtonToggleModule, MdSelectModule } from '@angular/material';
+import { FlexLayoutModule } from '@angular/flex-layout';
+>>>>>>> ca30e19548f5e2917a1252d428b5da8068f3c251
 
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
@@ -26,6 +34,8 @@ import { FirebaseDatabaseService } from './services/firebase-database.service';
 
 import { appRoutes } from '../routes';
 import { environment } from '../environments/environment';
+import { NewFormComponent } from './new-form/new-form.component';
+import { NavfooterComponent } from './navfooter/navfooter.component';
 
 
 @NgModule({
@@ -38,6 +48,8 @@ import { environment } from '../environments/environment';
     QuoteManagementComponent,
     QuotePreviewComponent,
     QuoteFormComponent,
+    NewFormComponent,
+    NavfooterComponent,
   ],
 
   imports: [
@@ -55,6 +67,13 @@ import { environment } from '../environments/environment';
     MdDialogModule,
     MdInputModule,
     MdCheckboxModule,
+    MdGridListModule,
+    MdCardModule,
+    MdSlideToggleModule,
+    MdDatepickerModule,
+    FlexLayoutModule,
+    MdButtonToggleModule,
+    MdSelectModule,
   ],
   providers: [AuthService, QuoteService],
   bootstrap: [AppComponent]

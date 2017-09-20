@@ -1,5 +1,10 @@
-@import "~@angular/material/prebuilt-themes/purple-green.css";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+
+body, html {
+  margin: 0;
+  /*border: 1px solid red;*/
+}
 
 .dash-wrapper {
   background: rgba(181,121,62,1);
@@ -11,6 +16,7 @@
   background: linear-gradient(to bottom, rgba(181,121,62,1) 0%, rgba(93,57,138,1) 51%, rgba(93,57,138,1) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b5793e', endColorstr='#5d398a', GradientType=0 );
   overflow-y: hidden;
+  height:100vh;
 }
 
 #logo {
@@ -19,4 +25,30 @@
   background-size: cover;
   width: 100%;
   height: 110px;
+}
+
+.rbtn {
+  border-radius: 20px!important;
+  overflow:hidden;
+  background-color: #2D0C48!important;
+  height: 37px;
+  width:100%;
+  max-width: 248px;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.full-card {
+  position:absolute;
+  top:0;
+  left:0;
+  bottom:0;
+  right:0;
+  height:100%;
+  width:100%;
 }

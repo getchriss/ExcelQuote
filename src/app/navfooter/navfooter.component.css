@@ -1,0 +1,13 @@
+.footerBar {
+  width: 100%;
+  display: flex;
+  flex: none; /* 2 */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+md-toolbar {
+  background-color: red;
+}

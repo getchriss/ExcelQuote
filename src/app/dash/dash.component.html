@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="materialContainer">
   <div class="box">
     <div layout="column" class="login">
@@ -19,3 +20,22 @@
     </div>
   </div>
 </div>
+=======
+<div class="dash-wrapper"></div>
+<md-card class="dashWrapper mat-elevation-z0" flex="flex" flex-gt-sm="50" flex-gt-md="33">
+  <md-card-content>
+    <md-grid-list cols="1" rows="4" [rowHeight]="80">
+      <md-grid-tile><p class="full-width" id="userEmail" *ngIf="(user|async)?.uid">Hello, {{userEmail}}!<br />you are logged in as {{username}}.</p></md-grid-tile>
+      <md-grid-tile>
+        <button class="full-width rbtn" md-raised-button color="primary" *ngIf="(user|async)?.uid"  routerLink="/new-form">New</button>
+      </md-grid-tile>
+      <md-grid-tile>
+        <button class="full-width rbtn" md-raised-button color="primary" *ngIf="(user|async)?.uid" routerLink="/quoteManagement">Previous</button>
+      </md-grid-tile>
+      <md-grid-tile>
+        <button class="full-width rbtn" md-raised-button color="primary" *ngIf="(user|async)?.uid" href="#" (click)="logout()">Sign Out</button>
+      </md-grid-tile>
+    </md-grid-list>
+  </md-card-content>
+</md-card>
+>>>>>>> ca30e19548f5e2917a1252d428b5da8068f3c251
