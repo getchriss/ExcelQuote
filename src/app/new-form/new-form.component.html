@@ -73,7 +73,7 @@
                   Existing
                 </md-button-toggle>
                 <md-button-toggle value="Similar">
-                Similar
+                  Similar
                 </md-button-toggle>
               </md-button-toggle-group>
 
@@ -98,54 +98,71 @@
                 </md-option> 
               </md-select> -->
               <md-select class="full-width" placeholder="Select Stock" [(ngModel)]="selectedStock" name="stock">
-                  <md-option *ngFor="let stock of stocks | async" [value]="stock">
-                      {{stock.val()}}
-                  </md-option>
+                <md-option *ngFor="let stock of stocks | async" [value]="stock">
+                  {{stock.val()}}
+                </md-option>
               </md-select>
               <md-button-toggle-group ([ngModel])="quoteColor" #group="mdButtonToggleGroup">
-                  <md-button-toggle value="New">
-                    Black
-                  </md-button-toggle>
-                  <md-button-toggle value="Existing">
-                    White
-                  </md-button-toggle>
-                  <md-button-toggle value="Similar">
-                    Full Colour
-                  </md-button-toggle>
-                </md-button-toggle-group>
-                <md-select class="full-width" placeholder="Embleishments" [(ngModel)]="selectedEmble" name="emble">
-                    <md-option *ngFor="let emble of emble" [value]="emble.value">
-                      {{emble.viewEmble}}
-                    </md-option> 
-                  </md-select>
-                  <p>Label applied by</p>
-                  <md-button-toggle-group ([ngModel])="quoteApply" #group="mdButtonToggleGroup">
-                      <md-button-toggle value="Mach">
-                        Machine
-                      </md-button-toggle>
-                      <md-button-toggle value="Hand">
-                        Hand
-                      </md-button-toggle>
-                    </md-button-toggle-group>
-                    <md-select class="full-width" placeholder="Adhesive" [(ngModel)]="selectedAdhesive" name="adhesive">
-                        <md-option *ngFor="let adhesive of adhesive" [value]="adhesive.value">
-                          {{adhesive.viewAdhesive}}
-                        </md-option> 
-                      </md-select>
-                      <p>Overprinting</p>
-                      <md-button-toggle-group ([ngModel])="quoteApply" #group="mdButtonToggleGroup">
-                          <md-button-toggle value="Direct">
-                            Direct
-                          </md-button-toggle>
-                          <md-button-toggle value="Thermal">
-                            Thermal
-                          </md-button-toggle>
-                          <md-button-toggle value="None">
-                            None
-                          </md-button-toggle>
-                        </md-button-toggle-group>
-                        <p>Core size to come</p>
-                        <p>Winding style [require images]</p>
+                <md-button-toggle value="New">
+                  Black
+                </md-button-toggle>
+                <md-button-toggle value="Existing">
+                  White
+                </md-button-toggle>
+                <md-button-toggle value="Similar">
+                  Full Colour
+                </md-button-toggle>
+              </md-button-toggle-group>
+              <md-select class="full-width" placeholder="Embleishments" [(ngModel)]="selectedEmble" name="emble">
+                <md-option *ngFor="let emble of emble" [value]="emble.value">
+                  {{emble.viewEmble}}
+                </md-option>
+              </md-select>
+              <p>Label applied by</p>
+              <md-button-toggle-group ([ngModel])="quoteApply" #group="mdButtonToggleGroup">
+                <md-button-toggle value="Mach">
+                  Machine
+                </md-button-toggle>
+                <md-button-toggle value="Hand">
+                  Hand
+                </md-button-toggle>
+              </md-button-toggle-group>
+              <md-select class="full-width" placeholder="Adhesive" [(ngModel)]="selectedAdhesive" name="adhesive">
+                <md-option *ngFor="let adhesive of adhesive" [value]="adhesive.value">
+                  {{adhesive.viewAdhesive}}
+                </md-option>
+              </md-select>
+              <p>Overprinting</p>
+              <md-button-toggle-group ([ngModel])="quoteApply" #group="mdButtonToggleGroup">
+                <md-button-toggle value="Direct">
+                  Direct
+                </md-button-toggle>
+                <md-button-toggle value="Thermal">
+                  Thermal
+                </md-button-toggle>
+                <md-button-toggle value="None">
+                  None
+                </md-button-toggle>
+              </md-button-toggle-group>
+              <p>Core size to come</p>
+              <p>Winding style [require images]</p>
+              <p>Supplied In</p>
+              <md-button-toggle-group ([ngModel])="quoteSupplied" #group="mdButtonToggleGroup">
+                <md-button-toggle value="Rolls">
+                  Rolls
+                </md-button-toggle>
+                <md-button-toggle value="Dispensers">
+                  Dispensers
+                </md-button-toggle>
+              </md-button-toggle-group>
+              <md-select class="full-width" placeholder="Proof type" [(ngModel)]="quoteSectProof" name="proof">
+                <md-option *ngFor="let proof of proof" [value]="proof.value">
+                  {{proof.viewProof}}
+                </md-option>
+              </md-select>
+              <md-form-field class="full-width">
+                <textarea  mdInput ([ngModel])="quoteAddInfo" placeholder="Additional Information"></textarea>
+              </md-form-field>
             </form>
           </div>
         </md-card-content>
@@ -156,4 +173,3 @@
     <app-navfooter></app-navfooter>
   </div> -->
 </div>
-

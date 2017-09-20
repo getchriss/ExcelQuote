@@ -9,10 +9,10 @@ import * as firebase from 'firebase/app';
   styleUrls: ['./new-form.component.css']
 })
 export class NewFormComponent implements OnInit {
-  date;
   item;
   selectedCharge: string;
   selectedStock: string;
+  selectedProof: string;
 
   constructor(public af:AngularFireDatabase) {
     this.item = af.object('/msic/stock');
@@ -20,6 +20,12 @@ export class NewFormComponent implements OnInit {
   
   ngOnInit() {
   }
+
+  proof = [
+    { value: 'pdf-proof', viewProof: 'PDF Proof' },
+    { value: 'fCol-FinProof', viewProof: 'Full Colour - Finished Proof (not diecut)' },
+    { value: 'fCol-UnfinProof', viewProof: 'Full Colour - Unfinished Proof' }
+  ]
 
   charge = [
     { value: 'no-charge', viewCharge: 'No Charge' },
