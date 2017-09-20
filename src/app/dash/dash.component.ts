@@ -14,6 +14,7 @@ import { slideIn } from '../_animations/index';
   styleUrls: ['./dash.component.css'],
   animations: [slideIn()]
 })
+
 export class DashComponent implements OnInit {
   @HostBinding('@routerTransition') routerTransition;
 
@@ -28,9 +29,6 @@ export class DashComponent implements OnInit {
       if (user) {
         this.userEmail = user.email;
       }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
     });
   }
 
@@ -40,17 +38,5 @@ export class DashComponent implements OnInit {
 
   newForm() {
     this.router.navigate(['quote-form']);
-=======
-      tiles = [
-  {text: 'One', cols: 4, rows: 1, color: 'lightblue'},
-  {text: 'Two', cols: 4, rows: 1, color: 'lightgreen'},
-  {text: 'Three', cols: 4, rows: 1, color: 'lightpink'},
-  {text: 'Four', cols: 4, rows: 1, color: '#DDBDF1'},
-  {text: 'Five', cols: 4, rows: 1, color: '#DDBDF1'},
-  {text: 'Six', cols: 4, rows: 1, color: '#DDBDF1'},
-];
-
->>>>>>> ca30e19548f5e2917a1252d428b5da8068f3c251
->>>>>>> 75cba1ef6fac7533501857ec16fa210d88fa3902
   }
 }
