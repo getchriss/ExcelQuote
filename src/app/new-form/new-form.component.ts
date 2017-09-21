@@ -21,44 +21,46 @@ import { QuoteFile } from '../models/quote-file.model'
 export class NewFormComponent implements OnInit, OnChanges {
   clipboard: any;
 
-  client: string;
-  email: string;
-  address: string;
-  phone: string;
+  client: string = '';
+  email: string = '';
+  address: string = '';
+  phone: string = '';
   date: any;
-  userFile: any;
+  userFileName: any;
   noKinds: number;
   qKinds: number;
-  cost: string;
-  width: string;
-  height: string;
+  cost: string = '';
+  width: number;
+  height: number;
   labelsPer: number;
-  gap: number;
-  knife: string;
-  charge: string;
-  stock: string;
-  color: string;
-  embel: string;
-  appliedBy: string;
-  adhesive: string;
-  overPrint: string;
+  gap: number = 4;
+  knife: string = '';
+  charge: string = '';
+  stock: string = '';
+  color: string = '';
+  embel: string = '';
+  appliedBy: string = '';
+  adhesive: string = '';
+  overPrint: string = '';
   core: number;
-  windStyle: string;
-  proofType: string;
-  addInfo: string;  
+  windStyle: string = '';
+  supplied: string = '';
+  proofType: string = '';
+  addInfo: string = '';
 
   $stocks: any;
   $finishes: any;
   $adhesives: any;
   $embelishments: any;
+  $userFile: any;
 
-  quote = {
+  quote: any = {
     client: this.client,
     email: this.email,
     address: this.address,
     phone: this.phone,
     date: this.date,
-    userFile: this.userFile,
+    userFileName: this.userFileName,
     noKinds: this.noKinds,
     qKinds: this.qKinds,
     cost: this.cost,
@@ -76,6 +78,7 @@ export class NewFormComponent implements OnInit, OnChanges {
     overPrint: this.overPrint,
     core: this.core,
     windStyle: this.windStyle,
+    supplied: this.supplied,
     proofType: this.proofType,
     addInfo: this.addInfo
   };
@@ -94,8 +97,12 @@ export class NewFormComponent implements OnInit, OnChanges {
   }
 
   submitQuote() {
-    this.uploadFile();
-    this.form.sendQuote(this.quote)
+    if (this.form.validateQuote(this.quote)) {
+      this.form.submitQuote(this.quote);
+      this.uploadFile();
+    } else {
+      console.log('There was an error with the validation. Check all required fields have been completed...')
+    }
   }
 
   handleSubmit(event) {
@@ -106,13 +113,14 @@ export class NewFormComponent implements OnInit, OnChanges {
 
   fileEvent(event) {
     let file = event.target.files[0];
-    this.userFile = file;
+    this.$userFile = file;
+    this.quote.userFileName = event.target.files[0].name;
   }
 
   uploadFile() {
     var ACCESS_TOKEN = 'bdhRYZ0OjnkAAAAAAABYM8rgdQwtJC3K9uaA371lK6UDmhpKGmKI8M2Qfhztg6h5';
     var dbx = new Dropbox({ accessToken: ACCESS_TOKEN });
-    dbx.filesUpload({path: '/' + this.userFile.name, contents: this.userFile})
+    dbx.filesUpload({path: '/' + this.$userFile.name, contents: this.$userFile})
       .then(function(response) {
         var results = document.getElementById('results');
         results.appendChild(document.createTextNode('File uploaded!'));

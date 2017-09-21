@@ -31,6 +31,19 @@ md-select {
   width:100%;
 }
 
+md-button-toggle-group {
+  display: flex;
+}
+
+md-button-toggle {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.mat-button-toggle-label {
+  width: 100%;
+}
+
 .flex-nav {
   position:fixed;
   width:100%;

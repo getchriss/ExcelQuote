@@ -40,15 +40,15 @@ export class QuoteFormComponent implements OnInit, OnChanges {
     this.feed = this.form.getQuotes();
   }
   
-  submitQuote() {
-    this.form.sendQuote(this.quote)
-  }
+  // submitQuote() {
+  //   this.form.sendQuote(this.quote)
+  // }
 
-  handleSubmit(event) {
-    if (event.keyCode === 13) {
-      this.submitQuote();
-    }
-  }
+  // handleSubmit(event) {
+  //   if (event.keyCode === 13) {
+  //     this.submitQuote();
+  //   }
+  // }
 
   ngOnChanges() {
   }
