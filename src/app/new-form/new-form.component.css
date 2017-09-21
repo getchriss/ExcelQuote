@@ -17,7 +17,7 @@ body, html {
   content: '\00a0';
   display: block;
   margin-top: var(--space);
-  height: 0px;
+  /* height: 0px; */
   visibility: hidden;
 }
 
@@ -57,10 +57,3 @@ md-select {
   background-color: rgba(93, 57, 138, 1);
   color: white;
 }
-
-/*/deep/ .mat-input-underline {
-    background-color: #472155;
-}
-.mat-input-wrapper {
-    background: #472155;
-}*/
