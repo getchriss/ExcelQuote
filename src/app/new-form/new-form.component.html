@@ -6,93 +6,203 @@
     <main>
       <md-card class="mat-elevation-z0" style="background-color: transparent;">
         <md-card-content>
+          <!-- <h2>QUOTE FORM</h2> -->
           <div class="newFormContainer">
             <form name="newQuoteForm">
+              <!--  -->
               <md-form-field class="full-width">
-                <input mdInput ([ngModel])="quote.client" placeholder="Client">
+                <input mdInput ([ngModel])="quoteClient" placeholder="Client">
               </md-form-field>
+              <!--  -->
               <md-form-field class="full-width">
-                <textarea mdInput ([ngModel])="quote.email" placeholder="Email"></textarea>
+                <input mdInput ([ngModel])="quoteEmail" placeholder="Email">
               </md-form-field>
+              <!--  -->
               <md-form-field class="full-width">
-                <textarea mdInput ([ngModel])="quote.address" placeholder="Address"></textarea>
+                <input mdInput ([ngModel])="quoteAddress" placeholder="Address">
               </md-form-field>
+              <!--  -->
               <md-form-field class="full-width">
-                <input mdInput ([ngModel])="quote.phone" maxlength="5" placeholder="Phone">
+                <input mdInput ([ngModel])="quotePhone" maxlength="5" placeholder="Phone">
               </md-form-field>
+              <br>
+              <br>
+              <!--  -->
               <md-form-field>
-                <input mdInput [mdDatepicker]="picker" placeholder="Choose a date">
+                <input mdInput [mdDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="date" name="date">
                 <md-datepicker-toggle mdSuffix [for]="picker"></md-datepicker-toggle>
-                <md-datepicker #picker></md-datepicker>
+                <md-datepicker touchUi="true" #picker></md-datepicker>
               </md-form-field>
-              <!-- <p>Upload Artwork to come.</p> -->
+              <!--  -->
               <md-form-field class="full-width">
-                <textarea mdInput ([ngModel])="quote.nokinds" placeholder="Number of kinds"></textarea>
+                <input mdInput style="display:none">
+                <input type="file" ([ngModel])="userFile" (change)="fileEvent($event)">
               </md-form-field>
+              <!--  -->
               <md-form-field class="full-width">
-                <textarea mdInput ([ngModel])="quote.nokinds" placeholder="Quantity per kind"></textarea>
+                <input mdInput ([ngModel])="quoteNokinds" placeholder="Number of kinds">
               </md-form-field>
+              <!--  -->
+              <md-form-field class="full-width">
+                <input mdInput ([ngModel])="quoteNokinds" placeholder="Quantity per kind">
+              </md-form-field>
+              <!--  -->
               <p>Include delivery costs?</p>
-              <md-button-toggle-group ([ngModel])="quote.cost" #group="mdButtonToggleGroup">
-                <md-button-toggle value="Yes">Yes</md-button-toggle>
-                <md-button-toggle value="No">No</md-button-toggle>
+              <md-button-toggle-group ([ngModel])="quoteCost" #group="mdButtonToggleGroup">
+                <md-button-toggle value="Yes" class="btn-primary">Yes</md-button-toggle>
+                <md-button-toggle value="No" class="btn-primary">No</md-button-toggle>
               </md-button-toggle-group>
               <br>
               <br>
+              <!--  -->
               <table>
+                <colgroup>
+                  <col width="45%">
+                  <col width="10%">
+                  <col width="45%">
+                </colgroup>
                 <tbody>
                   <tr>
-                    <td>
+                    <td style="padding-left:0px">
                       <md-form-field class="full-width">
-                        <input mdInput ([ngModel])="quote.width" maxlength="5" placeholder="Width">
+                        <input mdInput ([ngModel])="quoteWidth" maxlength="5" placeholder="Width">
                         <span mdSuffix>mm</span>
                       </md-form-field>
                     </td>
-                    <td>
+                    <td></td>
+                    <td style="padding-right:0px">
                       <md-form-field class="full-width">
-                        <input mdInput ([ngModel])="quote.height" maxlength="5" placeholder="Height">
+                        <input mdInput ([ngModel])="quoteHeight" maxlength="5" placeholder="Height">
                         <span mdSuffix>mm</span>
                       </md-form-field>
                     </td>
                   </tr>
                 </tbody>
               </table>
+              <!--  -->
               <md-form-field class="full-width">
-                <input mdInput ([ngModel])="quote.labelsPer" maxlength="5" placeholder="Labels per roll or Max O/D">
+                <input mdInput ([ngModel])="quoteLabelsPer" maxlength="5" placeholder="Labels per roll or Max O/D">
               </md-form-field>
+              <br>
+              <br>
+              <!--  -->
               <md-form-field class="full-width">
-                <input mdInput ([ngModel])="quote.gap" maxlength="5" placeholder="Gap Between Labels" value="4mm">
+                <input mdInput ([ngModel])="quoteGap" maxlength="5" placeholder="Gap Between Labels" value="4mm">
               </md-form-field>
-              <p>Knife</p>
-              <md-button-toggle-group ([ngModel])="quote.knife" #group="mdButtonToggleGroup">
-                <md-button-toggle value="New">New</md-button-toggle>
-                <md-button-toggle value="Existing">Existing</md-button-toggle>
-                <md-button-toggle value="Similar">Similar</md-button-toggle>
+              <br>
+              <br>
+              <!--  -->
+              <div>
+                Knife
+              </div>
+              <md-button-toggle-group ([ngModel])="quoteHeight" #group="mdButtonToggleGroup">
+                <md-button-toggle value="New" class="btn-primary">New</md-button-toggle>
+                <md-button-toggle value="Existing" class="btn-primary">Existing</md-button-toggle>
+                <md-button-toggle value="Similar" class="btn-primary">Similar</md-button-toggle>
               </md-button-toggle-group>
               <br>
               <br>
-              <p>Charges</p>
-              <md-select class="full-width" placeholder="Tooling charge" [(ngModel)]="quote.charge" name="charge">
-                <md-option value="Charge">Charge</md-option>
-                <md-option value="No Charge">No charge</md-option>
-              </md-select>
-              <!-- temp listeners -->
-              <md-select class="full-width" placeholder="Select Stock" [(ngModel)]="quote.stock" name="stock">
+              <!--  -->
+              <div>
+                <p>Charges</p>
+              </div>
+              <md-button-toggle-group ([ngModel])="quoteCharges" #group="mdButtonToggleGroup">
+                <md-button-toggle value="New" class="btn-primary">No Charge</md-button-toggle>
+                <md-button-toggle value="Existing" class="btn-primary">Charge All</md-button-toggle>
+                <md-button-toggle value="Similar" class="btn-primary">Other Charge</md-button-toggle>
+              </md-button-toggle-group>
+              <br>
+              <br>
+              <!--  -->
+              <md-select class="full-width" placeholder="Select Stock" [(ngModel)]="selectedStock" name="stock" touchUi="true">
                 <md-option *ngFor="let stock of $stocks | async" [value]="stock">
                   {{stock.val()}}
                 </md-option>
               </md-select>
-              <!-- temp listeners -->
               <br>
               <br>
-              <button md-raised-button (click)="submitQuote()">Submit</button>
+              <!--  -->
+              <div>
+                <p>Colour</p>
+              </div>
+              <md-button-toggle-group ([ngModel])="quoteColor" #group="mdButtonToggleGroup">
+                <md-button-toggle value="New" class="btn-primary">Black</md-button-toggle>
+                <md-button-toggle value="Existing" class="btn-primary">White</md-button-toggle>
+                <md-button-toggle value="Similar" class="btn-primary">Full Colour</md-button-toggle>
+              </md-button-toggle-group>
+              <br>
+              <br>
+              <!--  -->
+              <md-select class="full-width" placeholder="Embleishments" [(ngModel)]="selectedEmble" name="emble">
+                <md-option *ngFor="let embel of $embelishments | async" [value]="embel">
+                  {{embel.val()}}
+                </md-option>
+              </md-select>
+              <br>
+              <br>
+              <!--  -->
+              <p>Label applied by</p>
+              <md-button-toggle-group ([ngModel])="quoteApply" #group="mdButtonToggleGroup">
+                <md-button-toggle value="Mach" class="btn-primary">Machine</md-button-toggle>
+                <md-button-toggle value="Hand" class="btn-primary">Hand</md-button-toggle>
+              </md-button-toggle-group>
+              <br>
+              <br>
+              <!--  -->
+              <md-select class="full-width" placeholder="Adhesive" [(ngModel)]="selectedAdhesive" name="adhesive">
+                <md-option *ngFor="let adhesive of $adhesives | async" [value]="adhesive">
+                  {{adhesive.val()}}
+                </md-option>
+              </md-select>
+              <br>
+              <br>
+              <!--  -->
+              <p>Overprinting</p>
+              <md-button-toggle-group ([ngModel])="quoteApply" #group="mdButtonToggleGroup">
+                <md-button-toggle value="Direct" class="btn-primary">Direct</md-button-toggle>
+                <md-button-toggle value="Thermal" class="btn-primary">Thermal</md-button-toggle>
+                <md-button-toggle value="None" class="btn-primary">None</md-button-toggle>
+              </md-button-toggle-group>
+              <br>
+              <br>
+              <!--  -->
+              <p>Core size to come</p>
+              <!--  -->
+              <p>Winding style [require images]</p>
+              <br>
+              <br>
+              <!--  -->
+              <p>Supplied In</p>
+              <md-button-toggle-group ([ngModel])="quoteSupplied" #group="mdButtonToggleGroup">
+                <md-button-toggle value="Rolls" class="btn-primary">Rolls</md-button-toggle>
+                <md-button-toggle value="Dispensers" class="btn-primary">Dispensers</md-button-toggle>
+              </md-button-toggle-group>
+              <br>
+              <br>
+              <!--  -->
+              <md-select class="full-width" placeholder="Proof type" [(ngModel)]="quoteSectProof" name="proof">
+                <md-option *ngFor="let proof of proof" [value]="proof.value">
+                  {{proof.viewProof}}
+                </md-option>
+              </md-select>
+              <br>
+              <br>
+              <!--  -->
+              <md-form-field class="full-width">
+                <textarea mdInput ([ngModel])="quoteAddInfo" placeholder="Additional Information"></textarea>
+              </md-form-field>
+              <br>
+              <br>
+              <!--  -->
+              <button md-raised-button (click)="submitQuote()" class="btn-success">Submit</button>
+              <!--  -->
             </form>
           </div>
         </md-card-content>
       </md-card>
     </main>
   </div>
-  <div fxFlex fxFlex="100" class="flex-foot">
+  <!-- <div fxFlex fxFlex="100" class="flex-foot">
     <app-navfooter></app-navfooter>
-  </div>
+  </div> -->
 </div>

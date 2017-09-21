@@ -1,3 +1,7 @@
+body, html {
+  background-color: #F0F0F0;
+}
+
 .full-width {
   width:100%!important;
 }
@@ -19,14 +23,13 @@
 
 main {
   overflow-y: auto;
-  margin-top: 100px;
-  margin-bottom: 180px;
+  margin-top: 56px;
+  /* margin-bottom: -50px; */
 }
 
 md-select {
   width:100%;
 }
-
 
 .flex-nav {
   position:fixed;
@@ -38,6 +41,21 @@ md-select {
   position:fixed;
   bottom:0;
   width:100%;
+}
+
+.btn-primary {
+  background-color: rgba(93, 57, 138, 0.7);
+  color: white;
+}
+
+.btn-success {
+  background-color: rgb(133, 193, 95);
+  color: white;
+}
+
+.btn-primary.mat-button-toggle-checked {
+  background-color: rgba(93, 57, 138, 1);
+  color: white;
 }
 
 /*/deep/ .mat-input-underline {

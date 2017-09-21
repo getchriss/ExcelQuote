@@ -3,6 +3,8 @@
 
 body, html {
   margin: 0;
+  position: relative;
+  /* margin-bottom: 4px; */
   /*border: 1px solid red;*/
 }
 
@@ -16,7 +18,7 @@ body, html {
   background: linear-gradient(to bottom, rgba(181,121,62,1) 0%, rgba(93,57,138,1) 51%, rgba(93,57,138,1) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b5793e', endColorstr='#5d398a', GradientType=0 );
   overflow-y: hidden;
-  height:100vh;
+  /* height:100vh; */
 }
 
 #logo {
@@ -51,4 +53,8 @@ body, html {
   right:0;
   height:100%;
   width:100%;
+}
+
+.container[_ngcontent-c1]::after {
+  height: auto!important;
 }
