@@ -114,7 +114,7 @@
               <br>
               <br>
               <!--  -->
-              <md-select class="full-width" placeholder="Select Stock" [(ngModel)]="selectedStock" name="stock" touchUi="true">
+              <md-select class="full-width" placeholder="Select Stock" [(ngModel)]="stock" name="stock" touchUi="true">
                 <md-option *ngFor="let stock of $stocks | async" [value]="stock">
                   {{stock.val()}}
                 </md-option>
@@ -133,7 +133,7 @@
               <br>
               <br>
               <!--  -->
-              <md-select class="full-width" placeholder="Embleishments" [(ngModel)]="selectedEmble" name="emble">
+              <md-select class="full-width" placeholder="Embleishments" [(ngModel)]="embel" name="embel">
                 <md-option *ngFor="let embel of $embelishments | async" [value]="embel">
                   {{embel.val()}}
                 </md-option>
@@ -149,7 +149,7 @@
               <br>
               <br>
               <!--  -->
-              <md-select class="full-width" placeholder="Adhesive" [(ngModel)]="selectedAdhesive" name="adhesive">
+              <md-select class="full-width" placeholder="Adhesive" [(ngModel)]="adhesive" name="adhesive">
                 <md-option *ngFor="let adhesive of $adhesives | async" [value]="adhesive">
                   {{adhesive.val()}}
                 </md-option>
@@ -180,10 +180,11 @@
               <br>
               <br>
               <!--  -->
-              <md-select class="full-width" placeholder="Proof type" [(ngModel)]="quoteSectProof" name="proof">
-                <md-option *ngFor="let proof of proof" [value]="proof.value">
-                  {{proof.viewProof}}
-                </md-option>
+              <md-select class="full-width" placeholder="Proof type" [(ngModel)]="proofType" name="proof">
+                  <md-option value="PDF Proof">PDF Proof</md-option>
+                  <md-option value="Full Colour - Finished Proof">Full Colour - Finished Proof (not diecut)</md-option>
+                  <md-option value="Full Colour - Unfinished Proof">Full Colour - Unfinished Proof</md-option>
+                  <md-option value="None">None</md-option>
               </md-select>
               <br>
               <br>

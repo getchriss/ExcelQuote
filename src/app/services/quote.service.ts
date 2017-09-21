@@ -25,23 +25,61 @@ export class QuoteService {
   sendQuote(quote: any) {
     this.quoteFiles = this.getQuotes();
     console.log(quote)
-    if (quote.client !== undefined) {  //set any required fields here. Any fields not needed will need to be defined above.
-      this.quoteFiles.push({
-        client: quote.client,
-        email: quote.email,
-        address: quote.address,
-        phone: quote.phone,
-        noKinds: quote.noKinds,
-        qKinds: quote.qKinds,
-        cost: quote.cost,
-        width: quote.width,
-        height: quote.height,
-        labelsPer: quote.labelsPer,
-        gap: quote.gap,
-        knife: quote.knife,
-        charge: quote.charge,
-        stock: quote.stock
-      });
+    if (
+        quote.client !== undefined ||
+        quote.email !== undefined ||
+        quote.address !== undefined ||
+        quote.phone !== undefined ||
+        quote.date !== undefined ||
+        quote.userFile !== undefined ||
+        quote.noKinds !== undefined ||
+        quote.qKinds !== undefined ||
+        quote.cost !== undefined ||
+        quote.width !== undefined ||
+        quote.height !== undefined ||
+        quote.labelsPer !== undefined ||
+        quote.gap !== undefined ||
+        quote.knife !== undefined ||
+        quote.charge !== undefined ||
+        quote.stock !== undefined ||
+        quote.color !== undefined ||
+        quote.embel !== undefined ||
+        quote.appliedBy !== undefined ||
+        quote.adhesive !== undefined ||
+        quote.overPrint !== undefined ||
+        quote.core !== undefined ||
+        quote.windStylev !== undefined ||
+        quote.proofType !== undefined // ||
+        // quote.addInfo !== undefined
+      ) {  
+        console.log(quote)
+      // this.quoteFiles.push({
+      //   client: quote.client,
+      //   email: quote.email,
+      //   address: quote.address,
+      //   phone: quote.phone,
+      //   date: quote.date,
+      //   userFile: quote.userFile,
+      //   noKinds: quote.noKinds,
+      //   qKinds: quote.qKinds,
+      //   cost: quote.cost,
+      //   width: quote.width,
+      //   height: quote.height,
+      //   labelsPer: quote.labelsPer,
+      //   gap: quote.gap,
+      //   knife: quote.knife,
+      //   charge: quote.charge,
+      //   stock: quote.stock,
+      //   color: quote.color,
+      //   embel: quote.embel,
+      //   appliedBy: quote.appliedBy,
+      //   adhesive: quote.adhesive,
+      //   overPrint: quote.overPrint,
+      //   core: quote.core,
+      //   windStyle: quote.windStyle,
+      //   proofType: quote.proofType,
+      //   addInfo: quote.addInfo
+      // });
       console.log('Called sendQuote()...')
     } else {
       console.log('Error')

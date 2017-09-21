@@ -11,11 +11,11 @@ import { slideIn } from '../_animations/index';
 @Component({
   selector: 'app-dash',
   templateUrl: './dash.component.html',
-  styleUrls: ['./dash.component.css'],
-  animations: [slideIn()]
+  styleUrls: ['./dash.component.css']//,
+  // animations: [slideIn()]
 })
 export class DashComponent implements OnInit {
-  @HostBinding('@routerTransition') routerTransition;
+  // @HostBinding('@routerTransition') routerTransition;
 
   user: Observable<firebase.User>;
   userEmail: string;

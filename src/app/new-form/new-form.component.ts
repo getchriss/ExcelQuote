@@ -10,7 +10,6 @@ import Dropbox = require('dropbox');
 
 import { AuthService } from '../services/auth.service';
 import { QuoteService } from '../services/quote.service';
-import { DropboxService } from '../services/dropbox.service';
 
 import { QuoteFile } from '../models/quote-file.model'
 
@@ -26,6 +25,8 @@ export class NewFormComponent implements OnInit, OnChanges {
   email: string;
   address: string;
   phone: string;
+  date: any;
+  userFile: any;
   noKinds: number;
   qKinds: number;
   cost: string;
@@ -36,9 +37,15 @@ export class NewFormComponent implements OnInit, OnChanges {
   knife: string;
   charge: string;
   stock: string;
-
-  date: any;
-  userFile: any;
+  color: string;
+  embel: string;
+  appliedBy: string;
+  adhesive: string;
+  overPrint: string;
+  core: number;
+  windStyle: string;
+  proofType: string;
+  addInfo: string;  
 
   $stocks: any;
   $finishes: any;
@@ -50,6 +57,8 @@ export class NewFormComponent implements OnInit, OnChanges {
     email: this.email,
     address: this.address,
     phone: this.phone,
+    date: this.date,
+    userFile: this.userFile,
     noKinds: this.noKinds,
     qKinds: this.qKinds,
     cost: this.cost,
@@ -59,13 +68,21 @@ export class NewFormComponent implements OnInit, OnChanges {
     gap: this.gap,
     knife: this.knife,
     charge: this.charge,
-    stock: this.stock
+    stock: this.stock,
+    color: this.color,
+    embel: this.embel,
+    appliedBy: this.appliedBy,
+    adhesive: this.adhesive,
+    overPrint: this.overPrint,
+    core: this.core,
+    windStyle: this.windStyle,
+    proofType: this.proofType,
+    addInfo: this.addInfo
   };
 
-  constructor(private form: QuoteService, private file: DropboxService) { }
+  constructor(private form: QuoteService) { }
 
   ngOnInit() {
-    // this.clipboard = this.form.getQuotes();
     this.$stocks = this.form.getStocks();
     this.$finishes = this.form.getFinishes();
     this.$adhesives = this.form.getAdhesive();
@@ -77,10 +94,7 @@ export class NewFormComponent implements OnInit, OnChanges {
   }
 
   submitQuote() {
-    // if ('files' in box) {
-    // console.log(this.userFile)
     this.uploadFile();
-    // }
     this.form.sendQuote(this.quote)
   }
 
@@ -93,16 +107,11 @@ export class NewFormComponent implements OnInit, OnChanges {
   fileEvent(event) {
     let file = event.target.files[0];
     this.userFile = file;
-    // let fileName = file.name;
-    // console.log(fileName)
   }
 
   uploadFile() {
-    // var Dropbox = require('dropbox');
     var ACCESS_TOKEN = 'bdhRYZ0OjnkAAAAAAABYM8rgdQwtJC3K9uaA371lK6UDmhpKGmKI8M2Qfhztg6h5';
     var dbx = new Dropbox({ accessToken: ACCESS_TOKEN });
-    // var fileInput = (<HTMLInputElement> document.getElementById('file-upload'));
-    // var file = fileInput.files[0];
     dbx.filesUpload({path: '/' + this.userFile.name, contents: this.userFile})
       .then(function(response) {
         var results = document.getElementById('results');
@@ -114,9 +123,5 @@ export class NewFormComponent implements OnInit, OnChanges {
       });
     return false;
   }
-
-  // handleUpload(event) {
-  //   this.file.uploadToDbx();
-  // }
 
 }
