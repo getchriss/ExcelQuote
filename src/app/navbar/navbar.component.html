@@ -17,5 +17,7 @@
 </div> -->
 
 <md-toolbar class="navBar mat-elevation-z0">
-  <a class="full-width rbtn" md-raised-button color="primary" (click) = "_location.back()">back</a>
+  <a class="back" (click) = "_location.back()"><i class="material-icons">chevron_left</i>Back</a>
+  <p class="title">{{componentTitle}}componentTitle</p>
+  <p class="title-right">{{componentService}}service</p>
 </md-toolbar>
