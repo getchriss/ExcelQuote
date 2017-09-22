@@ -4,7 +4,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { MdButtonModule,  MdToolbarModule, MdIconModule, MdDialogModule, MdInputModule, MdCheckboxModule,
   MdGridListModule, MdCardModule, MdSlideToggleModule, MdDatepickerModule,
-  MdButtonToggleModule, MdSelectModule } from '@angular/material';
+  MdButtonToggleModule, MdSelectModule, MdSnackBarModule } from '@angular/material';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
@@ -25,6 +25,7 @@ import { QuoteFormComponent } from './quote-form/quote-form.component';
 
 import { AuthService } from './services/auth.service';
 import { QuoteService } from './services/quote.service';
+import { NotifyService } from './services/notify.service';
 import { FirebaseDatabaseService } from './services/firebase-database.service';
 
 import { appRoutes } from '../routes';
@@ -69,8 +70,9 @@ import { NavfooterComponent } from './navfooter/navfooter.component';
     FlexLayoutModule,
     MdButtonToggleModule,
     MdSelectModule,
+    MdSnackBarModule,
   ],
-  providers: [AuthService, QuoteService],
+  providers: [AuthService, QuoteService, NotifyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -7,20 +7,20 @@
       <md-grid-tile>
         <md-form-field class="full-width">
           <i mdPrefix class="material-icons">person_outline</i>
-          <input mdInput [(ngModel)]="email" type="email" name="email" class="formInput" placeholder="Username" />
+          <input mdInput [(ngModel)]="email" type="email" name="email" class="formInput" placeholder="Username" required/>
         </md-form-field>
       </md-grid-tile>
       <md-grid-tile>
         <md-form-field class="full-width">
           <i mdPrefix class="material-icons">lock_outline</i>
-          <input mdInput type="password" [(ngModel)]="password" name="password" class="formInput" placeholder="Password" />
+          <input mdInput type="password" [(ngModel)]="password" name="password" class="formInput" placeholder="Password" required/>
         </md-form-field>
       </md-grid-tile>
     </md-grid-list>
     <md-grid-list cols="2" [rowHeight]="55">
       <md-grid-tile-footer cols="2">
         <md-slide-toggle class="rememberMe"><span class="rememberMe">&nbsp; &nbsp; Remember me</span></md-slide-toggle>
-        <span class="forgot full-width"><a style="text-decoration:none;color:#FFF;" href="#" target="_self">Forgot your password?</a></span>
+        <span class="forgot full-width"><a (click)="resetPassword()" style="text-decoration:none;color:#FFF;" href="#" target="_self">Forgot your password?</a></span>
       </md-grid-tile-footer>
     </md-grid-list>
     <md-grid-list cols="1" rows="4" [rowHeight]="50" style="margin-top:57px;">
