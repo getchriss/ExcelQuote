@@ -3,14 +3,14 @@
   <div fxLayout="row">
     <div fxFlex="grow">
       <div class="titleContainer">
-        <p style="text-align:center; color:#FFF;">QUOTE<br>Management</p>
+        <p class="openS" style="text-align:center; color:#FFF;"><span class="open-s">QUOTE</span><br><span class="open-b">Management</span></p>
       </div>
     </div>
   </div>
   <div fxLayout="row">
     <div fxFlex="grow">
       <div class="searchBar">
-        <md-toolbar class="myCustomClass mat-elevation-z0">
+        <md-toolbar class="inputSearch mat-elevation-z0">
           <md-form-field class="full-width">
             <input mdInput autofocus="off" placeholder="Search">
             <md-icon mdSuffix><i class="material-icons">search</i></md-icon>
@@ -22,10 +22,10 @@
   <div class="populationContainer">
     <div fxLayout="row wrap">
       <div fxFlex="grow" class="subTitle">
-        <h4>Recent Quotes</h4>
+        <h4 class="populationHead">Recent Quotes</h4>
       </div>
       <div fxLayout="row">
-          {{quoteSnap}}
+          <app-quote-thumbnail></app-quote-thumbnail>
       </div>
     </div>
   </div>
