@@ -1,5 +1,5 @@
 <div class="dash-wrapper">
-      <div id="logo"></div>
+  <div id="logo"></div>
 </div>
 <md-card class="loginContainer mat-elevation-z0" flex="flex">
   <md-card-content>
@@ -25,7 +25,7 @@
     </md-grid-list>
     <md-grid-list cols="1" rows="4" [rowHeight]="50" style="margin-top:57px;">
       <md-grid-tile>
-        <button  class="full-width rbtn" md-raised-button color="primary" id="btn-login" (click)="login()">Log In</button>
+        <button class="full-width rbtn" md-raised-button color="primary" id="btn-login" (click)="login()">Log In</button>
       </md-grid-tile>
       <md-grid-tile>
         <button class="full-width rbtn" md-raised-button color="primary" id="btn-login" *ngIf="!(user|async)?.uid" routerLink="/signup">Register</button>
@@ -33,4 +33,3 @@
     </md-grid-list>
   </md-card-content>
 </md-card>
-

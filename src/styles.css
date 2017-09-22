@@ -4,6 +4,8 @@
 
 body, html {
   margin: 0;
+  position: relative;
+  /* margin-bottom: 4px; */
   /*border: 1px solid red;*/
 }
 
@@ -57,4 +59,8 @@ sans-serif;
   right:0;
   height:100%;
   width:100%;
+}
+
+.container[_ngcontent-c1]::after {
+  height: auto!important;
 }

@@ -11,15 +11,16 @@ import { slideIn } from '../_animations/index';
 @Component({
   selector: 'app-dash',
   templateUrl: './dash.component.html',
-  styleUrls: ['./dash.component.css'],
-  animations: [slideIn()]
+  styleUrls: ['./dash.component.css']//,
+  // animations: [slideIn()]
 })
 
 export class DashComponent implements OnInit {
-  @HostBinding('@routerTransition') routerTransition;
+  // @HostBinding('@routerTransition') routerTransition;
 
   user: Observable<firebase.User>;
   userEmail: string;
+  tiles: any[];
 
   constructor(private authService: AuthService, private router: Router) { }
 
@@ -30,6 +31,14 @@ export class DashComponent implements OnInit {
         this.userEmail = user.email;
       }
     });
+    this.tiles = [
+      {text: 'One', cols: 4, rows: 1, color: 'lightblue'},
+      {text: 'Two', cols: 4, rows: 1, color: 'lightgreen'},
+      {text: 'Three', cols: 4, rows: 1, color: 'lightpink'},
+      {text: 'Four', cols: 4, rows: 1, color: '#DDBDF1'},
+      {text: 'Five', cols: 4, rows: 1, color: '#DDBDF1'},
+      {text: 'Six', cols: 4, rows: 1, color: '#DDBDF1'},
+    ];
   }
 
   logout() {

@@ -65,26 +65,26 @@ export class AuthService {
       .catch(error => this.snackBar.open(`Invalid email or password.`, '', { duration: 2000 }));
   }
 
-  setUserData(email: string, displayName: string, status: string): void {
-    const path = `users/${this.currentUserId}`;
-    const data = {
-      email: email,
-      displayName: displayName,
-      status: status
-    };
+    setUserData(email: string, displayName: string, status: string): void {
+      const path = `users/${this.currentUserId}`;
+      const data = {
+        email: email,
+        displayName: displayName,
+        status: status
+      };
 
-    this.db.object(path).update(data)
-      .catch(error => console.log(error));
-  }
+      this.db.object(path).update(data)
+        .catch(error => console.log(error));
+    }
 
-  setUserStatus(status: string): void {
-    const path = `users/${this.currentUserId}`;
+    setUserStatus(status: string): void {
+      const path = `users/${this.currentUserId}`;
 
-    const data = {
-      status: status
-    };
+      const data = {
+        status: status
+      };
 
-    this.db.object(path).update(data)
-      .catch(error => console.log(error));
-  }
+      this.db.object(path).update(data)
+        .catch(error => console.log(error));
+    }
 }

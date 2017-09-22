@@ -1,9 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { MdButtonModule,  MdToolbarModule, MdIconModule, MdDialogModule, MdInputModule, MdCheckboxModule,
-  MdGridListModule, MdCardModule, MdSlideToggleModule, MdDatepickerModule,
+  MdGridListModule, MdCardModule, MdSlideToggleModule, MdDatepickerModule, MdNativeDateModule,
   MdButtonToggleModule, MdSelectModule, MdSnackBarModule } from '@angular/material';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -21,7 +22,6 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { QuoteManagementComponent } from './quote-management/quote-management.component';
 import { QuotePreviewComponent } from './quote-preview/quote-preview.component';
 import { QuoteFormComponent } from './quote-form/quote-form.component';
-// import { HTTP_PROVIDERS } from '@angular/http';
 
 import { AuthService } from './services/auth.service';
 import { QuoteService } from './services/quote.service';
@@ -67,6 +67,7 @@ import { NavfooterComponent } from './navfooter/navfooter.component';
     MdCardModule,
     MdSlideToggleModule,
     MdDatepickerModule,
+    MdNativeDateModule,
     FlexLayoutModule,
     MdButtonToggleModule,
     MdSelectModule,

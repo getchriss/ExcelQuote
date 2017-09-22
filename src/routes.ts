@@ -8,15 +8,15 @@ import { QuoteFormComponent } from './app/quote-form/quote-form.component';
 import { NewFormComponent } from './app/new-form/new-form.component';
 
 export const appRoutes: Routes = [
-  { path: 'signup', component: SignupFormComponent },
-  { path: 'login', component: LoginFormComponent },
-  { path: 'dash', component: DashComponent },
-  { path: 'quote-form', component: QuoteFormComponent },
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'quoteManagement', component: QuoteManagementComponent },
-  { path: 'quotePreview', component: QuotePreviewComponent },
-  { path: 'new-form', component: NewFormComponent },
-  { path: 'form', component: QuoteFormComponent },
+{ path: 'signup', component: SignupFormComponent },
+{ path: 'login', component: LoginFormComponent },
+{ path: 'dash', component: DashComponent },
+{ path: 'quote-form', component: QuoteFormComponent },
+{ path: '', redirectTo: '/login', pathMatch: 'full' },
+{ path: 'quoteManagement', component: QuoteManagementComponent },
+{ path: 'quotePreview', component: QuotePreviewComponent },
+{ path: 'new-form', component: NewFormComponent },
+{ path: 'form', component: QuoteFormComponent },
 
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+{ path: '', redirectTo: '/login', pathMatch: 'full' },
 ];
