@@ -1,5 +1,6 @@
 .quoteContainer {
   display: flex;
+  margin-bottom: 15px;
   height: 70px;
   padding: 0 10px;
   min-width: 363px;
