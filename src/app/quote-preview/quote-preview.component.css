@@ -1,0 +1,47 @@
+* {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+app-navfooter {
+    bottom: 0;
+    left: 0;
+    right:0;
+    margin: auto;
+    position: absolute;
+}
+
+
+.container {
+  flex: 1 0 auto;
+  /* padding: var(--space) var(--space) 0; */
+  width: 100%;
+  background-color: #F0F0F0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.navBud {
+    width:100%;
+    background-color: rgba(0, 0, 0, 0.35);
+    border-radius: 0 0 5px 5px;
+    height: 30px;
+}
+
+
+.previewWarning {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 13px;
+  text-align: center;
+  padding-top:5px;
+  left:0;
+  right: 0;
+  margin: auto;
+  color: #FFF;
+}

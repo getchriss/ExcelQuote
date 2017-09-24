@@ -9,5 +9,12 @@
 }
 
 md-toolbar {
-  background-color: red;
+  background-color: #472155;
+
+}
+
+
+.full-width-btn {
+  display: block;
+  width: 100%;
 }
