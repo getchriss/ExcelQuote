@@ -1,6 +1,6 @@
 .container {
   flex: 1 0 auto;
-  padding: var(--space) var(--space) 0;
+  /* padding: var(--space) var(--space) 0; */
   width: 100%;
   background-color: #F0F0F0;
   position: absolute;
@@ -17,7 +17,36 @@
 .titleContainer {
   /* border: 1px solid red; */
   background-color: #472155;
-  height: 110px;
+  height: 105px;
+}
+
+.textContainer {
+  margin: auto;
+  right: 0;
+  left: 0;
+  width: 200px;
+}
+
+.open-b {
+  font-size: 27px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.openS {
+  font-family: 'Open Sans', sans-serif;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.open-s {
+  font-size: 17px;
+  position: relative;
+  left: -35px;
+  top: 7px;
+  bottom: 0;
+  margin: auto;
 }
 
 .flex-nav {
@@ -28,15 +57,23 @@
 
 input {
   font-size: 16px;
+  border: none;
+  width: 100%;
 }
 
 .mat-toolbar {
   background-color: #FFF;
+  padding: 0px;
 }
 
+.md-form-field {
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
 
 .populationContainer {
-  width: 390px;
   /* border: 1px solid red; */
   position: absolute;
   height: 100vh;
@@ -45,7 +82,17 @@ input {
   right: 0;
   bottom: 0;
   left: 0;
+  /* padding: 0 10px; */
+  padding-left: 10px;
+  padding-right: 10px;
   overflow-y: scroll;
+  overflow-x: hidden;
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+}
+
+.populationContainer::-webkit-scrollbar {
+  display: none;
 }
 
 .subTitle {
@@ -68,35 +115,25 @@ md-toolbar {
   display: flex;
 }
 
-.searchBar {
-  /* border: 1px solid red; */
-  /* background-color: #f5f5f5; */
-  background-color: #FFF;
-  padding: 0 10px;
-  width: 370px;
-  border-radius: 5px;
+.searchContainer {
+  /* border: 1px solid blue; */
+  padding: 0 10px!important;
   position: absolute;
   margin: auto;
   right: 0;
-  top: 138px;
+  height: 80px;
+  top: 135px;
   left: 0;
+}
+
+.searchBar {
+  display: flex;
+  background-color: #FFF;
+  padding: 0 10px!important;
+  border-radius: 5px;
   -webkit-box-shadow: 0px 4px 12px -2px rgba(0, 0, 0, 0.36);
   -moz-box-shadow: 0px 4px 12px -2px rgba(0, 0, 0, 0.36);
   box-shadow: 0px 4px 12px -2px rgba(0, 0, 0, 0.36);
-  z-index: 50;
-}
-
-.openS {
-  font-family: 'Open Sans', sans-serif;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-}
-
-.open-s {
-  font-size: 20px;
-  position: absolute;
-  left: 120px;
 }
 
 .populationHead {
@@ -104,10 +141,4 @@ md-toolbar {
   font-size: 16px;
   text-transform: uppercase;
   color: #CACACA;
-}
-
-.open-b {
-  font-size: 30px;
-  font-weight: bold;
-  text-transform: uppercase;
 }
