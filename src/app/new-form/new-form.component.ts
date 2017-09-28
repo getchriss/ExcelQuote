@@ -144,6 +144,5 @@ export class NewFormComponent implements OnInit, OnChanges {
       });
     return false;
   }
-
 }
 

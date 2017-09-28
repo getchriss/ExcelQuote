@@ -81,8 +81,7 @@ export class QuoteService {
       return false;
     }
   }
-
-
+  
   submitQuote(quote: any) {
     this.quoteFiles = this.getQuotes();
     this.quoteFiles.push({
