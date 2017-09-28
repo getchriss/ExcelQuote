@@ -25,6 +25,11 @@ export class AuthService {
   authUser() {
     return this.user;
   }
+
+  // public authUser() {
+  //   return this.user;
+  // }
+
   
   resetPassword(email: string) {
     var auth = firebase.auth();
@@ -43,7 +48,7 @@ export class AuthService {
         this.authState = user;
         this.setUserStatus('online');
         this.router.navigate(['dash']);
-        this.snackBar.open(`Login successful!`, '', { duration: 2000 })
+        this.snackBar.open(`Login successfull!`, '', { duration: 2000 })
       }
     ); 
   }

@@ -34,7 +34,6 @@ app-navfooter {
     height: 30px;
 }
 
-
 .previewWarning {
   font-family: 'Open Sans', sans-serif;
   font-size: 13px;
@@ -45,3 +44,17 @@ app-navfooter {
   margin: auto;
   color: #FFF;
 }
+
+.previewBox {
+  top:56px;
+  bottom:0;
+  left:0;
+  right:0;
+  margin: auto;
+  padding: 15px;
+  padding-bottom: 15%;
+  border: 1px solid red;
+  position: absolute;
+}
+
+

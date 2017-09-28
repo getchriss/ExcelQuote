@@ -10,9 +10,29 @@
 
 md-toolbar {
   background-color: #472155;
+  padding: 0px;
 }
 
-.full-width-btn {
-  display: block;
-  width: 100%;
+.full-width {
+  display:block;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  margin:auto;
 }
+
+
+.mat-raised-button {
+  display: flex;
+  border-radius: 3px;
+}
+
+.mat-button-wrapper span {
+  text-align: center;
+}
+
+.mat-button-toggle-label-content {
+  display: block;
+}
+
