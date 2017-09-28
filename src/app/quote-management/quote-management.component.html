@@ -30,8 +30,11 @@
   </div>
   <div fxLayout="column wrap">
     <div class="populationContainer">
-      <div fxLayout="column" fxFlex="grow">
-        <app-quote-thumbnail></app-quote-thumbnail>
+      <div class="feed" fxLayout="column" fxFlex="grow">
+        <div *ngFor="let quotefile of feed | async" class="quote">
+          <app-quote-thumbnail></app-quote-thumbnail>
+        </div>
       </div>
     </div>
   </div>
+</div>

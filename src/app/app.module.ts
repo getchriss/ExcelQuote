@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { Http, HttpModule } from '@angular/http';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
@@ -53,6 +54,7 @@ import { QuoteThumbnailComponent } from './quote-thumbnail/quote-thumbnail.compo
 
   imports: [
     BrowserModule,
+    HttpModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
     ReactiveFormsModule,

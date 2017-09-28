@@ -1,13 +1,15 @@
-body, html {
+body,
+html {
   background-color: #F0F0F0;
 }
 
 .full-width {
-  width:100%!important;
+  width: 100%!important;
 }
 
 .container {
-  flex: 1 0 auto; /* 2 */
+  flex: 1 0 auto;
+  /* 2 */
   padding: var(--space) var(--space) 0;
   width: 100%;
   background-color: #F0F0F0;
@@ -21,18 +23,21 @@ body, html {
   visibility: hidden;
 }
 
- h2 {
+h2 {
   margin-bottom: 15px;
 }
 
 main {
-  overflow-y: auto;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
   margin-top: 56px;
   /* margin-bottom: -50px; */
 }
 
 md-select {
-  width:100%;
+  width: 100%;
 }
 
 md-button-toggle-group {
@@ -40,32 +45,29 @@ md-button-toggle-group {
   border-radius: 3px;
 }
 
-md-button-toggle-group > input > div {
-  display:block;
+md-button-toggle-group>input>div {
+  display: block;
 }
-
 
 md-button-toggle {
   flex-grow: 1;
   text-align: center;
 }
 
-
 .mat-button-toggle-label-content {
   display: block;
 }
 
-
 .flex-nav {
-  position:fixed;
-  width:100%;
+  position: fixed;
+  width: 100%;
   z-index: 999;
 }
 
 .flex-foot {
-  position:fixed;
-  bottom:0;
-  width:100%;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 
 .btn-primary {
