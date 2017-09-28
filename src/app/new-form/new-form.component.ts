@@ -1,4 +1,6 @@
 import { Component, OnInit, OnChanges, HostBinding, Injectable } from '@angular/core';
+import {FormControl, Validators } from '@angular/forms';
+
 import { Router } from '@angular/router';
 // import { slideIn } from '../_animations/index';W
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
@@ -14,13 +16,17 @@ import { QuoteService } from '../services/quote.service';
 
 import { QuoteFile } from '../models/quote-file.model'
 
+const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+// const PHONE_REGEX = /^(\((03|04|06|07|09)\)\d{7})|(\((021|022|025|027|028|029)\)\d{6,8})|((0508|0800|0900)\d{5,8})$/;
+// const ZIP_REGEX =   /^([0-9]){4}?$/;
 
 @Component({
   selector: 'app-new-form',
   templateUrl: './new-form.component.html',
   styleUrls: ['./new-form.component.css']
 })
-export class NewFormComponent implements OnInit, OnChanges {
+
+export class NewFormComponent implements OnInit, OnChanges {  
   clipboard: any;
 
   client: string = '';
@@ -85,6 +91,10 @@ export class NewFormComponent implements OnInit, OnChanges {
     addInfo: this.addInfo
   };
 
+  emailFormControl = new FormControl('', [
+    Validators.required,
+    Validators.pattern(EMAIL_REGEX)]);
+
   constructor(private form: QuoteService, private snackBar: MdSnackBar) { }
 
   ngOnInit() {
@@ -136,3 +146,4 @@ export class NewFormComponent implements OnInit, OnChanges {
   }
 
 }
+

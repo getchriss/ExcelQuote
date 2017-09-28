@@ -8,7 +8,7 @@ import { MdButtonModule,  MdToolbarModule, MdIconModule, MdDialogModule, MdInput
   MdButtonToggleModule, MdSelectModule, MdSnackBarModule } from '@angular/material';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -55,6 +55,7 @@ import { QuoteThumbnailComponent } from './quote-thumbnail/quote-thumbnail.compo
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
+    ReactiveFormsModule,
     AngularFireModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule,

@@ -37,16 +37,24 @@ md-select {
 
 md-button-toggle-group {
   display: flex;
+  border-radius: 3px;
 }
+
+md-button-toggle-group > input > div {
+  display:block;
+}
+
 
 md-button-toggle {
   flex-grow: 1;
   text-align: center;
 }
 
-.mat-button-toggle-label {
-  width: 100%;
+
+.mat-button-toggle-label-content {
+  display: block;
 }
+
 
 .flex-nav {
   position:fixed;

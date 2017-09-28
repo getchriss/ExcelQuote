@@ -15,7 +15,13 @@
               </md-form-field>
               <!--  -->
               <md-form-field class="full-width">
-                <input mdInput [(ngModel)]="quote.email" placeholder="Email" name="email">
+                <input mdInput [(ngModel)]="quote.email" placeholder="Email" name="email" [formControl]="emailFormControl">
+                <md-error *ngIf="emailFormControl.hasError('pattern')">
+                  Please enter a valid email address
+                </md-error>
+                <md-error *ngIf="emailFormControl.hasError('required')">
+                  Email is <strong>required</strong>
+                </md-error>
               </md-form-field>
               <!--  -->
               <md-form-field class="full-width">
@@ -29,7 +35,7 @@
               <br>
               <!--  -->
               <md-form-field>
-                <input mdInput [mdDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="quote.date" name="date">
+                <input mdInput class="full-width" [mdDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="quote.date" name="date">
                 <md-datepicker-toggle mdSuffix [for]="picker"></md-datepicker-toggle>
                 <md-datepicker touchUi="true" #picker></md-datepicker>
               </md-form-field>
@@ -86,7 +92,8 @@
               <br>
               <!--  -->
               <md-form-field class="full-width">
-                <input mdInput [(ngModel)]="quote.gap" maxlength="5" placeholder="Gap Between Labels if larger than 4mm" value="4mm" name="gap" type="number">
+                <input mdInput [(ngModel)]="quote.gap" maxlength="5" placeholder="Gap Between Labels if larger than 4mm" value="4mm" name="gap"
+                  type="number">
                 <span mdSuffix>mm</span>
               </md-form-field>
               <br>
@@ -175,10 +182,10 @@
               <br>
               <!--  -->
               <md-select class="full-width" placeholder="Proof type" [(ngModel)]="quote.proofType" name="proofType">
-                  <md-option value="PDF Proof">PDF Proof</md-option>
-                  <md-option value="Full Colour - Finished Proof">Full Colour - Finished Proof (not diecut)</md-option>
-                  <md-option value="Full Colour - Unfinished Proof">Full Colour - Unfinished Proof</md-option>
-                  <md-option value="None">None</md-option>
+                <md-option value="PDF Proof">PDF Proof</md-option>
+                <md-option value="Full Colour - Finished Proof">Full Colour - Finished Proof (not diecut)</md-option>
+                <md-option value="Full Colour - Unfinished Proof">Full Colour - Unfinished Proof</md-option>
+                <md-option value="None">None</md-option>
               </md-select>
               <br>
               <br>
