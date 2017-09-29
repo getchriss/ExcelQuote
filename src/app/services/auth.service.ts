@@ -16,7 +16,7 @@ export class AuthService {
 
   constructor(private afAuth: AngularFireAuth,
     private db: AngularFireDatabase,
-    private router: Router, private snackBar: MdSnackBar,) {
+    private router: Router, private snackBar: MdSnackBar, ) {
     this.user = afAuth.authState;
     // this.userName = this.authState.displayName;
     // console.log(this.authState.uid);
@@ -30,27 +30,27 @@ export class AuthService {
   //   return this.user;
   // }
 
-  
+
   resetPassword(email: string) {
     var auth = firebase.auth();
     return auth.sendPasswordResetEmail(email)
       .then(() => console.log("email sent"))
       .catch((error) => console.log(error))
   }
-  
+
   get currentUserId(): string {
     return this.authState !== null ? this.authState.uid : '';
   }
 
   login(email: string, password: string) {
     return this.afAuth.auth.signInWithEmailAndPassword(email, password)
-    .then((user) => {
+      .then((user) => {
         this.authState = user;
         this.setUserStatus('online');
         this.router.navigate(['dash']);
         this.snackBar.open(`Login successfull!`, '', { duration: 2000 })
       }
-    ); 
+      );
   }
 
   logout() {
@@ -70,26 +70,26 @@ export class AuthService {
       .catch(error => this.snackBar.open(`Invalid email or password.`, '', { duration: 2000 }));
   }
 
-    setUserData(email: string, displayName: string, status: string): void {
-      const path = `users/${this.currentUserId}`;
-      const data = {
-        email: email,
-        displayName: displayName,
-        status: status
-      };
+  setUserData(email: string, displayName: string, status: string): void {
+    const path = `users/${this.currentUserId}`;
+    const data = {
+      email: email,
+      displayName: displayName,
+      status: status
+    };
 
-      this.db.object(path).update(data)
-        .catch(error => console.log(error));
-    }
+    this.db.object(path).update(data)
+      .catch(error => console.log(error));
+  }
 
-    setUserStatus(status: string): void {
-      const path = `users/${this.currentUserId}`;
+  setUserStatus(status: string): void {
+    const path = `users/${this.currentUserId}`;
 
-      const data = {
-        status: status
-      };
+    const data = {
+      status: status
+    };
 
-      this.db.object(path).update(data)
-        .catch(error => console.log(error));
-    }
+    this.db.object(path).update(data)
+      .catch(error => console.log(error));
+  }
 }

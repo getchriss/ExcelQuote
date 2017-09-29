@@ -35,7 +35,7 @@
               <br>
               <!--  -->
               <md-form-field>
-                <input mdInput class="full-width" [mdDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="quote.date" name="date">
+                <input mdInput class="full-width" [mdDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="date" name="date" #datePicker>
                 <md-datepicker-toggle mdSuffix [for]="picker"></md-datepicker-toggle>
                 <md-datepicker touchUi="true" #picker></md-datepicker>
               </md-form-field>

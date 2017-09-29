@@ -31,8 +31,25 @@
   <div fxLayout="column wrap">
     <div class="populationContainer">
       <div class="feed" fxLayout="column" fxFlex="grow">
-        <div *ngFor="let quotefile of feed | async" class="quote">
-          <app-quote-thumbnail></app-quote-thumbnail>
+        <div *ngFor="let quoteFile of feed | async" class="quote">
+          <!-- <app-quote-thumbnail ></app-quote-thumbnail> -->
+          <div class="quoteContainer">
+            <div class="quoteInnerContainer">
+              <div class="quoteData" [ngClass]="{}">
+                <span class="quoteName" [ngClass]="{}">
+                  {{ quoteFile.client }}
+                </span>
+                <span class="quoteID" [ngClass]="{}">
+                  {{ quoteFile.$key }}
+                </span>
+              </div>
+              <div class="quoteDate" routerLink="/quotePreview" [ngClass]="{}">
+                <span>
+                <!-- {{ quoteFile }} -->
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
