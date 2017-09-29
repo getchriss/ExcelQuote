@@ -22,7 +22,7 @@ export class QuoteManagementComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-    this.feed = this.quoteFile.getQuotes();
+    this.feed = this.quoteFile.getQuotes()
   }
 
 }

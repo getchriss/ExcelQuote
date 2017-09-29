@@ -2,7 +2,7 @@
   <div class="quoteInnerContainer">
     <div class="quoteData" [ngClass]="{}">
       <span class="quoteName" [ngClass]="{}">
-        Emersons
+        {{ quote.client.val() }}}
       </span>
       <span class="quoteID" [ngClass]="{}">
         ABC18292
@@ -10,7 +10,7 @@
     </div>
     <div class="quoteDate" routerLink="/quotePreview" [ngClass]="{}">
       <span>
-      September 10
+      {{ quote.date }}}
       </span>
     </div>
   </div>

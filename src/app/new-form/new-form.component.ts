@@ -1,5 +1,5 @@
-import { Component, OnInit, OnChanges, HostBinding, Injectable } from '@angular/core';
-import {FormControl, Validators } from '@angular/forms';
+import { Component, OnInit, OnChanges, HostBinding, Injectable, ViewChild } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 
 import { Router } from '@angular/router';
 // import { slideIn } from '../_animations/index';W
@@ -26,9 +26,10 @@ const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA
   styleUrls: ['./new-form.component.css']
 })
 
-export class NewFormComponent implements OnInit, OnChanges {  
-  clipboard: any;
 
+export class NewFormComponent implements OnInit, OnChanges {
+  clipboard: any;
+  
   client: string = '';
   email: string = '';
   address: string = '';
@@ -55,13 +56,13 @@ export class NewFormComponent implements OnInit, OnChanges {
   supplied: string = '';
   proofType: string = '';
   addInfo: string = '';
-
+  
   $stocks: any;
   $finishes: any;
   $adhesives: any;
   $embelishments: any;
   $userFile: any;
-
+  
   quote: any = {
     client: this.client,
     email: this.email,
@@ -90,10 +91,12 @@ export class NewFormComponent implements OnInit, OnChanges {
     proofType: this.proofType,
     addInfo: this.addInfo
   };
-
+  
   emailFormControl = new FormControl('', [
     Validators.required,
     Validators.pattern(EMAIL_REGEX)]);
+    
+  @ViewChild('datePicker') input;
 
   constructor(private form: QuoteService, private snackBar: MdSnackBar) { }
 
@@ -105,18 +108,23 @@ export class NewFormComponent implements OnInit, OnChanges {
     this.date = new Date();
   }
 
-  ngOnChanges() {
-  }
-
   submitQuote() {
+    this.quote.date = this.input.nativeElement.value;
     if (this.form.validateQuote(this.quote)) {
       this.form.submitQuote(this.quote);
-      this.uploadFile();
+      // this.uploadFile();
     } else {
+      // this.quote.date = this.input.nativeElement.value;
+      // this.d = this.formatDate(this.date)
+      // console.log(this.input.nativeElement.value);
+      // console.log(this.quote.date);
       console.log('There was an error with the validation. Check all required fields have been completed...')
       this.snackBar.open(`Please check all required fields have been completed.`, '', { duration: 2000 })
+      // console.log(this.date)
     }
   }
+
+  ngOnChanges() {}
 
   handleSubmit(event) {
     if (event.keyCode === 13) {
@@ -133,13 +141,13 @@ export class NewFormComponent implements OnInit, OnChanges {
   uploadFile() {
     var ACCESS_TOKEN = 'bdhRYZ0OjnkAAAAAAABYM8rgdQwtJC3K9uaA371lK6UDmhpKGmKI8M2Qfhztg6h5';
     var dbx = new Dropbox({ accessToken: ACCESS_TOKEN });
-    dbx.filesUpload({path: '/' + this.$userFile.name, contents: this.$userFile})
-      .then(function(response) {
+    dbx.filesUpload({ path: '/' + this.$userFile.name, contents: this.$userFile })
+      .then(function (response) {
         var results = document.getElementById('results');
         results.appendChild(document.createTextNode('File uploaded!'));
         console.log(response);
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.error(error);
       });
     return false;

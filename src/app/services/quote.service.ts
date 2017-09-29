@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs/Rx';
 import { AuthService } from '../services/auth.service';
 import * as firebase from 'firebase/app';
 
@@ -122,6 +122,13 @@ export class QuoteService {
       }
     });
   }
+
+  // viewQuotes() {
+  //   return this.db.list('/quotes')
+  //     .mergeMap(list => list)
+  //     .map(({name, firebaseKey}) => ({name: "test3", firebaseKey}))
+  //     .subscribe(x => console.log(x));
+  // }
 
   getStocks(): FirebaseListObservable<QuoteFile[]> {
     return this.db.list('/misc/stock', {
