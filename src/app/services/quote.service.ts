@@ -81,7 +81,7 @@ export class QuoteService {
       return false;
     }
   }
-  
+
   submitQuote(quote: any) {
     this.quoteFiles = this.getQuotes();
     this.quoteFiles.push({
@@ -125,6 +125,13 @@ export class QuoteService {
 
   getStocks(): FirebaseListObservable<QuoteFile[]> {
     return this.db.list('/misc/stock', {
+      preserveSnapshot: true
+    });
+  }
+
+
+  getClient(): FirebaseListObservable<QuoteFile[]> {
+    return this.db.list('/quotes', {      
       preserveSnapshot: true
     });
   }
