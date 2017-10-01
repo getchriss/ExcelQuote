@@ -12,17 +12,31 @@ import { QuoteFile } from '../models/quote-file.model'
 })
 
 export class QuoteManagementComponent implements OnInit, OnChanges {
-  feed: FirebaseListObservable<QuoteFile[]>;
+  private feed: FirebaseListObservable<QuoteFile[]>;
+  private focusThumb: string;
 
-
-  constructor(private quoteFile: QuoteService) { }
+  constructor(private quoteFile: QuoteService) {  }
 
   ngOnInit() {
     this.feed = this.quoteFile.getQuotes();
   }
 
-  ngOnChanges() {
-    this.feed = this.quoteFile.getQuotes()
+  ngOnChanges() {  }
+
+  toggleFocus(event, key) {
+    if (this.focusThumb != key) {
+      this.focusThumb = key;
+    } else if (key == undefined || key == null || key == '') {
+      this.focusThumb = ''
+    }
+    console.log(this.focusThumb)
+    console.log(key)
+    var target = event.target || event.srcElement || event.currentTarget;
+    var idAttr = target.attributes.class;
+    var value = idAttr.nodeValue;
+    // console.log(target)
+    // console.log(idAttr)
+    // console.log(value)
   }
 
 }
