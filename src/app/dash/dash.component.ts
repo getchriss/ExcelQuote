@@ -20,6 +20,9 @@ export class DashComponent implements OnInit {
 
   user: Observable<firebase.User>;
   userEmail: string;
+  userId: string;
+  getUserData: any;
+  userData: any = {};
   tiles: any[];
 
   constructor(private authService: AuthService, private router: Router) { }
@@ -29,6 +32,15 @@ export class DashComponent implements OnInit {
     this.user.subscribe(user => {
       if (user) {
         this.userEmail = user.email;
+        this.userId = user.uid;
+        // console.log(this.userId)
+
+        this.getUserData = this.authService.getUserData(this.userId)
+        this.getUserData.subscribe(snapshots => {
+          snapshots.forEach(snapshot => {
+            this.userData[snapshot.key] = snapshot.val();
+          });
+        });
       }
     });
     this.tiles = [
@@ -39,6 +51,10 @@ export class DashComponent implements OnInit {
       {text: 'Five', cols: 4, rows: 1, color: '#DDBDF1'},
       {text: 'Six', cols: 4, rows: 1, color: '#DDBDF1'},
     ];
+
+    // this.getUserData = this.authService.getUserData(this.userId)
+    // console.log(this.userId)
+    
   }
 
   logout() {

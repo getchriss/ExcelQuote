@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { AngularFireDatabase } from 'angularfire2/database';
 import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs/Observable';
 import { User } from '../models/user.model';
@@ -80,6 +80,10 @@ export class AuthService {
 
     this.db.object(path).update(data)
       .catch(error => console.log(error));
+  }
+
+  getUserData(uid: string) {
+    return this.db.list('/users/' + uid, { preserveSnapshot: true });
   }
 
   setUserStatus(status: string): void {
