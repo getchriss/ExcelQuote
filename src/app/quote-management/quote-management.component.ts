@@ -1,7 +1,9 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
+import { Routes } from '@angular/router'
 import { Observable } from 'rxjs/Observable';
 import { QuoteService } from '../services/quote.service';
 import { FirebaseListObservable } from 'angularfire2/database';
+// import {RouteParams} from '@angular/router';
 
 import { QuoteFile } from '../models/quote-file.model'
 
@@ -34,9 +36,6 @@ export class QuoteManagementComponent implements OnInit, OnChanges {
     var target = event.target || event.srcElement || event.currentTarget;
     var idAttr = target.attributes.class;
     var value = idAttr.nodeValue;
-    // console.log(target)
-    // console.log(idAttr)
-    // console.log(value)
   }
 
 }

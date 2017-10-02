@@ -15,7 +15,7 @@
         <div class="searchBar">
           <md-toolbar class="inputSearch mat-elevation-z0">
             <md-form-field class="full-width">
-              <input mdInput autofocus="false" placeholder="Search" tabindex="-1">
+              <input mdInput placeholder="Search" tabindex="-1">
               <md-icon mdSuffix><i class="material-icons">search</i></md-icon>
             </md-form-field>
           </md-toolbar>
@@ -43,7 +43,8 @@
                   {{ quoteFile.$key }}
                 </span>
               </div>
-              <div class="quoteDate" routerLink="/quotePreview" [ngClass]="(focusThumb==quoteFile.$key)?'quoteDate focused':'quoteDate'" (click)="toggleFocus($event, quoteFile.$key)">
+              <div class="quoteDate" [routerLink]="['/quotePreview/' + focusThumb]" [ngClass]="(focusThumb==quoteFile.$key)?'quoteDate focused':'quoteDate'"
+                (click)="toggleFocus($event, quoteFile.$key)">
                 <span>PREVIEW</span>
               </div>
             </div>
