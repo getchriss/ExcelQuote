@@ -5,113 +5,134 @@
       <p class="previewWarning">This is a form <b>preview</b>, please select a action below.</p>
     </div>
     <div fxFlex class="previewBox">
-      <div flxLayout="row">
+      <div flxLayout="row" *ngIf="currentQuote.client">
         <p>Client</p>
-        <p>..</p>
+        <p>{{currentQuote.client}}</p>
+        <hr>
       </div>
-      <div flxLayout="row">
+      <div flxLayout="row" *ngIf="currentQuote.email">
         <p>Email</p>
-        <p>..</p>
+        <p>{{currentQuote.email}}</p>
+        <hr>
       </div>
-      <div flxLayout="row">
+      <div flxLayout="row" *ngIf="currentQuote.address">
         <p>Address</p>
-        <p>..</p>
+        <p>{{currentQuote.address}}</p>
+        <hr>
       </div>
-      <div flxLayout="row">
+      <div flxLayout="row" *ngIf="currentQuote.phone">
         <p>Phone</p>
-        <p>..</p>
+        <p>{{currentQuote.phone}}</p>
+        <hr>
       </div>
-      <div flxLayout="row">
+      <div flxLayout="row" *ngIf="currentQuote.date">
         <p>Date Required</p>
-        <p>..</p>
+        <p>{{currentQuote.date}}</p>
+        <hr>
       </div>
-      <div flxLayout="row">
-        <p>File name</p>
-        <p>..</p>
+      <div flxLayout="row" *ngIf="currentQuote.fileName">
+        <p>Artwork</p>
+        <p>{{currentQuote.fileName}}</p>
+        <hr>
       </div>
-      <div flxLayout="row">
+      <div flxLayout="row" *ngIf="currentQuote.noKinds">
         <p>Variety</p>
-        <p>...</p>
+        <p>{{currentQuote.noKinds}}</p>
+        <hr>
       </div>
-      <div flxLayout="row">
+      <div flxLayout="row" *ngIf="currentQuote.qKinds">
         <p>Quantity per kind</p>
-        <p>...</p>
+        <p>{{currentQuote.qKinds}}</p>
+        <hr>
       </div>
-      <div flxLayout="row">
+      <div flxLayout="row" *ngIf="currentQuote.cost">
         <p>Include delivery costs?</p>
-        <p>...</p>
+        <p>{{currentQuote.cost}}</p>
+        <hr>
       </div>
-      <div flxLayout="row">
+      <div flxLayout="row" *ngIf="currentQuote.width">
         <p>Width (mm)</p>
-        <p>...</p>
+        <p>{{currentQuote.width}}</p>
+        <hr>
       </div>
-      <div flxLayout="row">
+      <div flxLayout="row" *ngIf="currentQuote.height">
         <p>Height (mm)</p>
-        <p>...</p>
+        <p>{{currentQuote.height}}</p>
+        <hr>
       </div>
-      <div flxLayout="row">
+      <div flxLayout="row" *ngIf="currentQuote.labelsPer">
         <p>Labels per roll or Max O/D</p>
-        <p>...</p>
+        <p>{{currentQuote.labelsPer}}</p>
+        <hr>
       </div>
-      <div flxLayout="row">
+      <div flxLayout="row" *ngIf="currentQuote.gap">
         <p>Gap between labels</p>
-        <p>...</p>
+        <p>{{currentQuote.gap}}</p>
+        <hr>
       </div>
-      <div flxLayout="row">
+      <div flxLayout="row" *ngIf="currentQuote.knife">
         <p>Knife</p>
-        <p>...</p>
+        <p>{{currentQuote.knife}}</p>
+        <hr>
       </div>
-      <div flxLayout="row">
+      <div flxLayout="row" *ngIf="currentQuote.charge">
         <p>Charges</p>
-        <p>...</p>
+        <p>{{currentQuote.charge}}</p>
+        <hr>
       </div>
-      <div flxLayout="row">
+      <div flxLayout="row" *ngIf="currentQuote.stock">
         <p>Selected stock</p>
-        <p>...</p>
+        <p>{{currentQuote.stock}}</p>
+        <hr>
       </div>
-      <div flxLayout="row">
+      <div flxLayout="row" *ngIf="currentQuote.colour">
         <p>Colour</p>
-        <p>...</p>
+        <p>{{currentQuote.colour}}</p>
+        <hr>
       </div>
-      <div flxLayout="row">
+      <div flxLayout="row" *ngIf="currentQuote.embel">
         <p>Embleishment</p>
-        <p>...</p>
+        <p>{{currentQuote.embel}}</p>
+        <hr>
       </div>
-      <div flxLayout="row">
+      <div flxLayout="row" *ngIf="currentQuote.orient">
         <p>Orientation</p>
-        <p>...</p>
+        <p>{{currentQuote.orient}}</p>
+        <hr>
       </div>
-      <div flxLayout="row">
+      <div flxLayout="row" *ngIf="currentQuote.appliedBy">
         <p>Label applied by</p>
-        <p>...</p>
+        <p>{{currentQuote.appliedBy}}</p>
+        <hr>
       </div>
-      <div flxLayout="row">
-        <p>Adhesive</p>
-        <p>...</p>
-      </div>
-      <div flxLayout="row">
+      <div flxLayout="row" *ngIf="currentQuote.overPrint">
         <p>Overprinting</p>
-        <p>...</p>
+        <p>{{currentQuote.overPrint}}</p>
+        <hr>
       </div>
-      <div flxLayout="row">
+      <div flxLayout="row" *ngIf="currentQuote.core">
         <p>Core Size</p>
-        <p>...</p>
+        <p>{{currentQuote.core}}</p>
+        <hr>
       </div>
-      <div flxLayout="row">
+      <div flxLayout="row" *ngIf="currentQuote.windStyle">
         <p>Winding style</p>
-        <p>...</p>
+        <p>{{currentQuote.windStyle}}</p>
+        <hr>
       </div>
-      <div flxLayout="row">
+      <div flxLayout="row" *ngIf="currentQuote.suppliedIn">
         <p>Supplied in</p>
-        <p>...</p>
+        <p>{{currentQuote.suppliedIn}}</p>
+        <hr>
       </div>
-      <div flxLayout="row">
+      <div flxLayout="row" *ngIf="currentQuote.adhesive">
         <p>Adhesive</p>
-        <p>...</p>
+        <p>{{currentQuote.adhesive}}</p>
+        <hr>
       </div>
-      <div flxLayout="row">
+      <div flxLayout="row" *ngIf="currentQuote.addInfo">
         <p>Additional information</p>
-        <p>...</p>
+        <p>{{currentQuote.addInfo}}</p>
       </div>
     </div>
   </div>

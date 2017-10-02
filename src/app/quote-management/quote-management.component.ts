@@ -31,11 +31,9 @@ export class QuoteManagementComponent implements OnInit, OnChanges {
     } else if (key == undefined || key == null || key == '') {
       this.focusThumb = ''
     }
-    console.log(this.focusThumb)
-    console.log(key)
-    var target = event.target || event.srcElement || event.currentTarget;
-    var idAttr = target.attributes.class;
-    var value = idAttr.nodeValue;
+    // var target = event.target || event.srcElement || event.currentTarget;
+    // var idAttr = target.attributes.class;
+    // var value = idAttr.nodeValue;
   }
 
 }
