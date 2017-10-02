@@ -20,8 +20,6 @@ export class QuoteThumbnailComponent implements OnInit {
 
   constructor(private quoteFile: QuoteService) {}
   
-
-
   ngOnInit() {
     this.client = this.quoteFile.getClient();
   }
