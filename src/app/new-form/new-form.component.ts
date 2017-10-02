@@ -17,7 +17,7 @@ import { QuoteService } from '../services/quote.service';
 import { QuoteFile } from '../models/quote-file.model'
 
 const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-// const PHONE_REGEX = /^(\((03|04|06|07|09)\)\d{7})|(\((021|022|025|027|028|029)\)\d{6,8})|((0508|0800|0900)\d{5,8})$/;
+const PHONE_REGEX = /^(\((03|04|06|07|09)\)\d{7})|(\((021|022|025|027|028|029)\)\d{6,8})|((0508|0800|0900)\d{5,8})$/;
 // const ZIP_REGEX =   /^([0-9]){4}?$/;
 
 @Component({
@@ -95,6 +95,14 @@ export class NewFormComponent implements OnInit, OnChanges {
   emailFormControl = new FormControl('', [
     Validators.required,
     Validators.pattern(EMAIL_REGEX)]);
+
+  phoneFormControl = new FormControl('', [
+    Validators.required,
+    Validators.pattern(PHONE_REGEX)]);
+
+  globalFormControl = new FormControl('', [
+    Validators.required]);
+
     
   @ViewChild('datePicker') input;
 

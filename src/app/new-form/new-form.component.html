@@ -1,3 +1,5 @@
+<script src="./fileUpload.js"></script>
+
 <div fxLayout="column" fxLayoutAlign="start none">
   <div fxFlex="100" class="flex-nav">
     <app-navbar></app-navbar>
@@ -11,12 +13,15 @@
             <form name="newQuoteForm">
               <div>
                 <p>Client information</p>
-                <md-form-field class="full-width">
-                  <input mdInput [(ngModel)]="quote.client" placeholder="Client name" name="client">
+                <md-form-field class="full-width" [hideRequiredMarker]="true">
+                  <input mdInput [(ngModel)]="quote.client" placeholder="Client name" name="client" required>
+                  <md-error *ngIf="globalFormControl.hasError('required')">
+                    Client name is <strong>required</strong>
+                  </md-error>
                 </md-form-field>
               </div>
               <div>
-                <md-form-field class="full-width">
+                <md-form-field class="full-width" [hideRequiredMarker]="true">
                   <input mdInput [(ngModel)]="quote.email" placeholder="Email" name="email" [formControl]="emailFormControl">
                   <md-error *ngIf="emailFormControl.hasError('pattern')">
                     Please enter a valid email address
@@ -27,44 +32,63 @@
                 </md-form-field>
               </div>
               <div>
-                <md-form-field class="full-width">
-                  <input mdInput [(ngModel)]="quote.address" placeholder="Address" name="address">
+                <md-form-field class="full-width" [hideRequiredMarker]="true">
+                  <input mdInput [(ngModel)]="quote.address" placeholder="Address" name="address" required>
+                  <md-error *ngIf="globalFormControl.hasError('required')">
+                    Address is <strong>required</strong>
+                  </md-error>
                 </md-form-field>
               </div>
               <div>
-                <md-form-field class="full-width">
-                  <input mdInput [(ngModel)]="quote.phone" placeholder="Phone" name="phone">
+                <md-form-field class="full-width" [hideRequiredMarker]="true">
+                  <input mdInput [(ngModel)]="quote.phone" placeholder="Phone" name="phone" type="number" required>
+                  <md-error *ngIf="phoneFormControl.hasError('pattern')">
+                    Please enter a valid <strong>phone number</strong>
+                  </md-error>
+                  <md-error *ngIf="phoneFormControl.hasError('required')">
+                    Phone number is <strong>required</strong>
+                  </md-error>
                 </md-form-field>
               </div>
               <div>
-                <md-form-field class="full-width">
-                  <input mdInput class="full-width" [mdDatepicker]="picker" placeholder="Date required" [(ngModel)]="date" name="date" #datePicker>
+                <br>
+                <span class="nonInput">Date required</span>
+                <md-form-field class="full-width" [hideRequiredMarker]="true">
+                  <input mdInput class="full-width" [mdDatepicker]="picker" placeholder="" [(ngModel)]="date" name="date" #datePicker required>
                   <md-datepicker-toggle mdSuffix [for]="picker"></md-datepicker-toggle>
                   <md-datepicker touchUi="true" #picker></md-datepicker>
+                  <md-error *ngIf="globalFormControl.hasError('required')">
+                    Date is <strong>required</strong>
+                  </md-error>
                 </md-form-field>
               </div>
               <div>
-                <md-form-field class="full-width noBorder">
+                <md-form-field class="full-width noBorder" [hideRequiredMarker]="true">
                   <input class="ng-hide noBorder" mdInput>
                   <input class="ng-hide noBorder" id="userFile" multiple type="file" [(ngModel)]="quote.$userFile" (change)="fileEvent($event)"
                     name="userFile">
                   <button class="full-width noBorder" md-raised-button color="primary"><label for="userFile">Upload artwork</label></button>
                   <br>
-                  <br>
-                  <span class="upload">[uploadstring]</span>
+                  <p id="log"></p>
                   <!-- <input mdInput style="display:none">
                     <input type="file" [(ngModel)]="quote.$userFile" (change)="fileEvent($event)" name="userFile"> -->
                   <!-- <input type="file" [(ngModel)]="quote.$userFile" (change)="fileEvent($event)" name="userFile" value=""> -->
                 </md-form-field>
               </div>
               <div>
-                <md-form-field class="full-width">
-                  <input mdInput [(ngModel)]="quote.noKinds" placeholder="Number of kinds" name="noKinds">
+                <md-form-field class="full-width" [hideRequiredMarker]="true">
+                  <input mdInput [(ngModel)]="quote.noKinds" placeholder="Number of kinds" name="noKinds" required>
+                  <md-error *ngIf="globalFormControl.hasError('required')">
+                    The number of kinds is <strong>required</strong>
+                  </md-error>
                 </md-form-field>
               </div>
               <div>
-                <md-form-field class="full-width">
-                  <input mdInput [(ngModel)]="quote.qKinds" placeholder="Quantity per kind" name="qKinds">
+                <md-form-field class="full-width" [hideRequiredMarker]="true">
+                  <input mdInput [(ngModel)]="quote.qKinds" placeholder="Quantity per kind" name="qKinds" required>
+                  <md-error *ngIf="globalFormControl.hasError('required')">
+                    Quantity per kind is <strong>required</strong>
+                  </md-error>
                 </md-form-field>
               </div>
               <div>
@@ -85,16 +109,22 @@
                   <tbody>
                     <tr>
                       <td style="padding-left:0px">
-                        <md-form-field class="full-width">
-                          <input mdInput [(ngModel)]="quote.width" maxlength="5" placeholder="Width" name="width" type="number">
+                        <md-form-field class="full-width" [hideRequiredMarker]="true">
+                          <input mdInput [(ngModel)]="quote.width" type="number" maxlength="5" placeholder="Width" name="width" type="number" required>
                           <span mdSuffix>mm</span>
+                          <md-error *ngIf="globalFormControl.hasError('required')">
+                            <strong>Invalid</strong> width.
+                          </md-error>
                         </md-form-field>
                       </td>
                       <td></td>
                       <td style="padding-right:0px">
-                        <md-form-field class="full-width">
-                          <input mdInput [(ngModel)]="quote.height" maxlength="5" placeholder="Height" name="height" type="number">
+                        <md-form-field class="full-width" [hideRequiredMarker]="true">
+                          <input mdInput [(ngModel)]="quote.height" type="number" maxlength="5" placeholder="Height" name="height" type="number" required>
                           <span mdSuffix>mm</span>
+                          <md-error *ngIf="globalFormControl.hasError('required')">
+                            <strong>Invalid</strong> height.
+                          </md-error>
                         </md-form-field>
                       </td>
                     </tr>
@@ -102,16 +132,22 @@
                 </table>
               </div>
               <div>
-                <md-form-field class="full-width">
-                  <input mdInput [(ngModel)]="quote.labelsPer" maxlength="5" placeholder="Labels per roll or Max O/D" name="labelsPer" type="number">
+                <md-form-field class="full-width" [hideRequiredMarker]="true">
+                  <input mdInput [(ngModel)]="quote.labelsPer" maxlength="5" placeholder="Labels per roll or Max O/D" name="labelsPer" type="number"
+                    required>
+                  <md-error *ngIf="globalFormControl.hasError('required')">
+                    Labels per is <strong>required</strong>
+                  </md-error>
                 </md-form-field>
               </div>
               <div>
-
-                <md-form-field class="full-width">
-                  <input mdInput [(ngModel)]="quote.gap" maxlength="5" placeholder="Gap Between Labels if larger than 4mm" value="4mm" name="gap"
-                    type="number">
+                <span class="nonInput">Gap between labels if larger than 4mm</span>
+                <md-form-field class="full-width" [hideRequiredMarker]="true">
+                  <input mdInput [(ngModel)]="quote.gap" maxlength="5" type="number" value="4mm" name="gap" type="number" required>
                   <span mdSuffix>mm</span>
+                  <md-error *ngIf="globalFormControl.hasError('required')">
+                    Gap between is <strong>required</strong>
+                  </md-error>
                 </md-form-field>
               </div>
               <div>
@@ -153,6 +189,13 @@
                     {{embel.val()}}
                   </md-option>
                 </md-select>
+              </div>
+              <div>
+                <p>Orientation</p>
+                <md-button-toggle-group [(ngModel)]="quote.Orientation" #group="mdButtonToggleGroup" name="orientation">
+                  <md-button-toggle value="Wide" class="btn-primary">Wide edge leading</md-button-toggle>
+                  <md-button-toggle value="Narrow" class="btn-primary">Narrow edge leading</md-button-toggle>
+                </md-button-toggle-group>
               </div>
               <div>
                 <p>Label applied by</p>
@@ -234,7 +277,7 @@
                 </md-select>
               </div>
               <div>
-                <md-form-field class="full-width">
+                <md-form-field class="full-width" [hideRequiredMarker]="true">
                   <textarea mdInput [(ngModel)]="quote.addInfo" placeholder="Additional Information" name="addInfo"></textarea>
                 </md-form-field>
               </div>

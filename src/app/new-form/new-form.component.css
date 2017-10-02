@@ -9,6 +9,13 @@ p {
   font-family: 'Open Sans semibold', sans-serif;
 }
 
+.nonInput {
+  color: #6e6e6e;
+  font-family: 'Open Sans',
+  sans-serif;
+  margin-top: -15px;
+}
+
 main div {
   margin-bottom: 10px;
   margin-top: 10px;
@@ -146,7 +153,6 @@ md-button-toggle img {
   margin: 5px;
 }
 
-
 .btn-success {
   background-color: rgb(133, 193, 95);
   color: white;
@@ -160,7 +166,7 @@ md-button-toggle img {
   margin-bottom: 20px;
   width: 100%;
   max-width: 320px;
-  border-radius: 20px; 
+  border-radius: 20px;
 }
 
 .material-icons {
