@@ -97,6 +97,7 @@ input {
   overflow-x: hidden;
   -ms-overflow-style: none;
   overflow: -moz-scrollbars-none;
+  -webkit-overflow-scrolling: touch;
   margin-bottom: 10px;
 }
 
