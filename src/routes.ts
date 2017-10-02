@@ -14,7 +14,7 @@ export const appRoutes: Routes = [
 { path: 'quote-form', component: QuoteFormComponent },
 { path: '', redirectTo: '/login', pathMatch: 'full' },
 { path: 'quoteManagement', component: QuoteManagementComponent },
-{ path: 'quotePreview', component: QuotePreviewComponent },
+{ path: 'quotePreview/:quote_num', component: QuotePreviewComponent, data: {quote_num: 'shoes'} },
 { path: 'new-form', component: NewFormComponent },
 { path: 'form', component: QuoteFormComponent },
 

@@ -15,7 +15,7 @@
         <div class="searchBar">
           <md-toolbar class="inputSearch mat-elevation-z0">
             <md-form-field class="full-width">
-              <input mdInput autofocus="off" placeholder="Search">
+              <input mdInput placeholder="Search" tabindex="-1">
               <md-icon mdSuffix><i class="material-icons">search</i></md-icon>
             </md-form-field>
           </md-toolbar>
@@ -34,7 +34,7 @@
         <div *ngFor="let quoteFile of feed | async" class="quote">
           <!-- <app-quote-thumbnail ></app-quote-thumbnail> -->
           <div class="quoteContainer">
-            <div class="quoteInnerContainer">
+            <div [ngClass]="(focusThumb==quoteFile.$key)?'quoteInnerContainer focused':'quoteInnerContainer'" (click)="toggleFocus($event, quoteFile.$key)">
               <div class="quoteData" [ngClass]="{}">
                 <span class="quoteName" [ngClass]="{}">
                   {{ quoteFile.client }}
@@ -43,10 +43,9 @@
                   {{ quoteFile.$key }}
                 </span>
               </div>
-              <div class="quoteDate" routerLink="/quotePreview" [ngClass]="{}">
-                <span>
-                <!-- {{ quoteFile }} -->
-                </span>
+              <div class="quoteDate" [routerLink]="['/quotePreview/' + focusThumb]" [ngClass]="(focusThumb==quoteFile.$key)?'quoteDate focused':'quoteDate'"
+                (click)="toggleFocus($event, quoteFile.$key)">
+                <span>PREVIEW</span>
               </div>
             </div>
           </div>

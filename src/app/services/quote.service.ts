@@ -10,6 +10,7 @@ import { QuoteFile } from '../models/quote-file.model'
 @Injectable()
 export class QuoteService {
   user: any;
+  // team;
   quoteFiles: FirebaseListObservable<QuoteFile[]>;
   quoteFile: QuoteFile;
   userName: Observable<string>;
@@ -20,6 +21,8 @@ export class QuoteService {
         this.user = auth;
       }
     });
+
+    // console.log(this.team)
   }
 
   validateQuote(quote: any) {
@@ -121,6 +124,10 @@ export class QuoteService {
         limitToLast: 10
       }
     });
+  }
+
+  getQuoteById(id) {
+    return this.db.list('/quotes/' + id, { preserveSnapshot: true });
   }
 
   // viewQuotes() {

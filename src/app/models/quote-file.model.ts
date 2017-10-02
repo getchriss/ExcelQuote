@@ -1,8 +1,30 @@
 export class QuoteFile {
   $key?: string;
-  client?: string;
-  email?: string;
-  address?: string;
-  addressCont?: string;
-  phone?: string;
+  $value?: string;
+  // client?: string;
+  // email?: string;
+  // address?: string;
+  // addressCont?: string;
+  // phone?: string;
+  // date?: string;
+  // fileName?: string;
+  // noKinds?: string;
+  // qKinds?: string;
+  // cost?: string;
+  // width?: string;
+  // height?: string;
+  // labelsPer?: string;
+  // gap?: string;
+  // knife?: string;
+  // charge?: string;
+  // stock?: string;
+  // colour?: string;
+  // embel?: string;
+  // appliedBy?: string;
+  // adhesive?: string;
+  // overPrint?: string;
+  // //? core: string;
+  // //? windStyle: string;
+  // suppliedIn?: string;
+  // proofType?: string;
 }
