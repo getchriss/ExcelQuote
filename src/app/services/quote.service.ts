@@ -143,6 +143,13 @@ export class QuoteService {
     });
   }
 
+
+  getClient(): FirebaseListObservable<QuoteFile[]> {
+    return this.db.list('/quotes', {      
+      preserveSnapshot: true
+    });
+  }
+
   getFinishes(): FirebaseListObservable<QuoteFile[]> {
     return this.db.list('/misc/finish', {
       preserveSnapshot: true

@@ -1,29 +1,22 @@
 @import '~@angular/material/theming';
 // Plus imports for other components in your app.
-
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
 // Be sure that you only ever include this mixin once!
 @include mat-core();
-
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue.
-
-$custom-theme-primary: mat-palette($mat-light-blue);
-$custom-theme-accent: mat-palette($mat-orange, A200, A100, A400);
-$custom-theme-warn: mat-palette($mat-red);
-
-$candy-app-primary: mat-palette($mat-purple);
-$candy-app-accent:  mat-palette($mat-purple, A200, A100, A400);
-
+$excel-prime: ( 50: #ece7f1, 100: #cec4dc, 200: #ae9cc5, 300: #8e74ad, 400: #75579c, 500: #5d398a, 600: #553382, 700: #4b2c77, 800: #41246d, 900: #30175a, A100: #b996ff, A200: #9863ff, A400: #7630ff, A700: #6516ff, contrast: ( 50: #000000, 100: #000000, 200: #000000, 300: #000000, 400: #ffffff, 500: #ffffff, 600: #ffffff, 700: #ffffff, 800: #ffffff, 900: #ffffff, A100: #000000, A200: #000000, A400: #ffffff, A700: #ffffff, ));
+$excel-second: ( 50: #e6e2e9, 100: #c0b6c8, 200: #9686a4, 300: #6c557f, 400: #4d3063, 500: #2d0c48, 600: #280a41, 700: #220838, 800: #1c0630, 900: #110321, A100: #965dff, A200: #752aff, A400: #5600f6, A700: #4d00dd, contrast: ( 50: #000000, 100: #000000, 200: #000000, 300: #ffffff, 400: #ffffff, 500: #ffffff, 600: #ffffff, 700: #ffffff, 800: #ffffff, 900: #ffffff, A100: #000000, A200: #ffffff, A400: #ffffff, A700: #ffffff, ));
+$excel-warn: ( 50: #ffeaef, 100: #ffcad6, 200: #ffa6bb, 300: #ff82a0, 400: #ff688b, 500: #ff4d77, 600: #ff466f, 700: #ff3d64, 800: #ff345a, 900: #ff2547, A100: #ffffff, A200: #ffffff, A400: #ffd3d9, A700: #ffb9c3, contrast: ( 50: #000000, 100: #000000, 200: #000000, 300: #000000, 400: #000000, 500: #000000, 600: #000000, 700: #ffffff, 800: #ffffff, 900: #ffffff, A100: #000000, A200: #000000, A400: #000000, A700: #000000, ));
+$excel-primary: mat-palette($excel-prime);
+$excel-accent: mat-palette($excel-second);
 // The warn palette is optional (defaults to red).
-$candy-app-warn:    mat-palette($mat-purple);
-
+$excel-warn: mat-palette($excel-warn);
 // Create the theme object (a Sass map containing all of the palettes).
-$candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-app-warn);
-
+$excel-theme: mat-light-theme($excel-primary, $excel-accent, $excel-warn);
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
-@include angular-material-theme($candy-app-theme);
+@include angular-material-theme($excel-theme);

@@ -23,7 +23,6 @@ export class DashComponent implements OnInit {
   userId: string;
   getUserData: any;
   userData: any = {};
-  tiles: any[];
 
   constructor(private authService: AuthService, private router: Router) { }
 
@@ -44,18 +43,7 @@ export class DashComponent implements OnInit {
         });
       }
     });
-    this.tiles = [
-      {text: 'One', cols: 4, rows: 1, color: 'lightblue'},
-      {text: 'Two', cols: 4, rows: 1, color: 'lightgreen'},
-      {text: 'Three', cols: 4, rows: 1, color: 'lightpink'},
-      {text: 'Four', cols: 4, rows: 1, color: '#DDBDF1'},
-      {text: 'Five', cols: 4, rows: 1, color: '#DDBDF1'},
-      {text: 'Six', cols: 4, rows: 1, color: '#DDBDF1'},
-    ];
 
-    // this.getUserData = this.authService.getUserData(this.userId)
-    // console.log(this.userId)
-    
   }
 
   logout() {

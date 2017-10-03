@@ -1,4 +1,4 @@
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+/* @import "~@angular/material/prebuilt-themes/indigo-pink.css"; */
 @import url(https://fonts.googleapis.com/icon?family=Material+Icons);
 @import url(https://fonts.googleapis.com/css?family=Noto+Sans|Open+Sans);
 
@@ -9,6 +9,12 @@ body, html {
   /* margin-bottom: 4px; */
   /*border: 1px solid red;*/
 }
+
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
 
 /* font-family: 'Noto Sans',
 sans-serif; */
