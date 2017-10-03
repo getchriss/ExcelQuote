@@ -29,7 +29,14 @@ const PHONE_REGEX = /^(\((03|04|06|07|09)\)\d{7})|(\((021|022|025|027|028|029)\)
 
 export class NewFormComponent implements OnInit, OnChanges {
   clipboard: any;
+<<<<<<< HEAD
   files: FileList;
+=======
+  
+  private foo: FirebaseListObservable<QuoteFile[]>;
+  private quotes: { [id: string]: any; } = [];
+  private quoteNumbers: any = [];
+>>>>>>> 3/10/2017---Josh
 
   client: string = '';
   email: string = '';
@@ -49,21 +56,22 @@ export class NewFormComponent implements OnInit, OnChanges {
   stock: string = '';
   color: string = '';
   embel: string = '';
+  orient: string = '';
   appliedBy: string = '';
   adhesive: string = '';
   overPrint: string = '';
   core: number;
-  windStyle: string = '';
+  windStyle: string;
   supplied: string = '';
   proofType: string = '';
   addInfo: string = '';
-  
+
   $stocks: any;
   $finishes: any;
   $adhesives: any;
   $embelishments: any;
   $userFile: any;
-  
+
   quote: any = {
     client: this.client,
     email: this.email,
@@ -83,6 +91,7 @@ export class NewFormComponent implements OnInit, OnChanges {
     stock: this.stock,
     color: this.color,
     embel: this.embel,
+    orient: this.orient,
     appliedBy: this.appliedBy,
     adhesive: this.adhesive,
     overPrint: this.overPrint,
@@ -92,7 +101,7 @@ export class NewFormComponent implements OnInit, OnChanges {
     proofType: this.proofType,
     addInfo: this.addInfo
   };
-  
+
   emailFormControl = new FormControl('', [
     Validators.required,
     Validators.pattern(EMAIL_REGEX)]);
@@ -104,10 +113,23 @@ export class NewFormComponent implements OnInit, OnChanges {
   globalFormControl = new FormControl('', [
     Validators.required]);
 
-    
+
   @ViewChild('datePicker') input;
 
-  constructor(private form: QuoteService, private snackBar: MdSnackBar) { }
+  constructor(private form: QuoteService, private snackBar: MdSnackBar) {
+
+    this.foo = this.form.getQuoteNumbers();
+
+    this.foo.subscribe(snapshots => {
+      this.quotes = snapshots.slice();
+      // console.log(this.quotes[1].key)
+      for (let i = 0; i < this.quotes.length; i++) {
+        let tempKey = this.quotes[i].key;
+        this.quoteNumbers.push(tempKey);
+        // console.log(this.quoteNumbers)
+      };
+    });
+  }
 
   ngOnInit() {
     this.$stocks = this.form.getStocks();
@@ -118,9 +140,11 @@ export class NewFormComponent implements OnInit, OnChanges {
   }
 
   submitQuote() {
+    let quoteNum = this.createQuoteNumber(this.quoteNumbers);
+    // console.log(quoteNum)
     this.quote.date = this.input.nativeElement.value;
     if (this.form.validateQuote(this.quote)) {
-      this.form.submitQuote(this.quote);
+      this.form.submitQuote(this.quote, quoteNum);
       // this.uploadFile();
     } else {
       // this.quote.date = this.input.nativeElement.value;
@@ -133,7 +157,7 @@ export class NewFormComponent implements OnInit, OnChanges {
     }
   }
 
-  ngOnChanges() {}
+  ngOnChanges() { }
 
   handleSubmit(event) {
     if (event.keyCode === 13) {
@@ -162,8 +186,21 @@ export class NewFormComponent implements OnInit, OnChanges {
     return false;
   }
 
+<<<<<<< HEAD
   onChange(files: FileList){
     this.files = files;
+=======
+  createQuoteNumber(array) {
+    let lastNumberPos = array.length - 1;
+    let tempNumber = Number(array[lastNumberPos]) + 1;
+    let newNumber = this.pad(tempNumber, 6);
+    return newNumber;
+  }
+
+  pad(num, size) {
+    var s = "000000000" + num;
+    return s.substr(s.length - size);
+>>>>>>> 3/10/2017---Josh
   }
 }
 

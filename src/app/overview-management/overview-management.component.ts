@@ -17,7 +17,7 @@ export class OverviewManagementComponent implements OnInit {
   private feed: FirebaseListObservable<QuoteFile[]>;
   private focusThumb: string;
 
-  constructor(private quoteFile: QuoteService) { }
+  constructor(private quoteFile: QuoteService) {  }
 
   ngOnInit() {
     this.feed = this.quoteFile.getQuotes();
