@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { AngularFireDatabase } from 'angularfire2/database';
 import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs/Observable';
 import { User } from '../models/user.model';
@@ -64,22 +64,28 @@ export class AuthService {
       .then((user) => {
         this.authState = user;
         const status = 'online';
-        this.setUserData(email, displayName, status);
+        const type = 'user';
+        this.setUserData(email, displayName, type, status);
         this.snackBar.open(`Registration successful.`, '', { duration: 2000 })
       })
       .catch(error => this.snackBar.open(`Invalid email or password.`, '', { duration: 2000 }));
   }
 
-  setUserData(email: string, displayName: string, status: string): void {
+  setUserData(email: string, displayName: string, type: string, status: string): void {
     const path = `users/${this.currentUserId}`;
     const data = {
       email: email,
       displayName: displayName,
+      type: type,
       status: status
     };
 
     this.db.object(path).update(data)
       .catch(error => console.log(error));
+  }
+
+  getUserData(uid: string) {
+    return this.db.list('/users/' + uid, { preserveSnapshot: true });
   }
 
   setUserStatus(status: string): void {

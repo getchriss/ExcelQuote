@@ -5,6 +5,7 @@
 body, html {
   margin: 0;
   position: relative;
+  background-color: #F0F0F0;
   /* margin-bottom: 4px; */
   /*border: 1px solid red;*/
 }
@@ -69,4 +70,8 @@ sans-serif;
 
 .container[_ngcontent-c1]::after {
   height: auto!important;
+}
+
+.row {
+  position: relative;
 }

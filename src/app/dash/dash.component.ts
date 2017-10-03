@@ -20,6 +20,9 @@ export class DashComponent implements OnInit {
 
   user: Observable<firebase.User>;
   userEmail: string;
+  userId: string;
+  getUserData: any;
+  userData: any = {};
 
   constructor(private authService: AuthService, private router: Router) { }
 
@@ -28,8 +31,19 @@ export class DashComponent implements OnInit {
     this.user.subscribe(user => {
       if (user) {
         this.userEmail = user.email;
+        this.userId = user.uid;
+        // console.log(this.userId)
+
+        this.getUserData = this.authService.getUserData(this.userId)
+        this.getUserData.subscribe(snapshots => {
+          snapshots.forEach(snapshot => {
+            this.userData[snapshot.key] = snapshot.val();
+            // console.log(this.userData)
+          });
+        });
       }
     });
+
   }
 
   logout() {
