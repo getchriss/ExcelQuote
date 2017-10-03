@@ -6,7 +6,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { MdButtonModule,  MdToolbarModule, MdIconModule, MdDialogModule, MdInputModule, MdCheckboxModule,
   MdGridListModule, MdCardModule, MdSlideToggleModule, MdDatepickerModule, MdNativeDateModule,
-  MdButtonToggleModule, MdSelectModule, MdSnackBarModule } from '@angular/material';
+  MdButtonToggleModule, MdSelectModule, MdSnackBarModule, MdTabsModule } from '@angular/material';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -80,6 +80,7 @@ import { OverviewManagementComponent } from './overview-management/overview-mana
     MdButtonToggleModule,
     MdSelectModule,
     MdSnackBarModule,
+    MdTabsModule,
   ],
   providers: [AuthService, QuoteService, NotifyService],
   bootstrap: [AppComponent]

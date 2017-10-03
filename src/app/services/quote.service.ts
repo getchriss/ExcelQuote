@@ -10,10 +10,10 @@ import { QuoteFile } from '../models/quote-file.model'
 @Injectable()
 export class QuoteService {
   user: any;
-  // team;
   quoteFiles: FirebaseListObservable<QuoteFile[]>;
   quoteFile: QuoteFile;
   userName: Observable<string>;
+  quoteNumbers = [];
 
   constructor(private db: AngularFireDatabase, private afAuth: AngularFireAuth) {
     this.afAuth.authState.subscribe(auth => {
@@ -21,8 +21,7 @@ export class QuoteService {
         this.user = auth;
       }
     });
-
-    // console.log(this.team)
+    
   }
 
   validateQuote(quote: any) {
@@ -30,7 +29,7 @@ export class QuoteService {
       quote.client.length > 0 &&
       quote.email.length > 0 &&
       quote.address.length > 0 &&
-      quote.phone.length > 0 &&
+      quote.phone !== undefined &&
       quote.date !== undefined &&
       quote.userFileName !== undefined &&
       quote.noKinds !== undefined &&
@@ -45,49 +44,52 @@ export class QuoteService {
       quote.stock.length > 0 &&
       quote.color.length > 0 &&
       quote.embel.length > 0 &&
+      quote.orient.length > 0 &&
       quote.appliedBy.length > 0 &&
       quote.adhesive.length > 0 &&
       quote.overPrint.length > 0 &&
-      // quote.core.length > 0 && // Not yet added to form. Uncomment when added
-      // quote.windStyle.length > 0 && // Not yet added to form. Uncomment when added
+      quote.core !== undefined &&
+      quote.windStyle !== undefined &&
       quote.supplied.length > 0 &&
       quote.proofType.length > 0
     ) {
-      console.log('validateQuote() was successful...')
+      // console.log('validateQuote() was successful...')
       return true;
     } else {
-      console.log('validateQuote() was not successful...')
-      console.log(quote)
-      // console.log('client: ' + quote.client.length);
-      // console.log('email: ' + quote.email.length);
-      // console.log('address: ' + quote.address.length)
-      // console.log('phone: ' + quote.phone.length)
-      // console.log('date: ' + quote.date);
-      // console.log('user file name: ' + quote.userFileName)
-      // console.log('# of kinds: ' + quote.noKinds)
-      // console.log('quantity per kind: ' + quote.qKinds)
-      // console.log('cost: ' + quote.cost.length)
-      // console.log('width: ' + quote.width)
-      // console.log('height: ' + quote.height)
-      // console.log('labels per roll: ' + quote.labelsPer)
-      // console.log('gap: ' + quote.gap.length)
-      // console.log('knife: ' + quote.knife.length)
-      // console.log('charge: ' + quote.charge.length)
-      // console.log('stock: ' + quote.stock.length)
-      // console.log('color: ' + quote.color.length)
-      // console.log('embelishments ' + quote.embel.length)
-      // console.log('applied by: ' + quote.appliedBy.length)
-      // console.log('adhesive: ' + quote.adhesive.length)
-      // console.log('over print: ' + quote.overPrint.length)
-      // console.log('supplied in: ' + quote.supplied.length)
-      // console.log('proof type: ' + quote.proofType.length)
+      // console.log('validateQuote() was not successful...')
+      console.log(quote.client.length)
+      console.log(quote.email.length)
+      console.log(quote.address.length)
+      console.log(quote.phone !== undefined)
+      console.log(quote.date !== undefined)
+      console.log(quote.userFileName !== undefined)
+      console.log(quote.noKinds !== undefined)
+      console.log(quote.qKinds !== undefined)
+      console.log(quote.cost.length)
+      console.log(quote.width !== undefined)
+      console.log(quote.height !== undefined)
+      console.log(quote.labelsPer !== undefined)
+      console.log(quote.gap !== undefined)
+      console.log(quote.knife.length)
+      console.log(quote.charge.length)
+      console.log(quote.stock.length)
+      console.log(quote.color.length)
+      console.log(quote.embel.length)
+      console.log(quote.orient.length)
+      console.log(quote.appliedBy.length)
+      console.log(quote.adhesive.length)
+      console.log(quote.overPrint.length)
+      console.log(quote.core !== undefined)
+      console.log(quote.windStyle !== undefined)
+      console.log(quote.supplied.length)
+      console.log(quote.proofType.length)
       return false;
     }
   }
 
-  submitQuote(quote: any) {
+  submitQuote(quote: any, quoteNum: string) {
     this.quoteFiles = this.getQuotes();
-    this.quoteFiles.push({
+    let quoteFile = {
       client: quote.client,
       email: quote.email,
       address: quote.address,
@@ -106,15 +108,19 @@ export class QuoteService {
       stock: quote.stock,
       colour: quote.color,
       embel: quote.embel,
+      orient: quote.orient,
       appliedBy: quote.appliedBy,
       adhesive: quote.adhesive,
       overPrint: quote.overPrint,
-      // core: quote.core,
-      // windStyle: quote.windStyle,
+      core: quote.core,
+      windStyle: quote.windStyle,
       suppliedIn: quote.supplied,
       proofType: quote.proofType,
-      addInfo: quote.addInfo
-    });
+      addInfo: quote.addInfo,
+      stage: 'requested'
+    };
+    this.quoteFiles.update(quoteNum, quoteFile);
+
     console.log('Completed submitQuote()...')
   }
 
@@ -129,18 +135,15 @@ export class QuoteService {
   getQuoteById(id) {
     return this.db.list('/quotes/' + id, { preserveSnapshot: true });
   }
-
-  // viewQuotes() {
-  //   return this.db.list('/quotes')
-  //     .mergeMap(list => list)
-  //     .map(({name, firebaseKey}) => ({name: "test3", firebaseKey}))
-  //     .subscribe(x => console.log(x));
-  // }
+  
+  getQuoteNumbers() {
+    return this.db.list('/quotes/', { preserveSnapshot: true })
+  }
 
   getStocks(): FirebaseListObservable<QuoteFile[]> {
     return this.db.list('/misc/stock', {
       preserveSnapshot: true
-    });
+    })
   }
 
 

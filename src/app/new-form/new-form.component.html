@@ -192,7 +192,7 @@
               </div>
               <div>
                 <p>Orientation</p>
-                <md-button-toggle-group [(ngModel)]="quote.Orientation" #group="mdButtonToggleGroup" name="orientation">
+                <md-button-toggle-group [(ngModel)]="quote.orient" #group="mdButtonToggleGroup" name="orientation">
                   <md-button-toggle value="Wide" class="btn-primary">Wide edge leading</md-button-toggle>
                   <md-button-toggle value="Narrow" class="btn-primary">Narrow edge leading</md-button-toggle>
                 </md-button-toggle-group>
@@ -222,17 +222,18 @@
               </div>
               <div>
                 <p>Core size</p>
-                <md-select placeholder="Select core size">
-                  <md-option>
-                    <!-- {{ coresize.val }} -->
-                    <button md-button>Other</button>
-                  </md-option>
+                <md-select [(ngModel)]="quote.core" placeholder="Select core size" name="core">
+                  <md-option value="25">25</md-option>
+                  <md-option value="38">38</md-option>
+                  <md-option value="41">41</md-option>
+                  <md-option value="76">76</md-option>
+                  <!-- <md-option><button md-button>Other</button></md-option> -->
                 </md-select>
               </div>
               <div>
                 <p>Winding style</p>
                 <br>
-                <md-button-toggle-group class="windingBox mat-elevation-z0" #group="mdButtonToggleGroup">
+                <md-button-toggle-group [(ngModel)]="quote.windStyle" class="windingBox mat-elevation-z0" #group="mdButtonToggleGroup" name="windStyle">
                   <md-button-toggle class="windingOpt" value="1">
                     <img src="../../assets/img/1.png">
                   </md-button-toggle>
