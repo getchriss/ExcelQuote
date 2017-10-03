@@ -63,12 +63,23 @@ app-navfooter {
   overflow: -moz-scrollbars-none;
 }
 
-.previewBox div > p {
-  font-family: 'Open Sans Semibold',
-  sans-serif;
+.previewBox div>p {
+  font-family: 'Open Sans Semibold', sans-serif;
   font-size: 17px;
-  color:#472155;
+  color: #472155;
   margin-bottom: 4px;
+}
+
+.previewBox div>p:nth-child(2) {
+  font-size: 16px;
+  font-family: 'Open Sans', sans-serif;
+  color: #717171;
+  margin-bottom: -5px;
+}
+
+hr {
+  border: 0px solid #472155;
+  border-top-width: 1px;
 }
 
 .previewBox div {
@@ -79,5 +90,4 @@ span {
   font-family: 'Noto Sans', sans-serif;
   font-size: 16px;
   color: #717171;
-
 }

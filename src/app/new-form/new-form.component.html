@@ -1,5 +1,3 @@
-<script src="./fileUpload.js"></script>
-
 <div fxLayout="column" fxLayoutAlign="start none">
   <div fxFlex="100" class="flex-nav">
     <app-navbar></app-navbar>
@@ -30,7 +28,7 @@
                     Email is <strong>required</strong>
                   </md-error>
                 </md-form-field>
-              </div> 
+              </div>
               <div>
                 <md-form-field class="full-width" [hideRequiredMarker]="true">
                   <input mdInput [(ngModel)]="quote.address" placeholder="Address" name="address" required>
@@ -62,14 +60,16 @@
                   </md-error>
                 </md-form-field>
               </div>
-              <div>
-                <md-form-field class="full-width noBorder" [hideRequiredMarker]="true">
-                  <input class="ng-hide noBorder" mdInput>
-                  <input class="ng-hide noBorder" id="userFile" multiple type="file" [(ngModel)]="quote.$userFile" (change)="fileEvent($event)"
-                    name="userFile">
-                  <button class="full-width noBorder" md-raised-button color="primary"><label for="userFile">Upload artwork</label></button>
-                  <br>
-                  <p id="log"></p>
+              <div class="removeB">
+                <md-form-field class="full-width" [hideRequiredMarker]="true">
+                  <span (change)="onChange(file.files)">
+                    <input class="ng-hide noBorder" mdInput>
+                    <input class="ng-hide noBorder" id="userFile" multiple type="file" #file [(ngModel)]="quote.$userFile" (change)="fileEvent($event)"
+                      name="userFile">
+                    <button class="full-width noBorder" md-raised-button color="primary"><label for="userFile">Upload artwork<i class="material-icons">cloud_upload</i></label></button>
+                    <br>
+                    <p class="upload" *ngFor="let f of files">{{ f.name }}</p>
+                  </span>
                   <!-- <input mdInput style="display:none">
                     <input type="file" [(ngModel)]="quote.$userFile" (change)="fileEvent($event)" name="userFile"> -->
                   <!-- <input type="file" [(ngModel)]="quote.$userFile" (change)="fileEvent($event)" name="userFile" value=""> -->
@@ -111,7 +111,7 @@
                       <td style="padding-left:0px">
                         <md-form-field class="full-width" [hideRequiredMarker]="true">
                           <input mdInput [(ngModel)]="quote.width" type="number" maxlength="5" placeholder="Width" name="width" type="number" required>
-                          <span mdSuffix>mm</span>
+                          <span class="mdsuffix" mdSuffix>mm</span>
                           <md-error *ngIf="globalFormControl.hasError('required')">
                             <strong>Invalid</strong> width.
                           </md-error>
@@ -121,7 +121,7 @@
                       <td style="padding-right:0px">
                         <md-form-field class="full-width" [hideRequiredMarker]="true">
                           <input mdInput [(ngModel)]="quote.height" type="number" maxlength="5" placeholder="Height" name="height" type="number" required>
-                          <span mdSuffix>mm</span>
+                          <span class="mdsuffix" mdSuffix>mm</span>
                           <md-error *ngIf="globalFormControl.hasError('required')">
                             <strong>Invalid</strong> height.
                           </md-error>
@@ -144,7 +144,7 @@
                 <span class="nonInput">Gap between labels if larger than 4mm</span>
                 <md-form-field class="full-width" [hideRequiredMarker]="true">
                   <input mdInput [(ngModel)]="quote.gap" maxlength="5" type="number" value="4mm" name="gap" type="number" required>
-                  <span mdSuffix>mm</span>
+                  <span class="mdsuffix" mdSuffix>mm</span>
                   <md-error *ngIf="globalFormControl.hasError('required')">
                     Gap between is <strong>required</strong>
                   </md-error>

@@ -29,7 +29,8 @@ const PHONE_REGEX = /^(\((03|04|06|07|09)\)\d{7})|(\((021|022|025|027|028|029)\)
 
 export class NewFormComponent implements OnInit, OnChanges {
   clipboard: any;
-  
+  files: FileList;
+
   client: string = '';
   email: string = '';
   address: string = '';
@@ -160,5 +161,24 @@ export class NewFormComponent implements OnInit, OnChanges {
       });
     return false;
   }
+
+  onChange(files: FileList){
+    this.files = files;
+  }
 }
 
+// var input = document.getElementById("userFile");
+
+// input.onclick = function () {
+//   this.value = null;
+// };
+
+// input.onchange = function () {
+//   var path = input.value;
+//   var filename = "";
+//   if (path.lastIndexOf("\\") != -1)
+//     filename = path.substring(path.lastIndexOf("\\") + 1, path.length);
+//   else
+//     filename = path.substring(path.lastIndexOf("/") + 1, path.length);
+//   document.getElementById("log").innerHTML = filename;
+// };

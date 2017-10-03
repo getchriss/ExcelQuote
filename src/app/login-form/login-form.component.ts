@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
+
 import { AuthService } from '../services/auth.service';
 import { NotifyService } from '../services/notify.service';
 import { Router } from '@angular/router';
@@ -15,6 +17,9 @@ export class LoginFormComponent {
   errorMsg: any;
 
   constructor(private authService: AuthService, private router: Router, private NotifyService: NotifyService) { }
+
+  globalFormControl = new FormControl('', [
+    Validators.required]);
 
   login() {
     console.log('login() called from login-form component');

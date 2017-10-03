@@ -11,9 +11,12 @@ p {
 
 .nonInput {
   color: #6e6e6e;
-  font-family: 'Open Sans',
-  sans-serif;
+  font-family: 'Open Sans', sans-serif;
   margin-top: -15px;
+}
+
+.mdsuffix {
+  color:#472155;
 }
 
 main div {
@@ -65,8 +68,34 @@ label {
 }
 
 .upload {
-  color: #CACACA;
+  /* color: #6e6e6e; */
+  color: #CECECE;
+  position: absolute;
+  font-size: 13px;
   font-family: 'Open Sans', sans-serif;
+  -webkit-animation: fadein 1.5s;
+  -moz-animation: fadein 1.5s;
+  -ms-animation: fadein 1.5s;
+  -o-animation: fadein 1.5s;
+  animation: fadein 1.5s;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/deep/ .mat-button-toggle-label-content {
+  padding: 0 0px!important;
+  width: 100%;
+}
+
+.removeB /deep/ .mat-form-field-underline {
+  background-color: #F0F0F0;
 }
 
 .full-width {
@@ -163,7 +192,6 @@ md-button-toggle img {
   top: 0;
   bottom: 0;
   margin-top: 40px;
-  margin-bottom: 20px;
   width: 100%;
   max-width: 320px;
   border-radius: 20px;
@@ -216,4 +244,9 @@ label>div {
 
 md-button-toggle>label>div {
   display: flex;
+}
+
+textarea {
+  resize: both;
+  height: 50px;
 }
