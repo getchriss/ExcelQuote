@@ -33,15 +33,15 @@
           <div class="feed" fxLayout="column" fxFlex="grow">
             <div *ngFor="let quoteFile of feed | async" class="quote">
               <!-- <app-quote-thumbnail ></app-quote-thumbnail> -->
-              <div class="quoteContainer">
+              <div class="quoteContainer" *ngIf="quoteFile.stage == 'requested'">
                 <div [ngClass]="(focusThumb==quoteFile.$key)?'quoteInnerContainer focused':'quoteInnerContainer'" (click)="toggleFocus($event, quoteFile.$key)">
                   <div class="quoteData" [ngClass]="{}">
                     <span class="quoteName" [ngClass]="{}">
-                          {{ quoteFile.client }}
-                        </span>
+                      {{ quoteFile.client }}
+                    </span>
                     <span class="quoteID" [ngClass]="{}">
-                          {{ quoteFile.$key }}
-                        </span>
+                      {{ quoteFile.$key }}
+                    </span>
                   </div>
                   <div class="quoteOpen" [routerLink]="['/quotePreview/' + focusThumb]" [ngClass]="(focusThumb==quoteFile.$key)?'quoteOpen focused':'quoteOpen'"
                     (click)="toggleFocus($event, quoteFile.$key)">
@@ -57,6 +57,25 @@
         <br>
         <div class="populationContainer">
           <div class="feed" fxLayout="column" fxFlex="grow">
+            <div *ngFor="let quoteFile of feed | async" class="quote">
+              <!-- <app-quote-thumbnail ></app-quote-thumbnail> -->
+              <div class="quoteContainer" *ngIf="quoteFile.stage == 'pending'">
+                <div [ngClass]="(focusThumb==quoteFile.$key)?'quoteInnerContainer focused':'quoteInnerContainer'" (click)="toggleFocus($event, quoteFile.$key)">
+                  <div class="quoteData" [ngClass]="{}">
+                    <span class="quoteName" [ngClass]="{}">
+                      {{ quoteFile.client }}
+                    </span>
+                    <span class="quoteID" [ngClass]="{}">
+                      {{ quoteFile.$key }}
+                    </span>
+                  </div>
+                  <div class="quoteOpen" [routerLink]="['/quotePreview/' + focusThumb]" [ngClass]="(focusThumb==quoteFile.$key)?'quoteOpen focused':'quoteOpen'"
+                    (click)="toggleFocus($event, quoteFile.$key)">
+                    <span>OPEN</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </md-tab>
@@ -64,6 +83,25 @@
         <br>
         <div class="populationContainer">
           <div class="feed" fxLayout="column" fxFlex="grow">
+            <div *ngFor="let quoteFile of feed | async" class="quote">
+              <!-- <app-quote-thumbnail ></app-quote-thumbnail> -->
+              <div class="quoteContainer" *ngIf="quoteFile.stage == 'completed'">
+                <div [ngClass]="(focusThumb==quoteFile.$key)?'quoteInnerContainer focused':'quoteInnerContainer'" (click)="toggleFocus($event, quoteFile.$key)">
+                  <div class="quoteData" [ngClass]="{}">
+                    <span class="quoteName" [ngClass]="{}">
+                      {{ quoteFile.client }}
+                    </span>
+                    <span class="quoteID" [ngClass]="{}">
+                      {{ quoteFile.$key }}
+                    </span>
+                  </div>
+                  <div class="quoteOpen" [routerLink]="['/quotePreview/' + focusThumb]" [ngClass]="(focusThumb==quoteFile.$key)?'quoteOpen focused':'quoteOpen'"
+                    (click)="toggleFocus($event, quoteFile.$key)">
+                    <span>OPEN</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </md-tab>
