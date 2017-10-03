@@ -16,7 +16,7 @@ p {
 }
 
 .mdsuffix {
-  color:#472155;
+  color: #472155;
 }
 
 main div {
@@ -89,12 +89,12 @@ label {
   }
 }
 
-/deep/ .mat-button-toggle-label-content {
+>>>.mat-button-toggle-label-content {
   padding: 0 0px!important;
   width: 100%;
 }
 
-.removeB /deep/ .mat-form-field-underline {
+.removeB>>>.mat-form-field-underline {
   background-color: #F0F0F0;
 }
 

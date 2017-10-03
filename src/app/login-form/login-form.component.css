@@ -1,7 +1,8 @@
-/* @import "~@angular/material/prebuilt-themes/purple-green.css"; */
+/* @import "~angular/material/_theming.scss"; */
+/* @import './excelcol.scss'; */ 
 
 .full-width {
-  width:100%;
+  width: 100%;
 }
 
 #logo {
@@ -20,44 +21,62 @@
 }
 
 .material-icons {
-  color:#FFF;
+  color: #FFF;
   font-weight: 200!important;
   margin-right: 10px;
 }
 
 .loginContainer {
-    position: absolute;
-    margin: auto;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    max-width: 312px;
-    height: 100px;
-    background-color: rgba(0, 0, 0, 0);
-    border: 0px;
-    border-radius: 3px;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  max-width: 312px;
+  height: 100px;
+  background-color: rgba(0, 0, 0, 0);
+  border: 0px;
+  border-radius: 3px;
 }
 
 .rememberMe {
   text-align: left;
-  font-size: 13px;
-}
-
-input {
-  color: #FFF!important;
-  width:100%;
-  max-width: 312px!important;
+  font-size: 11px;
+  color: #FFF;
 }
 
 .forgot {
-  font-size: 13px!important;
-  margin-left: 9.5%;
+  font-size: 11px;
   text-align: right;
-  padding-bottom: 3px;
+  position: absolute;
+  left: -1.0%;
+  top: 8%;
+
 }
 
 .falign {
   text-align: right;
 }
+
+input {
+  color: #FFF!important;
+  width: 100%;
+  max-width: 312px!important;
+  font-size: 17px;
+}
+
+>>> .mat-form-field-placeholder-wrapper {
+  top: -1.2em;
+  color: #FFF;
+}
+
+.space input {
+  letter-spacing: 5px;
+}
+
+>>>.mat-form-field-underline {
+  background-color: #FFF;
+}
+
