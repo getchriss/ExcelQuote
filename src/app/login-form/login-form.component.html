@@ -25,11 +25,11 @@
     </md-grid-list>
     <md-grid-list cols="2" [rowHeight]="60">
       <md-grid-tile-footer cols="2">
-        <md-slide-toggle class="rememberMe"><span class="rememberMe">&nbsp; &nbsp; Remember me</span></md-slide-toggle>
+        <md-slide-toggle class="rememberMe"><span class="rememberMe" (click)="rememberMe()">&nbsp; &nbsp; Remember me</span></md-slide-toggle>
         <span class="forgot full-width"><a (click)="resetPassword()" style="text-decoration:none;color:#FFF;" href="#" target="_self">Forgot your password?</a></span>
       </md-grid-tile-footer>
     </md-grid-list>
-    <md-grid-list cols="1" rows="4" [rowHeight]="50" style="margin-top:57px;">
+    <md-grid-list cols="1" rows="4" [rowHeight]="50" style="margin-top:80px;">
       <md-grid-tile>
         <button class="full-width rbtn" md-raised-button color="primary" id="btn-login" (click)="login()">Log In</button>
       </md-grid-tile>

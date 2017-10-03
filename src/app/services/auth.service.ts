@@ -38,6 +38,12 @@ export class AuthService {
       .catch((error) => console.log(error))
   }
 
+  rememberMe(email: string, password: string) {
+    this.afAuth.auth.setPersistence(email)
+      .then(() => console.log("session stored"))
+      .catch((error) => console.log(error))
+  }
+
   get currentUserId(): string {
     return this.authState !== null ? this.authState.uid : '';
   }
@@ -52,6 +58,8 @@ export class AuthService {
       }
       );
   }
+
+
 
   logout() {
     this.afAuth.auth.signOut();

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { MdTabsModule } from '@angular/material';
 
 import { AuthService } from '../services/auth.service';
 import { NotifyService } from '../services/notify.service';
@@ -34,4 +35,7 @@ export class LoginFormComponent {
       .then(() => this.passReset = true)
   }
 
+  rememberMe() {
+    this.authService.rememberMe(this.email, this.password)
+  }
 }

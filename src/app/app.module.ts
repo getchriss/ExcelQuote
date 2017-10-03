@@ -6,15 +6,14 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { MdButtonModule,  MdToolbarModule, MdIconModule, MdDialogModule, MdInputModule, MdCheckboxModule,
   MdGridListModule, MdCardModule, MdSlideToggleModule, MdDatepickerModule, MdNativeDateModule,
-  MdButtonToggleModule, MdSelectModule, MdSnackBarModule } from '@angular/material';
+  MdButtonToggleModule, MdSelectModule, MdSnackBarModule, MdTabsModule } from '@angular/material';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
-import { AngularFireAuthModule } from 'angularfire2/auth';
-import { LocalStorageModule } from 'angular-local-storage'
+import { AngularFireAuthModule } from 'angularfire2/auth'; 
 
 import { AppComponent } from './app.component';
 import { LoginFormComponent } from './login-form/login-form.component';
@@ -80,6 +79,7 @@ import { OverviewManagementComponent } from './overview-management/overview-mana
     MdButtonToggleModule,
     MdSelectModule,
     MdSnackBarModule,
+    MdTabsModule,
   ],
   providers: [AuthService, QuoteService, NotifyService],
   bootstrap: [AppComponent]
