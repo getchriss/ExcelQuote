@@ -35,6 +35,7 @@ import { environment } from '../environments/environment';
 import { NewFormComponent } from './new-form/new-form.component';
 import { NavfooterComponent } from './navfooter/navfooter.component';
 import { QuoteThumbnailComponent } from './quote-thumbnail/quote-thumbnail.component';
+import { OverviewManagementComponent } from './overview-management/overview-management.component';
 
 
 @NgModule({
@@ -50,6 +51,7 @@ import { QuoteThumbnailComponent } from './quote-thumbnail/quote-thumbnail.compo
     NewFormComponent,
     NavfooterComponent,
     QuoteThumbnailComponent,
+    OverviewManagementComponent,
   ],
 
   imports: [
