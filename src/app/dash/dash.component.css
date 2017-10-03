@@ -44,7 +44,6 @@ h3 {
   position: absolute;
   margin: auto;
   top: 0px;
-  text-align: center;
   right: 0;
   bottom: 0;
   left: 0;
@@ -69,5 +68,9 @@ h3 {
   background-color: rgba(0, 0, 0, 0);
   border: 0px;
   border-radius: 3px;
+}
+
+.text-center {
+  text-align: center;
 }
 

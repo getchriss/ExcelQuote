@@ -1,24 +1,54 @@
-<div class="dash-wrapper">
+<div class="dash-wrapper" *ngIf="(user|async)?.uid && userData.type == 'user'">
   <div id="logo"></div>
+  <md-card class="dashHeader mat-elevation-z0" flex="flex" flex-gt-sm="50" flex-gt-md="33">
+    <h3 class="text-center">Hello, {{userData.displayName}}!</h3>
+    <p class="full-width text-center" id="userEmail">you're currently logged in with {{userData.email}}.</p>
+  </md-card>
+  <md-card class="dashWrapper mat-elevation-z0">
+    <md-card-content>
+      <md-grid-list cols="1" rows="4" [rowHeight]="50">
+        <md-grid-tile>
+          <button class="full-width rbtn" md-raised-button color="primary" routerLink="/new-form">New</button>
+        </md-grid-tile>
+        <md-grid-tile>
+          <button class="full-width rbtn" md-raised-button color="primary" routerLink="/quoteManagement">Previous</button>
+        </md-grid-tile>
+      </md-grid-list>
+      <md-grid-list cols="1" rows="4" [rowHeight]="200">
+        <md-grid-tile>
+          <button class="full-width rbtn" md-raised-button color="primary" href="#" (click)="logout()">Sign Out</button>
+        </md-grid-tile>
+      </md-grid-list>
+    </md-card-content>
+  </md-card>
 </div>
-<md-card class="dashHeader mat-elevation-z0" flex="flex" flex-gt-sm="50" flex-gt-md="33">
-  <h3 class="text-center">Hello, {{userData.displayName}}!</h3>
-  <p class="full-width" id="userEmail">you're currently logged in with {{userEmail}}.</p>
-</md-card>
-<md-card class="dashWrapper mat-elevation-z0">
-  <md-card-content>
-    <md-grid-list cols="1" rows="4" [rowHeight]="50">
-      <md-grid-tile>
-        <button class="full-width rbtn" md-raised-button color="primary" *ngIf="(user|async)?.uid" routerLink="/new-form">New</button>
-      </md-grid-tile>
-      <md-grid-tile>
-        <button class="full-width rbtn" md-raised-button color="primary" *ngIf="(user|async)?.uid" routerLink="/quoteManagement">Previous</button>
-      </md-grid-tile>
-    </md-grid-list>
-    <md-grid-list cols="1" rows="4" [rowHeight]="200">
-      <md-grid-tile>
-        <button class="full-width rbtn" md-raised-button color="primary" *ngIf="(user|async)?.uid" href="#" (click)="logout()">Sign Out</button>
-      </md-grid-tile>
-    </md-grid-list>
-  </md-card-content>
-</md-card>
+<div class="dash-wrapper" *ngIf="(user|async)?.uid && userData.type == 'admin'">
+  <div id="logo"></div>
+  <md-card class="dashHeader mat-elevation-z0" flex="flex" flex-gt-sm="50" flex-gt-md="33">
+    <h3 class="text-center">Hello, {{userData.displayName}}!</h3>
+    <p class="full-width text-center" id="userEmail">You're currently logged in as an admin with {{userData.email}}.</p>
+  </md-card>
+  <md-card class="dashWrapper mat-elevation-z0">
+    <md-card-content>
+      <md-grid-list cols="1" rows="4" [rowHeight]="50">
+        <md-grid-tile>
+          <button class="full-width rbtn" md-raised-button color="primary" routerLink="/overview">View current quotes</button>
+        </md-grid-tile>
+      </md-grid-list>
+    </md-card-content>
+  </md-card>
+</div>
+<div class="dash-wrapper" *ngIf="!(user|async)?.uid">
+  <md-card class="dashHeader mat-elevation-z0" flex="flex" flex-gt-sm="50" flex-gt-md="33">
+    <p class="text-center">Sorry but you will need to sign in to view this content.</p>
+  </md-card>
+  <md-card class="dashWrapper mat-elevation-z0">
+    <md-card-content>
+      <md-grid-list cols="1" rows="1" [rowHeight]="50">
+        <md-grid-tile>
+          <button class="full-width rbtn" md-raised-button color="primary" routerLink="/login">Go to Login</button>
+        </md-grid-tile>
+      </md-grid-list>
+    </md-card-content>
+  </md-card>
+</div>

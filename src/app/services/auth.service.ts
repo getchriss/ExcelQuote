@@ -64,17 +64,19 @@ export class AuthService {
       .then((user) => {
         this.authState = user;
         const status = 'online';
-        this.setUserData(email, displayName, status);
+        const type = 'user';
+        this.setUserData(email, displayName, type, status);
         this.snackBar.open(`Registration successful.`, '', { duration: 2000 })
       })
       .catch(error => this.snackBar.open(`Invalid email or password.`, '', { duration: 2000 }));
   }
 
-  setUserData(email: string, displayName: string, status: string): void {
+  setUserData(email: string, displayName: string, type: string, status: string): void {
     const path = `users/${this.currentUserId}`;
     const data = {
       email: email,
       displayName: displayName,
+      type: type,
       status: status
     };
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Location } from '@angular/common';
 import { AuthService } from '../services/auth.service';
 import { Observable } from 'rxjs/Observable';
@@ -9,10 +9,12 @@ import * as firebase from 'firebase/app';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
+
 export class NavbarComponent implements OnInit {
   user: Observable<firebase.User>;
   userEmail: string;
 
+  @Input('compTitle') componentTitle: string;
 
   constructor(private authService: AuthService, private _location:Location) { }
 

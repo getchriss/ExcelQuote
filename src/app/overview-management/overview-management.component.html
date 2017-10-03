@@ -1,0 +1,61 @@
+<div class="container-nav">
+  <app-navbar [compTitle]="compTitle"></app-navbar>
+</div>
+<!-- <div fxLayout="row">
+    <div fxFlex="grow">
+      <div class="titleContainer">
+        <div class="textContainer">
+          <p class="openS" style="text-align:center; color:#FFF;"><span class="open-s">OVERVIEW</span></p>
+        </div>
+      </div>
+    </div>
+  </div> -->
+<!-- <div class="searchContainer">
+    <div fxLayout="row">
+      <div fxFlex="grow">
+        <div class="searchBar">
+          <md-toolbar class="inputSearch mat-elevation-z0">
+            <md-form-field class="full-width">
+              <input mdInput placeholder="Search" tabindex="-1">
+              <md-icon mdSuffix><i class="material-icons">search</i></md-icon>
+            </md-form-field>
+          </md-toolbar>
+        </div>
+      </div>
+    </div>
+  </div> -->
+<div class="container-body">
+  <div class="row" fxLayout="row">
+    <div class="subTitle">
+      <h4 class="populationHead">Current Quotes</h4>
+    </div>
+  </div>
+  <hr class="marg-bottom-40">
+  <div class="row" fxLayout="row">
+    <!-- <div fxLayout="column wrap"> -->
+      <div class="populationContainer">
+        <div class="feed" fxLayout="column" fxFlex="grow">
+          <div *ngFor="let quoteFile of feed | async" class="quote">
+            <!-- <app-quote-thumbnail ></app-quote-thumbnail> -->
+            <div class="quoteContainer">
+              <div [ngClass]="(focusThumb==quoteFile.$key)?'quoteInnerContainer focused':'quoteInnerContainer'" (click)="toggleFocus($event, quoteFile.$key)">
+                <div class="quoteData" [ngClass]="{}">
+                  <span class="quoteName" [ngClass]="{}">
+                    {{ quoteFile.client }}
+                  </span>
+                  <span class="quoteID" [ngClass]="{}">
+                    {{ quoteFile.$key }}
+                  </span>
+                </div>
+                <div class="quoteOpen" [routerLink]="['/quotePreview/' + focusThumb]" [ngClass]="(focusThumb==quoteFile.$key)?'quoteOpen focused':'quoteOpen'"
+                  (click)="toggleFocus($event, quoteFile.$key)">
+                  <span>OPEN</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!-- </div> -->
+  </div>
+</div>

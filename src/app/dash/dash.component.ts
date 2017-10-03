@@ -39,6 +39,7 @@ export class DashComponent implements OnInit {
         this.getUserData.subscribe(snapshots => {
           snapshots.forEach(snapshot => {
             this.userData[snapshot.key] = snapshot.val();
+            // console.log(this.userData)
           });
         });
       }
