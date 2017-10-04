@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
+
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
-
 
 @Component({
   selector: 'app-signup-form',
@@ -17,12 +18,15 @@ export class SignupFormComponent {
 
   constructor(private authService: AuthService, private router: Router) { }
 
-  signUp(){
-      const email = this.email;
-      const password = this.password;
-      const displayName = this.displayName;
-      this.authService.signUp(email, password, displayName)
-        .then(resolve => this.router.navigate(['login']))
-        .catch(error => this.errorMsg = error.message);
+  globalFormControl = new FormControl('', [
+    Validators.required]);
+
+  signUp() {
+    const email = this.email;
+    const password = this.password;
+    const displayName = this.displayName;
+    this.authService.signUp(email, password, displayName)
+      // .then(resolve => this.router.navigate(['login']))
+      .catch(error => this.errorMsg = error.message);
   }
 }

@@ -1,8 +1,9 @@
 /* @import "~@angular/material/prebuilt-themes/indigo-pink.css"; */
+
 @import url(https://fonts.googleapis.com/icon?family=Material+Icons);
 @import url(https://fonts.googleapis.com/css?family=Noto+Sans|Open+Sans);
-
-body, html {
+body,
+html {
   margin: 0;
   position: relative;
   background-color: #F0F0F0;
@@ -19,31 +20,32 @@ body, html {
 /* font-family: 'Noto Sans',
 sans-serif; */
 
+
 /* * {
 font-family: 'Open Sans',
 sans-serif;
 } */
 
 .dash-wrapper {
-  background: rgba(181,121,62,1);
-  background: -moz-linear-gradient(top, rgba(181,121,62,1) 0%, rgba(93,57,138,1) 51%, rgba(93,57,138,1) 100%);
-  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(181,121,62,1)), color-stop(51%, rgba(93,57,138,1)), color-stop(100%, rgba(93,57,138,1)));
-  background: -webkit-linear-gradient(top, rgba(181,121,62,1) 0%, rgba(93,57,138,1) 51%, rgba(93,57,138,1) 100%);
-  background: -o-linear-gradient(top, rgba(181,121,62,1) 0%, rgba(93,57,138,1) 51%, rgba(93,57,138,1) 100%);
-  background: -ms-linear-gradient(top, rgba(181,121,62,1) 0%, rgba(93,57,138,1) 51%, rgba(93,57,138,1) 100%);
-  background: linear-gradient(to bottom, rgba(181,121,62,1) 0%, rgba(93,57,138,1) 51%, rgba(93,57,138,1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b5793e', endColorstr='#5d398a', GradientType=0 );
+  background: rgba(181, 121, 62, 1);
+  background: -moz-linear-gradient(top, rgba(181, 121, 62, 1) 0%, rgba(93, 57, 138, 1) 51%, rgba(93, 57, 138, 1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(181, 121, 62, 1)), color-stop(51%, rgba(93, 57, 138, 1)), color-stop(100%, rgba(93, 57, 138, 1)));
+  background: -webkit-linear-gradient(top, rgba(181, 121, 62, 1) 0%, rgba(93, 57, 138, 1) 51%, rgba(93, 57, 138, 1) 100%);
+  background: -o-linear-gradient(top, rgba(181, 121, 62, 1) 0%, rgba(93, 57, 138, 1) 51%, rgba(93, 57, 138, 1) 100%);
+  background: -ms-linear-gradient(top, rgba(181, 121, 62, 1) 0%, rgba(93, 57, 138, 1) 51%, rgba(93, 57, 138, 1) 100%);
+  background: linear-gradient(to bottom, rgba(181, 121, 62, 1) 0%, rgba(93, 57, 138, 1) 51%, rgba(93, 57, 138, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b5793e', endColorstr='#5d398a', GradientType=0);
   overflow-y: hidden;
-  height:100vh;
+  height: 100vh;
   z-index: -1000;
 }
 
 .rbtn {
   border-radius: 20px!important;
-  overflow:hidden;
+  overflow: hidden;
   background-color: #2D0C48!important;
   height: 37px;
-  width:100%;
+  width: 100%;
   position: absolute;
   margin: auto;
   top: 0;
@@ -58,13 +60,13 @@ sans-serif;
 }
 
 .full-card {
-  position:absolute;
-  top:0;
-  left:0;
-  bottom:0;
-  right:0;
-  height:100%;
-  width:100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
 }
 
 .container[_ngcontent-c1]::after {
@@ -73,4 +75,50 @@ sans-serif;
 
 .row {
   position: relative;
+}
+
+>>>.mat-snack-bar-container {
+  top: 0%!important;
+  position: absolute;
+}
+
+snack-bar-container {
+  top: 0%!important;
+  position: absolute;
+  display: block;
+  max-width: 100%;
+  margin: auto;
+  left: 0px;
+  right: 0px;
+  animation-name: slideDown;
+  -webkit-animation-name: slideDown;
+  animation-duration: 1s;
+  -webkit-animation-duration: 1s;
+  animation-timing-function: ease;
+  -webkit-animation-timing-function: ease;
+  /**/
+}
+
+@keyframes slideDown {
+  0%, 100% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes slideDown {
+  0%, 100% {
+    opacity: 0;
+    -webkit-transform: translateY(-100%);
+  }
+
+  100% {
+    -webkit-transform: translateY(0%);
+    opacity: 1;
+  }
 }

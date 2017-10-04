@@ -4,7 +4,7 @@
 <md-card class="loginContainer mat-elevation-z0" flex="flex">
   <md-card-content>
     <md-grid-list cols="1" rows="4" [rowHeight]="70">
-      <md-grid-tile>
+      <md-grid-tile class="alternate-theme">
         <md-form-field class="full-width" [hideRequiredMarker]="true">
           <i mdPrefix class="material-icons">account_circle</i>
           <input mdInput [(ngModel)]="email" type="email" name="email" class="formInput" placeholder="Username" required/>
@@ -16,7 +16,8 @@
       <md-grid-tile>
         <md-form-field class="full-width space" [hideRequiredMarker]="true">
           <i mdPrefix class="material-icons">lock</i>
-          <input mdInput type="password" [(ngModel)]="password" name="password" class="formInput" placeholder="Password" required/>
+          <input mdInput type="password" [(ngModel)]="password" name="password" class="formInput input-theme" placeholder="Password"
+            required/>
           <md-error *ngIf="globalFormControl.hasError('required')">
             <strong>password</strong> required
           </md-error>
@@ -25,7 +26,7 @@
     </md-grid-list>
     <md-grid-list cols="2" [rowHeight]="60">
       <md-grid-tile-footer cols="2">
-        <md-slide-toggle class="rememberMe"><span class="rememberMe" (click)="rememberMe()">&nbsp; &nbsp; Remember me</span></md-slide-toggle>
+        <md-slide-toggle class="rememberMe"><span>&nbsp; &nbsp; Remember me</span></md-slide-toggle>
         <span class="forgot full-width"><a (click)="resetPassword()" style="text-decoration:none;color:#FFF;" href="#" target="_self">Forgot your password?</a></span>
       </md-grid-tile-footer>
     </md-grid-list>

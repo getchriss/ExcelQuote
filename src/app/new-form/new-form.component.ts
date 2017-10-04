@@ -29,14 +29,11 @@ const PHONE_REGEX = /^(\((03|04|06|07|09)\)\d{7})|(\((021|022|025|027|028|029)\)
 
 export class NewFormComponent implements OnInit, OnChanges {
   clipboard: any;
-<<<<<<< HEAD
   files: FileList;
-=======
   
   private foo: FirebaseListObservable<QuoteFile[]>;
   private quotes: { [id: string]: any; } = [];
   private quoteNumbers: any = [];
->>>>>>> 3/10/2017---Josh
 
   client: string = '';
   email: string = '';
@@ -186,10 +183,6 @@ export class NewFormComponent implements OnInit, OnChanges {
     return false;
   }
 
-<<<<<<< HEAD
-  onChange(files: FileList){
-    this.files = files;
-=======
   createQuoteNumber(array) {
     let lastNumberPos = array.length - 1;
     let tempNumber = Number(array[lastNumberPos]) + 1;
@@ -200,7 +193,10 @@ export class NewFormComponent implements OnInit, OnChanges {
   pad(num, size) {
     var s = "000000000" + num;
     return s.substr(s.length - size);
->>>>>>> 3/10/2017---Josh
+  }
+
+  onChange(files: FileList) {
+    this.files = files;
   }
 }
 

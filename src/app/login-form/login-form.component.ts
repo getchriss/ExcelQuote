@@ -25,17 +25,11 @@ export class LoginFormComponent {
   login() {
     console.log('login() called from login-form component');
     this.authService.login(this.email, this.password)
-    // .catch(error => this.errorMsg = error.message);
-    // .catch(error => this.errorMsg = error.message);
   }
 
   passReset: boolean = false;
   resetPassword() {
     this.authService.resetPassword(this.email)
       .then(() => this.passReset = true)
-  }
-
-  rememberMe() {
-    this.authService.rememberMe(this.email, this.password)
   }
 }

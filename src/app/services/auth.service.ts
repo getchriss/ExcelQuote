@@ -38,12 +38,6 @@ export class AuthService {
       .catch((error) => console.log(error))
   }
 
-  rememberMe(email: string, password: string) {
-    this.afAuth.auth.setPersistence(email)
-      .then(() => console.log("session stored"))
-      .catch((error) => console.log(error))
-  }
-
   get currentUserId(): string {
     return this.authState !== null ? this.authState.uid : '';
   }
@@ -54,17 +48,29 @@ export class AuthService {
         this.authState = user;
         this.setUserStatus('online');
         this.router.navigate(['dash']);
-        this.snackBar.open(`Login successfull!`, '', { duration: 2000 })
       }
-      );
-  }
-
-
+    )
+ .catch( (error: firebase.FirebaseError) => {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      console.log(`code`, error.code);
+      console.log(`message`, error.message);
+      console.log(`name`, error.name);
+      console.log(`stack`, error.stack);
+      if (errorCode == 'auth/invalid-email') {
+        // alert('invalid username or password.');
+        this.snackBar.open(`Invalid username or password`, '', { duration: 2500 })
+      } else if (errorCode == 'auth/argument-error') {
+        this.snackBar.open(`please enter your username or password`, '', { duration: 2500 })
+      } else if (errorCode == 'auth/wrong-password') {
+        this.snackBar.open(`invalid username or password.`, '', { duration: 2500 })
+      }
+ }
+ )}
 
   logout() {
     this.afAuth.auth.signOut();
     this.router.navigate(['login']);
-    this.snackBar.open(`Successfull signed out.`, '', { duration: 2000 })
   }
 
   signUp(email: string, password: string, displayName: string) {
@@ -74,10 +80,22 @@ export class AuthService {
         const status = 'online';
         const type = 'user';
         this.setUserData(email, displayName, type, status);
-        this.snackBar.open(`Registration successful.`, '', { duration: 2000 })
-      })
-      .catch(error => this.snackBar.open(`Invalid email or password.`, '', { duration: 2000 }));
-  }
+      }
+    )
+      .catch((error: firebase.FirebaseError) => {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        console.log(`code`, error.code);
+        console.log(`message`, error.message);
+        console.log(`name`, error.name);
+        console.log(`stack`, error.stack);
+        if (errorCode == 'auth/invalid-email') {
+          this.snackBar.open(`invalid username or password.`, '', { duration: 2500 })
+        } else if (errorCode == 'auth/email-already-in-use') {
+          this.snackBar.open(`the email address is already in use.`, '', { duration: 2500 })
+        }
+      }
+      )}
 
   setUserData(email: string, displayName: string, type: string, status: string): void {
     const path = `users/${this.currentUserId}`;

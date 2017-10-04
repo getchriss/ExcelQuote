@@ -13,6 +13,7 @@ $excel-warn: ( 50: #ffeaef, 100: #ffcad6, 200: #ffa6bb, 300: #ff82a0, 400: #ff68
 $excel-white: ( 50: #ffffff, 100: #ffffff, 200: #ffffff, 300: #ffffff, 400: #ffffff, 500: #ffffff, 600: #ffffff, 700: #ffffff, 800: #ffffff, 900: #ffffff, A100: #ffffff, A200: #ffffff, A400: #ffffff, A700: #ffffff, contrast: ( 50: #000000, 100: #000000, 200: #000000, 300: #000000, 400: #000000, 500: #000000, 600: #000000, 700: #000000, 800: #000000, 900: #000000, A100: #000000, A200: #000000, A400: #000000, A700: #000000, ));
 $excel-primary: mat-palette($excel-prime);
 $excel-accent: mat-palette($excel-second);
+$excel-foreground: mat-palette($excel-white);
 // The warn palette is optional (defaults to red).
 $excel-warn: mat-palette($excel-warn);
 // Create the theme object (a Sass map containing all of the palettes).
@@ -20,4 +21,6 @@ $excel-theme: mat-light-theme($excel-primary, $excel-accent, $excel-warn);
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
+
+
 @include angular-material-theme($excel-theme);

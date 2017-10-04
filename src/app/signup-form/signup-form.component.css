@@ -48,9 +48,42 @@
 
 input {
   color: #FFF!important;
-  width:100%;
+  width: 100%;
   max-width: 312px!important;
+  font-size: 17px;
 }
+
+>>>label {
+  color: #FFF;
+}
+
+>>>.mat-input-placeholder,
+.mat-form-field-placeholder {
+  color: #FFF;
+}
+
+>>>.mat-form-field-ripple {
+  background-color: #31144a;
+}
+
+>>>.mat-form-field-placeholder-wrapper {
+  top: -1.2em;
+  color: #FFF;
+}
+
+>>>.mat-form-field-underline {
+  background-color: #FFF!important;
+}
+
+>>>.mat-form-field-placeholder {
+  color: #FFF!important;
+}
+
+>>>.mat-hint {
+  color: #FFF!important;
+}
+
+
 
 .forgot {
   font-size: 13px!important;
