@@ -125,11 +125,7 @@ export class QuoteService {
   }
 
   getQuotes(): FirebaseListObservable<QuoteFile[]> {
-    return this.db.list('/quotes', {
-      query: {
-        limitToLast: 10
-      }
-    });
+    return this.db.list('/quotes');
   }
 
   getQuoteById(id) {
@@ -169,5 +165,12 @@ export class QuoteService {
     return this.db.list('/misc/adhesive', {
       preserveSnapshot: true
     });
+  }
+
+  updateStage(id:string, stageName:string) {
+    const temp =  this.getQuoteById(id);
+
+    // console.log(temp)
+    temp.set('stage', stageName);
   }
 }

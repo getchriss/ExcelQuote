@@ -82,6 +82,7 @@ import { OverviewManagementComponent } from './overview-management/overview-mana
     MdSnackBarModule,
     MdTabsModule,
   ],
+  // exports: [ClipboardDirective],
   providers: [AuthService, QuoteService, NotifyService],
   bootstrap: [AppComponent]
 })

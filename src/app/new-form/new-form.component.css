@@ -125,11 +125,11 @@ label {
   -webkit-opacity: 0.4;
   -moz-opacity: 0.4;
   opacity: 0.4;
-  -webkit-transition: all 1s ease;
-  -moz-transition: all 1s ease;
-  -ms-transition: all 1s ease;
-  -o-transition: all 1s ease;
-  transition: all 1s ease;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .windingBox .mat-button-toggle-checked {
