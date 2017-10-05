@@ -118,7 +118,7 @@ export class QuotePreviewComponent implements OnInit {
     copyQuote.date = 'Direct reprint';
     this.quoteService.submitQuote(copyQuote, quoteNum);
     console.log("Order repeated!")
-    this.router.navigate(['/overview'])
+    this.router.navigate(['/quoteManagement'])
   }
 
   editOrder(event) {
