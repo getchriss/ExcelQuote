@@ -37,6 +37,7 @@ import { NewFormComponent } from './new-form/new-form.component';
 import { NavfooterComponent } from './navfooter/navfooter.component';
 import { QuoteThumbnailComponent } from './quote-thumbnail/quote-thumbnail.component';
 import { OverviewManagementComponent } from './overview-management/overview-management.component';
+import { ConfirmComponent } from './confirm/confirm.component';
 
 
 @NgModule({
@@ -53,6 +54,7 @@ import { OverviewManagementComponent } from './overview-management/overview-mana
     NavfooterComponent,
     QuoteThumbnailComponent,
     OverviewManagementComponent,
+    ConfirmComponent,
   ],
 
   imports: [
@@ -92,6 +94,7 @@ import { OverviewManagementComponent } from './overview-management/overview-mana
     QuoteService,
     NotifyService,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ConfirmComponent]
 })
 export class AppModule { }

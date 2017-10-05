@@ -4,17 +4,17 @@ import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 // import { slideIn } from '../_animations/index';W
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
-import { MdSnackBar } from '@angular/material';
+import { MdSnackBar, MdDialog, MdDialogRef } from '@angular/material';
 import { Observable } from 'rxjs/Observable';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
-
 import Dropbox = require('dropbox');
-
 import { AuthService } from '../services/auth.service';
 import { QuoteService } from '../services/quote.service';
+import { QuoteFile } from '../models/quote-file.model';
 
-import { QuoteFile } from '../models/quote-file.model'
+import { ConfirmComponent } from '../confirm/confirm.component';
+
 
 const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 const PHONE_REGEX = /^(\((03|04|06|07|09)\)\d{7})|(\((021|022|025|027|028|029)\)\d{6,8})|((0508|0800|0900)\d{5,8})$/;
@@ -30,7 +30,8 @@ const PHONE_REGEX = /^(\((03|04|06|07|09)\)\d{7})|(\((021|022|025|027|028|029)\)
 export class NewFormComponent implements OnInit, OnChanges {
   clipboard: any;
   files: FileList;
-  
+  dialogRef: MdDialogRef<ConfirmComponent>;
+
   private foo: FirebaseListObservable<QuoteFile[]>;
   private quotes: { [id: string]: any; } = [];
   private quoteNumbers: any = [];
@@ -113,7 +114,7 @@ export class NewFormComponent implements OnInit, OnChanges {
 
   @ViewChild('datePicker') input;
 
-  constructor(private form: QuoteService, private snackBar: MdSnackBar) {
+  constructor(private form: QuoteService, private snackBar: MdSnackBar, public dialog: MdDialog) {
 
     this.foo = this.form.getQuoteNumbers();
 
@@ -136,23 +137,24 @@ export class NewFormComponent implements OnInit, OnChanges {
     this.date = new Date();
   }
 
-  submitQuote() {
-    let quoteNum = this.createQuoteNumber(this.quoteNumbers);
+  // submitQuote() {
+    // let quoteNum = this.createQuoteNumber(this.quoteNumbers);
     // console.log(quoteNum)
-    this.quote.date = this.input.nativeElement.value;
-    if (this.form.validateQuote(this.quote)) {
-      this.form.submitQuote(this.quote, quoteNum);
+    // this.quote.date = this.input.nativeElement.value;
+    // if (this.form.validateQuote(this.quote)) {
+      // this.form.submitQuote(this.quote, quoteNum);
       // this.uploadFile();
-    } else {
+    // } else {
       // this.quote.date = this.input.nativeElement.value;
       // this.d = this.formatDate(this.date)
       // console.log(this.input.nativeElement.value);
       // console.log(this.quote.date);
-      console.log('There was an error with the validation. Check all required fields have been completed...')
-      this.snackBar.open(`Please check all required fields have been completed.`, '', { duration: 2000 })
+      // console.log('There was an error with the validation. Check all required fields have been completed...')
+      // this.snackBar.open(`Please check all required fields have been completed.`, '', { duration: 2000 })
       // console.log(this.date)
-    }
-  }
+    // }
+  // }
+
 
   ngOnChanges() { }
 
@@ -160,6 +162,42 @@ export class NewFormComponent implements OnInit, OnChanges {
     if (event.keyCode === 13) {
       this.submitQuote();
     }
+  }
+
+  submitQuote() {
+    let quoteNum = this.createQuoteNumber(this.quoteNumbers);
+    this.quote.date = this.input.nativeElement.value;
+    if (this.form.validateQuote(this.quote)) {
+      this.dialogRef = this.dialog.open(ConfirmComponent, {
+        disableClose: false
+      });
+      this.dialogRef.componentInstance.confirmMessage = 'Confirm Submission?'
+      this.dialogRef.afterClosed().subscribe(result => {
+        if (result) {
+          this.form.submitQuote(this.quote, quoteNum);
+        }
+        this.dialogRef = null;
+      });
+    } else {
+      console.log('There was an error with the validation. Check all required fields have been completed...')
+      this.snackBar.open(`Please check all required fields have been completed.`, '', { duration: 2000 })
+    }
+  }
+
+
+
+  confirm() {
+    this.dialogRef = this.dialog.open(ConfirmComponent, {
+      disableClose: false
+    });
+    this.dialogRef.componentInstance.confirmMessage = 'Confirm Submission?'
+
+    this.dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        // do confirmation actions
+      }
+      this.dialogRef = null;
+    });
   }
 
   fileEvent(event) {
