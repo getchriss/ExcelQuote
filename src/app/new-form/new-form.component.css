@@ -240,7 +240,7 @@ md-button-toggle img {
   margin-top: 40px;
   width: 100%;
   max-width: 320px;
-  border-radius: 20px;
+  border-radius: 4px;
 }
 
 .material-icons {

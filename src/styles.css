@@ -41,7 +41,7 @@ sans-serif;
 }
 
 .rbtn {
-  border-radius: 20px!important;
+  /* border-radius: 20px!important; */
   overflow: hidden;
   background-color: #2D0C48!important;
   height: 37px;
