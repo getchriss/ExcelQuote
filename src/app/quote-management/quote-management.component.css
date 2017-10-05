@@ -113,7 +113,13 @@ input {
 }
 
 .populationContainer::-webkit-scrollbar {
-  display: none;
+  width: 5px;
+  height: 5px;
+}
+
+.populationContainer::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2); 
+  border-radius: 50px;
 }
 
 .populationHead {
@@ -170,6 +176,10 @@ md-toolbar {
   -webkit-box-shadow: 0px 4px 12px -2px rgba(0, 0, 0, 0.36);
   -moz-box-shadow: 0px 4px 12px -2px rgba(0, 0, 0, 0.36);
   box-shadow: 0px 4px 12px -2px rgba(0, 0, 0, 0.36);
+}
+
+>>> .mat-focused .mat-form-field-placeholder {
+  color: rgba(0, 0, 0, 0);
 }
 
 
