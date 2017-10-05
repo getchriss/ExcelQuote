@@ -65,20 +65,21 @@ input {
   font-size: 17px;
 }
 
->>>label {
+  >>> label {
+
   color: #FFF;
 }
 
->>>.mat-input-placeholder,
-.mat-form-field-placeholder {
+>>> .mat-input-placeholder,
+>>> .mat-form-field-placeholder {
   color: #FFF;
 }
 
->>>.mat-form-field-ripple {
+>>> .mat-form-field-ripple {
   background-color: #31144a;
 }
 
->>>.mat-form-field-placeholder-wrapper {
+>>> .mat-form-field-placeholder-wrapper {
   top: -1.2em;
   color: #FFF;
 }
@@ -87,14 +88,16 @@ input {
   letter-spacing: 5px;
 }
 
->>>.mat-form-field-underline {
+>>> .mat-form-field-underline {
+
   background-color: #FFF!important;
 }
 
->>>.mat-form-field-placeholder {
+>>> .mat-form-field-placeholder {
+
   color: #FFF!important;
 }
 
->>>.mat-hint {
+>>> .mat-hint {
   color: #FFF!important;
 }

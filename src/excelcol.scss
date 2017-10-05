@@ -22,5 +22,4 @@ $excel-theme: mat-light-theme($excel-primary, $excel-accent, $excel-warn);
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 
-
 @include angular-material-theme($excel-theme);

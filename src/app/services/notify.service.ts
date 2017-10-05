@@ -7,6 +7,9 @@ import * as firebase from 'firebase/app';
 
 @Injectable()
 export class NotifyService {
+    private name: String = 'ErrorLogService';
+
+
 
   constructor(public snackBar: MdSnackBar) { }
 
@@ -15,7 +18,7 @@ export class NotifyService {
   // }
 
   // notifyAction(notification: MdSnackBarRef<any>, next) {
-  //   return notification.onAction().subscribe(() => next()); 
+  //   return notification.onAction().subscribe(() => next());
   // }
 
 }

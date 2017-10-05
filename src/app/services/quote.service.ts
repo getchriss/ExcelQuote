@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Rx';
 import { AuthService } from '../services/auth.service';
 import * as firebase from 'firebase/app';
 
-import { QuoteFile } from '../models/quote-file.model'
+import { QuoteFile } from '../models/quote-file.model';
 
 @Injectable()
 export class QuoteService {
@@ -21,7 +21,6 @@ export class QuoteService {
         this.user = auth;
       }
     });
-    
   }
 
   validateQuote(quote: any) {
@@ -144,7 +143,7 @@ export class QuoteService {
 
 
   getClient(): FirebaseListObservable<QuoteFile[]> {
-    return this.db.list('/quotes', {      
+    return this.db.list('/quotes', {
       preserveSnapshot: true
     });
   }

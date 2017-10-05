@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler, Injectable } from '@angular/core';
 import { Http, HttpModule } from '@angular/http';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -13,7 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
-import { AngularFireAuthModule } from 'angularfire2/auth'; 
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import { AppComponent } from './app.component';
 import { LoginFormComponent } from './login-form/login-form.component';
@@ -27,6 +27,8 @@ import { QuoteFormComponent } from './quote-form/quote-form.component';
 import { AuthService } from './services/auth.service';
 import { QuoteService } from './services/quote.service';
 import { NotifyService } from './services/notify.service';
+import { GlobalErrorHandlerService } from './services/global-error-handler.service';
+import { LogServiceService } from './services/log-service.service';
 import { FirebaseDatabaseService } from './services/firebase-database.service';
 
 import { appRoutes } from '../routes';
@@ -82,7 +84,14 @@ import { OverviewManagementComponent } from './overview-management/overview-mana
     MdTabsModule,
   ],
   // exports: [ClipboardDirective],
-  providers: [AuthService, QuoteService, NotifyService],
+  providers: [
+    { provide: ErrorHandler, useClass: GlobalErrorHandlerService },
+    // GlobalErrorHandlerService,
+    LogServiceService,
+    AuthService,
+    QuoteService,
+    NotifyService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

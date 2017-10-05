@@ -77,10 +77,16 @@ sans-serif;
   position: relative;
 }
 
->>>.mat-snack-bar-container {
+.mat-snack-bar-container >>> {
   top: 0%!important;
   position: absolute;
 }
+
+>>> .mat-form-field-underline {
+  background-color: #472155!important;
+}
+
+
 
 snack-bar-container {
   top: 0%!important;

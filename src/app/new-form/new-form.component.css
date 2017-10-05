@@ -94,9 +94,47 @@ label {
   width: 100%;
 }
 
-.removeB>>>.mat-form-field-underline {
-  background-color: #F0F0F0;
+>>>.mat-input-placeholder,
+>>>.mat-form-field-placeholder {
+  color: blue;
 }
+
+>>>.mat-form-field-ripple {
+  background-color: #31144a;
+}
+
+>>>.mat-form-field-placeholder-wrapper {
+  top: -1.2em;
+  color: #31144a!important;
+
+
+}
+
+.space input {
+  letter-spacing: 5px;
+}
+
+>>>.mat-form-field-underline {
+  background-color:#8b8b8b!important;
+
+
+}
+
+>>>.mat-form-field-placeholder {
+  color: #8b8b8b!important;
+
+
+}
+
+>>>.mat-hint {
+  color: red!important;
+}
+
+.removeB>>>.mat-form-field-underline {
+  background-color: #F0F0F0!important;
+}
+
+
 
 .full-width {
   width: 100%!important;

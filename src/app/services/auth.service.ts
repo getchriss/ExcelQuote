@@ -57,16 +57,9 @@ export class AuthService {
       console.log(`message`, error.message);
       console.log(`name`, error.name);
       console.log(`stack`, error.stack);
-      if (errorCode == 'auth/invalid-email') {
-        // alert('invalid username or password.');
-        this.snackBar.open(`Invalid username or password`, '', { duration: 2500 })
-      } else if (errorCode == 'auth/argument-error') {
-        this.snackBar.open(`please enter your username or password`, '', { duration: 2500 })
-      } else if (errorCode == 'auth/wrong-password') {
-        this.snackBar.open(`invalid username or password.`, '', { duration: 2500 })
-      }
- }
- )}
+    }
+  );
+}
 
   logout() {
     this.afAuth.auth.signOut();
@@ -89,13 +82,9 @@ export class AuthService {
         console.log(`message`, error.message);
         console.log(`name`, error.name);
         console.log(`stack`, error.stack);
-        if (errorCode == 'auth/invalid-email') {
-          this.snackBar.open(`invalid username or password.`, '', { duration: 2500 })
-        } else if (errorCode == 'auth/email-already-in-use') {
-          this.snackBar.open(`the email address is already in use.`, '', { duration: 2500 })
-        }
       }
-      )}
+      );
+    }
 
   setUserData(email: string, displayName: string, type: string, status: string): void {
     const path = `users/${this.currentUserId}`;
