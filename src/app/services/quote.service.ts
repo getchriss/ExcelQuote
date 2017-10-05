@@ -30,7 +30,7 @@ export class QuoteService {
       quote.address.length > 0 &&
       quote.phone !== undefined &&
       quote.date !== undefined &&
-      quote.userFileName !== undefined &&
+      quote.fileName !== undefined &&
       quote.noKinds !== undefined &&
       quote.qKinds !== undefined &&
       quote.cost.length > 0 &&
@@ -41,7 +41,7 @@ export class QuoteService {
       quote.knife.length > 0 &&
       quote.charge.length > 0 &&
       quote.stock.length > 0 &&
-      quote.color.length > 0 &&
+      quote.colour.length > 0 &&
       quote.embel.length > 0 &&
       quote.orient.length > 0 &&
       quote.appliedBy.length > 0 &&
@@ -49,7 +49,7 @@ export class QuoteService {
       quote.overPrint.length > 0 &&
       quote.core !== undefined &&
       quote.windStyle !== undefined &&
-      quote.supplied.length > 0 &&
+      quote.suppliedIn.length > 0 &&
       quote.proofType.length > 0
     ) {
       // console.log('validateQuote() was successful...')
@@ -61,7 +61,7 @@ export class QuoteService {
       console.log(quote.address.length)
       console.log(quote.phone !== undefined)
       console.log(quote.date !== undefined)
-      console.log(quote.userFileName !== undefined)
+      console.log(quote.fileName !== undefined)
       console.log(quote.noKinds !== undefined)
       console.log(quote.qKinds !== undefined)
       console.log(quote.cost.length)
@@ -72,7 +72,7 @@ export class QuoteService {
       console.log(quote.knife.length)
       console.log(quote.charge.length)
       console.log(quote.stock.length)
-      console.log(quote.color.length)
+      console.log(quote.colour.length)
       console.log(quote.embel.length)
       console.log(quote.orient.length)
       console.log(quote.appliedBy.length)
@@ -80,7 +80,7 @@ export class QuoteService {
       console.log(quote.overPrint.length)
       console.log(quote.core !== undefined)
       console.log(quote.windStyle !== undefined)
-      console.log(quote.supplied.length)
+      console.log(quote.suppliedIn.length)
       console.log(quote.proofType.length)
       return false;
     }
@@ -94,7 +94,7 @@ export class QuoteService {
       address: quote.address,
       phone: quote.phone,
       date: quote.date,
-      fileName: quote.userFileName,
+      fileName: quote.fileName,
       noKinds: quote.noKinds,
       qKinds: quote.qKinds,
       cost: quote.cost,
@@ -105,7 +105,7 @@ export class QuoteService {
       knife: quote.knife,
       charge: quote.charge,
       stock: quote.stock,
-      colour: quote.color,
+      colour: quote.colour,
       embel: quote.embel,
       orient: quote.orient,
       appliedBy: quote.appliedBy,
@@ -113,7 +113,7 @@ export class QuoteService {
       overPrint: quote.overPrint,
       core: quote.core,
       windStyle: quote.windStyle,
-      suppliedIn: quote.supplied,
+      suppliedIn: quote.suppliedIn,
       proofType: quote.proofType,
       addInfo: quote.addInfo,
       stage: 'requested'

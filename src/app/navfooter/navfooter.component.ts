@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-navfooter',
@@ -7,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavfooterComponent implements OnInit {
 
+  @Output() repeatOrder = new EventEmitter();
+  @Output() editOrder = new EventEmitter();
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onSubmitRepeat() {
+    this.repeatOrder.emit();
+  }
+
+  onSubmitEdit() {
+    this.editOrder.emit();
   }
 
 }

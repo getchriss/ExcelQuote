@@ -1,6 +1,6 @@
 <div fxLayout="column" fxLayoutAlign="start none">
   <div fxFlex="100" class="flex-nav">
-    <app-navbar></app-navbar>
+    <app-navbar [compTitle]="compTitle"></app-navbar>
   </div>
   <div fxFlex="100" class="container">
     <main>
@@ -176,10 +176,10 @@
               </div>
               <div>
                 <p>Colour</p>
-                <md-button-toggle-group [(ngModel)]="quote.color" #group="mdButtonToggleGroup" name="color">
-                  <md-button-toggle value="New" class="btn-primary">Black</md-button-toggle>
-                  <md-button-toggle value="Existing" class="btn-primary">White</md-button-toggle>
-                  <md-button-toggle value="Similar" class="btn-primary">Full Colour</md-button-toggle>
+                <md-button-toggle-group [(ngModel)]="quote.colour" #group="mdButtonToggleGroup" name="color">
+                  <md-button-toggle value="Black" class="btn-primary">Black</md-button-toggle>
+                  <md-button-toggle value="White" class="btn-primary">White</md-button-toggle>
+                  <md-button-toggle value="Full Colour" class="btn-primary">Full Colour</md-button-toggle>
                 </md-button-toggle-group>
               </div>
               <div>
@@ -263,7 +263,7 @@
               </div>
               <div>
                 <p>Supplied In</p>
-                <md-button-toggle-group [(ngModel)]="quote.supplied" #group="mdButtonToggleGroup" name="supplied">
+                <md-button-toggle-group [(ngModel)]="quote.suppliedIn" #group="mdButtonToggleGroup" name="supplied">
                   <md-button-toggle value="Rolls" class="btn-primary">Rolls</md-button-toggle>
                   <md-button-toggle value="Dispensers" class="btn-primary">Dispensers</md-button-toggle>
                 </md-button-toggle-group>

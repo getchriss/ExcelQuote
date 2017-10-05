@@ -177,8 +177,6 @@ label {
   height: 65px;
   overflow-y: hidden;
   overflow-x: scroll;
-  -ms-overflow-style: none;
-  overflow: -moz-scrollbars-none;
   -webkit-overflow-scrolling: touch;
   box-shadow: none;
   margin: 0px;
@@ -186,6 +184,16 @@ label {
   border: none;
   transition: opacity 1s linear;
   cursor: pointer;
+}
+
+.windingBox::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+.windingBox::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2); 
+  border-radius: 50px;
 }
 
 .windingBox md-button-toggle {
