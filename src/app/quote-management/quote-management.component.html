@@ -23,7 +23,7 @@
       </div>
     </div>
   </div>
-  <div fxLayout="column wrap">
+  <div class="row">
     <div fxFlex="grow" class="subTitle">
       <h4 class="populationHead">Recent Quotes</h4>
     </div>
@@ -33,7 +33,7 @@
       <div class="feed" fxLayout="column" fxFlex="grow">
         <div *ngFor="let quoteFile of feed | async" class="quote">
           <!-- <app-quote-thumbnail ></app-quote-thumbnail> -->
-          <div class="quoteContainer">
+          <div class="quoteContainer" *ngIf="quoteFile.stage == 'completed'">
             <div [ngClass]="(focusThumb==quoteFile.$key)?'quoteInnerContainer focused':'quoteInnerContainer'" (click)="toggleFocus($event, quoteFile.$key)">
               <div class="quoteData" [ngClass]="{}">
                 <span class="quoteName" [ngClass]="{}">

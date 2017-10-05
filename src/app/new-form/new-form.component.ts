@@ -1,7 +1,7 @@
 import { Component, OnInit, OnChanges, HostBinding, Injectable, ViewChild } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 // import { slideIn } from '../_animations/index';W
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { MdSnackBar } from '@angular/material';
@@ -31,9 +31,10 @@ export class NewFormComponent implements OnInit, OnChanges {
   clipboard: any;
   files: FileList;
   
-  private foo: FirebaseListObservable<QuoteFile[]>;
-  private quotes: { [id: string]: any; } = [];
-  private quoteNumbers: any = [];
+  foo: FirebaseListObservable<QuoteFile[]>;
+  quoteToEdit;
+  quotes: { [id: string]: any; } = [];
+  quoteNumbers: any = [];
 
   client: string = '';
   email: string = '';
@@ -51,7 +52,7 @@ export class NewFormComponent implements OnInit, OnChanges {
   knife: string = '';
   charge: string = '';
   stock: string = '';
-  color: string = '';
+  colour: string = '';
   embel: string = '';
   orient: string = '';
   appliedBy: string = '';
@@ -59,7 +60,7 @@ export class NewFormComponent implements OnInit, OnChanges {
   overPrint: string = '';
   core: number;
   windStyle: string;
-  supplied: string = '';
+  suppliedIn: string = '';
   proofType: string = '';
   addInfo: string = '';
 
@@ -75,7 +76,7 @@ export class NewFormComponent implements OnInit, OnChanges {
     address: this.address,
     phone: this.phone,
     date: this.date,
-    userFileName: this.userFileName,
+    fileName: this.userFileName,
     noKinds: this.noKinds,
     qKinds: this.qKinds,
     cost: this.cost,
@@ -86,7 +87,7 @@ export class NewFormComponent implements OnInit, OnChanges {
     knife: this.knife,
     charge: this.charge,
     stock: this.stock,
-    color: this.color,
+    colour: this.colour,
     embel: this.embel,
     orient: this.orient,
     appliedBy: this.appliedBy,
@@ -94,10 +95,12 @@ export class NewFormComponent implements OnInit, OnChanges {
     overPrint: this.overPrint,
     core: this.core,
     windStyle: this.windStyle,
-    supplied: this.supplied,
+    suppliedIn: this.suppliedIn,
     proofType: this.proofType,
     addInfo: this.addInfo
   };
+  compTitle;
+  jobId;
 
   emailFormControl = new FormControl('', [
     Validators.required,
@@ -113,7 +116,8 @@ export class NewFormComponent implements OnInit, OnChanges {
 
   @ViewChild('datePicker') input;
 
-  constructor(private form: QuoteService, private snackBar: MdSnackBar) {
+  constructor(private form: QuoteService, private snackBar: MdSnackBar, private router: Router, private route: ActivatedRoute) {
+    this.compTitle = 'NEW REQUEST';
 
     this.foo = this.form.getQuoteNumbers();
 
@@ -126,8 +130,31 @@ export class NewFormComponent implements OnInit, OnChanges {
         // console.log(this.quoteNumbers)
       };
     });
-  }
+    
+    if (this.route.snapshot.params.quote_num !== undefined) {
+      
+      this.jobId = this.route.snapshot.params.quote_num;
+      this.compTitle = 'EDITING ' + this.jobId;
 
+      this.quoteToEdit = this.form.getQuoteById(this.jobId)
+
+      this.quoteToEdit.subscribe(snapshots => {
+        snapshots.forEach(snapshot => {
+          // let temp = snapshot
+          // console.log(snapshot.key)
+          this.quote[snapshot.key] = snapshot.val();
+          // console.log(this.userData)
+        });
+      });
+
+      console.log(this.quoteToEdit)
+      console.log('Editing previous quote: ' + this.jobId)
+
+    } else {
+      console.log('Brand new quote request')
+    }
+  }
+  
   ngOnInit() {
     this.$stocks = this.form.getStocks();
     this.$finishes = this.form.getFinishes();
@@ -138,7 +165,7 @@ export class NewFormComponent implements OnInit, OnChanges {
 
   submitQuote() {
     let quoteNum = this.createQuoteNumber(this.quoteNumbers);
-    // console.log(quoteNum)
+    console.log(this.quote)
     this.quote.date = this.input.nativeElement.value;
     if (this.form.validateQuote(this.quote)) {
       this.form.submitQuote(this.quote, quoteNum);
@@ -165,7 +192,7 @@ export class NewFormComponent implements OnInit, OnChanges {
   fileEvent(event) {
     let file = event.target.files[0];
     this.$userFile = file;
-    this.quote.userFileName = event.target.files[0].name;
+    this.quote.fileName = event.target.files[0].name;
   }
 
   uploadFile() {

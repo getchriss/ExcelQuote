@@ -19,6 +19,16 @@
   left: 0;
 }
 
+.container-body {  
+  position: relative;
+  margin-right: auto;
+  margin-left: auto;
+  /* padding-left: 15px; */
+  /* padding-right: 15px; */
+  max-width: 940px;
+  display: flex; 
+}
+
 .inputSearch md-input-container .md-errors-spacer {
   min-height: 0px !important;
 }
@@ -88,6 +98,7 @@ input {
   display: flex;
   margin: auto;
   top: 250px;
+  max-width: 940px;
   right: 0;
   bottom: 0;
   left: 0;
@@ -113,11 +124,14 @@ input {
   padding-bottom: 35px;
   text-transform: uppercase;
   color: #CACACA;
-  height: 80px;
+  /* height: 80px; */
 }
 
 .subTitle {
   position: relative;
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .mat-input-infix mat-form-field-infix {
@@ -145,6 +159,7 @@ md-toolbar {
   height: 80px;
   top: 135px;
   left: 0;
+  max-width: 940px;
 }
 
 .searchBar {
@@ -247,6 +262,7 @@ a {
   font-family: 'Open Sans', sans-serif;
   color: #fff;
   padding: 10px;
+  padding-right: 17px;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
 }

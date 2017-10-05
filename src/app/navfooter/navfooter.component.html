@@ -1,6 +1,8 @@
-<footer>
-  <md-toolbar class="navBar" md-scroll-shrink>
-          <button class="text-center full-width" md-raised-button>Repeat <md-icon>repeat</md-icon></button>
-          <button class="text-center full-width" md-raised-button>Edit <md-icon>mode_edit</md-icon></button>
-  </md-toolbar>
-</footer>
+<!-- <footer> -->
+  <!-- <md-toolbar class="navBar" md-scroll-shrink [rowHeight]="36"> -->
+    <div class="container">
+      <button class="text-center full-width" md-raised-button (click)="onSubmitRepeat()">Repeat <md-icon>repeat</md-icon></button>
+      <button class="text-center full-width" md-raised-button (click)="onSubmitEdit()">Edit <md-icon>mode_edit</md-icon></button>
+    </div>
+  <!-- </md-toolbar> -->
+<!-- </footer> -->
