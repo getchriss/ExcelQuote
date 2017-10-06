@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, HostBinding, Injectable, ViewChild } from '@angular/core';
+import { Component, OnInit, OnChanges, HostBinding, Injectable, ViewChild, ViewEncapsulation } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 
 import { Router, ActivatedRoute } from '@angular/router';
@@ -23,7 +23,8 @@ const PHONE_REGEX = /^(\((03|04|06|07|09)\)\d{7})|(\((021|022|025|027|028|029)\)
 @Component({
   selector: 'app-new-form',
   templateUrl: './new-form.component.html',
-  styleUrls: ['./new-form.component.css']
+  styleUrls: ['./new-form.component.css'],
+  encapsulation: ViewEncapsulation.Emulated
 })
 
 
@@ -198,7 +199,7 @@ export class NewFormComponent implements OnInit, OnChanges {
       this.dialogRef = this.dialog.open(ConfirmComponent, {
         disableClose: false
       });
-      this.dialogRef.componentInstance.confirmMessage = 'Confirm Submission?'
+      this.dialogRef.componentInstance.confirmMessage = 'Please <b>confirm</b> submission';
       this.dialogRef.afterClosed().subscribe(result => {
         if (result) {
           this.form.submitQuote(this.quote, quoteNum);
@@ -211,21 +212,18 @@ export class NewFormComponent implements OnInit, OnChanges {
     }
   }
 
+  // confirm() {
+  //   this.dialogRef = this.dialog.open(ConfirmComponent, {
+  //     disableClose: false
+  //   });
+  //   this.dialogRef.componentInstance.confirmMessage = 
 
-
-  confirm() {
-    this.dialogRef = this.dialog.open(ConfirmComponent, {
-      disableClose: false
-    });
-    this.dialogRef.componentInstance.confirmMessage = 'Confirm Submission?'
-
-    this.dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        // do confirmation actions
-      }
-      this.dialogRef = null;
-    });
-  }
+  //   this.dialogRef.afterClosed().subscribe(result => {
+  //     if (result) {
+  //     }
+  //     this.dialogRef = null;
+  //   });
+  // }
 
   fileEvent(event) {
     let file = event.target.files[0];

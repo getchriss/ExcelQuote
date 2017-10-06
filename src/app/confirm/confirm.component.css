@@ -1,24 +1,62 @@
 h1 {
   color: #472155;
-  font-size: 16px;
+  /* font-size: 16px; */
+  margin-bottom: 0px;
+  padding-bottom: 0px;
   font-family: 'Open Sans semibold', sans-serif;
 }
 
+p {
+  margin: 4px;
+  margin-top: 5px;
+  padding: 4px;
+}
+
+button {
+  margin-top: 6px;
+  max-width: 100%;
+  min-width: 100%;
+}
+
 div span {
-  color: #6e6e6e;
+  color: #FFF;
   font-family: 'Open Sans', sans-serif;
   margin-top: -15px;
 }
 
+.mat-dialog-content {
+  margin: 0px;
+  padding: 0px 50px;
+}
+
+>>>.cdk-overlay-dark-backdrop {
+  background:rgba(0, 0, 0, 0.91);
+}
+
+
+>>>.mat-dialog-container {
+  padding: 15px;
+  padding-top: 3px;
+  max-width: 100%;
+  border-radius: 4px;
+}
+
+>>>.mat-dialog-actions {
+  padding: 0px;
+}
+
+>>>.mat-dialog-actions:last-child {
+  margin-bottom: 0px;
+}
+
+p span {
+  color: #472155;
+}
+
 .confirm {
-    background-color:#85C15F;
-        display: block;
-        color: #FFF;
+  background-color: #85C15F;
 }
 
 .cancle {
-    background-color:#FF4D77;
-    display:block;
-    color: #fff;
-
+  background-color: #FF4D77;
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, HostBinding } from '@angular/core';
+import { Component, OnInit, HostBinding, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { Observable } from 'rxjs/Observable';
@@ -11,7 +11,9 @@ import { slideIn } from '../_animations/index';
 @Component({
   selector: 'app-dash',
   templateUrl: './dash.component.html',
-  styleUrls: ['./dash.component.css']//,
+  styleUrls: ['./dash.component.css'],
+  encapsulation: ViewEncapsulation.Emulated
+  //,
   // animations: [slideIn()]
 })
 
