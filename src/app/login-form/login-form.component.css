@@ -58,28 +58,26 @@
   text-align: right;
 }
 
-input {
-  color: #FFF!important;
+>>>input[_ngcontent-c1] {
+  color: #FFF;
   width: 100%;
-  max-width: 312px!important;
+  max-width: 312px;
   font-size: 17px;
 }
 
-  >>> label {
-
+>>>[_ngcontent-c1] .mat-input-placeholder {
   color: #FFF;
 }
 
->>> .mat-input-placeholder,
->>> .mat-form-field-placeholder {
+>>>[_ngcontent-c1] .mat-input-placeholder.mat-form-field-placeholder.mat-float {
   color: #FFF;
 }
 
->>> .mat-form-field-ripple {
+>>>[_ngcontent-c1] .mat-form-field-ripple {
   background-color: #31144a;
 }
 
->>> .mat-form-field-placeholder-wrapper {
+>>>[_ngcontent-c1] .mat-form-field-placeholder-wrapper {
   top: -1.2em;
   color: #FFF;
 }
@@ -88,16 +86,15 @@ input {
   letter-spacing: 5px;
 }
 
->>> .mat-form-field-underline {
-
-  background-color: #FFF!important;
+>>>[_ngcontent-c1] .mat-form-field-underline {
+  background-color: #FFF;
 }
 
->>> .mat-form-field-placeholder {
+/* .mat-form-field-placeholder {
 
   color: #FFF!important;
 }
 
->>> .mat-hint {
+.mat-hint {
   color: #FFF!important;
-}
+} */

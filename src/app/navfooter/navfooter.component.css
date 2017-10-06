@@ -44,7 +44,7 @@ md-toolbar.mat-toolbar {
 }
 
 >>> .mat-raised-button:hover {
-  color: rgba(93, 57, 138, 1);
+  /* color: rgba(93, 57, 138, 1); */
   outline: solid 1px rgba(93, 57, 138, 1);
   z-index:10;
 }

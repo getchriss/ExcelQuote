@@ -62,10 +62,10 @@ md-select {
   width: 100%;
 }
 
-label {
+/* label {
   display: block;
   width: 100%;
-}
+} */
 
 .upload {
   /* color: #6e6e6e; */
@@ -89,48 +89,42 @@ label {
   }
 }
 
->>>.mat-button-toggle-label-content {
-  padding: 0 0px!important;
+>>>[_ngcontent-c9] .mat-button-toggle-label-content {
+  padding: 0 0px;
   width: 100%;
 }
 
->>>.mat-input-placeholder,
->>>.mat-form-field-placeholder {
-  color: blue;
+>>>[_ngcontent-c9] .mat-input-placeholder,
+>>>[_ngcontent-c9] .mat-form-field-placeholder {
+  /* color: blue; */
 }
 
->>>.mat-form-field-ripple {
+>>>[_ngcontent-c9] .mat-form-field-ripple {
   background-color: #31144a;
 }
 
->>>.mat-form-field-placeholder-wrapper {
+>>>[_ngcontent-c9] .mat-form-field-placeholder-wrapper {
   top: -1.2em;
-  color: #31144a!important;
-
-
+  color: #31144a;
 }
 
 .space input {
   letter-spacing: 5px;
 }
 
->>>.mat-form-field-underline {
-  background-color:#8b8b8b!important;
-
-
+>>>[_ngcontent-c9] .mat-form-field-underline {
+  background-color:#8b8b8b;
 }
 
->>>.mat-form-field-placeholder {
-  color: #8b8b8b!important;
-
-
+>>>[_ngcontent-c9] .mat-form-field-placeholder {
+  color: #8b8b8b;
 }
 
->>>.mat-hint {
-  color: red!important;
+>>>[_ngcontent-c9] .mat-hint {
+  color: red;
 }
 
-.removeB>>>.mat-form-field-underline {
+>>>.removeB[_ngcontent-c9] .mat-form-field-underline {
   background-color: #F0F0F0!important;
 }
 
