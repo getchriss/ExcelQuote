@@ -21,6 +21,6 @@ export class GlobalErrorHandlerService extends ErrorHandler {
   }
   handleError(error: any) {
     this.LogServiceService.logService(error);
-    alert(`Error occurred:${error.message}`);
+    // alert(`Error occurred:${error.message}`);
   }
 }
