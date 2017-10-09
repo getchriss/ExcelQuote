@@ -180,6 +180,10 @@ h3 {
   margin-left: 2px;
 }
 
+>>>[_ngcontent-c1] .mat-form-field-ripple {
+  background-color: #5D398A
+}
+
 [_ngcontent-c1]>>>.mat-ripple-element {
   background-color: rgba(93, 57, 138, 0.35)!important;
 }
