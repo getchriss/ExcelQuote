@@ -33,17 +33,17 @@
       <div class="feed" fxLayout="column" fxFlex="grow">
         <div *ngFor="let quoteFile of feed | async" class="quote">
           <!-- <app-quote-thumbnail ></app-quote-thumbnail> -->
-          <div class="quoteContainer" *ngIf="quoteFile.stage == 'completed'">
+          <div class="quoteContainer" *ngIf="quoteFile.stage == 'completed'" [@FadeIn]>
             <div [ngClass]="(focusThumb==quoteFile.$key)?'quoteInnerContainer focused':'quoteInnerContainer'" (click)="toggleFocus($event, quoteFile.$key)">
-              <div class="quoteData" [ngClass]="{}">
-                <span class="quoteName" [ngClass]="{}">
+              <div class="quoteData">
+                <span class="quoteName">
                   {{ quoteFile.client }}
                 </span>
-                <span class="quoteID" [ngClass]="{}">
+                <span class="quoteID">
                   {{ quoteFile.$key }}
                 </span>
               </div>
-              <div class="quoteDate" [routerLink]="['/quotePreview/' + focusThumb]" [ngClass]="(focusThumb==quoteFile.$key)?'quoteDate focused':'quoteDate'"
+              <div class="quoteDate" [routerLink]="['/quote-preview/' + focusThumb]" [ngClass]="(focusThumb==quoteFile.$key)?'quoteDate focused':'quoteDate'"
                 (click)="toggleFocus($event, quoteFile.$key)">
                 <span>PREVIEW</span>
               </div>

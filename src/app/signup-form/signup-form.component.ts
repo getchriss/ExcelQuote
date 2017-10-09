@@ -23,6 +23,7 @@ export class SignupFormComponent {
     Validators.required]);
 
   signUp() {
+    // console.log("signing up...")
     const email = this.email;
     const password = this.password;
     const displayName = this.displayName;

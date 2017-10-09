@@ -57,6 +57,14 @@ p span {
   background-color: #85C15F;
 }
 
+<<<<<<< HEAD
 .cancle {
   background-color: #FF4D77;
+=======
+.cancel {
+    background-color:#FF4D77;
+    display:block;
+    color: #fff;
+
+>>>>>>> 9/10/17---Josh
 }

@@ -5,16 +5,21 @@ import { Observable } from 'rxjs/Observable';
 import { AngularFireDatabase } from 'angularfire2/database';
 import * as firebase from 'firebase/app';
 import { Subscription } from 'rxjs/Subscription';
+// import { ROUTER_ANIMATION } from '../_animations/router_animation.animation'
 
-import { slideIn } from '../_animations/index';
+// import { slideIn } from '../_animations/index';
 
 @Component({
   selector: 'app-dash',
   templateUrl: './dash.component.html',
   styleUrls: ['./dash.component.css'],
   encapsulation: ViewEncapsulation.Emulated
+<<<<<<< HEAD
   //,
   // animations: [slideIn()]
+=======
+  // animations: [ROUTER_ANIMATION]
+>>>>>>> 9/10/17---Josh
 })
 
 export class DashComponent implements OnInit {

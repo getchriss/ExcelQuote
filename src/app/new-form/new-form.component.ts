@@ -203,6 +203,8 @@ export class NewFormComponent implements OnInit, OnChanges {
       this.dialogRef.afterClosed().subscribe(result => {
         if (result) {
           this.form.submitQuote(this.quote, quoteNum);
+          console.log("Submitted")
+          this.router.navigate(['/dash'])
         }
         this.dialogRef = null;
       });

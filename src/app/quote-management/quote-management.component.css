@@ -131,6 +131,7 @@ input {
   text-transform: uppercase;
   color: #CACACA;
   /* height: 80px; */
+  /* opacity: 0; */
 }
 
 .subTitle {
@@ -199,6 +200,7 @@ md-toolbar {
   -webkit-box-shadow: 0px 4px 12px -2px rgba(0, 0, 0, 0.36);
   -moz-box-shadow: 0px 4px 12px -2px rgba(0, 0, 0, 0.36);
   box-shadow: 0px 4px 12px -2px rgba(0, 0, 0, 0.36);
+  /* opacity: 0; */
 }
 
 a {
