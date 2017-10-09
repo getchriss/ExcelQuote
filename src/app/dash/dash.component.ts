@@ -10,12 +10,7 @@ import { Subscription } from 'rxjs/Subscription';
   selector: 'app-dash',
   templateUrl: './dash.component.html',
   styleUrls: ['./dash.component.css'],
-<<<<<<< HEAD
-  encapsulation: ViewEncapsulation.Emulated
-  // animations: [ROUTER_ANIMATION]
-=======
   encapsulation: ViewEncapsulation.Emulated,
->>>>>>> 10/10/17---Josh
 })
 
 export class DashComponent implements OnInit {
