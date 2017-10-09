@@ -56,39 +56,39 @@ export class QuoteService {
       return true;
     } else {
       // console.log('validateQuote() was not successful...')
-      console.log(quote.client.length)
-      console.log(quote.email.length)
-      console.log(quote.address.length)
-      console.log(quote.phone !== undefined)
-      console.log(quote.date !== undefined)
-      console.log(quote.fileName !== undefined)
-      console.log(quote.noKinds !== undefined)
-      console.log(quote.qKinds !== undefined)
-      console.log(quote.cost.length)
-      console.log(quote.width !== undefined)
-      console.log(quote.height !== undefined)
-      console.log(quote.labelsPer !== undefined)
-      console.log(quote.gap !== undefined)
-      console.log(quote.knife.length)
-      console.log(quote.charge.length)
-      console.log(quote.stock.length)
-      console.log(quote.colour.length)
-      console.log(quote.embel.length)
-      console.log(quote.orient.length)
-      console.log(quote.appliedBy.length)
-      console.log(quote.adhesive.length)
-      console.log(quote.overPrint.length)
-      console.log(quote.core !== undefined)
-      console.log(quote.windStyle !== undefined)
-      console.log(quote.suppliedIn.length)
-      console.log(quote.proofType.length)
+      console.log(quote.client.length);
+      console.log(quote.email.length);
+      console.log(quote.address.length);
+      console.log(quote.phone !== undefined);
+      console.log(quote.date !== undefined);
+      console.log(quote.fileName !== undefined);
+      console.log(quote.noKinds !== undefined);
+      console.log(quote.qKinds !== undefined);
+      console.log(quote.cost.length);
+      console.log(quote.width !== undefined);
+      console.log(quote.height !== undefined);
+      console.log(quote.labelsPer !== undefined);
+      console.log(quote.gap !== undefined);
+      console.log(quote.knife.length);
+      console.log(quote.charge.length);
+      console.log(quote.stock.length);
+      console.log(quote.colour.length);
+      console.log(quote.embel.length);
+      console.log(quote.orient.length);
+      console.log(quote.appliedBy.length);
+      console.log(quote.adhesive.length);
+      console.log(quote.overPrint.length);
+      console.log(quote.core !== undefined);
+      console.log(quote.windStyle !== undefined);
+      console.log(quote.suppliedIn.length);
+      console.log(quote.proofType.length);
       return false;
     }
   }
 
   submitQuote(quote: any, quoteNum: string) {
     this.quoteFiles = this.getQuotes();
-    let quoteFile = {
+    const quoteFile = {
       client: quote.client,
       email: quote.email,
       address: quote.address,
@@ -120,7 +120,7 @@ export class QuoteService {
     };
     this.quoteFiles.update(quoteNum, quoteFile);
 
-    console.log('Completed submitQuote()...')
+    console.log('Completed submitQuote()...');
   }
 
   getQuotes(): FirebaseListObservable<QuoteFile[]> {
@@ -130,15 +130,15 @@ export class QuoteService {
   getQuoteById(id) {
     return this.db.list('/quotes/' + id, { preserveSnapshot: true });
   }
-  
+
   getQuoteNumbers() {
-    return this.db.list('/quotes/', { preserveSnapshot: true })
+    return this.db.list('/quotes/', { preserveSnapshot: true });
   }
 
   getStocks(): FirebaseListObservable<QuoteFile[]> {
     return this.db.list('/misc/stock', {
       preserveSnapshot: true
-    })
+    });
   }
 
 
@@ -166,10 +166,8 @@ export class QuoteService {
     });
   }
 
-  updateStage(id:string, stageName:string) {
+  updateStage(id: string, stageName: string) {
     const temp =  this.getQuoteById(id);
-
-    // console.log(temp)
     temp.set('stage', stageName);
   }
 }

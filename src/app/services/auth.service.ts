@@ -18,24 +18,17 @@ export class AuthService {
     private db: AngularFireDatabase,
     private router: Router, private snackBar: MdSnackBar, ) {
     this.user = afAuth.authState;
-    // this.userName = this.authState.displayName;
-    // console.log(this.authState.uid);
   }
 
   authUser() {
     return this.user;
   }
 
-  // public authUser() {
-  //   return this.user;
-  // }
-
-
   resetPassword(email: string) {
-    var auth = firebase.auth();
+    const auth = firebase.auth();
     return auth.sendPasswordResetEmail(email)
-      .then(() => console.log("email sent"))
-      .catch((error) => console.log(error))
+      .then(() => console.log('email sent'))
+      .catch((error) => console.log(error));
   }
 
   get currentUserId(): string {
@@ -48,18 +41,16 @@ export class AuthService {
         this.authState = user;
         this.setUserStatus('online');
         this.router.navigate(['dash']);
-      }
-    )
- .catch( (error: firebase.FirebaseError) => {
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      console.log(`code`, error.code);
-      console.log(`message`, error.message);
-      console.log(`name`, error.name);
-      console.log(`stack`, error.stack);
-    }
-  );
-}
+      })
+      .catch((error: firebase.FirebaseError) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(`code`, error.code);
+        console.log(`message`, error.message);
+        console.log(`name`, error.name);
+        console.log(`stack`, error.stack);
+      });
+  }
 
   logout() {
     this.afAuth.auth.signOut();
@@ -74,17 +65,17 @@ export class AuthService {
         const type = 'user';
         this.setUserData(email, displayName, type, status);
       }
-    )
+      )
       .catch((error: firebase.FirebaseError) => {
-        var errorCode = error.code;
-        var errorMessage = error.message;
+        const errorCode = error.code;
+        const errorMessage = error.message;
         console.log(`code`, error.code);
         console.log(`message`, error.message);
         console.log(`name`, error.name);
         console.log(`stack`, error.stack);
       }
       );
-    }
+  }
 
   setUserData(email: string, displayName: string, type: string, status: string): void {
     const path = `users/${this.currentUserId}`;

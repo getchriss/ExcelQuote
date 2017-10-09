@@ -19,7 +19,7 @@ button {
 }
 
 div span {
-  color: #FFF;
+  color: #FFFFFF;
   font-family: 'Open Sans', sans-serif;
   margin-top: -15px;
 }
@@ -57,14 +57,9 @@ p span {
   background-color: #85C15F;
 }
 
-<<<<<<< HEAD
-.cancle {
-  background-color: #FF4D77;
-=======
 .cancel {
     background-color:#FF4D77;
     display:block;
-    color: #fff;
+    color: #FFFFFF;
 
->>>>>>> 9/10/17---Josh
 }
