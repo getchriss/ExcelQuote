@@ -45,10 +45,10 @@ export class AuthService {
       .catch((error: firebase.FirebaseError) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.log('code', error.code);
-        console.log('message', error.message);
-        console.log('name', error.name);
-        console.log('stack', error.stack);
+        console.log(`code`, error.code);
+        console.log(`message`, error.message);
+        console.log(`name`, error.name);
+        console.log(`stack`, error.stack);
       });
   }
 
@@ -69,16 +69,16 @@ export class AuthService {
       .catch((error: firebase.FirebaseError) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.log('code', error.code);
-        console.log('message', error.message);
-        console.log('name', error.name);
-        console.log('stack', error.stack);
+        console.log(`code`, error.code);
+        console.log(`message`, error.message);
+        console.log(`name`, error.name);
+        console.log(`stack`, error.stack);
       }
       );
   }
 
   setUserData(email: string, displayName: string, type: string, status: string): void {
-    const path = 'users/${this.currentUserId}';
+    const path = `users/${this.currentUserId}`;
     const data = {
       email: email,
       displayName: displayName,
@@ -95,7 +95,7 @@ export class AuthService {
   }
 
   setUserStatus(status: string): void {
-    const path = 'users/${this.currentUserId}';
+    const path = `users/${this.currentUserId}`;
 
     const data = {
       status: status
