@@ -14,12 +14,7 @@ import { Subscription } from 'rxjs/Subscription';
   templateUrl: './dash.component.html',
   styleUrls: ['./dash.component.css'],
   encapsulation: ViewEncapsulation.Emulated
-<<<<<<< HEAD
-  //,
-  // animations: [slideIn()]
-=======
   // animations: [ROUTER_ANIMATION]
->>>>>>> 9/10/17---Josh
 })
 
 export class DashComponent implements OnInit {
