@@ -5,9 +5,9 @@ import { Observable } from 'rxjs/Observable';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import * as firebase from 'firebase/app';
-import { Subscription } from 'rxjs';
+import { Subscription } from 'rxjs/Subscription';
 import { QuoteService } from '../services/quote.service';
-import { QuoteFile } from '../models/quote-file.model'
+import { QuoteFile } from '../models/quote-file.model';
 
 @Component({
   selector: 'app-quote-preview',
@@ -33,17 +33,23 @@ export class QuotePreviewComponent implements OnInit {
   quoteNumbers: any = [];
   foo: any;
 
-  constructor(private af: AngularFireAuth, private route: ActivatedRoute, private router: Router, private quoteService: QuoteService, private authService: AuthService) {
+  constructor(
+    private af: AngularFireAuth,
+    private route: ActivatedRoute,
+    private router: Router,
+    private quoteService: QuoteService,
+    private authService: AuthService
+  ) {
     this.jobId = this.route.snapshot.params.quote_num;
-    this.getQuote = this.quoteService.getQuoteById(this.jobId)
+    this.getQuote = this.quoteService.getQuoteById(this.jobId);
     this.compTitle = this.jobId + ' PREVIEW';
 
     this.getQuote.subscribe(snapshots => {
       this.currentQuote = [];
       this.currentQuoteObj = {};
       snapshots.forEach(snapshot => {
-        let tempVal = snapshot.val();
-        let tempKey = snapshot.key;
+        const tempVal = snapshot.val();
+        const tempKey = snapshot.key;
         this.currentQuote[tempKey] = tempVal;
         this.currentQuoteObj[tempKey] = tempVal;
       });
@@ -55,10 +61,10 @@ export class QuotePreviewComponent implements OnInit {
       this.quotes = snapshots.slice();
       // console.log(this.quotes[1].key)
       for (let i = 0; i < this.quotes.length; i++) {
-        let tempKey = this.quotes[i].key;
+        const tempKey = this.quotes[i].key;
         this.quoteNumbers.push(tempKey);
         // console.log(this.quoteNumbers)
-      };
+      }
     });
   }
 
@@ -70,7 +76,7 @@ export class QuotePreviewComponent implements OnInit {
         this.userId = user.uid;
         // console.log(this.userId)
 
-        this.getUserData = this.authService.getUserData(this.userId)
+        this.getUserData = this.authService.getUserData(this.userId);
         this.getUserData.subscribe(snapshots => {
           snapshots.forEach(snapshot => {
             this.userData[snapshot.key] = snapshot.val();
@@ -83,58 +89,58 @@ export class QuotePreviewComponent implements OnInit {
 
   copyToClipboard(elementId) {
     // Create an auxiliary hidden input
-    const aux = <HTMLInputElement>document.createElement("input");
-    const elm: any = <HTMLElement>document.getElementById(elementId)
+    const aux = <HTMLInputElement>document.createElement('input');
+    const elm: any = <HTMLElement>document.getElementById(elementId);
     const text = elm.innerHTML;
     // Get the text from the element passed into the input
-    aux.setAttribute("value", text);
+    aux.setAttribute('value', text);
     // Append the aux input to the body
     document.body.appendChild(aux);
     // Highlight the content
     aux.select();
     // Execute the copy command
-    document.execCommand("copy");
+    document.execCommand('copy');
     // Remove the input from the body
     document.body.removeChild(aux);
   }
 
   moveToPending() {
-    let temp = this.quoteService.updateStage(this.jobId, 'pending');
+    const temp = this.quoteService.updateStage(this.jobId, 'pending');
   }
-  
+
   moveToCompleted() {
-    let temp = this.quoteService.updateStage(this.jobId, 'completed');
+    const temp = this.quoteService.updateStage(this.jobId, 'completed');
   }
-  
+
   moveToRequested() {
-    let temp = this.quoteService.updateStage(this.jobId, 'requested');
+    const temp = this.quoteService.updateStage(this.jobId, 'requested');
   }
-  
+
   repeatOrder(event) {
     // Add confirmation service here
-    let quoteNum = this.createQuoteNumber(this.quoteNumbers);
-    let copyQuote = this.currentQuoteObj;
+    const quoteNum = this.createQuoteNumber(this.quoteNumbers);
+    const copyQuote = this.currentQuoteObj;
     copyQuote.stage = 'requested';
     copyQuote.date = 'Direct reprint';
     this.quoteService.submitQuote(copyQuote, quoteNum);
-    console.log("Order repeated!")
-    this.router.navigate(['/quote-management'])
+    console.log('Order repeated!');
+    this.router.navigate(['/quote-management']);
   }
 
   editOrder(event) {
-    this.router.navigate(['/edit-form/'+this.jobId])
+    this.router.navigate(['/edit-form/' + this.jobId]);
     // console.log("Editing order!")
   }
 
   createQuoteNumber(array) {
-    let lastNumberPos = array.length - 1;
-    let tempNumber = Number(array[lastNumberPos]) + 1;
-    let newNumber = this.pad(tempNumber, 6);
+    const lastNumberPos = array.length - 1;
+    const tempNumber = Number(array[lastNumberPos]) + 1;
+    const newNumber = this.pad(tempNumber, 6);
     return newNumber;
   }
 
   pad(num, size) {
-    var s = "000000000" + num;
+    const s = '000000000' + num;
     return s.substr(s.length - size);
   }
 

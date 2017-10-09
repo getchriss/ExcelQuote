@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { ROUTER_ANIMATION } from './_animations/router_animation.animation'
+import { RouterAnimation } from './_animations/router_animation.animation';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  animations: [ROUTER_ANIMATION]
+  animations: [ RouterAnimation ]
 })
 export class AppComponent {
   title = 'ExcelQuote';

@@ -5,25 +5,15 @@ import { Observable } from 'rxjs/Observable';
 import { AngularFireDatabase } from 'angularfire2/database';
 import * as firebase from 'firebase/app';
 import { Subscription } from 'rxjs/Subscription';
-// import { ROUTER_ANIMATION } from '../_animations/router_animation.animation'
-
-// import { slideIn } from '../_animations/index';
 
 @Component({
   selector: 'app-dash',
   templateUrl: './dash.component.html',
   styleUrls: ['./dash.component.css'],
-  encapsulation: ViewEncapsulation.Emulated
-<<<<<<< HEAD
-  //,
-  // animations: [slideIn()]
-=======
-  // animations: [ROUTER_ANIMATION]
->>>>>>> 9/10/17---Josh
+  encapsulation: ViewEncapsulation.Emulated,
 })
 
 export class DashComponent implements OnInit {
-  // @HostBinding('@routerTransition') routerTransition;
 
   user: Observable<firebase.User>;
   userEmail: string;
@@ -39,18 +29,14 @@ export class DashComponent implements OnInit {
       if (user) {
         this.userEmail = user.email;
         this.userId = user.uid;
-        // console.log(this.userId)
-
-        this.getUserData = this.authService.getUserData(this.userId)
+        this.getUserData = this.authService.getUserData(this.userId);
         this.getUserData.subscribe(snapshots => {
           snapshots.forEach(snapshot => {
             this.userData[snapshot.key] = snapshot.val();
-            // console.log(this.userData)
           });
         });
       }
     });
-
   }
 
   logout() {
