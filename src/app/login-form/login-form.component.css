@@ -74,7 +74,7 @@
 }
 
 >>>[_ngcontent-c1] .mat-form-field-ripple {
-  background-color: #31144a;
+  background-color: #5D398A
 }
 
 >>>[_ngcontent-c1] .mat-form-field-placeholder-wrapper {
@@ -89,6 +89,16 @@
 >>>[_ngcontent-c1] .mat-form-field-underline {
   background-color: #FFF;
 }
+
+[_ngcontent-c1] .rbtn {
+  background-color: #fff;
+  color: #472155;
+}
+
+[_ngcontent-c1] >>> .mat-ripple-element {
+  background-color: rgba(93, 57, 138, 0.35)!important;
+}
+
 
 /* .mat-form-field-placeholder {
 

@@ -1,7 +1,66 @@
-<div class="dash-wrapper" *ngIf="(user|async)?.uid && userData.type == 'user'">
-  <div id="logo"></div>
-  <md-card class="dashHeader mat-elevation-z0" flex="flex" flex-gt-sm="50" flex-gt-md="33">
-    <h3 class="text-center">Hello, {{userData.displayName}}!</h3>
+<div class="dash-wrapper" style="background-color:#CACACA">
+  <div fxLayout="column" fxLayout.xs="column" fxLayoutAlign="center stretch">
+    <div fxFlex="50" fxFlex.xs="60" class="circleContainer">
+      <div id="half-circle"></div>
+      <div class="logOut" *ngIf="(user|async)?.uid && userData.type == 'user'" href="#" (click)="logout()">
+        <button md-button><i class="material-icons">power_settings_new</i> <span>Sign out</span></button>
+      </div>
+      <div class="logOut" *ngIf="(user|async)?.uid && userData.type == 'admin'" href="#" (click)="logout()">
+        <button md-button><i class="material-icons">power_settings_new</i> <span>Sign out</span></button>
+      </div>
+      <div class="logo-container">
+        <div id="logo"></div>
+      </div>
+    </div>
+    <div class="mainContainer">
+      <div *ngIf="(user|async)?.uid && userData.type == 'user'">
+        <div class="inner-container">
+          <div class="dashtext-container">
+            <p><span class="font25">Hello</span>, <b [innerHTML]="userData.displayName"></b><b>!</b></p>
+            <!-- {{userData.displayName}} -->
+            <p class="full-width" id="userEmail">You're currently logged in with<br><b [innerHTML]="userData.email"></b>.</p>
+            <!-- {{userData.email}} -->
+          </div>
+        </div>
+      </div>
+      <div *ngIf="(user|async)?.uid && userData.type == 'admin'">
+        <div class="inner-container">
+          <div class="dashtext-container">
+            <p><span class="font25">Hello</span>, <b [innerHTML]="userData.displayName"></b><b>!</b></p>
+            <!-- {{userData.displayName}} -->
+            <p class="full-width" id="userEmail">You're currently logged in with<br><b [innerHTML]="userData.email"></b>.</p>
+            <!-- {{userData.email}} -->
+          </div>
+        </div>
+      </div>
+      <div *ngIf="(user|async)?.uid && userData.type == 'admin'">
+        <div class="actionGroup">
+          <button class="full-width rbtn" md-raised-button color="primary" routerLink="/overview"><i class="material-icons">folder</i> <span>View current quotes</span></button>
+        </div>
+      </div>
+      <div *ngIf="(user|async)?.uid && userData.type == 'user'">
+        <div class="actionGroup">
+          <button class="full-width rbtn" md-raised-button color="primary" routerLink="/new-form"><i class="material-icons">insert_drive_file</i> <span>Create New Quote</span></button>
+          <button class="full-width rbtn" md-raised-button color="primary" routerLink="/quoteManagement"><i class="material-icons">find_in_page</i> <span>Search Existing Quote</span></button>
+        </div>
+      </div>
+      <div *ngIf="!(user|async)?.uid">
+        <div class="dashtext-container">
+          <p>Sorry but you will need to sign in to view this content.</p>
+        </div>
+        <div class="actionGroup">
+          <button class="full-width rbtn" md-raised-button color="primary" routerLink="/login"><i mdPrefix class="material-icons">account_circle</i> <span>Go to Login</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- -->
+<!-- <div class="dash-wrapper" *ngIf="(user|async)?.uid && userData.type == 'user'">
+    <div id="half-circle"></div>
+    <div id="logo"></div>
+    <md-card class="dashHeader mat-elevation-z0" flex="flex" flex-gt-sm="50" flex-gt-md="33">
+      <h3 class="text-center">Hello, {{userData.displayName}}!</h3>
     <p class="full-width text-center" id="userEmail">you're currently logged in with {{userData.email}}.</p>
   </md-card>
   <md-card class="dashWrapper mat-elevation-z0">
@@ -51,4 +110,4 @@
       </md-grid-list>
     </md-card-content>
   </md-card>
-</div>
+</div> -->

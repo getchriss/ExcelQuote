@@ -46,54 +46,49 @@
   font-size: 13px;
 }
 
-input {
-  color: #FFF!important;
+>>>input[_ngcontent-c8] {
+  color: #FFF;
   width: 100%;
-  max-width: 312px!important;
+  max-width: 312px;
   font-size: 17px;
 }
 
-label >>> {
+>>>[_ngcontent-c8] .mat-input-placeholder {
   color: #FFF;
 }
 
-.mat-input-placeholder >>>,
-.mat-form-field-placeholder >>> {
+>>>[_ngcontent-c8] .mat-input-placeholder.mat-form-field-placeholder.mat-float {
   color: #FFF;
 }
 
-.mat-form-field-ripple >>> {
-  background-color: #31144a;
+>>>[_ngcontent-c8] .mat-form-field-ripple {
+  background-color: #5D398A
 }
 
-.mat-form-field-placeholder-wrapper >>> {
+>>>[_ngcontent-c8] .mat-form-field-placeholder-wrapper {
   top: -1.2em;
   color: #FFF;
 }
 
-.mat-form-field-underline >>> {
-
-  background-color: #FFF!important;
+.space input {
+  letter-spacing: 5px;
 }
 
-.mat-form-field-placeholder >>> {
-  color: #FFF!important;
-}
-
-.mat-hint >>> {
-
-  color: #FFF!important;
+[_ngcontent-c8] .mat-raised-button[disabled] {
+  background-color: rgba(255, 255, 255, .12);
 }
 
 
-
-.forgot {
-  font-size: 13px!important;
-  margin-left: 9.5%;
-  text-align: right;
-  padding-bottom: 3px;
+>>>[_ngcontent-c8] .mat-form-field-underline {
+  background-color: #FFF;
 }
 
-.falign {
-  text-align: right;
+[_ngcontent-c8] .rbtn {
+  background-color: #fff;
+  color: #472155;
 }
+
+[_ngcontent-c8]>>>.mat-ripple-element {
+  background-color: rgba(93, 57, 138, 0.35)!important;
+}
+
