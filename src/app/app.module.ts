@@ -22,7 +22,6 @@ import { DashComponent } from './dash/dash.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { QuoteManagementComponent } from './quote-management/quote-management.component';
 import { QuotePreviewComponent } from './quote-preview/quote-preview.component';
-import { QuoteFormComponent } from './quote-form/quote-form.component';
 
 import { AuthService } from './services/auth.service';
 import { QuoteService } from './services/quote.service';
@@ -33,9 +32,10 @@ import { FirebaseDatabaseService } from './services/firebase-database.service';
 
 import { appRoutes } from '../routes';
 import { environment } from '../environments/environment';
+
 import { NewFormComponent } from './new-form/new-form.component';
 import { NavfooterComponent } from './navfooter/navfooter.component';
-import { QuoteThumbnailComponent } from './quote-thumbnail/quote-thumbnail.component';
+
 import { OverviewManagementComponent } from './overview-management/overview-management.component';
 import { ConfirmComponent } from './confirm/confirm.component';
 
@@ -49,10 +49,8 @@ import { ConfirmComponent } from './confirm/confirm.component';
     DashComponent,
     QuoteManagementComponent,
     QuotePreviewComponent,
-    QuoteFormComponent,
     NewFormComponent,
     NavfooterComponent,
-    QuoteThumbnailComponent,
     OverviewManagementComponent,
     ConfirmComponent,
   ],

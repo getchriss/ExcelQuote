@@ -36,7 +36,7 @@ export const ROUTER_ANIMATION = [
                 ]))
             ])
         ]),
-        
+
         // Moving from Quote-management => Quote-preview
         transition('quote-management => quote-preview', [
             query(':enter, :leave', style({ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 })),
@@ -241,4 +241,4 @@ export const ROUTER_ANIMATION = [
             ])
         ])
     ])
-]
+];

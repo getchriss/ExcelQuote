@@ -35,7 +35,8 @@
         <button class="full-width rbtn" md-raised-button color="primary" id="btn-login" (click)="login()">Log In</button>
       </md-grid-tile>
       <md-grid-tile>
-        <button class="full-width rbtn" md-raised-button color="primary" id="btn-login" *ngIf="!(user|async)?.uid" routerLink="/signup">Register</button>
+        <button class="full-width rbtn" md-raised-button color="primary" id="btn-login" routerLink="/signup">Register</button>
+         <!-- *ngIf="!(user|async)?.uid" -->
       </md-grid-tile>
     </md-grid-list>
   </md-card-content>

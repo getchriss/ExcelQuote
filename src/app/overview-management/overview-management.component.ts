@@ -1,5 +1,5 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
-import { Routes } from '@angular/router'
+import { Routes } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { QuoteService } from '../services/quote.service';
 import { FirebaseListObservable } from 'angularfire2/database';
@@ -8,7 +8,7 @@ import { FirebaseListObservable } from 'angularfire2/database';
 // import { FADE_IN_LEFT_ANIMATION } from '../_animations/fade_in_out.animation'
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { QuoteFile } from '../models/quote-file.model'
+import { QuoteFile } from '../models/quote-file.model';
 
 @Component({
   selector: 'app-overview-management',
@@ -27,8 +27,8 @@ export class OverviewManagementComponent implements OnInit {
   constructor(private quoteFile: QuoteService) {
     this.feed = this.quoteFile.getQuotes();
     this.feed.subscribe(
-      val => { this.feedLength = val.length }
-    )
+      val => { this.feedLength = val.length; }
+    );
     // console.log(this.feed.last)
   }
 
@@ -36,10 +36,10 @@ export class OverviewManagementComponent implements OnInit {
   }
 
   toggleFocus(event, key) {
-    if (this.focusThumb != key) {
+    if (this.focusThumb !== key) {
       this.focusThumb = key;
-    } else if (key == undefined || key == null || key == '') {
-      this.focusThumb = ''
+    } else if (key === undefined || key == null || key === '') {
+      this.focusThumb = '';
     }
   }
 

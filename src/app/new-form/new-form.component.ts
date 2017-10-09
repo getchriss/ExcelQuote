@@ -127,10 +127,10 @@ export class NewFormComponent implements OnInit, OnChanges {
       this.quotes = snapshots.slice();
       // console.log(this.quotes[1].key)
       for (let i = 0; i < this.quotes.length; i++) {
-        let tempKey = this.quotes[i].key;
+        const tempKey = this.quotes[i].key;
         this.quoteNumbers.push(tempKey);
         // console.log(this.quoteNumbers)
-      };
+      }
     });
 
     if (this.route.snapshot.params.quote_num !== undefined) {
@@ -138,7 +138,7 @@ export class NewFormComponent implements OnInit, OnChanges {
       this.jobId = this.route.snapshot.params.quote_num;
       this.compTitle = 'EDITING ' + this.jobId;
 
-      this.quoteToEdit = this.form.getQuoteById(this.jobId)
+      this.quoteToEdit = this.form.getQuoteById(this.jobId);
 
       this.quoteToEdit.subscribe(snapshots => {
         snapshots.forEach(snapshot => {
@@ -149,11 +149,11 @@ export class NewFormComponent implements OnInit, OnChanges {
         });
       });
 
-      console.log(this.quoteToEdit)
-      console.log('Editing previous quote: ' + this.jobId)
+      console.log(this.quoteToEdit);
+      console.log('Editing previous quote: ' + this.jobId);
 
     } else {
-      console.log('Brand new quote request')
+      console.log('Brand new quote request');
     }
   }
 
@@ -193,7 +193,7 @@ export class NewFormComponent implements OnInit, OnChanges {
   }
 
   submitQuote() {
-    let quoteNum = this.createQuoteNumber(this.quoteNumbers);
+    const quoteNum = this.createQuoteNumber(this.quoteNumbers);
     this.quote.date = this.input.nativeElement.value;
     if (this.form.validateQuote(this.quote)) {
       this.dialogRef = this.dialog.open(ConfirmComponent, {
@@ -203,42 +203,29 @@ export class NewFormComponent implements OnInit, OnChanges {
       this.dialogRef.afterClosed().subscribe(result => {
         if (result) {
           this.form.submitQuote(this.quote, quoteNum);
-          console.log("Submitted")
-          this.router.navigate(['/dash'])
+          console.log('Submitted');
+          this.router.navigate(['/dash']);
         }
         this.dialogRef = null;
       });
     } else {
-      console.log('There was an error with the validation. Check all required fields have been completed...')
-      this.snackBar.open(`Please check all required fields have been completed.`, '', { duration: 2000 })
+      console.log('There was an error with the validation. Check all required fields have been completed...');
+      this.snackBar.open(`Please check all required fields have been completed.`, '', { duration: 2000 });
     }
   }
 
-  // confirm() {
-  //   this.dialogRef = this.dialog.open(ConfirmComponent, {
-  //     disableClose: false
-  //   });
-  //   this.dialogRef.componentInstance.confirmMessage = 
-
-  //   this.dialogRef.afterClosed().subscribe(result => {
-  //     if (result) {
-  //     }
-  //     this.dialogRef = null;
-  //   });
-  // }
-
   fileEvent(event) {
-    let file = event.target.files[0];
+    const file = event.target.files[0];
     this.$userFile = file;
     this.quote.fileName = event.target.files[0].name;
   }
 
   uploadFile() {
-    var ACCESS_TOKEN = 'bdhRYZ0OjnkAAAAAAABYM8rgdQwtJC3K9uaA371lK6UDmhpKGmKI8M2Qfhztg6h5';
-    var dbx = new Dropbox({ accessToken: ACCESS_TOKEN });
+    const ACCESS_TOKEN = 'bdhRYZ0OjnkAAAAAAABYM8rgdQwtJC3K9uaA371lK6UDmhpKGmKI8M2Qfhztg6h5';
+    const dbx = new Dropbox({ accessToken: ACCESS_TOKEN });
     dbx.filesUpload({ path: '/' + this.$userFile.name, contents: this.$userFile })
       .then(function (response) {
-        var results = document.getElementById('results');
+        const results = document.getElementById('results');
         results.appendChild(document.createTextNode('File uploaded!'));
         console.log(response);
       })
@@ -249,14 +236,14 @@ export class NewFormComponent implements OnInit, OnChanges {
   }
 
   createQuoteNumber(array) {
-    let lastNumberPos = array.length - 1;
-    let tempNumber = Number(array[lastNumberPos]) + 1;
-    let newNumber = this.pad(tempNumber, 6);
+    const lastNumberPos = array.length - 1;
+    const tempNumber = Number(array[lastNumberPos]) + 1;
+    const newNumber = this.pad(tempNumber, 6);
     return newNumber;
   }
 
   pad(num, size) {
-    var s = "000000000" + num;
+    const s = '000000000' + num;
     return s.substr(s.length - size);
   }
 

@@ -2,11 +2,11 @@
   <div fxLayout="column" fxLayout.xs="column" fxLayoutAlign="center stretch">
     <div fxFlex="50" fxFlex.xs="60" class="circleContainer">
       <div id="half-circle"></div>
-      <div class="logOut" *ngIf="(user|async)?.uid && userData.type == 'user'" href="#" (click)="logout()">
-        <button md-button><i class="material-icons">power_settings_new</i> <span>Sign out</span></button>
+      <div class="logOut" *ngIf="(user|async)?.uid && userData.type == 'user'">
+        <button md-button href="#" (click)="logout()"><i class="material-icons">power_settings_new</i> <span>Sign out</span></button>
       </div>
-      <div class="logOut" *ngIf="(user|async)?.uid && userData.type == 'admin'" href="#" (click)="logout()">
-        <button md-button><i class="material-icons">power_settings_new</i> <span>Sign out</span></button>
+      <div class="logOut" *ngIf="(user|async)?.uid && userData.type == 'admin'">
+        <button md-button href="#" (click)="logout()"><i class="material-icons">power_settings_new</i> <span>Sign out</span></button>
       </div>
       <div class="logo-container">
         <div id="logo"></div>

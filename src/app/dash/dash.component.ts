@@ -36,7 +36,7 @@ export class DashComponent implements OnInit {
         this.userId = user.uid;
         // console.log(this.userId)
 
-        this.getUserData = this.authService.getUserData(this.userId)
+        this.getUserData = this.authService.getUserData(this.userId);
         this.getUserData.subscribe(snapshots => {
           snapshots.forEach(snapshot => {
             this.userData[snapshot.key] = snapshot.val();

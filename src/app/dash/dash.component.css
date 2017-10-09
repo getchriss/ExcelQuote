@@ -38,9 +38,9 @@ h3 {
   left: -50%;
   width: 180%;
   margin: auto;
-  border-radius: 0 0 50% 50%;
-  -moz-border-radius: 0 0 50% 50%;
   -webkit-border-radius: 0 0 50% 50%;
+  -moz-border-radius: 0 0 50% 50%;
+  border-radius: 0 0 50% 50%;
   background: #472155;
   border-bottom: 5px solid #5D398A;
   overflow: hidden;
