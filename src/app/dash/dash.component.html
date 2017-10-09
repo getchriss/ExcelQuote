@@ -1,6 +1,6 @@
 <div class="dash-wrapper" style="background-color:#CACACA">
   <div fxLayout="column" fxLayout.xs="column" fxLayoutAlign="center stretch">
-    <div fxFlex="50" fxFlex.xs="60" class="circleContainer">
+    <div class="circleContainer">
       <div id="half-circle"></div>
       <div class="logOut" *ngIf="(user|async)?.uid && userData.type == 'user'" href="#" (click)="logout()">
         <button md-button><i class="material-icons">power_settings_new</i> <span>Sign out</span></button>
