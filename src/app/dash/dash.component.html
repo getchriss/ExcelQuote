@@ -41,7 +41,7 @@
       <div *ngIf="(user|async)?.uid && userData.type == 'user'">
         <div class="actionGroup">
           <button class="full-width rbtn" md-raised-button color="primary" routerLink="/new-form"><i class="material-icons">insert_drive_file</i> <span>Create New Quote</span></button>
-          <button class="full-width rbtn" md-raised-button color="primary" routerLink="/quoteManagement"><i class="material-icons">find_in_page</i> <span>Search Existing Quote</span></button>
+          <button class="full-width rbtn" md-raised-button color="primary" routerLink="/quote-management"><i class="material-icons">find_in_page</i> <span>Search Existing Quote</span></button>
         </div>
       </div>
       <div *ngIf="!(user|async)?.uid">

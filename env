@@ -1,7 +1,7 @@
-[0mDate: [1m[37m2017-10-04T21:18:10.258Z[39m[22m[0m
-[0mHash: [1m[37m1b4bdfbd67aee0666076[39m[22m[0m
-[0mTime: [1m[37m10948[39m[22mms[0m
-[0mchunk {[1m[33m0[39m[22m} [1m[32mstyles.20ef9d264f34e488a3b8.bundle.css[39m[22m (styles) 44.6 kB {[1m[33m3[39m[22m} [1m[33m[initial][39m[22m[1m[32m [rendered][39m[22m[0m
+[0mDate: [1m[37m2017-10-09T01:39:30.324Z[39m[22m[0m
+[0mHash: [1m[37m402753264e503c508aed[39m[22m[0m
+[0mTime: [1m[37m3217[39m[22mms[0m
+[0mchunk {[1m[33m0[39m[22m} [1m[32mstyles.df58e8646d1201b7f84d.bundle.css[39m[22m (styles) 44.2 kB {[1m[33m3[39m[22m} [1m[33m[initial][39m[22m[1m[32m [rendered][39m[22m[0m
 [0mchunk {[1m[33m1[39m[22m} [1m[32mpolyfills.3bc34265385d52184eab.bundle.js[39m[22m (polyfills) 86 bytes {[1m[33m3[39m[22m} [1m[33m[initial][39m[22m[1m[32m [rendered][39m[22m[0m
 [0mchunk {[1m[33m2[39m[22m} [1m[32mmain.e402deade8b026b7d50e.bundle.js[39m[22m (main) 84 bytes [1m[33m[initial][39m[22m[1m[32m [rendered][39m[22m[0m
 [0mchunk {[1m[33m3[39m[22m} [1m[32minline.914d643d33b57773cf39.bundle.js[39m[22m (inline) 1.45 kB [1m[33m[entry][39m[22m[1m[32m [rendered][39m[22m[0m
