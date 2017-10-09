@@ -76,7 +76,7 @@ h3 {
   }
 }
 
-[_ngcontent-c1]>>>.md-card-content {
+[_ngcontent-c8]>>>.md-card-content {
   overflow-y: hidden;
 }
 
@@ -177,13 +177,13 @@ h3 {
 
 .actionGroup button i {
   color: #472155;
-  margin-left: 2px;
+  margin-left: 5px;
 }
 
->>>[_ngcontent-c1] .mat-form-field-ripple {
-  background-color: #5D398A
+>>>.actionGroup button .mat-form-field-ripple {
+  background-color: #5D398A;
 }
 
-[_ngcontent-c1]>>>.mat-ripple-element {
+>>>.actpimgGroup button .mat-ripple-element {
   background-color: rgba(93, 57, 138, 0.35)!important;
 }
