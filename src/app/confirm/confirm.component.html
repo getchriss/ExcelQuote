@@ -1,6 +1,8 @@
 <h1 md-dialog-title>Confirm</h1>
-<div md-dialog-content><span>{{confirmMessage}}</span></div>
+<div md-dialog-content>
+  <span>{{confirmMessage}}</span>
+</div>
 <div md-dialog-actions>
-      <button class="confirm" md-button  (click)="dialogRef.close(true)"><span>Confirm</span></button>
-    <button class="cancle" md-button (click)="dialogRef.close(false)"><span>Cancel</span></button>
+  <button class="confirm" md-button (click)="dialogRef.close(true)"><span>Confirm</span></button>
+  <button class="cancel" md-button (click)="dialogRef.close(false)"><span>Cancel</span></button>
 </div>

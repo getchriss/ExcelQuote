@@ -200,9 +200,11 @@ export class NewFormComponent implements OnInit, OnChanges {
         disableClose: false
       });
       this.dialogRef.componentInstance.confirmMessage = 'Confirm Submission?'
-      this.dialogRef.afterClosed().subscribe(result => {
+      this.dialogRef.beforeClose().subscribe(result => {
         if (result) {
           this.form.submitQuote(this.quote, quoteNum);
+          console.log("Submitted")
+          this.router.navigate(['/dash'])
         }
         this.dialogRef = null;
       });
@@ -220,7 +222,7 @@ export class NewFormComponent implements OnInit, OnChanges {
     });
     this.dialogRef.componentInstance.confirmMessage = 'Confirm Submission?'
 
-    this.dialogRef.afterClosed().subscribe(result => {
+    this.dialogRef.beforeClose().subscribe(result => {
       if (result) {
         // do confirmation actions
       }
