@@ -21,7 +21,8 @@ export class LoginFormComponent {
   constructor(private authService: AuthService, private router: Router, private NotifyService: NotifyService) { }
 
   globalFormControl = new FormControl('', [
-    Validators.required]);
+    Validators.required]
+  );
 
   login() {
     console.log('login() called from login-form component');

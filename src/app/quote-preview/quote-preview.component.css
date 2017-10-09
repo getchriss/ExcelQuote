@@ -7,6 +7,9 @@
   user-select: none;
 }
 
+html, body {
+}
+
 app-navfooter {
   bottom: 0;
   left: 0;

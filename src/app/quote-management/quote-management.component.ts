@@ -3,27 +3,28 @@ import { Routes } from '@angular/router'
 import { Observable } from 'rxjs/Observable';
 import { QuoteService } from '../services/quote.service';
 import { FirebaseListObservable } from 'angularfire2/database';
-// import {RouteParams} from '@angular/router';
+import { FADE_IN_ANIMATION } from '../_animations/fade_in.animation'
 
 import { QuoteFile } from '../models/quote-file.model'
 
 @Component({
   selector: 'app-quote-management',
   templateUrl: './quote-management.component.html',
-  styleUrls: ['./quote-management.component.css']
+  styleUrls: ['./quote-management.component.css'],
+  animations: [FADE_IN_ANIMATION]
 })
 
 export class QuoteManagementComponent implements OnInit, OnChanges {
-  private feed: FirebaseListObservable<QuoteFile[]>;
-  private focusThumb: string;
+  feed: FirebaseListObservable<QuoteFile[]>;
+  focusThumb: string;
 
-  constructor(private quoteFile: QuoteService) {  }
+  constructor(private quoteFile: QuoteService) { }
 
   ngOnInit() {
     this.feed = this.quoteFile.getQuotes();
   }
 
-  ngOnChanges() {  }
+  ngOnChanges() { }
 
   toggleFocus(event, key) {
     if (this.focusThumb != key) {
@@ -31,9 +32,6 @@ export class QuoteManagementComponent implements OnInit, OnChanges {
     } else if (key == undefined || key == null || key == '') {
       this.focusThumb = ''
     }
-    // var target = event.target || event.srcElement || event.currentTarget;
-    // var idAttr = target.attributes.class;
-    // var value = idAttr.nodeValue;
   }
 
 }

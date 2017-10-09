@@ -31,6 +31,7 @@
         <br>
         <div class="populationContainer">
           <div class="feed" fxLayout="column" fxFlex="grow">
+            <!-- {{feedLength}} -->
             <div *ngFor="let quoteFile of feed | async" class="quote">
               <!-- <app-quote-thumbnail ></app-quote-thumbnail> -->
               <div class="quoteContainer" *ngIf="quoteFile.stage == 'requested'">
@@ -43,7 +44,7 @@
                       {{ quoteFile.$key }}
                     </span>
                   </div>
-                  <div class="quoteOpen" [routerLink]="['/quotePreview/' + focusThumb]" [ngClass]="(focusThumb==quoteFile.$key)?'quoteOpen focused':'quoteOpen'"
+                  <div class="quoteOpen" [routerLink]="['/quote-preview/' + focusThumb]" [ngClass]="(focusThumb==quoteFile.$key)?'quoteOpen focused':'quoteOpen'"
                     (click)="toggleFocus($event, quoteFile.$key)">
                     <span>OPEN</span>
                   </div>
@@ -69,7 +70,7 @@
                       {{ quoteFile.$key }}
                     </span>
                   </div>
-                  <div class="quoteOpen" [routerLink]="['/quotePreview/' + focusThumb]" [ngClass]="(focusThumb==quoteFile.$key)?'quoteOpen focused':'quoteOpen'"
+                  <div class="quoteOpen" [routerLink]="['/quote-preview/' + focusThumb]" [ngClass]="(focusThumb==quoteFile.$key)?'quoteOpen focused':'quoteOpen'"
                     (click)="toggleFocus($event, quoteFile.$key)">
                     <span>OPEN</span>
                   </div>
@@ -95,7 +96,7 @@
                       {{ quoteFile.$key }}
                     </span>
                   </div>
-                  <div class="quoteOpen" [routerLink]="['/quotePreview/' + focusThumb]" [ngClass]="(focusThumb==quoteFile.$key)?'quoteOpen focused':'quoteOpen'"
+                  <div class="quoteOpen" [routerLink]="['/quote-preview/' + focusThumb]" [ngClass]="(focusThumb==quoteFile.$key)?'quoteOpen focused':'quoteOpen'"
                     (click)="toggleFocus($event, quoteFile.$key)">
                     <span>OPEN</span>
                   </div>
