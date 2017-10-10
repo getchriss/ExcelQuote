@@ -8,14 +8,11 @@ import * as firebase from 'firebase/app';
 import { Subscription } from 'rxjs/Subscription';
 import { QuoteService } from '../services/quote.service';
 import { QuoteFile } from '../models/quote-file.model';
-<<<<<<< HEAD
 
 import { MdSnackBar, MdDialog, MdDialogRef } from '@angular/material';
 
 import { ConfirmComponent } from '../confirm/confirm.component';
 
-=======
->>>>>>> c73f0b2e2598032f4ce2642a2f75601315d2ed3a
 
 @Component({
   selector: 'app-quote-preview',
@@ -42,19 +39,14 @@ export class QuotePreviewComponent implements OnInit {
   quoteNumbers: any = [];
   foo: any;
 
-<<<<<<< HEAD
-  constructor(private af: AngularFireAuth, private route: ActivatedRoute,
-    private router: Router, private quoteService: QuoteService,
-    private authService: AuthService, public dialog: MdDialog) {
-=======
   constructor(
     private af: AngularFireAuth,
     private route: ActivatedRoute,
     private router: Router,
     private quoteService: QuoteService,
-    private authService: AuthService
-  ) {
->>>>>>> c73f0b2e2598032f4ce2642a2f75601315d2ed3a
+    private authService: AuthService,
+    public dialog: MdDialog
+    ) {
     this.jobId = this.route.snapshot.params.quote_num;
     this.getQuote = this.quoteService.getQuoteById(this.jobId);
     this.compTitle = this.jobId + ' PREVIEW';
