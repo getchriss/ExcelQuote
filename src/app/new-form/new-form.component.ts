@@ -1,8 +1,7 @@
 import { Component, OnInit, OnChanges, HostBinding, Injectable, ViewChild, ViewEncapsulation } from '@angular/core';
+import { RequestOptions, RequestMethod, RequestOptionsArgs, Http, Headers } from '@angular/http';
 import { FormControl, Validators } from '@angular/forms';
-
 import { Router, ActivatedRoute } from '@angular/router';
-// import { slideIn } from '../_animations/index';W
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { MdSnackBar, MdDialog, MdDialogRef } from '@angular/material';
 import { Observable } from 'rxjs/Observable';
@@ -12,13 +11,12 @@ import Dropbox = require('dropbox');
 import { AuthService } from '../services/auth.service';
 import { QuoteService } from '../services/quote.service';
 import { QuoteFile } from '../models/quote-file.model';
-
+import 'rxjs/add/operator/toPromise';
 import { ConfirmComponent } from '../confirm/confirm.component';
 
 
 const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 const PHONE_REGEX = /^(\((03|04|06|07|09)\)\d{7})|(\((021|022|025|027|028|029)\)\d{6,8})|((0508|0800|0900)\d{5,8})$/;
-// const ZIP_REGEX =   /^([0-9]){4}?$/;
 
 @Component({
   selector: 'app-new-form',
@@ -117,8 +115,12 @@ export class NewFormComponent implements OnInit, OnChanges {
 
   @ViewChild('datePicker') input;
 
-  constructor(private form: QuoteService, private snackBar: MdSnackBar, private router: Router,
-    private route: ActivatedRoute, public dialog: MdDialog) {
+  constructor(private form: QuoteService,
+    private snackBar: MdSnackBar,
+    private router: Router,
+    private route: ActivatedRoute,
+    public dialog: MdDialog,
+    private http: Http) {
     this.compTitle = 'NEW REQUEST';
 
     this.foo = this.form.getQuoteNumbers();
@@ -176,23 +178,24 @@ export class NewFormComponent implements OnInit, OnChanges {
   submitQuote() {
     const quoteNum = this.createQuoteNumber(this.quoteNumbers);
     this.quote.date = this.input.nativeElement.value;
-    if (this.form.validateQuote(this.quote)) {
+    // if (this.form.validateQuote(this.quote)) {
       this.dialogRef = this.dialog.open(ConfirmComponent, {
         disableClose: false
       });
       this.dialogRef.componentInstance.confirmMessage = 'Please <b>confirm</b> submission';
       this.dialogRef.afterClosed().subscribe(result => {
         if (result) {
-          this.form.submitQuote(this.quote, quoteNum);
-          console.log('Submitted');
+          // this.form.submitQuote(this.quote, quoteNum);
+          this.sendEmail();
+          // console.log('Submitted');
           this.router.navigate(['/dash']);
         }
         this.dialogRef = null;
       });
-    } else {
-      console.log('There was an error with the validation. Check all required fields have been completed...');
-      this.snackBar.open(`Please check all required fields have been completed.`, '', { duration: 2000 });
-    }
+    // } else {
+      // console.log('There was an error with the validation. Check all required fields have been completed...');
+      // this.snackBar.open(`Please check all required fields have been completed.`, '', { duration: 2000 });
+    // }
   }
 
   fileEvent(event) {
@@ -231,20 +234,23 @@ export class NewFormComponent implements OnInit, OnChanges {
   onChange(files: FileList) {
     this.files = files;
   }
+
+  sendEmail() {
+    const url = 'https://us-central1-excel-quote-manager.cloudfunctions.net/httpEmail';
+    const params: URLSearchParams = new URLSearchParams();
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    params.set('to', 'joshp@exceldp.co.nz');
+    params.set('from', 'quote_manager@noreply.com');
+    params.set('subject', 'test-email');
+    params.set('content', 'Hello World');
+    return this.http.post(url, params, {headers: headers})
+      .toPromise()
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
 }
-
-// var input = document.getElementById("userFile");
-
-// input.onclick = function () {
-//   this.value = null;
-// };
-
-// input.onchange = function () {
-//   var path = input.value;
-//   var filename = "";
-//   if (path.lastIndexOf("\\") != -1)
-//     filename = path.substring(path.lastIndexOf("\\") + 1, path.length);
-//   else
-//     filename = path.substring(path.lastIndexOf("/") + 1, path.length);
-//   document.getElementById("log").innerHTML = filename;
-// };
