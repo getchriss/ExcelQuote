@@ -7,9 +7,6 @@
   user-select: none;
 }
 
-html, body {
-}
-
 app-navfooter {
   bottom: 0;
   left: 0;
@@ -131,7 +128,7 @@ p {
   left: 0;
   right: 0;
   margin: auto;
-  color: #FFF;
+  color: #FFFFFF;
 }
 
 .previewBox {

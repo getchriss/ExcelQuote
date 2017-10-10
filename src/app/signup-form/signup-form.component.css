@@ -21,7 +21,7 @@
 
 
 .material-icons {
-  color:#FFF;
+  color:#FFFFFF;
   font-weight: 200!important;
   margin-right: 10px;
 }
@@ -47,18 +47,18 @@
 }
 
 >>>input[_ngcontent-c8] {
-  color: #FFF;
+  color: #FFFFFF;
   width: 100%;
   max-width: 312px;
   font-size: 17px;
 }
 
 >>>[_ngcontent-c8] .mat-input-placeholder {
-  color: #FFF;
+  color: #FFFFFF;
 }
 
 >>>[_ngcontent-c8] .mat-input-placeholder.mat-form-field-placeholder.mat-float {
-  color: #FFF;
+  color: #FFFFFF;
 }
 
 >>>[_ngcontent-c8] .mat-form-field-ripple {
@@ -67,7 +67,7 @@
 
 >>>[_ngcontent-c8] .mat-form-field-placeholder-wrapper {
   top: -1.2em;
-  color: #FFF;
+  color: #FFFFFF;
 }
 
 .space input {
@@ -80,11 +80,11 @@
 
 
 >>>[_ngcontent-c8] .mat-form-field-underline {
-  background-color: #FFF;
+  background-color: #FFFFFF;
 }
 
 [_ngcontent-c8] .rbtn {
-  background-color: #fff;
+  background-color: #FFFFFF;
   color: #472155;
 }
 

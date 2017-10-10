@@ -8,11 +8,14 @@ import * as firebase from 'firebase/app';
 import { Subscription } from 'rxjs/Subscription';
 import { QuoteService } from '../services/quote.service';
 import { QuoteFile } from '../models/quote-file.model';
+<<<<<<< HEAD
 
 import { MdSnackBar, MdDialog, MdDialogRef } from '@angular/material';
 
 import { ConfirmComponent } from '../confirm/confirm.component';
 
+=======
+>>>>>>> c73f0b2e2598032f4ce2642a2f75601315d2ed3a
 
 @Component({
   selector: 'app-quote-preview',
@@ -39,9 +42,19 @@ export class QuotePreviewComponent implements OnInit {
   quoteNumbers: any = [];
   foo: any;
 
+<<<<<<< HEAD
   constructor(private af: AngularFireAuth, private route: ActivatedRoute,
     private router: Router, private quoteService: QuoteService,
     private authService: AuthService, public dialog: MdDialog) {
+=======
+  constructor(
+    private af: AngularFireAuth,
+    private route: ActivatedRoute,
+    private router: Router,
+    private quoteService: QuoteService,
+    private authService: AuthService
+  ) {
+>>>>>>> c73f0b2e2598032f4ce2642a2f75601315d2ed3a
     this.jobId = this.route.snapshot.params.quote_num;
     this.getQuote = this.quoteService.getQuoteById(this.jobId);
     this.compTitle = this.jobId + ' PREVIEW';
@@ -50,8 +63,8 @@ export class QuotePreviewComponent implements OnInit {
       this.currentQuote = [];
       this.currentQuoteObj = {};
       snapshots.forEach(snapshot => {
-        let tempVal = snapshot.val();
-        let tempKey = snapshot.key;
+        const tempVal = snapshot.val();
+        const tempKey = snapshot.key;
         this.currentQuote[tempKey] = tempVal;
         this.currentQuoteObj[tempKey] = tempVal;
       });
@@ -63,10 +76,10 @@ export class QuotePreviewComponent implements OnInit {
       this.quotes = snapshots.slice();
       // console.log(this.quotes[1].key)
       for (let i = 0; i < this.quotes.length; i++) {
-        let tempKey = this.quotes[i].key;
+        const tempKey = this.quotes[i].key;
         this.quoteNumbers.push(tempKey);
         // console.log(this.quoteNumbers)
-      };
+      }
     });
   }
 
@@ -78,7 +91,7 @@ export class QuotePreviewComponent implements OnInit {
         this.userId = user.uid;
         // console.log(this.userId)
 
-        this.getUserData = this.authService.getUserData(this.userId)
+        this.getUserData = this.authService.getUserData(this.userId);
         this.getUserData.subscribe(snapshots => {
           snapshots.forEach(snapshot => {
             this.userData[snapshot.key] = snapshot.val();
@@ -91,17 +104,17 @@ export class QuotePreviewComponent implements OnInit {
 
   copyToClipboard(elementId) {
     // Create an auxiliary hidden input
-    const aux = <HTMLInputElement>document.createElement("input");
-    const elm: any = <HTMLElement>document.getElementById(elementId)
+    const aux = <HTMLInputElement>document.createElement('input');
+    const elm: any = <HTMLElement>document.getElementById(elementId);
     const text = elm.innerHTML;
     // Get the text from the element passed into the input
-    aux.setAttribute("value", text);
+    aux.setAttribute('value', text);
     // Append the aux input to the body
     document.body.appendChild(aux);
     // Highlight the content
     aux.select();
     // Execute the copy command
-    document.execCommand("copy");
+    document.execCommand('copy');
     // Remove the input from the body
     document.body.removeChild(aux);
   }

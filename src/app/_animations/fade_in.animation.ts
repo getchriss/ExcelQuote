@@ -9,4 +9,4 @@ export const FADE_IN_ANIMATION = [
             ], { optional: true })
         ])
     ])
-]
+];

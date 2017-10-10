@@ -1,11 +1,11 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
-import { Routes } from '@angular/router'
+import { Routes } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { QuoteService } from '../services/quote.service';
 import { FirebaseListObservable } from 'angularfire2/database';
-import { FADE_IN_ANIMATION } from '../_animations/fade_in.animation'
+import { FADE_IN_ANIMATION } from '../_animations/fade_in.animation';
 
-import { QuoteFile } from '../models/quote-file.model'
+import { QuoteFile } from '../models/quote-file.model';
 
 @Component({
   selector: 'app-quote-management',
@@ -27,10 +27,10 @@ export class QuoteManagementComponent implements OnInit, OnChanges {
   ngOnChanges() { }
 
   toggleFocus(event, key) {
-    if (this.focusThumb != key) {
+    if (this.focusThumb !== key) {
       this.focusThumb = key;
-    } else if (key == undefined || key == null || key == '') {
-      this.focusThumb = ''
+    } else if (key === undefined || key === null || key === '') {
+      this.focusThumb = '';
     }
   }
 

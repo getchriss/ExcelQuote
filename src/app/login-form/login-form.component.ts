@@ -17,6 +17,7 @@ export class LoginFormComponent {
   email: string;
   password: string;
   errorMsg: any;
+  passReset = false;
 
   constructor(private authService: AuthService, private router: Router, private NotifyService: NotifyService) { }
 
@@ -26,12 +27,11 @@ export class LoginFormComponent {
 
   login() {
     console.log('login() called from login-form component');
-    this.authService.login(this.email, this.password)
+    this.authService.login(this.email, this.password);
   }
 
-  passReset: boolean = false;
   resetPassword() {
     this.authService.resetPassword(this.email)
-      .then(() => this.passReset = true)
+      .then(() => this.passReset = true);
   }
 }
