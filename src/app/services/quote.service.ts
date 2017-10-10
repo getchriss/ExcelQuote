@@ -27,10 +27,10 @@ export class QuoteService {
     if (
       quote.client.length > 0 &&
       quote.email.length > 0 &&
-      quote.address.length > 0 &&
+      // quote.address.length > 0 &&
       quote.phone !== undefined &&
       quote.date !== undefined &&
-      quote.fileName !== undefined &&
+      // quote.fileName !== undefined &&
       quote.noKinds !== undefined &&
       quote.qKinds !== undefined &&
       quote.cost.length > 0 &&

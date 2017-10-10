@@ -297,3 +297,9 @@ textarea {
   resize: both;
   height: 50px;
 }
+
+@media only screen and (max-width: 751px) {
+  .removeB {
+    display: none;
+  }
+}
