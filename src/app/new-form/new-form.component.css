@@ -70,7 +70,7 @@ md-select {
 
 .upload {
   /* color: #6e6e6e; */
-  color: #CECECE;
+  color: #95989A;
   position: absolute;
   font-size: 13px;
   font-family: 'Open Sans', sans-serif;
@@ -101,12 +101,12 @@ md-select {
 }
 
 >>>[_ngcontent-c9] .mat-form-field-ripple {
-  background-color: #31144a;
+  background-color: #5D398A;
 }
 
 >>>[_ngcontent-c9] .mat-form-field-placeholder-wrapper {
   top: -1.2em;
-  color: #31144a;
+  color: #5D398A;
 }
 
 .space input {
@@ -125,8 +125,16 @@ md-select {
   color: red;
 }
 
->>>.removeB[_ngcontent-c9] .mat-form-field-underline {
-  background-color: #F0F0F0!important;
+>>>.removeB .mat-form-field-underline {
+  background-color: transparent!important;
+  color: transparent!important;
+  border-color: transparent!important;
+}
+
+>>>.nw-Btn {
+  color: #5D398A!important;
+  border-bottom: 3px solid #5D398A!important;
+  background-color: #fff;
 }
 
 .full-width {
@@ -166,7 +174,7 @@ md-select {
   width: 100%;
 }
 
-.windingBox {
+>>>.windingBox {
   height: 65px;
   overflow-y: hidden;
   overflow-x: scroll;
@@ -217,8 +225,13 @@ md-button-toggle img {
   right: 0px;
 }
 
-.windingOpt {
+>>>.windingOpt {
   margin: 5px;
+  border: none;
+}
+
+md-button-toggle:nth-child(2).windingOpt {
+  border: none!important;
 }
 
 .btn-success {
@@ -246,7 +259,8 @@ md-button-toggle img {
 }
 
 .btn-primary {
-  border-right: 1px solid rgba(93, 57, 138, 1);
+  background-color: #FFF;
+  /* border: 1px solid rgba(93, 57, 138, 1); */
   color: rgba(93, 57, 138, 1);
 }
 
@@ -255,16 +269,24 @@ md-button-toggle img {
   color: white;
 }
 
-.mat-button-toggle-label-content {
-  width: 100%;
+>>>.mat-button-toggle-label-content {
   padding: 0px;
+  width: 100%;
 }
 
-md-button-toggle-group {
-  border-radius: 3px;
-  border: 1px solid rgba(93, 57, 138, 1);
-  border-right: none;
+>>>md-button-toggle {
   color: rgba(93, 57, 138, 1);
+  border-radius: 1px;
+  border-bottom: 2px solid rgba(93, 57, 138, 1);
+}
+
+>>>md-button-toggle:nth-child(2) {
+  border-left: 1px solid rgba(93, 57, 138, 1);
+  border-right: 1px solid rgba(93, 57, 138, 1);
+}
+
+>>>md-button-toggle:last-child {
+  border-right: none;
 }
 
 md-button-toggle-group {

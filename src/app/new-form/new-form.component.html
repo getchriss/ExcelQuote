@@ -66,7 +66,7 @@
                     <input class="ng-hide noBorder" mdInput>
                     <input class="ng-hide noBorder" id="userFile" multiple type="file" #file [(ngModel)]="quote.$userFile" (change)="fileEvent($event)"
                       name="userFile">
-                    <button class="full-width noBorder" md-raised-button color="primary"><label for="userFile">Upload artwork<i class="material-icons">cloud_upload</i></label></button>
+                    <button class="full-width noBorder nw-Btn" md-raised-button><label for="userFile">Upload artwork<i class="material-icons">cloud_upload</i></label></button>
                     <br>
                     <p class="upload" *ngFor="let f of files">{{ f.name }}</p>
                   </span>
@@ -232,6 +232,8 @@
               </div>
               <div>
                 <p>Winding style</p>
+                <p class="upload">Scroll left or right to select a winding type style.</p>
+                <br>
                 <br>
                 <md-button-toggle-group [(ngModel)]="quote.windStyle" class="windingBox mat-elevation-z0" #group="mdButtonToggleGroup" name="windStyle">
                   <md-button-toggle class="windingOpt" value="1">

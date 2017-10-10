@@ -5,9 +5,14 @@ import { Observable } from 'rxjs/Observable';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import * as firebase from 'firebase/app';
-import { Subscription } from 'rxjs';
+import { Subscription } from 'rxjs/Subscription';
 import { QuoteService } from '../services/quote.service';
-import { QuoteFile } from '../models/quote-file.model'
+import { QuoteFile } from '../models/quote-file.model';
+
+import { MdSnackBar, MdDialog, MdDialogRef } from '@angular/material';
+
+import { ConfirmComponent } from '../confirm/confirm.component';
+
 
 @Component({
   selector: 'app-quote-preview',
@@ -22,6 +27,7 @@ export class QuotePreviewComponent implements OnInit {
   feed: FirebaseListObservable<QuoteFile[]>;
   subscription: Subscription;
   user: Observable<firebase.User>;
+  dialogRef: MdDialogRef<ConfirmComponent>;
   getUserData: any;
   userData: any = {};
   userId: string;
@@ -33,9 +39,11 @@ export class QuotePreviewComponent implements OnInit {
   quoteNumbers: any = [];
   foo: any;
 
-  constructor(private af: AngularFireAuth, private route: ActivatedRoute, private router: Router, private quoteService: QuoteService, private authService: AuthService) {
+  constructor(private af: AngularFireAuth, private route: ActivatedRoute,
+    private router: Router, private quoteService: QuoteService,
+    private authService: AuthService, public dialog: MdDialog) {
     this.jobId = this.route.snapshot.params.quote_num;
-    this.getQuote = this.quoteService.getQuoteById(this.jobId)
+    this.getQuote = this.quoteService.getQuoteById(this.jobId);
     this.compTitle = this.jobId + ' PREVIEW';
 
     this.getQuote.subscribe(snapshots => {
@@ -99,42 +107,61 @@ export class QuotePreviewComponent implements OnInit {
   }
 
   moveToPending() {
-    let temp = this.quoteService.updateStage(this.jobId, 'pending');
+    const temp = this.quoteService.updateStage(this.jobId, 'pending');
   }
-  
+
   moveToCompleted() {
-    let temp = this.quoteService.updateStage(this.jobId, 'completed');
+    const temp = this.quoteService.updateStage(this.jobId, 'completed');
   }
-  
+
   moveToRequested() {
-    let temp = this.quoteService.updateStage(this.jobId, 'requested');
+    const temp = this.quoteService.updateStage(this.jobId, 'requested');
   }
-  
+ 
+  // repeatOrder(event) {
+  //   // Add confirmation service here
+  //   const quoteNum = this.createQuoteNumber(this.quoteNumbers);
+  //   const copyQuote = this.currentQuoteObj;
+  //   copyQuote.stage = 'requested';
+  //   copyQuote.date = 'Direct reprint';
+  //   this.quoteService.submitQuote(copyQuote, quoteNum);
+  //   console.log('Order repeated!')
+  //   this.router.navigate(['/quote-management']);
+  // }
+
   repeatOrder(event) {
-    // Add confirmation service here
-    let quoteNum = this.createQuoteNumber(this.quoteNumbers);
-    let copyQuote = this.currentQuoteObj;
-    copyQuote.stage = 'requested';
-    copyQuote.date = 'Direct reprint';
-    this.quoteService.submitQuote(copyQuote, quoteNum);
-    console.log("Order repeated!")
-    this.router.navigate(['/quote-management'])
+    this.dialogRef = this.dialog.open(ConfirmComponent, {
+      disableClose: false
+    });
+    this.dialogRef.componentInstance.confirmMessage = 'Are you sure you want to <b>repeat</b> order?';
+    this.dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        const quoteNum = this.createQuoteNumber(this.quoteNumbers);
+        const copyQuote = this.currentQuoteObj;
+        copyQuote.stage = 'requested';
+        copyQuote.date = 'Direct reprint';
+        this.quoteService.submitQuote(copyQuote, quoteNum);
+        console.log('Order repeated!');
+        this.router.navigate(['/quote-management']);
+      }
+      this.dialogRef = null;
+    });
   }
 
   editOrder(event) {
-    this.router.navigate(['/edit-form/'+this.jobId])
+    this.router.navigate(['/edit-form/' + this.jobId]);
     // console.log("Editing order!")
   }
 
   createQuoteNumber(array) {
-    let lastNumberPos = array.length - 1;
-    let tempNumber = Number(array[lastNumberPos]) + 1;
-    let newNumber = this.pad(tempNumber, 6);
+    const lastNumberPos = array.length - 1;
+    const tempNumber = Number(array[lastNumberPos]) + 1;
+    const newNumber = this.pad(tempNumber, 6);
     return newNumber;
   }
 
   pad(num, size) {
-    var s = "000000000" + num;
+    const s = '000000000' + num;
     return s.substr(s.length - size);
   }
 
