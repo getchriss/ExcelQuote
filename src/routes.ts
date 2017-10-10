@@ -20,6 +20,5 @@ export const appRoutes: Routes = [
     { path: 'edit-form/:quote_num', component: NewFormComponent, data: { quote_num: '', animation: { value: 'edit-form' } } },
     // { path: 'form', component: QuoteFormComponent, data: { animation: { value: 'form' } } },
     { path: 'overview', component: OverviewManagementComponent, data: { animation: { value: 'overview' } } },
-
     { path: '', redirectTo: '/login', pathMatch: 'full' },
 ];

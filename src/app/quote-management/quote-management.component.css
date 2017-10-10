@@ -126,12 +126,10 @@ input {
   font-family: 'Open Sans Semibold', sans-serif;
   font-size: 16px;
   padding: 0 10px;
-  padding-top: 35px;
+  padding-top: 12px;
   padding-bottom: 35px;
   text-transform: uppercase;
   color: #CACACA;
-  /* height: 80px; */
-  /* opacity: 0; */
 }
 
 .subTitle {

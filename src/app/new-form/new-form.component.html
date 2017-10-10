@@ -183,6 +183,14 @@
                 </md-button-toggle-group>
               </div>
               <div>
+                <p>Select Finish</p>
+                <md-select multiple class="full-width" placeholder="Finishes" [(ngModel)]="quote.finishes" name="finishes">
+                  <md-option *ngFor="let finishes of $finishes | async" [value]="finishes.val()">
+                    {{finishes.val()}}
+                  </md-option>
+                </md-select>
+              </div>
+              <div>
                 <p>Select Embelishment</p>
                 <md-select class="full-width" placeholder="Embleishments" [(ngModel)]="quote.embel" name="embel">
                   <md-option *ngFor="let embel of $embelishments | async" [value]="embel.val()">
@@ -238,27 +246,35 @@
                 <md-button-toggle-group [(ngModel)]="quote.windStyle" class="windingBox mat-elevation-z0" #group="mdButtonToggleGroup" name="windStyle">
                   <md-button-toggle class="windingOpt" value="1">
                     <img src="../../assets/img/1.png">
+                    <p class="windingLabel">1</p>
                   </md-button-toggle>
                   <md-button-toggle class="windingOpt" value="2">
                     <img src="../../assets/img/2.png">
+                    <p class="windingLabel">2</p>
                   </md-button-toggle>
                   <md-button-toggle class="windingOpt" value="3">
                     <img src="../../assets/img/3.png">
+                    <p class="windingLabel">3</p>
                   </md-button-toggle>
                   <md-button-toggle class="windingOpt" value="4">
                     <img src="../../assets/img/4.png">
+                    <p class="windingLabel">4</p>
                   </md-button-toggle>
                   <md-button-toggle class="windingOpt" value="5">
                     <img src="../../assets/img/5.png">
+                    <p class="windingLabel">5</p>
                   </md-button-toggle>
                   <md-button-toggle class="windingOpt" value="6">
                     <img src="../../assets/img/6.png">
+                    <p class="windingLabel">6</p>
                   </md-button-toggle>
                   <md-button-toggle class="windingOpt" value="7">
                     <img src="../../assets/img/7.png">
+                    <p class="windingLabel">7</p>
                   </md-button-toggle>
                   <md-button-toggle class="windingOpt" value="8">
                     <img src="../../assets/img/8.png">
+                    <p class="windingLabel">8</p>
                   </md-button-toggle>
                 </md-button-toggle-group>
                 <br>

@@ -183,16 +183,29 @@ md-select {
 }
 
 >>>.windingBox {
-  height: 65px;
+  height: 85px;
   overflow-y: hidden;
   overflow-x: scroll;
   -webkit-overflow-scrolling: touch;
-  box-shadow: none;
   margin: 0px;
   padding: 0px;
+  padding-top: 4px;
+  padding-bottom: 2px;
   border: none;
   transition: opacity 1s linear;
   cursor: pointer;
+  box-shadow: none;
+}
+
+.windingLabel {
+      top: 40px;
+      left: 0px;
+      right:0px;
+      margin: 0px auto;
+      padding: 0px;
+      text-align: center;
+      position: absolute;
+      color: #5D398A;
 }
 
 .windingBox::-webkit-scrollbar {
@@ -201,7 +214,7 @@ md-select {
 }
 
 .windingBox::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: #5D398A;
   border-radius: 50px;
 }
 
