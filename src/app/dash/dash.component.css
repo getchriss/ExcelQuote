@@ -68,7 +68,7 @@ h3 {
   /* border: 1px solid blue; */
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 751px) {
   #half-circle {
     overflow: hidden;
     height: 100%;
@@ -76,7 +76,7 @@ h3 {
     left: -50%
   }
   .mainContainer {
-    height: 320px;
+    height: 348px;
   }
 }
 

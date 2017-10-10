@@ -7,7 +7,7 @@ md-toolbar {
   /* border: solid 1px red; */
 }
 
-@media only screen and (max-width: 500px) {
+  @media only screen and (max-width: 751px) {
   md-toolbar {
     padding-top: 12px;
   }
