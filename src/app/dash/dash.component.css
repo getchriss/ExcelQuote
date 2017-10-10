@@ -54,6 +54,7 @@ h3 {
   right: 0px;
   height: 390px;
   width: 100%;
+  position: relative;
   max-width: 315px;
   margin: auto;
 }
@@ -74,6 +75,9 @@ h3 {
     width: 200%;
     left: -50%
   }
+  .mainContainer {
+    height: 320px;
+  }
 }
 
 [_ngcontent-c8]>>>.md-card-content {
@@ -82,7 +86,7 @@ h3 {
 
 .logOut {
   position: absolute;
-  top: 10px;
+  top: 15px;
   left: 0px;
   right: 0px;
   color: #FFFFFF;
@@ -122,7 +126,6 @@ h3 {
   height: 150px;
   top: 0px;
   padding-top: calc(70px);
-  padding-bottom: calc(160px);
   vertical-align: middle;
   text-align: center;
   margin: auto;
@@ -152,6 +155,7 @@ h3 {
 
 .actionGroup {
   left: 0px;
+  position: absolute;
   right: 0px;
   bottom: 0px;
   width: 100%;
