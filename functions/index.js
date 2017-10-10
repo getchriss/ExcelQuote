@@ -1,6 +1,6 @@
 var functions = require('firebase-functions');
 const sendgrid = require('sendgrid')
-const client = sendgrid("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")
+const client = sendgrid('api_key_goes_here')
 function parseBody(body) {
     var helper = sendgrid.mail;
     var fromEmail = new helper.Email(body.from);
