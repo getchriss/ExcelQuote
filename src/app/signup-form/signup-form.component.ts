@@ -28,7 +28,7 @@ export class SignupFormComponent {
     const password = this.password;
     const displayName = this.displayName;
     this.authService.signUp(email, password, displayName)
-      // .then(resolve => this.router.navigate(['login']))
+      .then(resolve => this.router.navigate(['login']))
       .catch(error => this.errorMsg = error.message);
   }
 }
