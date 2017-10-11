@@ -13,6 +13,7 @@ export class AuthService {
   private authState: any;
   private userName: string;
   private login_error: string;
+  rememberMe: true;
 
   constructor(private afAuth: AngularFireAuth,
     private db: AngularFireDatabase,
@@ -38,6 +39,10 @@ export class AuthService {
   login(email: string, password: string) {
     return this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then((user) => {
+        user.getIdToken().then(function(token) {
+          localStorage.setItem('savedToken', token);
+          this.rememberMe = true;
+        });
         this.authState = user;
         this.setUserStatus('online');
         this.router.navigate(['dash']);
@@ -49,8 +54,24 @@ export class AuthService {
         console.log(`message`, error.message);
         console.log(`name`, error.name);
         console.log(`stack`, error.stack);
-      });
+      })
+      .catch((function(error) {
+        console.log(error);
+      }));
   }
+
+  // toggleEditable(e: Event) {
+  //   if (this.rememberMe === true) {
+  //     // Do a thing
+  //     console.log('toggle set to false!');
+  //     this.rememberMe = false;
+  //   } else {
+  //     // Do another thing
+  //     console.log('toggle set to true!');
+  //     this.rememberMe = true;
+  //     const token = localStorage.getItem('savedToken');
+  //   }
+  // }
 
   logout() {
     this.afAuth.auth.signOut();

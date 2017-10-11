@@ -1,11 +1,9 @@
 import { ErrorHandler, Injectable } from '@angular/core';
-import { Http, HttpModule } from '@angular/http';
-import { HttpErrorResponse } from '@angular/common/http';
-import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
-import { AngularFireAuth } from 'angularfire2/auth';
-import * as firebase from 'firebase/app';
 
+import { Http, HttpModule, Headers, Response, RequestOptions } from '@angular/http';
+import { HttpErrorResponse } from '@angular/common/http';
 import { AuthService } from '../services/auth.service';
+import { MdSnackBar } from '@angular/material';
 
 @Injectable()
 export class LogServiceService {
@@ -20,7 +18,7 @@ export class LogServiceService {
       console.error('There was a Type error.', error.message);
     } else if (error instanceof Error) {
       console.error('There was a general error.', error.message);
-    }  else {
+      } else {
       console.error('ghost error but something happened!', error);
     }
   }
