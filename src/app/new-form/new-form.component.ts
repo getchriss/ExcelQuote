@@ -31,7 +31,6 @@ const PHONE_REGEX = /^(\((03|04|06|07|09)\)\d{7})|(\((021|022|025|027|028|029)\)
   encapsulation: ViewEncapsulation.Emulated
 })
 
-
 export class NewFormComponent implements OnInit, OnChanges {
   clipboard: any;
   files: FileList;

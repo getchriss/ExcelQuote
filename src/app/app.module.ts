@@ -27,6 +27,7 @@ import { QuotePreviewComponent } from './quote-preview/quote-preview.component';
 import { AuthService } from './services/auth.service';
 import { QuoteService } from './services/quote.service';
 import { NotifyService } from './services/notify.service';
+
 import { GlobalErrorHandlerService } from './services/global-error-handler.service';
 import { LogServiceService } from './services/log-service.service';
 import { FirebaseDatabaseService } from './services/firebase-database.service';
@@ -38,7 +39,7 @@ import { NavfooterComponent } from './navfooter/navfooter.component';
 // import { QuoteThumbnailComponent } from './quote-thumbnail/quote-thumbnail.component';
 import { OverviewManagementComponent } from './overview-management/overview-management.component';
 import { ConfirmComponent } from './confirm/confirm.component';
-
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -91,8 +92,9 @@ import { ConfirmComponent } from './confirm/confirm.component';
     // GlobalErrorHandlerService,
     LogServiceService,
     AuthService,
-    QuoteService,
     NotifyService,
+    QuoteService,
+    CookieService,
   ],
   bootstrap: [AppComponent],
   entryComponents: [ConfirmComponent]
