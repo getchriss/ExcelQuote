@@ -1,6 +1,8 @@
 import { Component, Inject, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { CookieService } from 'ngx-cookie-service';
+
+import { AngularFireAuth } from 'angularfire2/auth';
+import * as firebase from 'firebase/app';
 
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
@@ -20,13 +22,10 @@ export class LoginFormComponent {
   password: string;
   errorMsg: any;
   passReset = false;
-  isChecked = false;
-  cookieValue = 'UNKNOWN';
-  // @localStorage() public email: string = '';
-  // @localStorage() public rememberMe: boolean = false;
+  rememberMe: false;
 
   constructor(private authService: AuthService, private router: Router,
-    public dialog: MdDialog, private cookieService: CookieService) { }
+    public dialog: MdDialog) { }
 
   globalFormControl = new FormControl('', [
     Validators.required]
@@ -37,20 +36,22 @@ export class LoginFormComponent {
     this.authService.login(this.email, this.password);
   }
 
-  toggleEditable(e: Event) {
-    if (this.isChecked === true) {
-      // Do a thing
-      console.log('toggle set to false!');
-      this.isChecked = false;
-      this.cookieService.deleteAll();
-    } else {
-      // Do another thing
-      console.log('toggle set to true!');
-      this.isChecked = true;
-      this.cookieService.set('TestCookie', 'Hello im a cookie nom nom nom nom');
-      this.cookieValue = this.cookieService.get('Test');
-    }
+  toggleEditable() {
+    console.log('token saved');
   }
+
+
+  // toggleEditable(e: Event) {
+  //   if (this.isChecked === true) {
+  //     // Do a thing
+  //     console.log('toggle set to false!');
+  //     this.isChecked = false;
+  //   } else {
+  //     // Do another thing
+  //     console.log('toggle set to true!');
+  //     this.isChecked = true;
+  //   }
+  // }
 
 
   resetPassword() {
