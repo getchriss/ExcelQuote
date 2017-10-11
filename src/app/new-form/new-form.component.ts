@@ -7,6 +7,7 @@ import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable }
 import { MdSnackBar, MdDialog, MdDialogRef } from '@angular/material';
 import { Observable } from 'rxjs/Observable';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireModule } from 'angularfire2';
 import * as firebase from 'firebase/app';
 import Dropbox = require('dropbox');
 
@@ -123,8 +124,13 @@ export class NewFormComponent implements OnInit, OnChanges {
 
   @ViewChild('datePicker') input;
 
-  constructor(private form: QuoteService, private snackBar: MdSnackBar, private router: Router,
-    private route: ActivatedRoute, public dialog: MdDialog, private http: Http) {
+  constructor(private form: QuoteService,
+    private snackBar: MdSnackBar,
+    private router: Router,
+    private route: ActivatedRoute,
+    public dialog: MdDialog,
+    private http: Http,
+    private db: AngularFireDatabase) {
     this.compTitle = 'NEW REQUEST';
 
     this.foo = this.form.getQuoteNumbers();
@@ -179,49 +185,26 @@ export class NewFormComponent implements OnInit, OnChanges {
     }
   }
 
-  // submitQuote() {
-  //   const quoteNum = this.createQuoteNumber(this.quoteNumbers);
-  //   this.quote.date = this.input.nativeElement.value;
-  //   if (this.form.validateQuote(this.quote)) {
-  //     this.dialogRef = this.dialog.open(ConfirmComponent, {
-  //       disableClose: false
-  //     });
-  //     this.dialogRef.componentInstance.confirmMessage = 'Please <b>confirm</b> submission';
-  //     this.dialogRef.afterClosed().subscribe(result => {
-  //       if (result) {
-  //         this.form.submitQuote(this.quote, quoteNum);
-  //         console.log('Submitted');
-  //         this.router.navigate(['/dash']);
-  //       }
-  //       this.dialogRef = null;
-  //     });
-  //   } else {
-  //     console.log('There was an error with the validation. Check all required fields have been completed...');
-  //     this.snackBar.open(`Please check all required fields have been completed.`, '', { duration: 2000 });
-  //   }
-  // }
-
   submitQuote() {
     const quoteNum = this.createQuoteNumber(this.quoteNumbers);
     this.quote.date = this.input.nativeElement.value;
-    // if (this.form.validateQuote(this.quote)) {
-    this.dialogRef = this.dialog.open(ConfirmComponent, {
-      disableClose: false
-    });
-    this.dialogRef.componentInstance.confirmMessage = 'Please <b>confirm</b> submission';
-    this.dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        // this.form.submitQuote(this.quote, quoteNum);
-        this.sendEmail();
-        // console.log('Submitted');
-        this.router.navigate(['/dash']);
-      }
-      this.dialogRef = null;
-    });
-    // } else {
-    // console.log('There was an error with the validation. Check all required fields have been completed...');
-    // this.snackBar.open(`Please check all required fields have been completed.`, '', { duration: 2000 });
-    // }
+    if (this.form.validateQuote(this.quote)) {
+      this.dialogRef = this.dialog.open(ConfirmComponent, {
+        disableClose: false
+      });
+      this.dialogRef.componentInstance.confirmMessage = 'Please <b>confirm</b> submission';
+      this.dialogRef.afterClosed().subscribe(result => {
+        if (result) {
+          this.form.submitQuote(this.quote, quoteNum);
+          console.log('Submitted');
+          this.router.navigate(['/dash']);
+        }
+        this.dialogRef = null;
+      });
+    } else {
+      console.log('There was an error with the validation. Check all required fields have been completed...');
+      this.snackBar.open(`Please check all required fields have been completed.`, '', { duration: 2000 });
+    }
   }
 
   fileEvent(event) {
@@ -260,40 +243,4 @@ export class NewFormComponent implements OnInit, OnChanges {
   onChange(files: FileList) {
     this.files = files;
   }
-
-
-  sendEmail() {
-    const url = `https://us-central1-excel-quote-manager.cloudfunctions.net/httpEmail`;
-    const params: URLSearchParams = new URLSearchParams();
-    const headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    params.set('to', 'joshp@exceldp.co.nz');
-    params.set('from', 'quote_manager@noreply.com');
-    params.set('subject', 'test-email');
-    params.set('content', 'Hello World');
-    return this.http.post(url, params, { headers: headers })
-      .toPromise()
-      .then(res => {
-        console.log(res);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  }
 }
-
-// var input = document.getElementById("userFile");
-
-// input.onclick = function () {
-//   this.value = null;
-// };
-
-// input.onchange = function () {
-//   var path = input.value;
-//   var filename = "";
-//   if (path.lastIndexOf("\\") != -1)
-//     filename = path.substring(path.lastIndexOf("\\") + 1, path.length);
-//   else
-//     filename = path.substring(path.lastIndexOf("/") + 1, path.length);
-//   document.getElementById("log").innerHTML = filename;
-// };
