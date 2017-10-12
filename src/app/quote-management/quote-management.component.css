@@ -19,14 +19,14 @@
   left: 0;
 }
 
-.container-body {  
+.container-body {
   position: relative;
   margin-right: auto;
   margin-left: auto;
   /* padding-left: 15px; */
   /* padding-right: 15px; */
   max-width: 940px;
-  display: flex; 
+  display: flex;
 }
 
 .inputSearch md-input-container .md-errors-spacer {
@@ -39,6 +39,14 @@
   height: 105px;
 }
 
+@media only screen and (max-width: 751px) {
+  .textContainer {
+    width: 100%;
+    top: 62px;
+    position: absolute;
+  }
+}
+
 .textContainer {
   margin: auto;
   right: 0;
@@ -47,7 +55,7 @@
 }
 
 .open-b {
-  font-size: 27px;
+  font-size: 28px;
   font-weight: bold;
   text-transform: uppercase;
 }
@@ -60,7 +68,7 @@
 }
 
 .open-s {
-  font-size: 17px;
+  font-size: 18px;
   position: relative;
   left: -35px;
   top: 7px;
@@ -118,7 +126,7 @@ input {
 }
 
 .populationContainer::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.2); 
+  background-color: rgba(0, 0, 0, 0.2);
   border-radius: 50px;
 }
 
@@ -126,10 +134,19 @@ input {
   font-family: 'Open Sans Semibold', sans-serif;
   font-size: 16px;
   padding: 0 10px;
-  padding-top: 12px;
+  padding-top: 25px;
   padding-bottom: 35px;
   text-transform: uppercase;
   color: #CACACA;
+}
+
+@media only screen and (max-width: 751px) {
+  md-toolbar {
+    height: 50px;
+  }
+  .populationHead {
+    padding-top: 12px;
+  }
 }
 
 .subTitle {
@@ -144,7 +161,7 @@ input {
 }
 
 md-toolbar {
-  height: 50px;
+  height: 0px;
 }
 
 .mat-toolbar-row {
@@ -177,10 +194,9 @@ md-toolbar {
   box-shadow: 0px 4px 12px -2px rgba(0, 0, 0, 0.36);
 }
 
->>> .mat-focused .mat-form-field-placeholder {
+>>>.mat-focused .mat-form-field-placeholder {
   color: rgba(0, 0, 0, 0);
 }
-
 
 .quoteContainer {
   top: 0;
@@ -236,7 +252,9 @@ a {
   pointer-events: none;
 }
 
+
 /* .quoteInnerContainer:hover span, */
+
 .quoteInnerContainer.focused span {
   transition: all 0.3s cubic-bezier(0.000, 0.000, 0.230, 1);
   background-position: 0%;
@@ -276,6 +294,7 @@ a {
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
 }
+
 .quoteDate:hover {
   color: #000;
 }
@@ -291,6 +310,10 @@ a {
   font-weight: bold;
   font-family: 'Open Sans', sans-serif;
   padding: 0 10px;
+}
+
+.quote.hidden {
+  display: none;
 }
 
 .feed {

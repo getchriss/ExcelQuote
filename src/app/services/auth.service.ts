@@ -37,12 +37,9 @@ export class AuthService {
   }
 
   login(email: string, password: string) {
-    return this.afAuth.auth.signInWithEmailAndPassword(email, password)
+    this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then((user) => {
-        user.getIdToken().then(function(token) {
-          localStorage.setItem('savedToken', token);
-          this.rememberMe = true;
-        });
+        firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION);
         this.authState = user;
         this.setUserStatus('online');
         this.router.navigate(['dash']);
@@ -50,32 +47,25 @@ export class AuthService {
       .catch((error: firebase.FirebaseError) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.log(`code`, error.code);
-        console.log(`message`, error.message);
-        console.log(`name`, error.name);
-        console.log(`stack`, error.stack);
+        if (error.code === 'auth/invalid-email') {
+          return this.snackBar.open(`Incorrect email or password`, '', { duration: 99999 });
+        } else if (error.code === 'auth/wrong-password') {
+          return this.snackBar.open(`Incorrect password`, '', { duration: 99999 });
+        }
       })
-      .catch((function(error) {
+      .catch((function (error) {
         console.log(error);
       }));
   }
 
-  // toggleEditable(e: Event) {
-  //   if (this.rememberMe === true) {
-  //     // Do a thing
-  //     console.log('toggle set to false!');
-  //     this.rememberMe = false;
-  //   } else {
-  //     // Do another thing
-  //     console.log('toggle set to true!');
-  //     this.rememberMe = true;
-  //     const token = localStorage.getItem('savedToken');
-  //   }
-  // }
+  toggleEditable(e: Event) {
+      const token = localStorage.getItem('savedToken');
+    }
 
   logout() {
-    this.afAuth.auth.signOut();
+    this.setUserStatus('offline');
     this.router.navigate(['login']);
+    this.afAuth.auth.signOut();
   }
 
   signUp(email: string, password: string, displayName: string) {

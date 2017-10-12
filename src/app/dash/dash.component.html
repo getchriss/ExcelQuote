@@ -3,10 +3,10 @@
     <div class="circleContainer">
       <div id="half-circle"></div>
       <div class="logOut" *ngIf="(user|async)?.uid && userData.type == 'user'" href="#" (click)="logout()">
-        <button md-button><i class="material-icons">power_settings_new</i> <span>Sign out</span></button>
+        <button md-button><span>Sign out</span> <i class="material-icons">power_settings_new</i></button>
       </div>
       <div class="logOut" *ngIf="(user|async)?.uid && userData.type == 'admin'" href="#" (click)="logout()">
-        <button md-button><i class="material-icons">power_settings_new</i> <span>Sign out</span></button>
+        <button md-button><span>Sign out</span> <i class="material-icons">power_settings_new</i></button>
       </div>
       <div class="logo-container">
         <div id="logo"></div>

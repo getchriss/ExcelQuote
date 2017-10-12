@@ -6,7 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MdButtonModule,  MdToolbarModule, MdIconModule, MdDialogModule, MdInputModule, MdCheckboxModule,
   MdGridListModule, MdCardModule, MdSlideToggleModule, MdDatepickerModule, MdNativeDateModule,
-  MdButtonToggleModule, MdSelectModule, MdSnackBarModule, MdTabsModule } from '@angular/material';
+  MdButtonToggleModule, MdSelectModule, MdSnackBarModule, MdTabsModule, MdMenuModule } from '@angular/material';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -85,6 +85,7 @@ import { CookieService } from 'ngx-cookie-service';
     MdSelectModule,
     MdSnackBarModule,
     MdTabsModule,
+    MdMenuModule,
   ],
   // exports: [ClipboardDirective],
   providers: [
