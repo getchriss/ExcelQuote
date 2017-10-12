@@ -39,20 +39,12 @@ export class LoginFormComponent {
   toggleEditable() {
     console.log('token saved');
   }
-
-
-  // toggleEditable(e: Event) {
-  //   if (this.isChecked === true) {
-  //     // Do a thing
-  //     console.log('toggle set to false!');
-  //     this.isChecked = false;
-  //   } else {
-  //     // Do another thing
-  //     console.log('toggle set to true!');
-  //     this.isChecked = true;
-  //   }
-  // }
-
+  
+  handleSubmit(event) {
+    if(event.keyCode === 13) {
+      this.login();
+    }
+  }
 
   resetPassword() {
     this.authService.resetPassword(this.email)

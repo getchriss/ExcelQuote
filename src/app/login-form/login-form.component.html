@@ -17,7 +17,7 @@
         <md-form-field class="full-width space" [hideRequiredMarker]="true">
           <i mdPrefix class="material-icons">lock</i>
           <input mdInput type="password" [(ngModel)]="password" name="password" class="formInput input-theme" placeholder="Password"
-            required/>
+            required (keypress)="handleSubmit($event)"/>
           <md-error *ngIf="globalFormControl.hasError('required')">
             <strong>password</strong> required
           </md-error>
