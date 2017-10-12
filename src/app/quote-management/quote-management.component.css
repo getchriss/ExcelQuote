@@ -7,6 +7,16 @@
   user-select: none;
 }
 
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+.quote.hidden {
+  display: none;
+}
+
 .container {
   flex: 1 0 auto;
   /* padding: var(--space) var(--space) 0; */
