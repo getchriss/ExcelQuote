@@ -82,7 +82,7 @@ sans-serif;
 }
 
 .mat-snack-bar-container>>> {
-  top: 0%!important;
+  /* top: 0%!important; */
   position: absolute;
 }
 
@@ -95,7 +95,7 @@ sans-serif;
 
 /* } */
 
-snack-bar-container {
+/* snack-bar-container {
   top: 0%!important;
   position: absolute;
   display: block;
@@ -105,11 +105,20 @@ snack-bar-container {
   right: 0px;
   animation-name: slideDown;
   -webkit-animation-name: slideDown;
-  animation-duration: 1s;
-  -webkit-animation-duration: 1s;
+  animation-duration: 2s;
+  -webkit-animation-duration: 2s;
   animation-timing-function: ease;
   -webkit-animation-timing-function: ease;
-  /**/
+} */
+
+snack-bar-container.ng-animating {
+  /* animation-name: slideUp;
+  -webkit-animation-name: slideUp;
+  animation-duration: 2s;
+  -webkit-animation-duration: 2s;
+  animation-timing-function: ease;
+  -webkit-animation-timing-function: ease; */
+
 }
 
 @keyframes slideDown {
@@ -132,6 +141,31 @@ snack-bar-container {
   }
   100% {
     -webkit-transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+
+@keyframes slideUp {
+  0%,
+  100% {
+    opacity: 0;
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes slideUp {
+  0%,
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(0%);
+  }
+  100% {
+    -webkit-transform: translateY(-100%);
     opacity: 1;
   }
 }
