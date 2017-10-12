@@ -84,6 +84,7 @@ sans-serif;
   position: relative;
 }
 
+<<<<<<< HEAD
 @media only screen and (max-width: 751px) {
   snack-bar-container.snackColor {
     background-color: #FF4D77;
@@ -97,3 +98,93 @@ sans-serif;
 snack-bar-container.snackColor {
   background-color: #FF4D77;  
 }
+=======
+.mat-snack-bar-container>>> {
+  /* top: 0%!important; */
+  position: absolute;
+}
+
+
+/* >>> .mat-form-field-underline { */
+
+
+/* background-color: #472155!important; */
+
+
+/* } */
+
+/* snack-bar-container {
+  top: 0%!important;
+  position: absolute;
+  display: block;
+  max-width: 100%;
+  margin: auto;
+  left: 0px;
+  right: 0px;
+  animation-name: slideDown;
+  -webkit-animation-name: slideDown;
+  animation-duration: 2s;
+  -webkit-animation-duration: 2s;
+  animation-timing-function: ease;
+  -webkit-animation-timing-function: ease;
+} */
+
+snack-bar-container.ng-animating {
+  /* animation-name: slideUp;
+  -webkit-animation-name: slideUp;
+  animation-duration: 2s;
+  -webkit-animation-duration: 2s;
+  animation-timing-function: ease;
+  -webkit-animation-timing-function: ease; */
+
+}
+
+@keyframes slideDown {
+  0%,
+  100% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes slideDown {
+  0%,
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(-100%);
+  }
+  100% {
+    -webkit-transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+
+@keyframes slideUp {
+  0%,
+  100% {
+    opacity: 0;
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes slideUp {
+  0%,
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(0%);
+  }
+  100% {
+    -webkit-transform: translateY(-100%);
+    opacity: 1;
+  }
+}
+>>>>>>> 707caa36f5857c6bd56224ea8903243ae77e9576
