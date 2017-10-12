@@ -9,11 +9,17 @@
 
 app-navfooter {
   bottom: 0;
+  top:70px;
   left: 0;
   right: 0;
   margin: auto;
-  position: absolute;
+  /* position: absolute; */
 }
+
+>>> app-navfooter .container {
+  max-width: none;
+}
+
 
 h5 {
   font-family: Roboto, "Helvetica Neue", sans-serif;
@@ -136,7 +142,7 @@ p {
   /* margin-bottom: 50px; */
   padding: 15px;
   padding-bottom: 30px;
-  padding-top: 30px;
+  padding-top: 50px;
   width: 100%;
   /* position: absolute; */
   /* overflow-y: scroll;

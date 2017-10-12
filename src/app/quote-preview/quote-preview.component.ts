@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs/Subscription';
 import { QuoteService } from '../services/quote.service';
 import { QuoteFile } from '../models/quote-file.model';
 
-import { MdSnackBar, MdDialog, MdDialogRef } from '@angular/material';
+import { MatSnackBar, MatDialog, MatDialogRef } from '@angular/material';
 
 import { ConfirmComponent } from '../confirm/confirm.component';
 
@@ -27,7 +27,7 @@ export class QuotePreviewComponent implements OnInit {
   feed: FirebaseListObservable<QuoteFile[]>;
   subscription: Subscription;
   user: Observable<firebase.User>;
-  dialogRef: MdDialogRef<ConfirmComponent>;
+  dialogRef: MatDialogRef<ConfirmComponent>;
   getUserData: any;
   userData: any = {};
   userId: string;
@@ -45,7 +45,7 @@ export class QuotePreviewComponent implements OnInit {
     private router: Router,
     private quoteService: QuoteService,
     private authService: AuthService,
-    public dialog: MdDialog
+    public dialog: MatDialog
     ) {
     this.jobId = this.route.snapshot.params.quote_num;
     this.getQuote = this.quoteService.getQuoteById(this.jobId);

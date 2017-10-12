@@ -4,99 +4,111 @@
   </div>
   <div fxFlex="100" class="container">
     <main>
-      <md-card class="mat-elevation-z0" style="background-color: transparent;">
-        <md-card-content>
+      <mat-card class="mat-elevation-z0" style="background-color: transparent;">
+        <mat-card-content>
           <!-- <h2>QUOTE FORM</h2> -->
           <div class="newFormContainer">
             <form name="newQuoteForm">
               <div>
                 <p>Client information</p>
-                <md-form-field class="full-width" [hideRequiredMarker]="true">
-                  <input mdInput [(ngModel)]="quote.client" placeholder="Client name" name="client" required>
-                  <md-error *ngIf="globalFormControl.hasError('required')">
-                    Client name is <strong>required</strong>
-                  </md-error>
-                </md-form-field>
+                <mat-form-field class="full-width" [hideRequiredMarker]="true">
+                  <input matInput [(ngModel)]="quote.client" placeholder="Client name" name="client" required>
+                  <mat-error *ngIf="globalFormControl.hasError('required')">
+                    Client name is
+                    <strong>required</strong>
+                  </mat-error>
+                </mat-form-field>
               </div>
               <div>
-                <md-form-field class="full-width" [hideRequiredMarker]="true">
-                  <input mdInput [(ngModel)]="quote.email" placeholder="Email" name="email" [formControl]="emailFormControl">
-                  <md-error *ngIf="emailFormControl.hasError('pattern')">
+                <mat-form-field class="full-width" [hideRequiredMarker]="true">
+                  <input matInput [(ngModel)]="quote.email" placeholder="Email" name="email" [formControl]="emailFormControl">
+                  <mat-error *ngIf="emailFormControl.hasError('pattern')">
                     Please enter a valid email address
-                  </md-error>
-                  <md-error *ngIf="emailFormControl.hasError('required')">
-                    Email is <strong>required</strong>
-                  </md-error>
-                </md-form-field>
+                  </mat-error>
+                  <mat-error *ngIf="emailFormControl.hasError('required')">
+                    Email is
+                    <strong>required</strong>
+                  </mat-error>
+                </mat-form-field>
               </div>
               <div>
-                <md-form-field class="full-width" [hideRequiredMarker]="true">
-                  <input mdInput [(ngModel)]="quote.address" placeholder="Address" name="address" required>
-                  <md-error *ngIf="globalFormControl.hasError('required')">
-                    Address is <strong>required</strong>
-                  </md-error>
-                </md-form-field>
+                <mat-form-field class="full-width" [hideRequiredMarker]="true">
+                  <input matInput [(ngModel)]="quote.address" placeholder="Address" name="address" required>
+                  <mat-error *ngIf="globalFormControl.hasError('required')">
+                    Address is
+                    <strong>required</strong>
+                  </mat-error>
+                </mat-form-field>
               </div>
               <div>
-                <md-form-field class="full-width" [hideRequiredMarker]="true">
-                  <input mdInput [(ngModel)]="quote.phone" placeholder="Phone" name="phone" type="number" required>
-                  <md-error *ngIf="phoneFormControl.hasError('pattern')">
-                    Please enter a valid <strong>phone number</strong>
-                  </md-error>
-                  <md-error *ngIf="phoneFormControl.hasError('required')">
-                    Phone number is <strong>required</strong>
-                  </md-error>
-                </md-form-field>
+                <mat-form-field class="full-width" [hideRequiredMarker]="true">
+                  <input matInput [(ngModel)]="quote.phone" placeholder="Phone" name="phone" type="number" required>
+                  <mat-error *ngIf="phoneFormControl.hasError('pattern')">
+                    Please enter a valid
+                    <strong>phone number</strong>
+                  </mat-error>
+                  <mat-error *ngIf="phoneFormControl.hasError('required')">
+                    Phone number is
+                    <strong>required</strong>
+                  </mat-error>
+                </mat-form-field>
               </div>
               <div>
                 <br>
                 <span class="nonInput">Date required</span>
-                <md-form-field class="full-width" [hideRequiredMarker]="true">
-                  <input mdInput class="full-width" [mdDatepicker]="picker" placeholder="" [(ngModel)]="date" name="date" #datePicker required>
-                  <md-datepicker-toggle mdSuffix [for]="picker"></md-datepicker-toggle>
-                  <md-datepicker touchUi="true" #picker></md-datepicker>
-                  <md-error *ngIf="globalFormControl.hasError('required')">
-                    Date is <strong>required</strong>
-                  </md-error>
-                </md-form-field>
+                <mat-form-field class="full-width" [hideRequiredMarker]="true">
+                  <input matInput class="full-width" [matDatepicker]="picker" placeholder="" [(ngModel)]="date" name="date" #datePicker required>
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker touchUi="true" #picker></mat-datepicker>
+                  <mat-error *ngIf="globalFormControl.hasError('required')">
+                    Date is
+                    <strong>required</strong>
+                  </mat-error>
+                </mat-form-field>
               </div>
-              <div class="removeB">
-                <md-form-field class="full-width" [hideRequiredMarker]="true">
+              <div class="removeB hideSection">
+                <mat-form-field class="full-width" [hideRequiredMarker]="true">
                   <span (change)="onChange(file.files)">
-                    <input class="ng-hide noBorder" mdInput>
+                    <input class="ng-hide noBorder" matInput>
                     <input class="ng-hide noBorder" id="userFile" multiple type="file" #file [(ngModel)]="quote.$userFile" (change)="fileEvent($event)"
                       name="userFile">
-                    <button class="full-width noBorder nw-Btn" md-raised-button><label for="userFile">Upload artwork<i class="material-icons">cloud_upload</i></label></button>
+                    <button class="full-width noBorder nw-Btn" mat-raised-button>
+                      <label for="userFile">Upload artwork
+                        <i class="material-icons">cloud_upload</i>
+                      </label>
+                    </button>
                     <br>
                     <p class="upload" *ngFor="let f of files">{{ f.name }}</p>
                   </span>
-                  <!-- <input mdInput style="display:none">
+                  <!-- <input matInput style="display:none">
                     <input type="file" [(ngModel)]="quote.$userFile" (change)="fileEvent($event)" name="userFile"> -->
                   <!-- <input type="file" [(ngModel)]="quote.$userFile" (change)="fileEvent($event)" name="userFile" value=""> -->
-                </md-form-field>
+                </mat-form-field>
               </div>
               <div>
-                <md-form-field class="full-width" [hideRequiredMarker]="true">
-                  <input mdInput [(ngModel)]="quote.noKinds" placeholder="Number of kinds" name="noKinds" required>
-                  <md-error *ngIf="globalFormControl.hasError('required')">
-                    The number of kinds is <strong>required</strong>
-                  </md-error>
-                </md-form-field>
+                <mat-form-field class="full-width" [hideRequiredMarker]="true">
+                  <input matInput [(ngModel)]="quote.noKinds" placeholder="Number of kinds" name="noKinds" required>
+                  <mat-error *ngIf="globalFormControl.hasError('required')">
+                    The number of kinds is
+                    <strong>required</strong>
+                  </mat-error>
+                </mat-form-field>
               </div>
               <div>
-                <md-form-field class="full-width" [hideRequiredMarker]="true">
-                  <input mdInput [(ngModel)]="quote.qKinds" placeholder="Quantity per kind" name="qKinds" required>
-                  <md-error *ngIf="globalFormControl.hasError('required')">
-                    Quantity per kind is <strong>required</strong>
-                  </md-error>
-                </md-form-field>
+                <mat-form-field class="full-width" [hideRequiredMarker]="true">
+                  <input matInput [(ngModel)]="quote.qKinds" placeholder="Quantity per kind" name="qKinds" required>
+                  <mat-error *ngIf="globalFormControl.hasError('required')">
+                    Quantity per kind is
+                    <strong>required</strong>
+                  </mat-error>
+                </mat-form-field>
               </div>
               <div>
                 <p>Include delivery costs?</p>
-                <md-button-toggle-group [(ngModel)]="quote.cost" #group="mdButtonToggleGroup" name="cost">
-                  <md-button-toggle value="Yes" class="btn-primary">Yes</md-button-toggle>
-                  <md-button-toggle value="No" class="btn-primary">No</md-button-toggle>
-                </md-button-toggle-group>
+                <mat-button-toggle-group [(ngModel)]="quote.cost" #group="matButtonToggleGroup" name="cost">
+                  <mat-button-toggle value="Yes" class="btn-primary">Yes</mat-button-toggle>
+                  <mat-button-toggle value="No" class="btn-primary">No</mat-button-toggle>
+                </mat-button-toggle-group>
               </div>
               <div>
                 <p>Label details</p>
@@ -109,204 +121,231 @@
                   <tbody>
                     <tr>
                       <td style="padding-left:0px">
-                        <md-form-field class="full-width" [hideRequiredMarker]="true">
-                          <input mdInput [(ngModel)]="quote.width" type="number" maxlength="5" placeholder="Width" name="width" type="number" required>
-                          <span class="mdsuffix" mdSuffix>mm</span>
-                          <md-error *ngIf="globalFormControl.hasError('required')">
+                        <mat-form-field class="full-width" [hideRequiredMarker]="true">
+                          <input matInput [(ngModel)]="quote.width" type="number" maxlength="5" placeholder="Width" name="width" type="number" required>
+                          <span class="matsuffix" matSuffix>mm</span>
+                          <mat-error *ngIf="globalFormControl.hasError('required')">
                             <strong>Invalid</strong> width.
-                          </md-error>
-                        </md-form-field>
+                          </mat-error>
+                        </mat-form-field>
                       </td>
                       <td></td>
                       <td style="padding-right:0px">
-                        <md-form-field class="full-width" [hideRequiredMarker]="true">
-                          <input mdInput [(ngModel)]="quote.height" type="number" maxlength="5" placeholder="Height" name="height" type="number" required>
-                          <span class="mdsuffix" mdSuffix>mm</span>
-                          <md-error *ngIf="globalFormControl.hasError('required')">
+                        <mat-form-field class="full-width" [hideRequiredMarker]="true">
+                          <input matInput [(ngModel)]="quote.height" type="number" maxlength="5" placeholder="Height" name="height" type="number" required>
+                          <span class="matsuffix" matSuffix>mm</span>
+                          <mat-error *ngIf="globalFormControl.hasError('required')">
                             <strong>Invalid</strong> height.
-                          </md-error>
-                        </md-form-field>
+                          </mat-error>
+                        </mat-form-field>
                       </td>
                     </tr>
                   </tbody>
                 </table>
               </div>
               <div>
-                <md-form-field class="full-width" [hideRequiredMarker]="true">
-                  <input mdInput [(ngModel)]="quote.labelsPer" maxlength="5" placeholder="Labels per roll or Max O/D" name="labelsPer" type="number"
+                <mat-form-field class="full-width" [hideRequiredMarker]="true">
+                  <input matInput [(ngModel)]="quote.labelsPer" maxlength="5" placeholder="Labels per roll or Max O/D" name="labelsPer" type="number"
                     required>
-                  <md-error *ngIf="globalFormControl.hasError('required')">
-                    Labels per is <strong>required</strong>
-                  </md-error>
-                </md-form-field>
+                  <mat-error *ngIf="globalFormControl.hasError('required')">
+                    Labels per is
+                    <strong>required</strong>
+                  </mat-error>
+                </mat-form-field>
               </div>
               <div>
                 <span class="nonInput">Gap between labels if larger than 4mm</span>
-                <md-form-field class="full-width" [hideRequiredMarker]="true">
-                  <input mdInput [(ngModel)]="quote.gap" maxlength="5" type="number" value="4mm" name="gap" type="number" required>
-                  <span class="mdsuffix" mdSuffix>mm</span>
-                  <md-error *ngIf="globalFormControl.hasError('required')">
-                    Gap between is <strong>required</strong>
-                  </md-error>
-                </md-form-field>
+                <mat-form-field class="full-width" [hideRequiredMarker]="true">
+                  <input matInput [(ngModel)]="quote.gap" maxlength="5" value="4mm" name="gap" type="number" required>
+                  <span class="matsuffix" matSuffix>mm</span>
+                  <mat-error *ngIf="globalFormControl.hasError('required')">
+                    Gap between is
+                    <strong>required</strong>
+                  </mat-error>
+                </mat-form-field>
               </div>
               <div>
                 <p>Knife</p>
-                <md-button-toggle-group [(ngModel)]="quote.knife" #group="mdButtonToggleGroup" name="knife">
-                  <md-button-toggle value="New" class="btn-primary">New</md-button-toggle>
-                  <md-button-toggle value="Existing" class="btn-primary">Existing</md-button-toggle>
-                  <md-button-toggle value="Similar" class="btn-primary">Similar</md-button-toggle>
-                </md-button-toggle-group>
+                <mat-button-toggle-group [(ngModel)]="quote.knife" #group="matButtonToggleGroup" name="knife">
+                  <mat-button-toggle value="New" class="btn-primary">New</mat-button-toggle>
+                  <mat-button-toggle value="Existing" class="btn-primary">Existing</mat-button-toggle>
+                  <mat-button-toggle value="Similar" class="btn-primary">Similar</mat-button-toggle>
+                </mat-button-toggle-group>
               </div>
               <div>
                 <p>Charges</p>
-                <md-button-toggle-group [(ngModel)]="quote.charge" #group="mdButtonToggleGroup" name="charge">
-                  <md-button-toggle value="New" class="btn-primary">No Charge</md-button-toggle>
-                  <md-button-toggle value="Existing" class="btn-primary">Charge All</md-button-toggle>
-                  <md-button-toggle value="Similar" class="btn-primary">Other Charge</md-button-toggle>
-                </md-button-toggle-group>
+                <mat-button-toggle-group [(ngModel)]="quote.charge" #group="matButtonToggleGroup" name="charge">
+                  <mat-button-toggle value="New" class="btn-primary">No Charge</mat-button-toggle>
+                  <mat-button-toggle value="Existing" class="btn-primary">Charge All</mat-button-toggle>
+                  <mat-button-toggle value="Similar" class="btn-primary">Other Charge</mat-button-toggle>
+                </mat-button-toggle-group>
               </div>
               <div>
                 <p>Select Stock type</p>
-                <md-select class="full-width" placeholder="Select Stock" [(ngModel)]="quote.stock" name="stock" touchUi="true" name="stock">
-                  <md-option *ngFor="let stock of $stocks | async" [value]="stock.val()">
-                    {{stock.val()}}
-                  </md-option>
-                </md-select>
+                <div class="selectMarg">
+                  <mat-form-field class="full-width">
+                    <mat-select placeholder="Select Stock" [(ngModel)]="quote.stock" name="stock" touchUi="true" name="stock">
+                      <mat-option *ngFor="let stock of $stocks | async" [value]="stock.val()">
+                        {{stock.val()}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
               </div>
               <div>
                 <p>Colour</p>
-                <md-button-toggle-group [(ngModel)]="quote.colour" #group="mdButtonToggleGroup" name="color">
-                  <md-button-toggle value="Black" class="btn-primary">Black</md-button-toggle>
-                  <md-button-toggle value="White" class="btn-primary">White</md-button-toggle>
-                  <md-button-toggle value="Full Colour" class="btn-primary">Full Colour</md-button-toggle>
-                </md-button-toggle-group>
+                <mat-button-toggle-group [(ngModel)]="quote.colour" #group="matButtonToggleGroup" name="color">
+                  <mat-button-toggle value="Black" class="btn-primary">Black</mat-button-toggle>
+                  <mat-button-toggle value="White" class="btn-primary">White</mat-button-toggle>
+                  <mat-button-toggle value="Full Colour" class="btn-primary">Full Colour</mat-button-toggle>
+                </mat-button-toggle-group>
               </div>
               <div>
                 <p>Select Finish</p>
-                <md-select multiple class="full-width" placeholder="Finishes" [(ngModel)]="quote.finishes" name="finishes">
-                  <md-option *ngFor="let finishes of $finishes | async" [value]="finishes.val()">
-                    {{finishes.val()}}
-                  </md-option>
-                </md-select>
+                <div class="selectMarg">
+                  <mat-form-field class="full-width">
+                    <mat-select multiple placeholder="Finishes" [(ngModel)]="quote.finishes" name="finishes">
+                      <mat-option *ngFor="let finishes of $finishes | async" [value]="finishes.val()">
+                        {{finishes.val()}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
               </div>
               <div>
                 <p>Select Embelishment</p>
-                <md-select class="full-width" placeholder="Embleishments" [(ngModel)]="quote.embel" name="embel">
-                  <md-option *ngFor="let embel of $embelishments | async" [value]="embel.val()">
-                    {{embel.val()}}
-                  </md-option>
-                </md-select>
+                <div class="selectMarg">
+                  <mat-form-field class="full-width">
+                    <mat-select placeholder="Embleishments" [(ngModel)]="quote.embel" name="embel">
+                      <mat-option *ngFor="let embel of $embelishments | async" [value]="embel.val()">
+                        {{embel.val()}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
               </div>
               <div>
                 <p>Orientation</p>
-                <md-button-toggle-group [(ngModel)]="quote.orient" #group="mdButtonToggleGroup" name="orientation">
-                  <md-button-toggle value="Wide" class="btn-primary">Wide edge leading</md-button-toggle>
-                  <md-button-toggle value="Narrow" class="btn-primary">Narrow edge leading</md-button-toggle>
-                </md-button-toggle-group>
+                <mat-button-toggle-group [(ngModel)]="quote.orient" #group="matButtonToggleGroup" name="orientation">
+                  <mat-button-toggle value="Wide" class="btn-primary">Wide edge leading</mat-button-toggle>
+                  <mat-button-toggle value="Narrow" class="btn-primary">Narrow edge leading</mat-button-toggle>
+                </mat-button-toggle-group>
               </div>
               <div>
                 <p>Label applied by</p>
-                <md-button-toggle-group [(ngModel)]="quote.appliedBy" #group="mdButtonToggleGroup" name="appliedBy">
-                  <md-button-toggle value="Machine" class="btn-primary">Machine</md-button-toggle>
-                  <md-button-toggle value="Hand" class="btn-primary">Hand</md-button-toggle>
-                </md-button-toggle-group>
+                <mat-button-toggle-group [(ngModel)]="quote.appliedBy" #group="matButtonToggleGroup" name="appliedBy">
+                  <mat-button-toggle value="Machine" class="btn-primary">Machine</mat-button-toggle>
+                  <mat-button-toggle value="Hand" class="btn-primary">Hand</mat-button-toggle>
+                </mat-button-toggle-group>
               </div>
               <div>
                 <p>Select Adhesive</p>
-                <md-select class="full-width" placeholder="Adhesive" [(ngModel)]="quote.adhesive" name="adhesive">
-                  <md-option *ngFor="let adhesive of $adhesives | async" [value]="adhesive.val()">
-                    {{adhesive.val()}}
-                  </md-option>
-                </md-select>
+                <div class="selectMarg">
+                  <mat-form-field class="full-width">
+                    <mat-select placeholder="Adhesive" [(ngModel)]="quote.adhesive" name="adhesive">
+                      <mat-option *ngFor="let adhesive of $adhesives | async" [value]="adhesive.val()">
+                        {{adhesive.val()}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
               </div>
               <div>
                 <p>Overprinting</p>
-                <md-button-toggle-group [(ngModel)]="quote.overPrint" #group="mdButtonToggleGroup" name="overPrint">
-                  <md-button-toggle value="Direct" class="btn-primary">Direct</md-button-toggle>
-                  <md-button-toggle value="Thermal" class="btn-primary">Thermal</md-button-toggle>
-                  <md-button-toggle value="None" class="btn-primary">None</md-button-toggle>
-                </md-button-toggle-group>
+                <mat-button-toggle-group [(ngModel)]="quote.overPrint" #group="matButtonToggleGroup" name="overPrint">
+                  <mat-button-toggle value="Direct" class="btn-primary">Direct</mat-button-toggle>
+                  <mat-button-toggle value="Thermal" class="btn-primary">Thermal</mat-button-toggle>
+                  <mat-button-toggle value="None" class="btn-primary">None</mat-button-toggle>
+                </mat-button-toggle-group>
               </div>
               <div>
                 <p>Core size</p>
-                <md-select [(ngModel)]="quote.core" placeholder="Select core size" name="core">
-                  <md-option value="25">25</md-option>
-                  <md-option value="38">38</md-option>
-                  <md-option value="41">41</md-option>
-                  <md-option value="76">76</md-option>
-                  <!-- <md-option><button md-button>Other</button></md-option> -->
-                </md-select>
+                <div class="selectMarg">
+                  <mat-form-field class="full-width">
+                    <mat-select [(ngModel)]="quote.core" placeholder="Select core size" name="core">
+                      <mat-option value="25">25</mat-option>
+                      <mat-option value="38">38</mat-option>
+                      <mat-option value="41">41</mat-option>
+                      <mat-option value="76">76</mat-option>
+                      <!-- <mat-option><button md-button>Other</button></mat-option> -->
+                    </mat-select>
+                  </mat-form-field>
+                </div>
               </div>
               <div>
                 <p>Winding style</p>
                 <p class="upload">Scroll left or right to select a winding type style.</p>
                 <br>
                 <br>
-                <md-button-toggle-group [(ngModel)]="quote.windStyle" class="windingBox mat-elevation-z0" #group="mdButtonToggleGroup" name="windStyle">
-                  <md-button-toggle class="windingOpt" value="1">
+                <mat-button-toggle-group [(ngModel)]="quote.windStyle" class="windingBox mat-elevation-z0" #group="matButtonToggleGroup"
+                  name="windStyle">
+                  <mat-button-toggle class="windingOpt" value="1">
                     <img src="../../assets/img/1.png">
                     <p class="windingLabel">1</p>
-                  </md-button-toggle>
-                  <md-button-toggle class="windingOpt" value="2">
+                  </mat-button-toggle>
+                  <mat-button-toggle class="windingOpt" value="2">
                     <img src="../../assets/img/2.png">
                     <p class="windingLabel">2</p>
-                  </md-button-toggle>
-                  <md-button-toggle class="windingOpt" value="3">
+                  </mat-button-toggle>
+                  <mat-button-toggle class="windingOpt" value="3">
                     <img src="../../assets/img/3.png">
                     <p class="windingLabel">3</p>
-                  </md-button-toggle>
-                  <md-button-toggle class="windingOpt" value="4">
+                  </mat-button-toggle>
+                  <mat-button-toggle class="windingOpt" value="4">
                     <img src="../../assets/img/4.png">
                     <p class="windingLabel">4</p>
-                  </md-button-toggle>
-                  <md-button-toggle class="windingOpt" value="5">
+                  </mat-button-toggle>
+                  <mat-button-toggle class="windingOpt" value="5">
                     <img src="../../assets/img/5.png">
                     <p class="windingLabel">5</p>
-                  </md-button-toggle>
-                  <md-button-toggle class="windingOpt" value="6">
+                  </mat-button-toggle>
+                  <mat-button-toggle class="windingOpt" value="6">
                     <img src="../../assets/img/6.png">
                     <p class="windingLabel">6</p>
-                  </md-button-toggle>
-                  <md-button-toggle class="windingOpt" value="7">
+                  </mat-button-toggle>
+                  <mat-button-toggle class="windingOpt" value="7">
                     <img src="../../assets/img/7.png">
                     <p class="windingLabel">7</p>
-                  </md-button-toggle>
-                  <md-button-toggle class="windingOpt" value="8">
+                  </mat-button-toggle>
+                  <mat-button-toggle class="windingOpt" value="8">
                     <img src="../../assets/img/8.png">
                     <p class="windingLabel">8</p>
-                  </md-button-toggle>
-                </md-button-toggle-group>
+                  </mat-button-toggle>
+                </mat-button-toggle-group>
                 <br>
               </div>
               <div>
                 <p>Supplied In</p>
-                <md-button-toggle-group [(ngModel)]="quote.suppliedIn" #group="mdButtonToggleGroup" name="supplied">
-                  <md-button-toggle value="Rolls" class="btn-primary">Rolls</md-button-toggle>
-                  <md-button-toggle value="Dispensers" class="btn-primary">Dispensers</md-button-toggle>
-                </md-button-toggle-group>
+                <mat-button-toggle-group [(ngModel)]="quote.suppliedIn" #group="matButtonToggleGroup" name="supplied">
+                  <mat-button-toggle value="Rolls" class="btn-primary">Rolls</mat-button-toggle>
+                  <mat-button-toggle value="Dispensers" class="btn-primary">Dispensers</mat-button-toggle>
+                </mat-button-toggle-group>
               </div>
               <div>
                 <p>Select proof type</p>
-                <md-select class="full-width" placeholder="Proof type" [(ngModel)]="quote.proofType" name="proofType">
-                  <md-option value="PDF Proof">PDF Proof</md-option>
-                  <md-option value="Full Colour - Finished Proof">Full Colour - Finished Proof (not diecut)</md-option>
-                  <md-option value="Full Colour - Unfinished Proof">Full Colour - Unfinished Proof</md-option>
-                  <md-option value="None">None</md-option>
-                </md-select>
+                <div class="selectMarg">
+                  <mat-form-field class="full-width">
+                    <mat-select placeholder="Proof type" [(ngModel)]="quote.proofType" name="proofType">
+                      <mat-option value="PDF Proof">PDF Proof</mat-option>
+                      <mat-option value="Full Colour - Finished Proof">Full Colour - Finished Proof (not diecut)</mat-option>
+                      <mat-option value="Full Colour - Unfinished Proof">Full Colour - Unfinished Proof</mat-option>
+                      <mat-option value="None">None</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
               </div>
               <div>
-                <md-form-field class="full-width" [hideRequiredMarker]="true">
-                  <textarea mdInput [(ngModel)]="quote.addInfo" placeholder="Additional Information" name="addInfo"></textarea>
-                </md-form-field>
+                <mat-form-field class="full-width" [hideRequiredMarker]="true">
+                  <textarea matInput [(ngModel)]="quote.addInfo" placeholder="Additional Information" name="addInfo"></textarea>
+                </mat-form-field>
               </div>
               <div fxLayoutAlign="center center">
-                <button layout-align="center center" md-raised-button (click)="submitQuote()" class="btn-success">Submit</button>
+                <button layout-align="center center" mat-raised-button (click)="submitQuote()" class="btn-success">Submit</button>
               </div>
             </form>
           </div>
-        </md-card-content>
-      </md-card>
+        </mat-card-content>
+      </mat-card>
     </main>
   </div>
 </div>

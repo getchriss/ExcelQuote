@@ -18,6 +18,7 @@ export class QuoteManagementComponent implements OnInit, OnChanges {
   feed: FirebaseListObservable<QuoteFile[]>;
   focusThumb: string;
   quoteArray = [];
+  compTitle = 'QUOTE MANAGEMENT';
 
   constructor(private quoteFile: QuoteService) { }
 

@@ -52,10 +52,10 @@ export class QuoteService {
       quote.suppliedIn.length > 0 &&
       quote.proofType.length > 0
     ) {
-      // console.log('validateQuote() was successful...')
+      console.log('validateQuote() was successful...');
       return true;
     } else {
-      // console.log('validateQuote() was not successful...')
+      console.log('validateQuote() was not successful...');
       console.log(quote.client.length);
       console.log(quote.email.length);
       console.log(quote.address.length);

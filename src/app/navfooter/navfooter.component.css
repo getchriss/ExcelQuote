@@ -1,33 +1,20 @@
-.footerBar {
-  width: 100%;
-  display: flex;
-  flex: none;
-  /* 2 */
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-
 .container {
   margin-right: auto;
   margin-left: auto;
-  /* padding-left: 15px; */
-  /* padding-right: 15px; */
-  max-width: 940px;
+  /* max-width: 940px; */
   display: flex;
 }
 
-md-toolbar {
+mat-toolbar {
   background-color: #472155;
   padding: 0px;
 }
 
->>> md-toolbar.mat-toolbar.navBar {
+>>> mat-toolbar.mat-toolbar.navBar {
   max-height: 36px;
 }
 
-md-toolbar.mat-toolbar {
+mat-toolbar.mat-toolbar {
   min-height: 36px;
 }
 
@@ -58,7 +45,7 @@ md-toolbar.mat-toolbar {
   /* margin: auto; */
 }
 
-md-toolbar.mat-toolbar .mat-raised-button {
+mat-toolbar.mat-toolbar .mat-raised-button {
   top: -10px;
   border-radius: 0px;
   display: block;

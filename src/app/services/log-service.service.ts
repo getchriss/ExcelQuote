@@ -3,7 +3,7 @@ import { ErrorHandler, Injectable } from '@angular/core';
 import { Http, HttpModule, Headers, Response, RequestOptions } from '@angular/http';
 import { HttpErrorResponse } from '@angular/common/http';
 import { AuthService } from '../services/auth.service';
-import { MdSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material';
 
 @Injectable()
 export class LogServiceService {

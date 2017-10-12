@@ -1,11 +1,12 @@
-import { Injectable } from '@angular/core';
+import { Injectable, ViewContainerRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs/Observable';
 import { User } from '../models/user.model';
-import { MdSnackBar } from '@angular/material';
+import {MatSnackBar, MatSnackBarConfig, MatSnackBarHorizontalPosition,
+  MatSnackBarVerticalPosition } from '@angular/material';
 
 @Injectable()
 export class AuthService {
@@ -14,10 +15,12 @@ export class AuthService {
   private userName: string;
   private login_error: string;
   rememberMe: true;
+  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
 
   constructor(private afAuth: AngularFireAuth,
     private db: AngularFireDatabase,
-    private router: Router, private snackBar: MdSnackBar, ) {
+    private router: Router, private snackBar: MatSnackBar ) {
     this.user = afAuth.authState;
   }
 
@@ -47,10 +50,15 @@ export class AuthService {
       .catch((error: firebase.FirebaseError) => {
         const errorCode = error.code;
         const errorMessage = error.message;
+        const config = new MatSnackBarConfig();
+        config.verticalPosition = this.verticalPosition;
+        config.horizontalPosition = this.horizontalPosition;
+        config.duration = 3000;
+        config.extraClasses = ['snackColor'];
         if (error.code === 'auth/invalid-email') {
-          return this.snackBar.open(`Incorrect email or password`, '', { duration: 99999 });
+          return this.snackBar.open(`Incorrect email or password`, '', config);
         } else if (error.code === 'auth/wrong-password') {
-          return this.snackBar.open(`Incorrect password`, '', { duration: 99999 });
+          return this.snackBar.open(`Incorrect password`, '', config);
         }
       })
       .catch((function (error) {

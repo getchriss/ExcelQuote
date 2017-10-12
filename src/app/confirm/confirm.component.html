@@ -1,12 +1,12 @@
 <!-- <h1 md-dialog-title>{{confirmMessage}}</h1> -->
-<div md-dialog-content><p><span [innerHTML]="confirmMessage"></span></p></div>
+<div mat-dialog-content><p><span [innerHTML]="confirmMessage"></span></p></div>
 <div fxLayout="column" fxLayoutAlign="center stretch">
-  <div md-dialog-actions>
+  <div mat-dialog-actions>
     <div fxFlex="row">
-      <button class="confirm" md-button  (click)="dialogRef.close(true)"><span>Confirm</span></button>
+      <button class="confirm" mat-button  (click)="dialogRef.close(true)"><span>Confirm</span></button>
     </div>
     <div fxFlex="row">
-      <button class="cancel" md-button (click)="dialogRef.close(false)"><span>Cancel</span></button>
+      <button class="cancel" mat-button (click)="dialogRef.close(false)"><span>Cancel</span></button>
     </div>
   </div>
 </div>

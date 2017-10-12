@@ -37,14 +37,14 @@ main div p {
   margin-bottom: 5px;
 }
 
-md-button-toggle-group {
+mat-button-toggle-group {
   margin-bottom: 30px;
   margin-top: 15px;
 }
 
-md-select {
-  margin-top: 15px;
-  margin-bottom: 20px;
+.selectMarg {
+  padding-top: 12px;
+  padding-bottom: 18px;
 }
 
 p>input>label {
@@ -66,7 +66,7 @@ main {
   /* margin-bottom: -50px; */
 }
 
-md-select {
+mat-select {
   width: 100%;
 }
 
@@ -138,6 +138,20 @@ md-select {
   color: transparent!important;
   border-color: transparent!important;
 }
+  .hideSection {
+    clear: both;
+    display:block;
+    visibility: visible;
+  }
+
+
+@media only screen and (max-width: 751px) {
+  .hideSection {
+    clear: both;
+    display: none;
+    visibility: none;
+  }
+}
 
 >>>.nw-Btn {
   color: #5D398A!important;
@@ -198,14 +212,14 @@ md-select {
 }
 
 .windingLabel {
-      top: 40px;
-      left: 0px;
-      right:0px;
-      margin: 0px auto;
-      padding: 0px;
-      text-align: center;
-      position: absolute;
-      color: #5D398A;
+  top: 40px;
+  left: 0px;
+  right: 0px;
+  margin: 0px auto;
+  padding: 0px;
+  text-align: center;
+  position: absolute;
+  color: #5D398A;
 }
 
 .windingBox::-webkit-scrollbar {
@@ -218,7 +232,7 @@ md-select {
   border-radius: 50px;
 }
 
-.windingBox md-button-toggle {
+.windingBox mat-button-toggle {
   -webkit-opacity: 0.4;
   -moz-opacity: 0.4;
   opacity: 0.4;
@@ -237,7 +251,7 @@ md-select {
   color: white;
 }
 
-md-button-toggle img {
+mat-button-toggle img {
   position: relative;
   display: block;
   top: 0px;
@@ -251,7 +265,7 @@ md-button-toggle img {
   border: none;
 }
 
-md-button-toggle:nth-child(2).windingOpt {
+mat-button-toggle:nth-child(2).windingOpt {
   border: none!important;
 }
 
@@ -295,27 +309,27 @@ md-button-toggle:nth-child(2).windingOpt {
   width: 100%;
 }
 
->>>md-button-toggle {
+>>>mat-button-toggle {
   color: rgba(93, 57, 138, 1);
   border-radius: 1px;
   border-bottom: 2px solid rgba(93, 57, 138, 1);
 }
 
->>>md-button-toggle:nth-child(2) {
+>>>mat-button-toggle:nth-child(2) {
   border-left: 1px solid rgba(93, 57, 138, 1);
   border-right: 1px solid rgba(93, 57, 138, 1);
 }
 
->>>md-button-toggle:last-child {
+>>>mat-button-toggle:last-child {
   border-right: none;
 }
 
-md-button-toggle-group {
+mat-button-toggle-group {
   display: flex;
   border-radius: 3px;
 }
 
-md-button-toggle {
+mat-button-toggle {
   flex-grow: 1;
   text-align: center;
 }
@@ -324,7 +338,7 @@ label>div {
   font-size: 15px;
 }
 
-md-button-toggle>label>div {
+mat-button-toggle>label>div {
   display: flex;
 }
 

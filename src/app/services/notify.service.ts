@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { MdSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material';
 import { LogServiceService } from '../services/log-service.service';
 
 @Injectable()

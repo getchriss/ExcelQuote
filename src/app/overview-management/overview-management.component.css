@@ -27,12 +27,12 @@
     max-width: 940px;
   }
 
-  md-tab-group {
+  mat-tab-group {
     margin-top: 100px;
     width: 100%;
   }
 
-  md-tab-group .mat-tab-header >>> { position: fixed; z-index: 999; width: 100%; }
+  mat-tab-group .mat-tab-header >>> { position: fixed; z-index: 999; width: 100%; }
   
   .mat-tab-body-wrapper { top: 48px !important; }
     

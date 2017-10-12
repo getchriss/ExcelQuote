@@ -7,7 +7,7 @@ import { LogServiceService } from '../services/log-service.service';
 import { Router } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MdSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-login-form',
@@ -29,7 +29,7 @@ export class LoginFormComponent {
 
   constructor(private authService: AuthService, private router: Router,
     private cookieService: CookieService,
-    private snackBar: MdSnackBar) { }
+    private snackBar: MatSnackBar) { }
 
     globalFormControl = new FormControl('', [
       Validators.required]

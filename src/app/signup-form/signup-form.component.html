@@ -1,50 +1,50 @@
 <div class="dash-wrapper">
   <div id="logo"></div>
 </div>
-<md-card class="signUpContainer mat-elevation-z0" flex="flex">
+<mat-card class="signUpContainer mat-elevation-z0" flex="flex">
   <div class="signUpCard">
     <form #signupForm="ngForm">
-      <md-card-content>
-        <md-grid-list cols="1" rows="4" [rowHeight]="63">
-          <md-grid-tile>
-            <md-form-field class="full-width" [hideRequiredMarker]="true">
-              <input mdInput type="email" name="email" placeholder="Enter your email address" [(ngModel)]="email" class="formInput" maxlength="60"
+      <mat-card-content>
+        <mat-grid-list cols="1" rows="4" [rowHeight]="63">
+          <mat-grid-tile>
+            <mat-form-field class="full-width" [hideRequiredMarker]="true">
+              <input matInput type="email" name="email" placeholder="Enter your email address" [(ngModel)]="email" class="formInput" maxlength="60"
                 required/>
-              <md-error *ngIf="globalFormControl.hasError('required')">
+              <mat-error *ngIf="globalFormControl.hasError('required')">
                 <strong>email address</strong> required
-              </md-error>
-            </md-form-field>
-          </md-grid-tile>
-          <md-grid-tile>
-            <md-form-field class="full-width" [hideRequiredMarker]="true">
-              <input mdInput type="password" name="password" placeholder="Choose a password" [(ngModel)]="password" class="formInput" required/>
-              <md-error *ngIf="globalFormControl.hasError('required')">
+              </mat-error>
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-form-field class="full-width" [hideRequiredMarker]="true">
+              <input matInput type="password" name="password" placeholder="Choose a password" [(ngModel)]="password" class="formInput" required/>
+              <mat-error *ngIf="globalFormControl.hasError('required')">
                 please enter a <strong>password</strong>
-              </md-error>
-            </md-form-field>
-          </md-grid-tile>
-          <md-grid-tile>
-            <md-form-field class="full-width" [hideRequiredMarker]="true">
-              <input mdInput name="displayName" placeholder="Enter your name" [(ngModel)]="displayName" class="formInput" maxlength="12"
+              </mat-error>
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-form-field class="full-width" [hideRequiredMarker]="true">
+              <input matInput name="displayName" placeholder="Enter your name" [(ngModel)]="displayName" class="formInput" maxlength="12"
                 required/>
-              <md-error *ngIf="globalFormControl.hasError('required')">
+              <mat-error *ngIf="globalFormControl.hasError('required')">
                 Plese enter your <strong>name</strong>
-              </md-error>
-            </md-form-field>
-          </md-grid-tile>
-        </md-grid-list>
-        <md-grid-list cols="1" rows="4" [rowHeight]="50" style="margin-top:70px;">
-          <md-grid-tile>
-            <button [disabled]="!signupForm.form.valid" class="full-width rbtn" type="submit" (click)="signUp()" md-raised-button color="primary"
+              </mat-error>
+            </mat-form-field>
+          </mat-grid-tile>
+        </mat-grid-list>
+        <mat-grid-list cols="1" rows="4" [rowHeight]="50" style="margin-top:70px;">
+          <mat-grid-tile>
+            <button [disabled]="!signupForm.form.valid" class="full-width rbtn" type="submit" (click)="signUp()" mat-raised-button color="primary"
               id="btn-signUp">
                 Sign Up</button>
-          </md-grid-tile>
-          <md-grid-tile>
-            <button class="full-width rbtn" md-raised-button color="primary" routerLink="/login">
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <button class="full-width rbtn" mat-raised-button color="primary" routerLink="/login">
                 Back</button>
-          </md-grid-tile>
-        </md-grid-list>
-      </md-card-content>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </mat-card-content>
     </form>
   </div>
-</md-card>
+</mat-card>

@@ -1,170 +1,221 @@
 <div class="container-nav">
   <app-navbar [compTitle]="compTitle"></app-navbar>
   <div class="navBud">
-    <p class="previewWarning">This is a form <b>preview</b>, please select a action below.</p>
+    <p class="previewWarning">This is a form
+      <b>preview</b>, please select a action below.</p>
   </div>
 </div>
 <div class="container-body">
   <div class="row" fxLayout="row">
     <div class="previewBox">
       <div *ngIf="currentQuote.client" class="item">
-        <button class="btn btn-default btn-copy" md-raised-button type="button" (click)="copyToClipboard('client')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;<i class="material-icons">content_copy</i></button>
+        <button class="btn btn-default btn-copy" mat-raised-button type="button" (click)="copyToClipboard('client')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;
+          <i class="material-icons">content_copy</i>
+        </button>
         <h5>Client</h5>
         <p id="client">{{currentQuote.client}}</p>
         <!-- <input #text> -->
         <!-- <hr> -->
       </div>
       <div *ngIf="currentQuote.email" class="item">
-        <button class="btn btn-default btn-copy" md-raised-button type="button" (click)="copyToClipboard('client')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;<i class="material-icons">content_copy</i></button>
+        <button class="btn btn-default btn-copy" mat-raised-button type="button" (click)="copyToClipboard('client')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;
+          <i class="material-icons">content_copy</i>
+        </button>
         <h5>Email</h5>
         <p id="email">{{currentQuote.email}}</p>
         <!-- <hr> -->
       </div>
       <div *ngIf="currentQuote.address" class="item">
-        <button class="btn btn-default btn-copy" md-raised-button type="button" (click)="copyToClipboard('address')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;<i class="material-icons">content_copy</i></button>
+        <button class="btn btn-default btn-copy" mat-raised-button type="button" (click)="copyToClipboard('address')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;
+          <i class="material-icons">content_copy</i>
+        </button>
         <h5>Address</h5>
         <p id="address">{{currentQuote.address}}</p>
         <!-- <hr> -->
       </div>
       <div *ngIf="currentQuote.phone" class="item">
-        <button class="btn btn-default btn-copy" md-raised-button type="button" (click)="copyToClipboard('phone')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;<i class="material-icons">content_copy</i></button>
+        <button class="btn btn-default btn-copy" mat-raised-button type="button" (click)="copyToClipboard('phone')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;
+          <i class="material-icons">content_copy</i>
+        </button>
         <h5>Phone</h5>
         <p id="phone">{{currentQuote.phone}}</p>
       </div>
       <div *ngIf="currentQuote.date" class="item">
-        <button class="btn btn-default btn-copy" md-raised-button type="button" (click)="copyToClipboard('date')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;<i class="material-icons">content_copy</i></button>
+        <button class="btn btn-default btn-copy" mat-raised-button type="button" (click)="copyToClipboard('date')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;
+          <i class="material-icons">content_copy</i>
+        </button>
         <h5>Date quote required by</h5>
         <p id="date">{{currentQuote.date}}</p>
       </div>
       <div *ngIf="currentQuote.fileName" class="item">
-        <button class="btn btn-default btn-copy" md-raised-button type="button" (click)="copyToClipboard('fileName')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;<i class="material-icons">content_copy</i></button>
+        <button class="btn btn-default btn-copy" mat-raised-button type="button" (click)="copyToClipboard('fileName')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;
+          <i class="material-icons">content_copy</i>
+        </button>
         <h5>Artwork file name</h5>
         <p id="fileName">{{currentQuote.fileName}}</p>
       </div>
       <div *ngIf="currentQuote.noKinds" class="item">
-        <button class="btn btn-default btn-copy" md-raised-button type="button" (click)="copyToClipboard('noKinds')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;<i class="material-icons">content_copy</i></button>
+        <button class="btn btn-default btn-copy" mat-raised-button type="button" (click)="copyToClipboard('noKinds')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;
+          <i class="material-icons">content_copy</i>
+        </button>
         <h5>Number of varieties</h5>
         <p id="noKinds">{{currentQuote.noKinds}}</p>
       </div>
       <div *ngIf="currentQuote.qKinds" class="item">
-        <button class="btn btn-default btn-copy" md-raised-button type="button" (click)="copyToClipboard('qKinds')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;<i class="material-icons">content_copy</i></button>
+        <button class="btn btn-default btn-copy" mat-raised-button type="button" (click)="copyToClipboard('qKinds')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;
+          <i class="material-icons">content_copy</i>
+        </button>
         <h5>Quantity per kind</h5>
         <p id="qKinds">{{currentQuote.qKinds}}</p>
       </div>
       <div *ngIf="currentQuote.cost" class="item">
-        <button class="btn btn-default btn-copy" md-raised-button type="button" (click)="copyToClipboard('cost')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;<i class="material-icons">content_copy</i></button>
+        <button class="btn btn-default btn-copy" mat-raised-button type="button" (click)="copyToClipboard('cost')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;
+          <i class="material-icons">content_copy</i>
+        </button>
         <h5>Include delivery costs?</h5>
         <p id="cost">{{currentQuote.cost}}</p>
       </div>
       <div *ngIf="currentQuote.width" class="item">
-        <button class="btn btn-default btn-copy" md-raised-button type="button" (click)="copyToClipboard('width')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;<i class="material-icons">content_copy</i></button>
+        <button class="btn btn-default btn-copy" mat-raised-button type="button" (click)="copyToClipboard('width')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;
+          <i class="material-icons">content_copy</i>
+        </button>
         <h5>Label width (mm)</h5>
         <p id="width">{{currentQuote.width}}</p>
       </div>
       <div *ngIf="currentQuote.height" class="item">
-        <button class="btn btn-default btn-copy" md-raised-button type="button" (click)="copyToClipboard('height')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;<i class="material-icons">content_copy</i></button>
+        <button class="btn btn-default btn-copy" mat-raised-button type="button" (click)="copyToClipboard('height')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;
+          <i class="material-icons">content_copy</i>
+        </button>
         <h5>Label height (mm)</h5>
         <p id="height">{{currentQuote.height}}</p>
       </div>
       <div *ngIf="currentQuote.labelsPer" class="item">
-        <button class="btn btn-default btn-copy" md-raised-button type="button" (click)="copyToClipboard('labelsPer')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;<i class="material-icons">content_copy</i></button>
+        <button class="btn btn-default btn-copy" mat-raised-button type="button" (click)="copyToClipboard('labelsPer')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;
+          <i class="material-icons">content_copy</i>
+        </button>
         <h5>Labels per roll or Max O/D</h5>
         <p id="labelsPer">{{currentQuote.labelsPer}}</p>
       </div>
       <div *ngIf="currentQuote.gap" class="item">
-        <button class="btn btn-default btn-copy" md-raised-button type="button" (click)="copyToClipboard('gap')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;<i class="material-icons">content_copy</i></button>
+        <button class="btn btn-default btn-copy" mat-raised-button type="button" (click)="copyToClipboard('gap')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;
+          <i class="material-icons">content_copy</i>
+        </button>
         <h5>Gap between labels</h5>
         <p id="">{{currentQuote.gap}}</p>
       </div>
       <div *ngIf="currentQuote.knife" class="item">
-        <button class="btn btn-default btn-copy" md-raised-button type="button" (click)="copyToClipboard('client')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;<i class="material-icons">content_copy</i></button>
+        <button class="btn btn-default btn-copy" mat-raised-button type="button" (click)="copyToClipboard('client')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;
+          <i class="material-icons">content_copy</i>
+        </button>
         <h5>Knife</h5>
         <p id="gap">{{currentQuote.knife}}</p>
       </div>
       <div *ngIf="currentQuote.charge" class="item">
-        <button class="btn btn-default btn-copy" md-raised-button type="button" (click)="copyToClipboard('charge')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;<i class="material-icons">content_copy</i></button>
+        <button class="btn btn-default btn-copy" mat-raised-button type="button" (click)="copyToClipboard('charge')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;
+          <i class="material-icons">content_copy</i>
+        </button>
         <h5>Charges</h5>
         <p id="charge">{{currentQuote.charge}}</p>
       </div>
       <div *ngIf="currentQuote.stock" class="item">
-        <button class="btn btn-default btn-copy" md-raised-button type="button" (click)="copyToClipboard('stock')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;<i class="material-icons">content_copy</i></button>
+        <button class="btn btn-default btn-copy" mat-raised-button type="button" (click)="copyToClipboard('stock')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;
+          <i class="material-icons">content_copy</i>
+        </button>
         <h5>Selected stock</h5>
         <p id="stock">{{currentQuote.stock}}</p>
       </div>
       <div *ngIf="currentQuote.colour" class="item">
-        <button class="btn btn-default btn-copy" md-raised-button type="button" (click)="copyToClipboard('colour')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;<i class="material-icons">content_copy</i></button>
+        <button class="btn btn-default btn-copy" mat-raised-button type="button" (click)="copyToClipboard('colour')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;
+          <i class="material-icons">content_copy</i>
+        </button>
         <h5>Colour</h5>
         <p id="colour">{{currentQuote.colour}}</p>
       </div>
       <div *ngIf="currentQuote.embel" class="item">
-        <button class="btn btn-default btn-copy" md-raised-button type="button" (click)="copyToClipboard('embel')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;<i class="material-icons">content_copy</i></button>
+        <button class="btn btn-default btn-copy" mat-raised-button type="button" (click)="copyToClipboard('embel')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;
+          <i class="material-icons">content_copy</i>
+        </button>
         <h5>Embleishment</h5>
         <p id="embel">{{currentQuote.embel}}</p>
       </div>
       <div *ngIf="currentQuote.orient" class="item">
-        <button class="btn btn-default btn-copy" md-raised-button type="button" (click)="copyToClipboard('orient')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;<i class="material-icons">content_copy</i></button>
+        <button class="btn btn-default btn-copy" mat-raised-button type="button" (click)="copyToClipboard('orient')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;
+          <i class="material-icons">content_copy</i>
+        </button>
         <h5>Orientation</h5>
         <p id="orient">{{currentQuote.orient}}</p>
       </div>
       <div *ngIf="currentQuote.appliedBy" class="item">
-        <button class="btn btn-default btn-copy" md-raised-button type="button" (click)="copyToClipboard('appliedBy')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;<i class="material-icons">content_copy</i></button>
+        <button class="btn btn-default btn-copy" mat-raised-button type="button" (click)="copyToClipboard('appliedBy')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;
+          <i class="material-icons">content_copy</i>
+        </button>
         <h5>Label applied by</h5>
         <p id="appliedBy">{{currentQuote.appliedBy}}</p>
       </div>
       <div *ngIf="currentQuote.overPrint" class="item">
-        <button class="btn btn-default btn-copy" md-raised-button type="button" (click)="copyToClipboard('overPrint')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;<i class="material-icons">content_copy</i></button>
+        <button class="btn btn-default btn-copy" mat-raised-button type="button" (click)="copyToClipboard('overPrint')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;
+          <i class="material-icons">content_copy</i>
+        </button>
         <h5>Overprinting</h5>
         <p id="overPrint">{{currentQuote.overPrint}}</p>
       </div>
       <div *ngIf="currentQuote.core" class="item">
-        <button class="btn btn-default btn-copy" md-raised-button type="button" (click)="copyToClipboard('core')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;<i class="material-icons">content_copy</i></button>
+        <button class="btn btn-default btn-copy" mat-raised-button type="button" (click)="copyToClipboard('core')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;
+          <i class="material-icons">content_copy</i>
+        </button>
         <h5>Core Size</h5>
         <p id="core">{{currentQuote.core}}</p>
       </div>
       <div *ngIf="currentQuote.windStyle" class="item">
-        <button class="btn btn-default btn-copy" md-raised-button type="button" (click)="copyToClipboard('windstyle')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;<i class="material-icons">content_copy</i></button>
+        <button class="btn btn-default btn-copy" mat-raised-button type="button" (click)="copyToClipboard('windstyle')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;
+          <i class="material-icons">content_copy</i>
+        </button>
         <h5>Winding style</h5>
         <p id="windstyle">{{currentQuote.windStyle}}</p>
       </div>
       <div *ngIf="currentQuote.suppliedIn" class="item">
-        <button class="btn btn-default btn-copy" md-raised-button type="button" (click)="copyToClipboard('suppliedIn')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;<i class="material-icons">content_copy</i></button>
+        <button class="btn btn-default btn-copy" mat-raised-button type="button" (click)="copyToClipboard('suppliedIn')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;
+          <i class="material-icons">content_copy</i>
+        </button>
         <h5>Supplied in</h5>
         <p id="suppliedIn">{{currentQuote.suppliedIn}}</p>
       </div>
       <div *ngIf="currentQuote.adhesive" class="item">
-        <button class="btn btn-default btn-copy" md-raised-button type="button" (click)="copyToClipboard('adhesive')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;<i class="material-icons">content_copy</i></button>
+        <button class="btn btn-default btn-copy" mat-raised-button type="button" (click)="copyToClipboard('adhesive')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;
+          <i class="material-icons">content_copy</i>
+        </button>
         <h5>Adhesive</h5>
         <p id="adhesive">{{currentQuote.adhesive}}</p>
       </div>
       <div *ngIf="currentQuote.addInfo" class="item">
-        <button class="btn btn-default btn-copy" md-raised-button type="button" (click)="copyToClipboard('addInfo')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;<i class="material-icons">content_copy</i></button>
+        <button class="btn btn-default btn-copy" mat-raised-button type="button" (click)="copyToClipboard('addInfo')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;
+          <i class="material-icons">content_copy</i>
+        </button>
         <h5>Additional information</h5>
         <p id="addInfo">{{currentQuote.addInfo}}</p>
       </div>
     </div>
   </div>
   <div class="row" fxLayout="row" *ngIf="userData.type == 'admin'">
-    <!-- <md-toolbar class="navBar"> -->
+    <!-- <mat-toolbar class="navBar"> -->
     <!-- <div class=""> -->
-    <!-- <button class="text-center btn-primary" md md-raised-button-raised-button>Repeat</button> -->
-    <button class="text-center btn-primary float-center" md-raised-button *ngIf="currentQuote.stage == 'requested'" (click)="moveToPending()"
+    <!-- <button class="text-center btn-primary" md mat-raised-button-raised-button>Repeat</button> -->
+    <button class="text-center btn-primary float-center" mat-raised-button *ngIf="currentQuote.stage == 'requested'" (click)="moveToPending()"
       routerLink="/overview">Move to pending</button>
-    <button class="text-center btn-primary float-center" md-raised-button *ngIf="currentQuote.stage == 'pending'" (click)="moveToCompleted()"
+    <button class="text-center btn-primary float-center" mat-raised-button *ngIf="currentQuote.stage == 'pending'" (click)="moveToCompleted()"
       routerLink="/overview">Move to completed</button>
-    <button class="text-center btn-primary float-center" md-raised-button *ngIf="currentQuote.stage == 'completed'" (click)="moveToRequested()"
+    <button class="text-center btn-primary float-center" mat-raised-button *ngIf="currentQuote.stage == 'completed'" (click)="moveToRequested()"
       routerLink="/overview">Order reprint</button>
-    <!-- <button class="text-center btn-primary" md md-raised-button-raised-button>Move to pending</button> -->
+    <!-- <button class="text-center btn-primary" md mat-raised-button-raised-button>Move to pending</button> -->
     <!-- </div> -->
-    <!-- </md-toolbar> -->
+    <!-- </mat-toolbar> -->
   </div>
   <!-- <div class="row" fxLayout="row" *ngIf="userData.type == 'user'">
-    <button class="text-center btn-primary float-center full-width" md-raised-button (click)="repeatOrder()">Repeat <md-icon>repeat</md-icon></button>
-    <button class="text-center btn-primary float-center full-width" md-raised-button (click)="editOrder()">Edit <md-icon>mode_edit</md-icon></button>
+    <button class="text-center btn-primary float-center full-width" mat-raised-button (click)="repeatOrder()">Repeat <mat-icon>repeat</mat-icon></button>
+    <button class="text-center btn-primary float-center full-width" mat-raised-button (click)="editOrder()">Edit <mat-icon>mode_edit</mat-icon></button>
   </div> -->
   <!-- </div> -->
 </div>
 <div class="container-footer" *ngIf="userData.type == 'user'">
-  <div fxLayout="column wrap">
     <app-navfooter (repeatOrder)="repeatOrder($event)" (editOrder)="editOrder($event)"></app-navfooter>
-  </div>
 </div>

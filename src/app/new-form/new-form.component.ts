@@ -4,7 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 // import { slideIn } from '../_animations/index';W
 
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
-import { MdSnackBar, MdDialog, MdDialogRef } from '@angular/material';
+import { MatSnackBar, MatDialog, MatDialogRef } from '@angular/material';
 import { Observable } from 'rxjs/Observable';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
@@ -34,7 +34,7 @@ const PHONE_REGEX = /^(\((03|04|06|07|09)\)\d{7})|(\((021|022|025|027|028|029)\)
 export class NewFormComponent implements OnInit, OnChanges {
   clipboard: any;
   files: FileList;
-  dialogRef: MdDialogRef<ConfirmComponent>;
+  dialogRef: MatDialogRef<ConfirmComponent>;
   foo: FirebaseListObservable<QuoteFile[]>;
   quoteToEdit;
   quotes: { [id: string]: any; } = [];
@@ -122,8 +122,8 @@ export class NewFormComponent implements OnInit, OnChanges {
 
   @ViewChild('datePicker') input;
 
-  constructor(private form: QuoteService, private snackBar: MdSnackBar, private router: Router,
-    private route: ActivatedRoute, public dialog: MdDialog, private http: Http) {
+  constructor(private form: QuoteService, private snackBar: MatSnackBar, private router: Router,
+    private route: ActivatedRoute, public dialog: MatDialog, private http: Http) {
     this.compTitle = 'NEW REQUEST';
 
     this.foo = this.form.getQuoteNumbers();
@@ -178,50 +178,50 @@ export class NewFormComponent implements OnInit, OnChanges {
     }
   }
 
-  // submitQuote() {
-  //   const quoteNum = this.createQuoteNumber(this.quoteNumbers);
-  //   this.quote.date = this.input.nativeElement.value;
-  //   if (this.form.validateQuote(this.quote)) {
-  //     this.dialogRef = this.dialog.open(ConfirmComponent, {
-  //       disableClose: false
-  //     });
-  //     this.dialogRef.componentInstance.confirmMessage = 'Please <b>confirm</b> submission';
-  //     this.dialogRef.afterClosed().subscribe(result => {
-  //       if (result) {
-  //         this.form.submitQuote(this.quote, quoteNum);
-  //         console.log('Submitted');
-  //         this.router.navigate(['/dash']);
-  //       }
-  //       this.dialogRef = null;
-  //     });
-  //   } else {
-  //     console.log('There was an error with the validation. Check all required fields have been completed...');
-  //     this.snackBar.open(`Please check all required fields have been completed.`, '', { duration: 2000 });
-  //   }
-  // }
-
   submitQuote() {
     const quoteNum = this.createQuoteNumber(this.quoteNumbers);
     this.quote.date = this.input.nativeElement.value;
-    // if (this.form.validateQuote(this.quote)) {
-    this.dialogRef = this.dialog.open(ConfirmComponent, {
-      disableClose: false
-    });
-    this.dialogRef.componentInstance.confirmMessage = 'Please <b>confirm</b> submission';
-    this.dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        // this.form.submitQuote(this.quote, quoteNum);
-        this.sendEmail();
-        // console.log('Submitted');
-        this.router.navigate(['/dash']);
-      }
-      this.dialogRef = null;
-    });
-    // } else {
-    // console.log('There was an error with the validation. Check all required fields have been completed...');
-    // this.snackBar.open(`Please check all required fields have been completed.`, '', { duration: 2000 });
-    // }
+    if (this.form.validateQuote(this.quote)) {
+      this.dialogRef = this.dialog.open(ConfirmComponent, {
+        disableClose: false
+      });
+      this.dialogRef.componentInstance.confirmMessage = 'Please <b>confirm</b> submission';
+      this.dialogRef.afterClosed().subscribe(result => {
+        if (result) {
+          this.form.submitQuote(this.quote, quoteNum);
+          console.log('Submitted');
+          this.router.navigate(['/dash']);
+        }
+        this.dialogRef = null;
+      });
+    } else {
+      console.log('There was an error with the validation. Check all required fields have been completed...');
+      this.snackBar.open(`Please check all required fields have been completed.`, '', { duration: 2000 });
+    }
   }
+
+  // submitQuote() {
+  //   const quoteNum = this.createQuoteNumber(this.quoteNumbers);
+  //   this.quote.date = this.input.nativeElement.value;
+  //   // if (this.form.validateQuote(this.quote)) {
+  //   this.dialogRef = this.dialog.open(ConfirmComponent, {
+  //     disableClose: false
+  //   });
+  //   this.dialogRef.componentInstance.confirmMessage = 'Please <b>confirm</b> submission';
+  //   this.dialogRef.afterClosed().subscribe(result => {
+  //     if (result) {
+  //       // this.form.submitQuote(this.quote, quoteNum);
+  //       this.sendEmail();
+  //       // console.log('Submitted');
+  //       this.router.navigate(['/dash']);
+  //     }
+  //     this.dialogRef = null;
+  //   });
+  //   // } else {
+  //   // console.log('There was an error with the validation. Check all required fields have been completed...');
+  //   // this.snackBar.open(`Please check all required fields have been completed.`, '', { duration: 2000 });
+  //   // }
+  // }
 
   fileEvent(event) {
     const file = event.target.files[0];
