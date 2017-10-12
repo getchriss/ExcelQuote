@@ -44,12 +44,13 @@ export class QuoteManagementComponent implements OnInit, OnChanges {
 
   searchQuotes(event) {
     const input = document.getElementById('searchbar');
-    const filter = event.target.value;
+    const filter = event.target.value.toLowerCase();
     const feed = document.getElementById('feed');
     const quotes = feed.getElementsByClassName('quote');
     for (let i = 0; i < quotes.length; i++) {
-      let id = quotes[i].getElementsByClassName('quoteID')[0];
-      if (id && id.innerHTML.indexOf(filter) > -1) {
+      const id = quotes[i].getElementsByClassName('quoteID')[0];
+      const name = quotes[i].getElementsByClassName('quoteName')[0];
+      if ((id && id.innerHTML.indexOf(filter) > -1) || (name && name.innerHTML.toLowerCase().indexOf(filter) > -1)) {
         if (quotes[i].classList.contains('hidden')) {
           quotes[i].classList.remove('hidden');
         }
