@@ -151,7 +151,8 @@ p {
   overflow: -moz-scrollbars-none; */
 }
 
-.previewBox div>p {
+.previewBox div > p,
+.previewBox div > p > span {
   font-family: 'Open Sans Semibold', sans-serif;
   font-size: 17px;
   color: #472155;

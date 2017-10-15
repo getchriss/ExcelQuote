@@ -131,6 +131,20 @@
         <h5>Colour</h5>
         <p id="colour">{{currentQuote.colour}}</p>
       </div>
+      <div *ngIf="currentQuote.colour" class="item">
+        <button class="btn btn-default btn-copy" mat-raised-button type="button" (click)="copyToClipboard('colour')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;
+          <i class="material-icons">content_copy</i>
+        </button>
+        <h5>Colour</h5>
+        <p id="colour">{{currentQuote.colour}}</p>
+      </div>
+      <div *ngIf="currentQuote.finish" class="item">
+        <button class="btn btn-default btn-copy" mat-raised-button type="button" (click)="copyToClipboard('finish')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;
+          <i class="material-icons">content_copy</i>
+        </button>
+        <h5>Finishes</h5>
+        <p id="finish">{{currentQuote.finish[0]}}<span *ngIf="currentQuote.finish[1]">, {{currentQuote.finish[1]}}</span><span *ngIf="currentQuote.finish[2]">, {{currentQuote.finish[2]}}</span><span *ngIf="currentQuote.finish[3]">, {{currentQuote.finish[3]}}</span><span *ngIf="currentQuote.finish[4]">, {{currentQuote.finish[4]}}</span></p>
+      </div>
       <div *ngIf="currentQuote.embel" class="item">
         <button class="btn btn-default btn-copy" mat-raised-button type="button" (click)="copyToClipboard('embel')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;
           <i class="material-icons">content_copy</i>

@@ -5,7 +5,8 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs/Observable';
 import { User } from '../models/user.model';
-import {MatSnackBar, MatSnackBarConfig, MatSnackBarHorizontalPosition,
+import { MatSnackBar, MatSnackBarConfig,
+  MatSnackBarHorizontalPosition,
   MatSnackBarVerticalPosition } from '@angular/material';
 
 @Injectable()

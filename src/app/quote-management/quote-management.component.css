@@ -108,7 +108,6 @@ input {
   border-top: none;
 }
 
-
 .populationContainer {
   /* border: 1px solid red; */
   position: absolute;
@@ -154,7 +153,10 @@ input {
     height: 50px;
   }
   .populationContainer {
-    top: 190px;
+    top: 200px;
+  }
+  .populationHead {
+    margin-top: 26px;
   }
 }
 

@@ -98,21 +98,17 @@ mat-select {
   }
 }
 
->>>[_ngcontent-c9] .mat-button-toggle-label-content {
-  padding: 0 0px;
+button span.mat-button-wrapper label[for="userFile"] {
+  width: 100%!important;
+}
+
+>>>.mat-button-toggle-label-content {
+  padding: 0px!important;
   width: 100%;
+  text-align: center;
 }
 
->>>[_ngcontent-c9] .mat-input-placeholder,
->>>[_ngcontent-c9] .mat-form-field-placeholder {
-  /* color: blue; */
-}
-
->>>[_ngcontent-c9] .mat-form-field-ripple {
-  background-color: #5D398A;
-}
-
->>>[_ngcontent-c9] .mat-form-field-placeholder-wrapper {
+>>>[_ngcontent-c8] .mat-form-field-placeholder-wrapper {
   top: -1.2em;
   color: #5D398A;
 }
@@ -121,17 +117,22 @@ mat-select {
   letter-spacing: 5px;
 }
 
->>>[_ngcontent-c9] .mat-form-field-underline {
+>>> .mat-form-field-underline {
   background-color: #8b8b8b;
 }
 
->>>[_ngcontent-c9] .mat-form-field-placeholder {
+>>> .mat-form-field-placeholder {
   color: #8b8b8b;
 }
 
->>>[_ngcontent-c9] .mat-hint {
-  color: red;
+>>>[_ngcontent-c8] .mat-hint {
+  color: red!important;
 }
+
+>>>.mat-select-invalid {
+  color:red!important;
+}
+
 
 >>>.removeB .mat-form-field-underline {
   background-color: transparent!important;
@@ -292,6 +293,12 @@ mat-button-toggle:nth-child(2).windingOpt {
 .noBorder {
   border: none;
 }
+
+.noBorder label {
+  display:block;
+  width:100%;
+}
+
 
 .btn-primary {
   background-color: #FFF;

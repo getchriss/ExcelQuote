@@ -183,8 +183,8 @@
               <div>
                 <p>Select Stock type</p>
                 <div class="selectMarg">
-                  <mat-form-field class="full-width">
-                    <mat-select placeholder="Select Stock" [(ngModel)]="quote.stock" name="stock" touchUi="true" name="stock">
+                  <mat-form-field class="full-width" [hideRequiredMarker]="true">
+                    <mat-select placeholder="Select Stock" [(ngModel)]="quote.stock" name="stock" touchUi="true" name="stock" required>
                       <mat-option *ngFor="let stock of $stocks | async" [value]="stock.val()">
                         {{stock.val()}}
                       </mat-option>
@@ -203,8 +203,8 @@
               <div>
                 <p>Select Finish</p>
                 <div class="selectMarg">
-                  <mat-form-field class="full-width">
-                    <mat-select multiple placeholder="Finishes" [(ngModel)]="quote.finishes" name="finishes">
+                  <mat-form-field class="full-width" [hideRequiredMarker]="true">
+                    <mat-select multiple placeholder="Finishes" [(ngModel)]="quote.finish" name="finishes" required>
                       <mat-option *ngFor="let finishes of $finishes | async" [value]="finishes.val()">
                         {{finishes.val()}}
                       </mat-option>
@@ -215,8 +215,8 @@
               <div>
                 <p>Select Embelishment</p>
                 <div class="selectMarg">
-                  <mat-form-field class="full-width">
-                    <mat-select placeholder="Embleishments" [(ngModel)]="quote.embel" name="embel">
+                  <mat-form-field class="full-width" [hideRequiredMarker]="true">
+                    <mat-select placeholder="Embleishments" [(ngModel)]="quote.embel" name="embel" required>
                       <mat-option *ngFor="let embel of $embelishments | async" [value]="embel.val()">
                         {{embel.val()}}
                       </mat-option>
@@ -241,8 +241,8 @@
               <div>
                 <p>Select Adhesive</p>
                 <div class="selectMarg">
-                  <mat-form-field class="full-width">
-                    <mat-select placeholder="Adhesive" [(ngModel)]="quote.adhesive" name="adhesive">
+                  <mat-form-field class="full-width" [hideRequiredMarker]="true">
+                    <mat-select placeholder="Adhesive" [(ngModel)]="quote.adhesive" name="adhesive" required>
                       <mat-option *ngFor="let adhesive of $adhesives | async" [value]="adhesive.val()">
                         {{adhesive.val()}}
                       </mat-option>
@@ -261,8 +261,8 @@
               <div>
                 <p>Core size</p>
                 <div class="selectMarg">
-                  <mat-form-field class="full-width">
-                    <mat-select [(ngModel)]="quote.core" placeholder="Select core size" name="core">
+                  <mat-form-field class="full-width" [hideRequiredMarker]="true">
+                    <mat-select [(ngModel)]="quote.core" placeholder="Select core size" name="core" required>
                       <mat-option value="25">25</mat-option>
                       <mat-option value="38">38</mat-option>
                       <mat-option value="41">41</mat-option>
@@ -324,8 +324,8 @@
               <div>
                 <p>Select proof type</p>
                 <div class="selectMarg">
-                  <mat-form-field class="full-width">
-                    <mat-select placeholder="Proof type" [(ngModel)]="quote.proofType" name="proofType">
+                  <mat-form-field class="full-width" [hideRequiredMarker]="true">
+                    <mat-select placeholder="Proof type" [(ngModel)]="quote.proofType" name="proofType" required>
                       <mat-option value="PDF Proof">PDF Proof</mat-option>
                       <mat-option value="Full Colour - Finished Proof">Full Colour - Finished Proof (not diecut)</mat-option>
                       <mat-option value="Full Colour - Unfinished Proof">Full Colour - Unfinished Proof</mat-option>

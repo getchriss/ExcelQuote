@@ -7,6 +7,11 @@ import * as firebase from 'firebase/app';
 
 import { QuoteFile } from '../models/quote-file.model';
 
+import { MatSnackBar, MatSnackBarConfig,
+  MatSnackBarHorizontalPosition,
+  MatSnackBarVerticalPosition
+} from '@angular/material';
+
 @Injectable()
 export class QuoteService {
   user: any;
@@ -15,7 +20,11 @@ export class QuoteService {
   userName: Observable<string>;
   quoteNumbers = [];
 
-  constructor(private db: AngularFireDatabase, private afAuth: AngularFireAuth) {
+  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
+
+  constructor(private db: AngularFireDatabase, private afAuth: AngularFireAuth,
+    private snackBar: MatSnackBar) {
     this.afAuth.authState.subscribe(auth => {
       if (auth !== undefined && auth !== null) {
         this.user = auth;
@@ -24,13 +33,18 @@ export class QuoteService {
   }
 
   validateQuote(quote: any) {
+    const config = new MatSnackBarConfig();
+    config.verticalPosition = this.verticalPosition;
+    config.horizontalPosition = this.horizontalPosition;
+    config.duration = 2500;
+    config.extraClasses = ['snackColor'];
     if (
       quote.client.length > 0 &&
       quote.email.length > 0 &&
       quote.address.length > 0 &&
       quote.phone !== undefined &&
       quote.date !== undefined &&
-      quote.fileName !== undefined &&
+      // quote.fileName !== undefined &&
       quote.noKinds !== undefined &&
       quote.qKinds !== undefined &&
       quote.cost.length > 0 &&
@@ -42,6 +56,7 @@ export class QuoteService {
       quote.charge.length > 0 &&
       quote.stock.length > 0 &&
       quote.colour.length > 0 &&
+      quote.finish.length > 0 &&
       quote.embel.length > 0 &&
       quote.orient.length > 0 &&
       quote.appliedBy.length > 0 &&
@@ -54,6 +69,58 @@ export class QuoteService {
     ) {
       console.log('validateQuote() was successful...');
       return true;
+    } else if (quote.client.length === 0) {
+      return this.snackBar.open(`Please supply client name`, '', config);
+    } else if (quote.email.length === 0 ) {
+      return this.snackBar.open(`Please supply an email address`, '', config);
+    } else if (quote.address.length === 0) {
+      return this.snackBar.open(`Please supply an address`, '', config);
+    } else if (quote.phone === undefined) {
+      return this.snackBar.open(`Please supply a phone number`, '', config);
+    } else if (quote.date === undefined) {
+      return this.snackBar.open(`Please specify date required`, '', config);
+    } else if (quote.noKinds === undefined) {
+      return this.snackBar.open(`Please specify number of kinds`, '', config);
+    } else if (quote.qKinds === undefined) {
+      return this.snackBar.open(`Please specify quantity per kind`, '', config);
+    } else if (quote.cost.length === 0) {
+      return this.snackBar.open(`Please specify delivery costs`, '', config);
+    } else if (quote.width === undefined) {
+      return this.snackBar.open(`Please specify width`, '', config);
+    } else if (quote.height === undefined) {
+      return this.snackBar.open(`Please specify height`, '', config);
+    } else if (quote.labelsPer === undefined) {
+      return this.snackBar.open(`Please specify how many labels per`, '', config);
+    } else if (quote.gap === undefined) {
+      return this.snackBar.open(`Please specify gap between labels`, '', config);
+    } else if (quote.knife.length === 0) {
+      return this.snackBar.open(`Please specify knife type`, '', config);
+    } else if (quote.charge.length === 0) {
+      return this.snackBar.open(`Please specify charges`, '', config);
+    } else if (quote.stock.length === 0) {
+      return this.snackBar.open(`Please select stock type`, '', config);
+    } else if (quote.colour.length === 0) {
+      return this.snackBar.open(`Please specify color style`, '', config);
+    } else if (quote.finishes.length === 0) {
+      return this.snackBar.open(`Please specify finish style(s)`, '', config);
+    } else if (quote.embel.length === 0) {
+      return this.snackBar.open(`Please select embelishment style`, '', config);
+    } else if (quote.orient.length === 0) {
+      return this.snackBar.open(`Please select a orientation`, '', config);
+    } else if (quote.appliedBy.length === 0) {
+      return this.snackBar.open(`Please specify label application type`, '', config);
+    } else if (quote.adhesive.length === 0) {
+      return this.snackBar.open(`Please specify an adhesive`, '', config);
+    } else if (quote.overPrint.length === 0) {
+      return this.snackBar.open(`Please select overprint option`, '', config);
+    } else if (quote.core === undefined) {
+      return this.snackBar.open(`Please specify a core size`, '', config);
+    } else if (quote.windStyle === undefined) {
+      return this.snackBar.open(`Please specify a winding style`, '', config);
+    } else if (quote.suppliedIn.length === 0) {
+      return this.snackBar.open(`Plase specify how labels are supplied`, '', config);
+    } else if (quote.proofType.length === 0) {
+      return this.snackBar.open(`Please specify proof type`, '', config);
     } else {
       console.log('validateQuote() was not successful...');
       console.log(quote.client.length);
@@ -106,6 +173,7 @@ export class QuoteService {
       charge: quote.charge,
       stock: quote.stock,
       colour: quote.colour,
+      finish: quote.finish,
       embel: quote.embel,
       orient: quote.orient,
       appliedBy: quote.appliedBy,

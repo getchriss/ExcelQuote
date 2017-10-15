@@ -1,10 +1,14 @@
 import { Component, OnInit, OnChanges, HostBinding, Injectable, ViewChild, ViewEncapsulation } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-// import { slideIn } from '../_animations/index';W
+// import { slideIn } from '../_animations/index';
 
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
-import { MatSnackBar, MatDialog, MatDialogRef } from '@angular/material';
+import { MatSnackBar, MatSnackBarConfig,
+  MatSnackBarHorizontalPosition,
+  MatSnackBarVerticalPosition ,
+  MatDialog, MatDialogRef } from '@angular/material';
+
 import { Observable } from 'rxjs/Observable';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
@@ -14,7 +18,7 @@ import { AuthService } from '../services/auth.service';
 import { QuoteService } from '../services/quote.service';
 import { QuoteFile } from '../models/quote-file.model';
 
-import { RequestOptions, RequestMethod, RequestOptionsArgs, Http, Headers } from '@angular/http';
+import { RequestOptions, RequestMethod, RequestOptionsArgs, Http, Headers, HttpModule } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import { ConfirmComponent } from '../confirm/confirm.component';
 
@@ -32,6 +36,7 @@ const PHONE_REGEX = /^(\((03|04|06|07|09)\)\d{7})|(\((021|022|025|027|028|029)\)
 })
 
 export class NewFormComponent implements OnInit, OnChanges {
+
   clipboard: any;
   files: FileList;
   dialogRef: MatDialogRef<ConfirmComponent>;
@@ -45,7 +50,7 @@ export class NewFormComponent implements OnInit, OnChanges {
   address = '';
   phone = '';
   date: any;
-  userFileName: any;
+  userFileName = '';
   noKinds: number;
   qKinds: number;
   cost = '';
@@ -57,6 +62,7 @@ export class NewFormComponent implements OnInit, OnChanges {
   charge = '';
   stock = '';
   colour = '';
+  finish = '';
   embel = '';
   finishes = '';
   orient = '';
@@ -93,6 +99,7 @@ export class NewFormComponent implements OnInit, OnChanges {
     charge: this.charge,
     stock: this.stock,
     colour: this.colour,
+    finish: this.finish,
     embel: this.embel,
     finishes: this.finishes,
     orient: this.orient,
@@ -105,6 +112,7 @@ export class NewFormComponent implements OnInit, OnChanges {
     proofType: this.proofType,
     addInfo: this.addInfo
   };
+
   compTitle;
   jobId;
 
@@ -119,6 +127,8 @@ export class NewFormComponent implements OnInit, OnChanges {
   globalFormControl = new FormControl('', [
     Validators.required]);
 
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
+  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
 
   @ViewChild('datePicker') input;
 
@@ -181,7 +191,12 @@ export class NewFormComponent implements OnInit, OnChanges {
   submitQuote() {
     const quoteNum = this.createQuoteNumber(this.quoteNumbers);
     this.quote.date = this.input.nativeElement.value;
-    if (this.form.validateQuote(this.quote)) {
+    const config = new MatSnackBarConfig();
+    config.verticalPosition = this.verticalPosition;
+    config.horizontalPosition = this.horizontalPosition;
+    config.duration = 3000;
+    config.extraClasses = ['snackColor'];
+    if (this.form.validateQuote(this.quote) === true) {
       this.dialogRef = this.dialog.open(ConfirmComponent, {
         disableClose: false
       });
@@ -194,9 +209,11 @@ export class NewFormComponent implements OnInit, OnChanges {
         }
         this.dialogRef = null;
       });
+    } else if (this.form.validateQuote(this.quote) === false) {
+      // this.snackBar.open(`Please check that all required fields have been completed.`, '', config);
+      // window.scrollTo(0, 0);
     } else {
-      console.log('There was an error with the validation. Check all required fields have been completed...');
-      this.snackBar.open(`Please check all required fields have been completed.`, '', { duration: 2000 });
+      //  hi
     }
   }
 

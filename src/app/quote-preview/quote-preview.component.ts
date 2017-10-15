@@ -97,8 +97,14 @@ export class QuotePreviewComponent implements OnInit {
   copyToClipboard(elementId) {
     // Create an auxiliary hidden input
     const aux = <HTMLInputElement>document.createElement('input');
-    const elm: any = <HTMLElement>document.getElementById(elementId);
-    const text = elm.innerHTML;
+    let text: any;
+    if (elementId === 'finish') {
+      const elm = document.getElementById(elementId);
+      text = elm.innerText;
+    } else {
+      const elm: any = <HTMLElement>document.getElementById(elementId);
+      text = elm.innerHTML;
+    }
     // Get the text from the element passed into the input
     aux.setAttribute('value', text);
     // Append the aux input to the body

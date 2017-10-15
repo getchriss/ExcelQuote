@@ -46,26 +46,26 @@
   font-size: 13px;
 }
 
->>>input[_ngcontent-c8] {
+>>>input[_ngcontent-c7] {
   color: #FFFFFF;
   width: 100%;
   max-width: 312px;
   font-size: 17px;
 }
 
->>>[_ngcontent-c8] .mat-input-placeholder {
+>>>[_ngcontent-c7] .mat-input-placeholder {
   color: #FFFFFF;
 }
 
->>>[_ngcontent-c8] .mat-input-placeholder.mat-form-field-placeholder.mat-float {
+>>>[_ngcontent-c7] .mat-input-placeholder.mat-form-field-placeholder.mat-float {
   color: #FFFFFF;
 }
 
->>>[_ngcontent-c8] .mat-form-field-ripple {
+>>>[_ngcontent-c7] .mat-form-field-ripple {
   background-color: #5D398A
 }
 
->>>[_ngcontent-c8] .mat-form-field-placeholder-wrapper {
+>>>[_ngcontent-c7] .mat-form-field-placeholder-wrapper {
   top: -1.2em;
   color: #FFFFFF;
 }
@@ -74,21 +74,21 @@
   letter-spacing: 5px;
 }
 
-[_ngcontent-c8] .mat-raised-button[disabled] {
+[_ngcontent-c7] .mat-raised-button[disabled] {
   background-color: rgba(255, 255, 255, .12);
 }
 
 
->>>[_ngcontent-c8] .mat-form-field-underline {
+>>>[_ngcontent-c7] .mat-form-field-underline {
   background-color: #FFFFFF;
 }
 
-[_ngcontent-c8] .rbtn {
+[_ngcontent-c7] .rbtn {
   background-color: #FFFFFF;
   color: #472155;
 }
 
-[_ngcontent-c8]>>>.mat-ripple-element {
+[_ngcontent-c7]>>>.mat-ripple-element {
   background-color: rgba(93, 57, 138, 0.35)!important;
 }
 

@@ -6,9 +6,9 @@ mat-toolbar {
   background-color: #472155;
 }
 
-@media only screen and (max-width: 751px) {
-  mat-toolbar {
-    /* padding-top: 20px; */
+@media (max-width: 751px) {
+  mat-toolbar[_ngcontent-c9] {
+    padding-top: 20px;
   }
 }
 
@@ -17,7 +17,6 @@ mat-toolbar {
   flex: none;
   flex-direction: row;
   /* border-bottom: 3px solid #5D398A; */
-
 }
 
 #logo {

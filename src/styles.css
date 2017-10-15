@@ -95,5 +95,8 @@ sans-serif;
 }
 
 snack-bar-container.snackColor {
-  background-color: #FF4D77;  
+  background-color: #FF4D77;
+  margin-left: 0;
+  margin-right: 0;
+
 }
