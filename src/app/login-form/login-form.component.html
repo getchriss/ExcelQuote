@@ -1,7 +1,6 @@
 <div class="dash-wrapper">
   <div id="logo"></div>
 </div>
-<<<<<<< HEAD
 <mat-card class="loginContainer mat-elevation-z0" flex="flex">
   <mat-card-content>
     <mat-grid-list cols="1" rows="4" [rowHeight]="70">
@@ -45,44 +44,3 @@
     </mat-grid-list>
   </mat-card-content>
 </mat-card>
-=======
-<md-card class="loginContainer mat-elevation-z0" flex="flex">
-  <md-card-content>
-    <md-grid-list cols="1" rows="4" [rowHeight]="70">
-      <md-grid-tile class="alternate-theme">
-        <md-form-field class="full-width" [hideRequiredMarker]="true">
-          <i mdPrefix class="material-icons">account_circle</i>
-          <input mdInput [(ngModel)]="email" type="email" name="email" class="formInput" placeholder="Username" required/>
-          <md-error *ngIf="globalFormControl.hasError('required')">
-            <strong>username</strong> required
-          </md-error>
-        </md-form-field>
-      </md-grid-tile>
-      <md-grid-tile>
-        <md-form-field class="full-width space" [hideRequiredMarker]="true">
-          <i mdPrefix class="material-icons">lock</i>
-          <input mdInput type="password" [(ngModel)]="password" name="password" class="formInput input-theme" placeholder="Password"
-            required (keypress)="handleSubmit($event)"/>
-          <md-error *ngIf="globalFormControl.hasError('required')">
-            <strong>password</strong> required
-          </md-error>
-        </md-form-field>
-      </md-grid-tile>
-    </md-grid-list>
-    <md-grid-list cols="2" [rowHeight]="42">
-      <md-grid-tile-footer cols="2">
-        <!-- <md-slide-toggle class="rememberMe"  [checked]="checked" [disabled]="disabled" (change)="toggleEditable($event)"><span>&nbsp; &nbsp; Remember me</span></md-slide-toggle> -->
-        <span class="forgot full-width"><a (click)="resetPassword()" style="text-decoration:none;color:#FFFFFF;">Forgot your password?</a></span>
-      </md-grid-tile-footer>
-    </md-grid-list>
-    <md-grid-list cols="1" rows="4" [rowHeight]="50" style="margin-top:80px;">
-      <md-grid-tile>
-        <button class="full-width rbtn" md-raised-button color="primary" id="btn-login" (click)="login()">Log In</button>
-      </md-grid-tile>
-      <md-grid-tile>
-        <button class="full-width rbtn" md-raised-button color="primary" id="btn-login" routerLink="/signup">Register</button>
-      </md-grid-tile>
-    </md-grid-list>
-  </md-card-content>
-</md-card>
->>>>>>> origin/16/10/2017---Josh

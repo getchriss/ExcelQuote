@@ -191,16 +191,12 @@ export class NewFormComponent implements OnInit, OnChanges {
   submitQuote() {
     const quoteNum = this.createQuoteNumber(this.quoteNumbers);
     this.quote.date = this.input.nativeElement.value;
-<<<<<<< HEAD
     const config = new MatSnackBarConfig();
     config.verticalPosition = this.verticalPosition;
     config.horizontalPosition = this.horizontalPosition;
     config.duration = 3000;
     config.extraClasses = ['snackColor'];
     if (this.form.validateQuote(this.quote) === true) {
-=======
-    if (this.form.validateQuote(this.quote)) {
->>>>>>> origin/16/10/2017---Josh
       this.dialogRef = this.dialog.open(ConfirmComponent, {
         disableClose: false
       });
@@ -208,26 +204,16 @@ export class NewFormComponent implements OnInit, OnChanges {
       this.dialogRef.afterClosed().subscribe(result => {
         if (result) {
           this.form.submitQuote(this.quote, quoteNum);
-<<<<<<< HEAD
-=======
-          // this.sendEmail();
->>>>>>> origin/16/10/2017---Josh
           console.log('Submitted');
           this.router.navigate(['/dash']);
         }
         this.dialogRef = null;
       });
-<<<<<<< HEAD
     } else if (this.form.validateQuote(this.quote) === false) {
       // this.snackBar.open(`Please check that all required fields have been completed.`, '', config);
       // window.scrollTo(0, 0);
     } else {
       //  hi
-=======
-    } else {
-      console.log('There was an error with the validation. Check all required fields have been completed...');
-      this.snackBar.open(`Please check all required fields have been completed.`, '', { duration: 2000 });
->>>>>>> origin/16/10/2017---Josh
     }
   }
 
