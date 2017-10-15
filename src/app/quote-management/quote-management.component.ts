@@ -18,7 +18,10 @@ export class QuoteManagementComponent implements OnInit, OnChanges {
   feed: FirebaseListObservable<QuoteFile[]>;
   focusThumb: string;
   quoteArray = [];
+<<<<<<< HEAD
   compTitle = 'EXISTING QUOTES';
+=======
+>>>>>>> origin/16/10/2017---Josh
 
   constructor(private quoteFile: QuoteService) { }
 
@@ -29,8 +32,13 @@ export class QuoteManagementComponent implements OnInit, OnChanges {
       snapshot.forEach(snapshots => {
         const tempKey = snapshots.$key;
         this.quoteArray.push(tempKey);
+<<<<<<< HEAD
       });
     });
+=======
+      })
+    })
+>>>>>>> origin/16/10/2017---Josh
   }
 
   ngOnChanges() { }
@@ -45,6 +53,7 @@ export class QuoteManagementComponent implements OnInit, OnChanges {
 
   searchQuotes(event) {
     const input = document.getElementById('searchbar');
+<<<<<<< HEAD
     const filter = event.target.value;
     const feed = document.getElementById('feed');
     const quotes = feed.getElementsByClassName('quote');
@@ -52,6 +61,15 @@ export class QuoteManagementComponent implements OnInit, OnChanges {
     for (let i = 0; i < quotes.length; i++) {
       const id = quotes[i].getElementsByClassName('quoteID')[0];
       if (id && id.innerHTML.indexOf(filter) > -1) {
+=======
+    const filter = event.target.value.toLowerCase();
+    const feed = document.getElementById('feed');
+    const quotes = feed.getElementsByClassName('quote');
+    for (let i = 0; i < quotes.length; i++) {
+      const id = quotes[i].getElementsByClassName('quoteID')[0];
+      const name = quotes[i].getElementsByClassName('quoteName')[0];
+      if ((id && id.innerHTML.indexOf(filter) > -1) || (name && name.innerHTML.toLowerCase().indexOf(filter) > -1)) {
+>>>>>>> origin/16/10/2017---Josh
         if (quotes[i].classList.contains('hidden')) {
           quotes[i].classList.remove('hidden');
         }

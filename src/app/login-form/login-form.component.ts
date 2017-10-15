@@ -45,6 +45,7 @@ export class LoginFormComponent {
       this.login();
     }
   }
+<<<<<<< HEAD
 
   toggleEditable(e: Event) {
     if (this.rememberMe === true) {
@@ -58,6 +59,12 @@ export class LoginFormComponent {
       this.rememberMe = true;
       this.cookieService.set('rememberMe', 'true', 2030);
       this.cookieValue = this.cookieService.get('isChecked');
+=======
+  
+  handleSubmit(event) {
+    if(event.keyCode === 13) {
+      this.login();
+>>>>>>> origin/16/10/2017---Josh
     }
   }
 
