@@ -37,7 +37,7 @@ exports.sendNotificationEmail = functions.database.ref('/quotes/').onWrite(event
     }
 
     var client = quotes[quoteNum].client
-    // console.log('key: ' + quoteNum);
+    console.log(client);
 
     // const email = 'joshp@exceldp.co.nz';
     // const displayName = 'josh';
