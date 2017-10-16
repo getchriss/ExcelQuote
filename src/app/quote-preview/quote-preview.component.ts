@@ -9,7 +9,10 @@ import { Subscription } from 'rxjs/Subscription';
 import { QuoteService } from '../services/quote.service';
 import { QuoteFile } from '../models/quote-file.model';
 
-import { MatSnackBar, MatDialog, MatDialogRef } from '@angular/material';
+import { MatSnackBar, MatSnackBarConfig,
+  MatSnackBarHorizontalPosition,
+  MatSnackBarVerticalPosition,
+  MatDialog, MatDialogRef } from '@angular/material';
 
 import { ConfirmComponent } from '../confirm/confirm.component';
 
@@ -38,6 +41,8 @@ export class QuotePreviewComponent implements OnInit {
   quotes;
   quoteNumbers: any = [];
   foo: any;
+  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
 
   constructor(
     private af: AngularFireAuth,
@@ -45,7 +50,8 @@ export class QuotePreviewComponent implements OnInit {
     private router: Router,
     private quoteService: QuoteService,
     private authService: AuthService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private snackBar: MatSnackBar
     ) {
     this.jobId = this.route.snapshot.params.quote_num;
     this.getQuote = this.quoteService.getQuoteById(this.jobId);
@@ -95,15 +101,22 @@ export class QuotePreviewComponent implements OnInit {
   }
 
   copyToClipboard(elementId) {
+    const config = new MatSnackBarConfig();
+    config.verticalPosition = this.verticalPosition;
+    config.horizontalPosition = this.horizontalPosition;
+    config.duration = 3000;
+    config.extraClasses = ['snackColorGeneral'];
     // Create an auxiliary hidden input
     const aux = <HTMLInputElement>document.createElement('input');
     let text: any;
     if (elementId === 'finish') {
       const elm = document.getElementById(elementId);
       text = elm.innerText;
+      this.snackBar.open(`[${text}] - copied to clipboard`, '', config);
     } else {
       const elm: any = <HTMLElement>document.getElementById(elementId);
       text = elm.innerHTML;
+      this.snackBar.open(`[${text}] - copied to clipboard`, '', config);
     }
     // Get the text from the element passed into the input
     aux.setAttribute('value', text);
@@ -128,7 +141,6 @@ export class QuotePreviewComponent implements OnInit {
   moveToRequested() {
     const temp = this.quoteService.updateStage(this.jobId, 'requested');
   }
- 
   // repeatOrder(event) {
   //   // Add confirmation service here
   //   const quoteNum = this.createQuoteNumber(this.quoteNumbers);
@@ -176,4 +188,32 @@ export class QuotePreviewComponent implements OnInit {
     return s.substr(s.length - size);
   }
 
+  copyAll(id) {
+    const config = new MatSnackBarConfig();
+    config.verticalPosition = this.verticalPosition;
+    config.horizontalPosition = this.horizontalPosition;
+    config.duration = 3000;
+    config.extraClasses = ['snackColorGeneral'];
+
+      // Create an auxiliary hidden input
+      const aux = <HTMLTextAreaElement>document.createElement('textarea');
+      let text: any;
+        const elm = document.getElementById(id);
+        text = elm.innerText;
+        console.log(text);
+        console.log(elm);
+        console.log(aux);
+      // Get the text from the element passed into the input
+      aux.setAttribute('value', text);
+      // Append the aux input to the body
+      document.body.appendChild(aux);
+      // Highlight the content
+      aux.select();
+      // Execute the copy command
+      document.execCommand('copy');
+      console.log('copied?');
+      // Remove the input from the body
+      document.body.removeChild(aux);
+      this.snackBar.open(`Quote copied to clipboard.`, '', config);
+    }
 }

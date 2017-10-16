@@ -16,17 +16,6 @@ html {
   background: transparent;
 }
 
-
-/* font-family: 'Noto Sans',
-sans-serif; */
-
-
-/* * {
-font-family: 'Open Sans',
-sans-serif;
-} */
-
-
 /* .dash-wrapper {
   background: rgba(181, 121, 62, 1);
   background: -moz-linear-gradient(top, rgba(181, 121, 62, 1) 0%, rgba(93, 57, 138, 1) 51%, rgba(93, 57, 138, 1) 100%);
@@ -92,11 +81,33 @@ sans-serif;
     left: 0;
     margin: auto;
   }
+  snack-bar-container.snackColorSuccess {
+    background-color: #85C15F;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    margin: auto;
+  }
 }
 
 snack-bar-container.snackColor {
   background-color: #FF4D77;
   margin-left: 0;
   margin-right: 0;
+}
 
+snack-bar-container.snackColorSuccess {
+  background-color: #85C15F;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+snack-bar-container.snackColorGeneral {
+  background-color: #ADADF0;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.hidden {
+  display: none!important;
 }

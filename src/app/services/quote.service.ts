@@ -154,6 +154,9 @@ export class QuoteService {
   }
 
   submitQuote(quote: any, quoteNum: string) {
+    const config = new MatSnackBarConfig();
+    config.verticalPosition = this.verticalPosition;
+    config.horizontalPosition = this.horizontalPosition;
     this.quoteFiles = this.getQuotes();
     const quoteFile = {
       client: quote.client,
@@ -187,7 +190,9 @@ export class QuoteService {
       stage: 'requested'
     };
     this.quoteFiles.update(quoteNum, quoteFile);
-
+    config.duration = 3000;
+    config.extraClasses = ['snackColorSuccess'];
+    this.snackBar.open(`Quote ${quoteNum} successfully requested`, '', config);
     console.log('Completed submitQuote()...');
   }
 

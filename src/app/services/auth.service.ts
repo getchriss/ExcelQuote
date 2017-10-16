@@ -41,20 +41,22 @@ export class AuthService {
   }
 
   login(email: string, password: string) {
+    const config = new MatSnackBarConfig();
+    config.verticalPosition = this.verticalPosition;
+    config.horizontalPosition = this.horizontalPosition;
+    config.duration = 3000;
+    config.extraClasses = ['snackColorSuccess'];
     this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then((user) => {
         firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION);
         this.authState = user;
         this.setUserStatus('online');
         this.router.navigate(['dash']);
+        this.snackBar.open(`Sign in Successful`, '', config);
       })
       .catch((error: firebase.FirebaseError) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        const config = new MatSnackBarConfig();
-        config.verticalPosition = this.verticalPosition;
-        config.horizontalPosition = this.horizontalPosition;
-        config.duration = 3000;
         config.extraClasses = ['snackColor'];
         if (error.code === 'auth/invalid-email') {
           return this.snackBar.open(`Incorrect email or password`, '', config);
@@ -80,21 +82,39 @@ export class AuthService {
   signUp(email: string, password: string, displayName: string) {
     return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
       .then((user) => {
+        const config = new MatSnackBarConfig();
+        config.verticalPosition = this.verticalPosition;
+        config.horizontalPosition = this.horizontalPosition;
+        config.duration = 3000;
+        config.extraClasses = ['snackColorSuccess'];
         this.authState = user;
         const status = 'online';
         const type = 'user';
         this.setUserData(email, displayName, type, status);
-      }
-      )
+        this.snackBar.open(`Registration Successful!`, '', config);
+        this.router.navigate(['login']);
+        return true;
+      })
       .catch((error: firebase.FirebaseError) => {
         const errorCode = error.code;
         const errorMessage = error.message;
+        const config = new MatSnackBarConfig();
+        config.verticalPosition = this.verticalPosition;
+        config.horizontalPosition = this.horizontalPosition;
+        config.duration = 3000;
+        config.extraClasses = ['snackColor'];
         console.log(`code`, error.code);
         console.log(`message`, error.message);
         console.log(`name`, error.name);
         console.log(`stack`, error.stack);
-      }
-      );
+        // return false;
+        config.extraClasses = ['snackColor'];
+        if (error.code === 'auth/invalid-email') {
+          return this.snackBar.open(`Please enter a valid email address`, '', config);
+        } else if (error.code === 'auth/weak-password') {
+          return this.snackBar.open(`Please use at least 6 characters for your password`, '', config);
+        }
+      });
   }
 
   setUserData(email: string, displayName: string, type: string, status: string): void {

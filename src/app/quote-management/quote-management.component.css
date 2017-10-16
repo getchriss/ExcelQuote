@@ -166,7 +166,7 @@ input {
     top: 200px;
   }
   .populationHead {
-    margin-top: 26px;
+    margin-top: 6px;
   }
 }
 
@@ -343,7 +343,7 @@ a {
   /* height: 100%; */
 }
 
-.feed:before {
+/* .feed:before {
   content: ' ';
   position: fixed;
   display: block;
@@ -368,4 +368,4 @@ a {
   -webkit-box-shadow: inset 0px -18px 8px -11px #F0F0F0;
   -moz-box-shadow: inset 0px -18px 8px -11px #F0F0F0;
   box-shadow: inset 0px -18px 8px -11px #F0F0F0;
-}
+} */

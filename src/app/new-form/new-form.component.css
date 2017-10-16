@@ -139,20 +139,6 @@ button span.mat-button-wrapper label[for="userFile"] {
   color: transparent!important;
   border-color: transparent!important;
 }
-  .hideSection {
-    clear: both;
-    display:block;
-    visibility: visible;
-  }
-
-
-@media only screen and (max-width: 751px) {
-  .hideSection {
-    clear: both;
-    display: none;
-    visibility: none;
-  }
-}
 
 >>>.nw-Btn {
   color: #5D398A!important;
@@ -200,8 +186,8 @@ button span.mat-button-wrapper label[for="userFile"] {
 >>>.windingBox {
   height: 85px;
   overflow-y: hidden;
-  overflow-x: scroll;
-  -webkit-overflow-scrolling: touch;
+  overflow-x: scroll!important;
+  -webkit-overflow-scrolling: touch!important;
   margin: 0px;
   padding: 0px;
   padding-top: 4px;
@@ -214,7 +200,8 @@ button span.mat-button-wrapper label[for="userFile"] {
 
 .windingLabel {
   top: 40px;
-  left: 0px;
+  /* left: 0px; */
+  left: -35px;
   right: 0px;
   margin: 0px auto;
   padding: 0px;
@@ -222,6 +209,25 @@ button span.mat-button-wrapper label[for="userFile"] {
   position: absolute;
   color: #5D398A;
 }
+
+  .hideSection {
+    clear: both;
+    display: block;
+    visibility: visible;
+  }
+
+  @media only screen and (max-width: 751px) {
+    .hideSection {
+      clear: both;
+      display: none;
+      visibility: none;
+    }
+    .windingLabel {
+      left: 0px;
+    }
+  }
+
+
 
 .windingBox::-webkit-scrollbar {
   width: 5px;
