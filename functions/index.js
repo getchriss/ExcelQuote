@@ -1,5 +1,5 @@
 /**
- * Copyright 2015 Google Inc. All Rights Reserved.
+ * Copyright 2017 Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,12 +49,10 @@ function sendUpdateEmail(quoteNum, client) {
     const mailOptions = {
         from: `Excel Quote Manager <noreply@firebase.com>`,
         to: 'heathern@exceldigital.co.nz'
-        // to: 'joshp@exceldp.co.nz'
     };
     const mailOptions2 = {
         from: `Excel Quote Manager <noreply@firebase.com>`,
         to: 'krystals@exceldp.co.nz'
-        // to: 'joshp@exceldp.co.nz'
     };
 
     // The user subscribed to the newsletter.
