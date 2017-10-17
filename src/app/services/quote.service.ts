@@ -187,7 +187,8 @@ export class QuoteService {
       suppliedIn: quote.suppliedIn,
       proofType: quote.proofType,
       addInfo: quote.addInfo,
-      stage: 'requested'
+      stage: 'requested',
+      quoteOwner: 'null',
     };
     this.quoteFiles.update(quoteNum, quoteFile);
     config.duration = 3000;

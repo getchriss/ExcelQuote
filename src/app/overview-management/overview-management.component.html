@@ -12,7 +12,9 @@
             <div *ngFor="let quoteFile of feed | async" class="quote">
               <!-- <app-quote-thumbnail ></app-quote-thumbnail> -->
               <div class="quoteContainer" *ngIf="quoteFile.stage == 'requested'">
-                <div [ngClass]="(focusThumb==quoteFile.$key)?'quoteInnerContainer focused':'quoteInnerContainer'" (click)="toggleFocus($event, quoteFile.$key)">
+                <!-- <div [ngClass]="['acol' + (quoteFile.quoteOwner), {(focusThumb==quoteFile.$key)?'quoteInnerContainer focused':'quoteInnerContainer'}]" (click)="toggleFocus($event, quoteFile.$key)"> -->
+                <!-- <div [ngClass]="(focusThumb==quoteFile.$key)?'quoteInnerContainer focused':'quoteInnerContainer'" (click)="toggleFocus($event, quoteFile.$key)"> -->
+                  <div [ngClass]="(focusThumb==quoteFile.$key)?'quoteInnerContainer focused':'quoteInnerContainer ' + [(quoteFile.quoteOwner !== 'null')?'acol' + (quoteFile.quoteOwner): '']"  (click)="toggleFocus($event, quoteFile.$key)">
                   <div class="quoteData" [ngClass]="{}">
                     <span class="quoteName" [ngClass]="{}">
                       {{ quoteFile.client }}
@@ -21,8 +23,10 @@
                       {{ quoteFile.$key }}
                     </span>
                   </div>
-                  <div class="quoteOpen" [routerLink]="['/quote-preview/' + focusThumb]" [ngClass]="(focusThumb==quoteFile.$key)?'quoteOpen focused':'quoteOpen'"
-                    (click)="toggleFocus($event, quoteFile.$key)">
+                  <div class="quoteOpen" [ngClass]="(focusThumb==quoteFile.$key)?'quoteOpen focused':'quoteOpen'" (click)="claim()">
+                    <span>CLAIM</span>
+                  </div>
+                  <div class="quoteOpen" [routerLink]="['/quote-preview/' + focusThumb]" [ngClass]="(focusThumb==quoteFile.$key)?'quoteOpen focused':'quoteOpen'">
                     <span>OPEN</span>
                   </div>
                 </div>

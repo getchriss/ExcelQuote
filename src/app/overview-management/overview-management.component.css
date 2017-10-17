@@ -1,179 +1,209 @@
 * {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
-  
-  .container-nav {
-    position: fixed;
-    top: 0px;
-    width: 100%;
-    /* background-color: #F0F0F0; */
-    z-index: 999;
-  }
-  
-  .container-body {
-    /* flex: 1 0 auto; */
-    /* width: 100%; */    
-    margin-right: auto;
-    margin-left: auto;
-    padding-left: 15px;
-    padding-right: 15px;
-    /* background-color: #F0F0F0; */
-    height: 100%;
-    max-width: 940px;
-  }
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 
-  mat-tab-group {
-    margin-top: 100px;
-    width: 100%;
-  }
+.container-nav {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  /* background-color: #F0F0F0; */
+  z-index: 999;
+}
 
-  mat-tab-group .mat-tab-header >>> { position: fixed; z-index: 999; width: 100%; }
-  
-  .mat-tab-body-wrapper { top: 48px !important; }
-    
-  .populationContainer {
-    height: 100%;
-    width: 100%;
-    padding-left: 10px;
-    padding-right: 10px;
-    /* padding-top: 20px; */
-  }
-  
-  .populationContainer::-webkit-scrollbar {
-    display: none;
-  }
-  
-  .populationHead {
-    font-family: 'Open Sans Semibold', sans-serif;
-    font-size: 16px;
-    padding: 0 10px;
-    /* padding-top: 35px; */
-    /* padding-bottom: 35px; */
-    text-transform: uppercase;
-    color: #CACACA;
-    /* height: 80px; */
-  }
-  
-  .subTitle {
-    margin-top: 74px;
-    position: relative;
-  }  
+.container-body {
+  /* flex: 1 0 auto; */
+  /* width: 100%; */
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  /* background-color: #F0F0F0; */
+  height: 100%;
+  max-width: 940px;
+}
 
-  .subTitle h4 {
-    margin-bottom: 10px; 
-  }
+mat-tab-group {
+  margin-top: 100px;
+  width: 100%;
+}
 
-  .marg-bottom-40 {
-    margin-bottom: 40px;
-  }
-  
-  .quoteContainer {
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    width: 100%;
-    /* min-width: 363px; */
-    margin-top: 7.5px;
-    margin-bottom: 7.5px;
-    height: 70px;
-    border-radius: 5px;
-    background-color: #FFFFFF;
-    -webkit-box-shadow: 0px 4px 12px -2px rgba(0, 0, 0, 0.36);
-    -moz-box-shadow: 0px 4px 12px -2px rgba(0, 0, 0, 0.36);
-    box-shadow: 0px 4px 12px -2px rgba(0, 0, 0, 0.36);
-  }
-    
-  .quoteInnerContainer {
-    border-radius: 5px;
-    border-left: solid 7px #5D398A;
-    display: flex;
-    height: 100%;
-    background-size: 200% 100%;
-    background-image: linear-gradient(to right, transparent 50%, #5D398A 50%);
-    transition: background-position .5s cubic-bezier(0.19, 1, 0.22, 1) .1s, color .5s ease 0s, background-color .5s ease;
-  }
-  
-  .quoteInnerContainer:hover {
-    cursor: pointer;
-  }
-  
-  .quoteInnerContainer.focused {
-    color: rgba(255, 255, 255, 1);
-    background-color: rgba(92, 57, 138, 0.71);
-    background-position: -100% 100%;
-  }
-  
-  .quoteInnerContainer.focused #quotedate span {
-    content: 'View'
-  }
-  
-  .quoteInnerContainer span {
-    pointer-events: none;
-  }
-  
-  .quoteInnerContainer.focused span {
-    transition: all 0.3s cubic-bezier(0.000, 0.000, 0.230, 1);
-    background-position: 0%;
-    color: #FFFFFF;
-  }
-  
-  .quoteID {
-    font-family: 'Open Sans Semibold', sans-serif;
-    color: #CECECE;
-    flex: 1;
-    font-size: 0.8em;
-    padding: 0 10px;
-  }
-  
-  .quoteData {
-    top: 0;
-    bottom: 0;
-    flex-grow: 3;
-    margin: auto;
-    pointer-events: none;
-  }
-  
-  .quoteOpen {
-    margin: auto;
-    text-align: right;
-    opacity: 0;
-    pointer-events: none;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    flex: 9;
-    flex-grow: 1;
-    font-family: 'Open Sans', sans-serif;
-    color: #FFFFFF;
-    padding: 10px 17px;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-  }
-  .quoteOpen:hover {
-    color: #000;
-  }
-  
-  .quoteOpen.focused {
-    pointer-events: all;
-    opacity: 1;
-  }
-  
-  .quoteName {
-    display: block;
-    color: #95989A;
-    font-weight: bold;
-    font-family: 'Open Sans', sans-serif;
-    padding: 0 10px;
-  }
-  
-  .feed {
-    position: relative;
-    /* height: 100%; */
-  }
+mat-tab-group .mat-tab-header>>> {
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+}
+
+.mat-tab-body-wrapper {
+  top: 48px !important;
+}
+
+.populationContainer {
+  height: 100%;
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+  /* padding-top: 20px; */
+}
+
+.populationContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.populationHead {
+  font-family: 'Open Sans Semibold', sans-serif;
+  font-size: 16px;
+  padding: 0 10px;
+  /* padding-top: 35px; */
+  /* padding-bottom: 35px; */
+  text-transform: uppercase;
+  color: #CACACA;
+  /* height: 80px; */
+}
+
+.subTitle {
+  margin-top: 74px;
+  position: relative;
+}
+
+.subTitle h4 {
+  margin-bottom: 10px;
+}
+
+.marg-bottom-40 {
+  margin-bottom: 40px;
+}
+
+.quoteContainer {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 100%;
+  /* min-width: 363px; */
+  margin-top: 7.5px;
+  margin-bottom: 7.5px;
+  height: 70px;
+  border-radius: 5px;
+  background-color: #FFFFFF;
+  -webkit-box-shadow: 0px 4px 12px -2px rgba(0, 0, 0, 0.36);
+  -moz-box-shadow: 0px 4px 12px -2px rgba(0, 0, 0, 0.36);
+  box-shadow: 0px 4px 12px -2px rgba(0, 0, 0, 0.36);
+}
+
+.quoteInnerContainer {
+  border-radius: 5px;
+  border-left: solid 7px #5D398A;
+  display: flex;
+  height: 100%;
+  background-size: 200% 100%;
+  background-image: linear-gradient(to right, transparent 50%, #5D398A 50%);
+  transition: background-position .5s cubic-bezier(0.19, 1, 0.22, 1) .1s, color .5s ease 0s, background-color .5s ease;
+}
+
+.quoteInnerContainer:hover {
+  cursor: pointer;
+}
+
+.quoteInnerContainer.focused {
+  color: rgba(255, 255, 255, 1);
+  background-color: rgba(92, 57, 138, 0.71);
+  background-position: -100% 100%;
+}
+
+.quoteInnerContainer.focused #quotedate span {
+  content: 'View'
+}
+
+.quoteInnerContainer span {
+  pointer-events: none;
+}
+
+.quoteInnerContainer.focused span {
+  transition: all 0.3s cubic-bezier(0.000, 0.000, 0.230, 1);
+  background-position: 0%;
+  color: #FFFFFF;
+}
+
+.quoteID {
+  font-family: 'Open Sans Semibold', sans-serif;
+  color: #CECECE;
+  flex: 1;
+  font-size: 0.8em;
+  padding: 0 10px;
+}
+
+.quoteData {
+  top: 0;
+  bottom: 0;
+  flex-grow: 3;
+  margin: auto;
+  pointer-events: none;
+}
+
+.quoteOpen {
+  margin: auto;
+  text-align: right;
+  opacity: 0;
+  pointer-events: none;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  flex: 9;
+  flex-grow: 1;
+  font-family: 'Open Sans', sans-serif;
+  color: #FFFFFF;
+  padding: 10px 17px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.quoteOpen:hover {
+  color: #000;
+}
+
+.quoteOpen.focused {
+  pointer-events: all;
+  opacity: 1;
+}
+
+.quoteName {
+  display: block;
+  color: #95989A;
+  font-weight: bold;
+  font-family: 'Open Sans', sans-serif;
+  padding: 0 10px;
+}
+
+.feed {
+  position: relative;
+  /* height: 100%; */
+}
+
+.acolChris {
+  border-left: 7px solid #5281DF;
+
+}
+
+.quoteInnerContainer .acolChris {
+  background-size: 200% 100%;
+  background-image: linear-gradient(to right, transparent 50%, blue 50%);
+  transition: background-position .5s cubic-bezier(0.19, 1, 0.22, 1) .1s, color .5s ease 0s, background-color .5s ease;
+}
+
+.quoteInnerContainer.focused .acolChris {
+  color: rgba(255, 255, 255, 1);
+  background-color: blue;
+  ;
+  background-position: -100% 100%;
+}
+
+.acoltest {
+ border-left: 7px solid #6DFFAC;
+
+}

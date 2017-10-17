@@ -194,26 +194,16 @@ export class QuotePreviewComponent implements OnInit {
     config.horizontalPosition = this.horizontalPosition;
     config.duration = 3000;
     config.extraClasses = ['snackColorGeneral'];
-
-      // Create an auxiliary hidden input
-      const aux = <HTMLTextAreaElement>document.createElement('textarea');
-      let text: any;
-        const elm = document.getElementById(id);
-        text = elm.innerText;
-        console.log(text);
-        console.log(elm);
-        console.log(aux);
-      // Get the text from the element passed into the input
-      aux.setAttribute('value', text);
-      // Append the aux input to the body
-      document.body.appendChild(aux);
-      // Highlight the content
-      aux.select();
-      // Execute the copy command
-      document.execCommand('copy');
-      console.log('copied?');
-      // Remove the input from the body
-      document.body.removeChild(aux);
-      this.snackBar.open(`Quote copied to clipboard.`, '', config);
+    // text = elm.innerText;
+    const aux = document.createElement('textarea');
+    const elm = document.getElementById(id);
+    const text = elm.innerText;
+    console.log(text);
+    aux['value'] = text;
+    document.body.appendChild(aux);
+    aux.select();
+    document.execCommand('copy');
+    document.body.removeChild(aux);
+    this.snackBar.open(`Quote copied to clipboard.`, '', config);
     }
 }

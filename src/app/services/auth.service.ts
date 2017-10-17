@@ -85,7 +85,7 @@ export class AuthService {
         const config = new MatSnackBarConfig();
         config.verticalPosition = this.verticalPosition;
         config.horizontalPosition = this.horizontalPosition;
-        config.duration = 3000;
+        config.duration = 1500;
         config.extraClasses = ['snackColorSuccess'];
         this.authState = user;
         const status = 'online';
