@@ -154,11 +154,12 @@ mat-tab-group .mat-tab-header>>> {
   top: 0;
   bottom: 0;
   left: 0;
-  flex: 9;
-  flex-grow: 1;
+  /* flex: 9; */
+  /* flex-grow: 1; */
   font-family: 'Open Sans', sans-serif;
   color: #FFFFFF;
   padding: 10px 17px;
+  width: 40px;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
 }
@@ -187,7 +188,6 @@ mat-tab-group .mat-tab-header>>> {
 
 .acolChris {
   border-left: 7px solid #5281DF;
-
 }
 
 .quoteInnerContainer .acolChris {
@@ -199,11 +199,9 @@ mat-tab-group .mat-tab-header>>> {
 .quoteInnerContainer.focused .acolChris {
   color: rgba(255, 255, 255, 1);
   background-color: blue;
-  ;
   background-position: -100% 100%;
 }
 
 .acoltest {
- border-left: 7px solid #6DFFAC;
-
+  border-left: 7px solid #6DFFAC;
 }
