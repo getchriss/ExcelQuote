@@ -244,4 +244,9 @@ export class QuoteService {
     const temp =  this.getQuoteById(id);
     temp.set('stage', stageName);
   }
+
+  updateQuoteOwner(id: string, quoteOwner: any) {
+    const temp = this.getQuoteById(id);
+    temp.set('quoteOwner', quoteOwner);
+  }
 }

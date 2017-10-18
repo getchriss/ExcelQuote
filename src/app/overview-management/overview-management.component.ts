@@ -1,9 +1,12 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
-import { Routes } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
+import { Routes, ActivatedRoute, Params } from '@angular/router';
 import { QuoteService } from '../services/quote.service';
 
-import { FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
+import { AuthService } from '../services/auth.service';
+import { Observable } from 'rxjs/Observable';
+import * as firebase from 'firebase/app';
+import { Subscription } from 'rxjs/Subscription';
 
 import { QuoteFile } from '../models/quote-file.model';
 import { MatDialog, MatDialogRef, MatSnackBar,
@@ -21,17 +24,35 @@ import { ConfirmComponent } from '../confirm/confirm.component';
 
 export class OverviewManagementComponent implements OnInit {
   compTitle = 'QUOTES OVERVIEW';
+
   feed: FirebaseListObservable<QuoteFile[]>;
   focusThumb: string;
   dialogRef: MatDialogRef<ConfirmComponent>;
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
-  // acol = Observable<firebase.User>;
+
+  user: Observable<firebase.User>;
+  displayName: string;
+  userId: string;
+  getUserData: any;
+  userData: any = {};
+  quoteOwner: string;
+  key;
+  claimed = false;
 
   feedLength;
 
-  constructor(private quoteFile: QuoteService, public dialog: MatDialog, private snackBar: MatSnackBar) {
-    this.feed = this.quoteFile.getQuotes();
+  quotes;
+  getQuote;
+
+  constructor(private quoteFile: QuoteService,
+              private quoteService: QuoteService,
+              private route: ActivatedRoute,
+              public dialog: MatDialog,
+              private snackBar: MatSnackBar,
+              private authService: AuthService,
+              private db: AngularFireDatabase) {
+              this.feed = this.quoteFile.getQuotes();
     this.feed.subscribe(
       val => {
         this.feedLength = val.length;
@@ -40,25 +61,36 @@ export class OverviewManagementComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.user = this.authService.authUser();
+    this.user.subscribe(user => {
+      if (user) {
+        this.userId = user.uid;
+        this.getUserData = this.authService.getUserData(this.userId);
+        this.getUserData.subscribe(snapshots => {
+          snapshots.forEach(snapshot => {
+            this.userData[snapshot.key] = snapshot.val();
+          });
+        });
+      }
+    });
   }
 
-  claim() {
-    // const config = new MatSnackBarConfig();
-    // config.verticalPosition = this.verticalPosition;
-    // config.horizontalPosition = this.horizontalPosition;
-    // config.duration = 1000;
-    // config.extraClasses = ['snackColorSuccess'];
+  claim(id) {
+    console.log(id);
     this.dialogRef = this.dialog.open(ConfirmComponent, {
-      disableClose: false
     });
     this.dialogRef.componentInstance.confirmMessage = 'Please <b>confirm</b> to claim this quote';
     this.dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        // this.snackBar.open(`quote claimed! `, '', config);
+        this.getQuote = this.quoteService.getQuoteById(id);
+        console.log(id);
+        this.quoteOwner = this.userData.displayName;
+        this.quoteService.updateQuoteOwner(id, this.userData.displayName);
+        console.log(this.quoteOwner);
       }
-      this.dialogRef = null;
-    });
-  }
+        this.dialogRef = null;
+      });
+    }
 
   toggleFocus(event, key) {
     if (this.focusThumb !== key) {
