@@ -1,10 +1,13 @@
+.Chris {
+  color: #5281DF;
+}
+
 .quoteInnerContainer.acolChris {
   border-left: 7px solid #5281DF;
 }
 
 .quoteOpen.acolChris {
   display: none;
-  opacity: 0;
 }
 
 .quoteInnerContainer.acolChris {
@@ -19,29 +22,155 @@
 }
 
 .quoteInnerContainer.focused.acolChris span {
-  color: #D1EEF0;
+  color: #FFF;
+}
+
+
+/* */
+
+.Test {
+  color: #FFA264;
 }
 
 .quoteInnerContainer.acolTest {
-  border-left: 7px solid #6DFFAC;
+  border-left: 7px solid #FFA264;
 }
 
 .quoteOpen.acolTest {
   display: none;
-  opacity: 0;
 }
 
 .quoteInnerContainer.acolTest {
   background-size: 200% 100%;
-  background-image: linear-gradient(to right, transparent 50%, #6DFFAC 50%);
+  background-image: linear-gradient(to right, transparent 50%, #FFA264 50%);
   transition: background-position .5s cubic-bezier(0.19, 1, 0.22, 1) .1s, color .5s ease 0s, background-color .5s ease;
 }
 
 .quoteInnerContainer.focused.acolTest {
-  background-color: #6DFFAC;
+  background-color: #FFA264;
   background-position: -100% 100%;
 }
 
 .quoteInnerContainer.focused.acolTest span {
-  color: #287F48;
+  color: #FFF;
+}
+
+
+/* */
+
+.Krystal {
+  color: #FFA264;
+}
+
+.quoteInnerContainer.acolKrystal {
+  border-left: 7px solid #FFA264;
+}
+
+.quoteOpen.acolKrystal {
+  display: none;
+}
+
+.quoteInnerContainer.acolKrystal {
+  background-size: 200% 100%;
+  background-image: linear-gradient(to right, transparent 50%, #FFA264 50%);
+  transition: background-position .5s cubic-bezier(0.19, 1, 0.22, 1) .1s, color .5s ease 0s, background-color .5s ease;
+}
+
+.quoteInnerContainer.focused.acolKrystal {
+  background-color: #FFA264;
+  background-position: -100% 100%;
+}
+
+.quoteInnerContainer.focused.acolKrystal span {
+  color: #FFF;
+}
+
+
+/* */
+
+.Heather {
+  color: #F3B0C0;
+}
+
+.quoteInnerContainer.acolHeather {
+  border-left: 7px solid #F3B0C0;
+}
+
+.quoteOpen.acolHeather {
+  display: none;
+}
+
+.quoteInnerContainer.acolHeather {
+  background-size: 200% 100%;
+  background-image: linear-gradient(to right, transparent 50%, #F3B0C0 50%);
+  transition: background-position .5s cubic-bezier(0.19, 1, 0.22, 1) .1s, color .5s ease 0s, background-color .5s ease;
+}
+
+.quoteInnerContainer.focused.acolHeather {
+  background-color: #F3B0C0;
+  background-position: -100% 100%;
+}
+
+.quoteInnerContainer.focused.acolHeather span {
+  color: #FFF;
+}
+
+
+/* */
+
+.Barbara {
+  color: #B25294;
+}
+
+.quoteInnerContainer.acolBarbara {
+  border-left: 7px solid #B25294;
+}
+
+.quoteOpen.acolBarbara {
+  display: none;
+}
+
+.quoteInnerContainer.acolBarbara {
+  background-size: 200% 100%;
+  background-image: linear-gradient(to right, transparent 50%, #B25294 50%);
+  transition: background-position .5s cubic-bezier(0.19, 1, 0.22, 1) .1s, color .5s ease 0s, background-color .5s ease;
+}
+
+.quoteInnerContainer.focused.acolBarbara {
+  background-color: #B25294;
+  background-position: -100% 100%;
+}
+
+.quoteInnerContainer.focused.acolBarbara span {
+  color: #FFF;
+}
+
+
+/* */
+
+.Rebecca {
+  color: #FF705B;
+}
+
+.quoteInnerContainer.acolRebecca {
+  border-left: 7px solid #FF705B;
+}
+
+.quoteOpen.acolRebecca {
+  display: none;
+}
+
+.quoteInnerContainer.acolRebecca {
+  background-size: 200% 100%;
+  background-image: linear-gradient(to right, transparent 50%, #FF705B 50%);
+  transition: background-position .5s cubic-bezier(0.19, 1, 0.22, 1) .1s, color .5s ease 0s, background-color .5s ease;
+}
+
+.quoteInnerContainer.focused.acolRebecca {
+  background-color: #FF705B;
+  background-position: -100% 100%;
+}
+
+.quoteInnerContainer.focused.acolRebecca span {
+  color: #FFF;
 }

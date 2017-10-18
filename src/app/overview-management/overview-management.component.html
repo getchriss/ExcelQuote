@@ -10,16 +10,10 @@
           <div class="feed" fxLayout="column" fxFlex="grow">
             <!-- {{feedLength}} -->
             <div *ngFor="let quoteFile of feed | async" class="quote">
-              <!-- <app-quote-thumbnail ></app-quote-thumbnail> -->
               <div class="quoteContainer" *ngIf="quoteFile.stage == 'requested'">
-                <!-- <div [ngClass]="['acol' + (quoteFile.quoteOwner), {(focusThumb==quoteFile.$key)?'quoteInnerContainer focused':'quoteInnerContainer'}]" (click)="toggleFocus($event, quoteFile.$key)"> -->
-                <!-- <div [ngClass]="(focusThumb==quoteFile.$key)?'quoteInnerContainer focused':'quoteInnerContainer'" (click)="toggleFocus($event, quoteFile.$key)"> -->
-                <!-- <div [ngClass]="(focusThumb==quoteFile.$key)?'quoteInnerContainer focused':'quoteInnerContainer ' + [(quoteFile.quoteOwner !== 'null')?'acol' + (quoteFile.quoteOwner): '']" (click)="toggleFocus($event, quoteFile.$key)"> -->
-                <!-- <div [ngClass]="(focusThumb==quoteFile.$key)?'quoteInnerContainer focused':'quoteInnerContainer ' + [(quoteFile.quoteOwner !== 'null')?'acol' + (quoteFile.quoteOwner): ''] + [(quoteFile.quoteOwner !== 'null')? (focusThumb==quoteFile.$key)? ]"(click)="toggleFocus($event, quoteFile.$key)"> -->
                 <div [ngClass]="(focusThumb==quoteFile.$key)?' quoteInnerContainer focused ' + [(quoteFile.quoteOwner !== 'null')?'acol' + (quoteFile.quoteOwner): '']:'quoteInnerContainer ' + [(quoteFile.quoteOwner !== 'null')?'acol' + (quoteFile.quoteOwner): '']"
                   (click)="toggleFocus($event, quoteFile.$key)">
                   <div class="quoteData" [ngClass]="{}">
-
                     <span class="quoteName" [ngClass]="{}">
                       {{ quoteFile.client }}
                     </span>
@@ -27,10 +21,12 @@
                       {{ quoteFile.$key }}
                     </span>
                   </div>
-                  <!-- <div class="quoteOpen" [ngClass]="(focusThumb==quoteFile.$key)?'quoteOpen focused':'quoteOpen'" (click)="claim(quoteFile.$key)"> -->
                   <div class="quoteOpen" [ngClass]="(focusThumb==quoteFile.$key)?' quoteOpen focused ' + [(quoteFile.quoteOwner !== 'null')?'acol' + (quoteFile.quoteOwner): '']:'quoteOpen ' + [(quoteFile.quoteOwner !== 'null')?'acol' + (quoteFile.quoteOwner): '']"
                     (click)="claim(quoteFile.$key)">
                     <span>CLAIM</span>
+                  </div>
+                  <div class="quoteOpen acol" [ngClass]="(focusThumb!==quoteFile.$key)?'quoteOpen acol ' + (quoteFile.quoteOwner) + ' ' + [(quoteFile.quoteOwner !== 'null')?'focused': '']:'quoteOpen'">
+                    <span>{{ quoteFile.quoteOwner }}</span>
                   </div>
                   <div class="quoteOpen" [routerLink]="['/quote-preview/' + focusThumb]" [ngClass]="(focusThumb==quoteFile.$key)?'quoteOpen focused':'quoteOpen'">
                     <span>OPEN</span>
@@ -46,9 +42,7 @@
         <div class="populationContainer">
           <div class="feed" fxLayout="column" fxFlex="grow">
             <div *ngFor="let quoteFile of feed | async" class="quote">
-              <!-- <app-quote-thumbnail ></app-quote-thumbnail> -->
               <div class="quoteContainer" *ngIf="quoteFile.stage == 'pending'">
-                <!-- <div [ngClass]="(focusThumb==quoteFile.$key)?'quoteInnerContainer focused':'quoteInnerContainer'" (click)="toggleFocus($event, quoteFile.$key)"> -->
                 <div [ngClass]="(focusThumb==quoteFile.$key)?' quoteInnerContainer focused ' + [(quoteFile.quoteOwner !== 'null')?'acol' + (quoteFile.quoteOwner):'']:'quoteInnerContainer ' + [(quoteFile.quoteOwner !== 'null')?'acol' + (quoteFile.quoteOwner): '']"
                   (click)="toggleFocus($event, quoteFile.$key)">
                   <div class="quoteData" [ngClass]="{}">
@@ -74,9 +68,7 @@
         <div class="populationContainer">
           <div class="feed" fxLayout="column" fxFlex="grow">
             <div *ngFor="let quoteFile of feed | async" class="quote">
-              <!-- <app-quote-thumbnail ></app-quote-thumbnail> -->
               <div class="quoteContainer" *ngIf="quoteFile.stage == 'completed'">
-                <!-- <div [ngClass]="(focusThumb==quoteFile.$key)?'quoteInnerContainer focused':'quoteInnerContainer'" (click)="toggleFocus($event, quoteFile.$key)"> -->
                 <div [ngClass]="(focusThumb==quoteFile.$key)?' quoteInnerContainer focused ' + [(quoteFile.quoteOwner !== 'null')?'acol' + (quoteFile.quoteOwner):'']:'quoteInnerContainer ' + [(quoteFile.quoteOwner !== 'null')?'acol' + (quoteFile.quoteOwner): '']"
                   (click)="toggleFocus($event, quoteFile.$key)">
                   <div class="quoteData" [ngClass]="{}">
@@ -99,9 +91,6 @@
       </mat-tab>
     </mat-tab-group>
   </div>
-  <!-- <hr class="marg-bottom-40"> -->
   <div class="row" fxLayout="row">
-    <!-- <div fxLayout="column wrap"> -->
-    <!-- </div> -->
   </div>
 </div>

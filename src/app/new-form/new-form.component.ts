@@ -279,17 +279,17 @@ export class NewFormComponent implements OnInit, OnChanges {
 
 
   sendEmail() {
-    // const params: URLSearchParams = new URLSearchParams();
-    // const headers = new Headers();
-    // headers.append('Content-Type', 'application/json');
-    // return this.http.post('https://us-central1-excel-quote-manager.cloudfunctions.net/sendWelcomeEmail', params, { headers: headers })
-    //   .toPromise()
-    //   .then(res => {
-    //     console.log(res);
-    //   })
-    //   .catch(err => {
-    //     console.log(err);
-    //   });
+    const params: URLSearchParams = new URLSearchParams();
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('https://us-central1-excel-quote-manager.cloudfunctions.net/sendWelcomeEmail', params, { headers: headers })
+      .toPromise()
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        console.log(err);
+      });
     // params.set('to', 'joshp@exceldp.co.nz');
     // params.set('from', 'quote_manager@noreply.com');
     // params.set('subject', 'test-email');
@@ -300,7 +300,7 @@ export class NewFormComponent implements OnInit, OnChanges {
     // console.log(res);
     // })
     // .catch(err => {
-    //   console.log(err);
+      // console.log(err);
     // });
   }
 }
