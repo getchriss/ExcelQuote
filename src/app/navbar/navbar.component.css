@@ -10,6 +10,10 @@ mat-toolbar {
   mat-toolbar {
     padding-top: 20px;
   }
+  mat-toolbar.mat-toolbar.navBar {
+    max-height: none;
+  }
+
 }
 
 .navBar {
