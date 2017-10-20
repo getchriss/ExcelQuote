@@ -12,14 +12,19 @@ export class LogServiceService {
   constructor() {}
 
   logService(error: any) {
+    // const loginText = <HTMLElement>document.getElementById('loginText');
     if (error instanceof HttpErrorResponse) {
       console.error('There was an HTTP error.', error.message, 'Status code:', (<HttpErrorResponse>error).status);
+      // loginText.classList.remove('hidden');
     } else if (error instanceof TypeError) {
       console.error('There was a Type error.', error.message);
+      // loginText.classList.remove('hidden');
     } else if (error instanceof Error) {
       console.error('There was a general error.', error.message);
+      // loginText.classList.remove('hidden');
       } else {
       console.error('ghost error but something happened!', error);
+      // loginText.classList.remove('hidden');
     }
   }
 }

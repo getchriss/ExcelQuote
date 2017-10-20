@@ -1,4 +1,4 @@
-@import url('users.css');
+@import url(../users.css);
 * {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -39,9 +39,19 @@ mat-tab-group .mat-tab-header>>> {
   top: 48px !important;
 }
 
+.mat-tab-body {
+  height: 100vh!important;
+  border: 1px solid purple;
+}
+
 .populationContainer {
-  height: 100%;
+  height: 100vh;
+  max-height: 100%;
   width: 100%;
+  position: relative;
+  display: block;
+  padding-top: 10px;
+  padding-bottom: 10px;
   padding-left: 10px;
   padding-right: 10px;
 }
@@ -167,6 +177,42 @@ mat-tab-group .mat-tab-header>>> {
 
 .feed {
   position: relative;
+  height: 100%;
+  /* padding-top: 20px; */
+  overflow-y: scroll;
+}
+
+.populationContainer:before {
+  content: '';
+  width: 100%;
+  padding: 0px;
+  height: 23px;
+  position: fixed;
+  z-index: 10;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(240, 240, 240, 1) 100%);
+  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(240, 240, 240, 1) 100%);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(240, 240, 240, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#f0f0f0', GradientType=0);
+  opacity: 90%;
+}
+
+.populationContainer:after {
+  content: '';
+  width: 100%;
+  padding: 0px;
+  height: 16px;
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  right: 0;
+  margin-top: -10px;
+  background: -moz-linear-gradient(top, rgba(240, 240, 240, 1) 0%, rgba(255, 255, 255, 0) 100%);
+  background: -webkit-linear-gradient(top, rgba(240, 240, 240, 1) 0%, rgba(255, 255, 255, 0) 100%);
+  background: linear-gradient(to bottom, rgba(240, 240, 240, 1) 0%, rgba(255, 255, 255, 0) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0f0f0', endColorstr='#00ffffff', GradientType=0);
 }
 
 .acol {
@@ -174,5 +220,14 @@ mat-tab-group .mat-tab-header>>> {
   right: 0px;
   top: 15px;
 }
+
+.contain {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  height: 100vh;
+}
+
 
 /* -- */

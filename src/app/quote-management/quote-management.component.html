@@ -1,54 +1,88 @@
-<div class="container">
-  <app-navbar  [compTitle]="compTitle"></app-navbar>
-  <div fxLayout="row">
-    <div fxFlex="grow">
-      <div class="titleContainer">
-      </div>
-    </div>
-  </div>
-  <div class="searchContainer">
+<div class="godBox">
+  <div class="container">
+    <app-navbar [compTitle]="compTitle"></app-navbar>
     <div fxLayout="row">
       <div fxFlex="grow">
-        <div class="searchBar">
-          <mat-toolbar class="inputSearch mat-elevation-z0">
-            <mat-form-field class="full-width">
-              <input matInput placeholder="Search" tabindex="-1" (keyup)="searchQuotes($event)" id="searchbar">
-              <mat-icon matSuffix>
-                <i class="material-icons">search</i>
-              </mat-icon>
-            </mat-form-field>
-          </mat-toolbar>
+        <div class="titleContainer">
         </div>
       </div>
     </div>
-  </div>
-  <div class="row">
-    <div fxFlex="grow" class="subTitle">
-      <h4 class="populationHead">Quotes</h4>
-    </div>
-  </div>
-  <div fxLayout="column wrap">
-    <div class="populationContainer">
-      <div class="feed" fxLayout="column" fxFlex="grow" id="feed">
-        <div *ngFor="let quoteFile of feed | async" class="quote">
-          <div class="quoteContainer" *ngIf="quoteFile.stage == 'completed'" [@FadeIn]>
-            <div [ngClass]="(focusThumb==quoteFile.$key)?'quoteInnerContainer focused':'quoteInnerContainer'" (click)="toggleFocus($event, quoteFile.$key)">
-              <div class="quoteData">
-                <span class="quoteName">
-                  {{ quoteFile.client }}
-                </span>
-                <span class="quoteID">
-                  {{ quoteFile.$key }}
-                </span>
-              </div>
-              <div class="quoteDate" [routerLink]="['/quote-preview/' + focusThumb]" [ngClass]="(focusThumb==quoteFile.$key)?'quoteDate focused':'quoteDate'"
-                (click)="toggleFocus($event, quoteFile.$key)">
-                <span>PREVIEW</span>
-              </div>
-            </div>
+    <div class="searchContainer">
+      <div fxLayout="row">
+        <div fxFlex="grow">
+          <div class="searchBar">
+            <mat-toolbar class="inputSearch mat-elevation-z0">
+              <mat-form-field class="full-width">
+                <input matInput placeholder="Search" tabindex="-1" (keyup)="searchQuotes($event)" id="searchbar">
+                <mat-icon matSuffix>
+                  <i class="material-icons">search</i>
+                </mat-icon>
+              </mat-form-field>
+            </mat-toolbar>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+  <div class="container-body">
+    <!-- <div class="row">
+    <div fxFlex="grow" class="subTitle">
+      <h4 class="populationHead"></h4>
+    </div>
+  </div> -->
+    <div fxLayout="column wrap" class="row">
+      <mat-tab-group mat-stretch-tabs mat-selected="selectedIndex" id="feed" (click)="searchQuotesTrigger('searchbar')">
+        <mat-tab label="Completed Quotes">
+          <br>
+          <div class="populationContainer">
+            <div class="feed" fxLayout="column" fxFlex="grow">
+              <div *ngFor="let quoteFile of feed | async" class="quote">
+                <div class="quoteContainer" *ngIf="quoteFile.stage == 'completed'">
+                  <div [ngClass]="(focusThumb==quoteFile.$key)?'quoteInnerContainer focused':'quoteInnerContainer'" (click)="toggleFocus($event, quoteFile.$key)">
+                    <div class="quoteData">
+                      <span class="quoteName">
+                        {{ quoteFile.client }}
+                      </span>
+                      <span class="quoteID">
+                        {{ quoteFile.$key }}
+                      </span>
+                    </div>
+                    <div class="quoteDate" [routerLink]="['/quote-preview/' + focusThumb]" [ngClass]="(focusThumb==quoteFile.$key)?'quoteDate focused':'quoteDate'"
+                      (click)="toggleFocus($event, quoteFile.$key)">
+                      <span>PREVIEW</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-tab>
+        <mat-tab label="My Quotes">
+          <br>
+          <div class="populationContainer">
+            <div class="feed" fxLayout="column" fxFlex="grow">
+              <!-- {{feedLength}} -->
+              <div *ngFor="let quoteFile of feed | async" class="quote">
+                <div class="quoteContainer" *ngIf="quoteFile.quoteCreator == displayName">
+                  <div [ngClass]="'quoteInnerContainer noClick ' + [(quoteFile.quoteOwner !== 'null')?'acol' + (quoteFile.quoteOwner): '']">
+                    <div class="quoteData" [ngClass]="{}">
+                      <span class="quoteName" [ngClass]="{}">
+                        {{ quoteFile.client }}
+                      </span>
+                      <span class="quoteID" [ngClass]="{}">
+                        {{ quoteFile.$key }}
+                      </span>
+                    </div>
+                    <div [ngClass]="'quoteOpen acol ' + (quoteFile.quoteOwner)">
+                      <span>{{ quoteFile.quoteOwner }}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
     </div>
   </div>
 </div>

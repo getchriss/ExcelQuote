@@ -164,11 +164,11 @@ export class NewFormComponent implements OnInit, OnChanges {
         });
       });
 
-      console.log(this.quoteToEdit);
-      console.log('Editing previous quote: ' + this.jobId);
+      // console.log(this.quoteToEdit);
+      // console.log('Editing previous quote: ' + this.jobId);
 
     } else {
-      console.log('Brand new quote request');
+      // console.log('Brand new quote request');
     }
   }
 

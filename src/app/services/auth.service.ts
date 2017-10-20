@@ -1,4 +1,4 @@
-import { Injectable, ViewContainerRef } from '@angular/core';
+import { Injectable, ViewContainerRef, ErrorHandler } from '@angular/core';
 import { Router } from '@angular/router';
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -8,6 +8,11 @@ import { User } from '../models/user.model';
 import { MatSnackBar, MatSnackBarConfig,
   MatSnackBarHorizontalPosition,
   MatSnackBarVerticalPosition } from '@angular/material';
+
+import { LogServiceService } from '../services/log-service.service';
+
+import { Http, HttpModule, Headers, Response, RequestOptions } from '@angular/http';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Injectable()
 export class AuthService {
@@ -41,11 +46,25 @@ export class AuthService {
   }
 
   login(email: string, password: string) {
+    if (email === undefined) {
+      email = '';
+    }
+
+    if (password === undefined) {
+      password = '';
+    }
+
     const config = new MatSnackBarConfig();
     config.verticalPosition = this.verticalPosition;
     config.horizontalPosition = this.horizontalPosition;
     config.duration = 3000;
     config.extraClasses = ['snackColorSuccess'];
+    const elm = <HTMLElement>document.getElementById('spinner');
+    const loginText = <HTMLElement>document.getElementById('loginText');
+    console.log(elm);
+    loginText.classList.add('hidden');
+    elm.classList.remove('hidden');
+    // let success = false;
     this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then((user) => {
         firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION);
@@ -53,20 +72,48 @@ export class AuthService {
         this.setUserStatus('online');
         this.router.navigate(['dash']);
         this.snackBar.open(`Sign in Successful`, '', config);
+        loginText.classList.remove('hidden');
+        elm.classList.add('hidden');
+        console.log('Successful login');
+        // success = true;
       })
       .catch((error: firebase.FirebaseError) => {
         const errorCode = error.code;
         const errorMessage = error.message;
         config.extraClasses = ['snackColor'];
         if (error.code === 'auth/invalid-email') {
-          return this.snackBar.open(`Incorrect email or password`, '', config);
-        } else if (error.code === 'auth/wrong-password') {
-          return this.snackBar.open(`Incorrect password`, '', config);
+          this.snackBar.open(`Incorrect email or password`, '', config);
+          // console.log('Success is false 1');
+          loginText.classList.remove('hidden');
+          elm.classList.add('hidden');
+          console.log('error1');
+          // success = false;
+        }  else if (error.code === 'auth/wrong-password') {
+          this.snackBar.open(`Incorrect password`, '', config);
+          // console.log('Success is fgalse 2');
+          loginText.classList.remove('hidden');
+          elm.classList.add('hidden');
+          console.log('error2');
+          // success = false;
+        } else if (error instanceof HttpErrorResponse) {
+          loginText.classList.remove('hidden');
+          elm.classList.add('hidden');
+          console.log('error3');
+        }  else if (error instanceof Error) {
+          loginText.classList.remove('hidden');
+          elm.classList.add('hidden');
+          console.log('error4');
+        } else {
+          console.log('error unknown');
+          loginText.classList.remove('hidden');
+          elm.classList.add('hidden');
         }
       })
       .catch((function (error) {
-        console.log(error);
-      }));
+      console.log(error);
+      loginText.classList.remove('hidden');
+      elm.classList.add('hidden');
+    }));
   }
 
   toggleEditable(e: Event) {
@@ -103,10 +150,10 @@ export class AuthService {
         config.horizontalPosition = this.horizontalPosition;
         config.duration = 3000;
         config.extraClasses = ['snackColor'];
-        console.log(`code`, error.code);
-        console.log(`message`, error.message);
-        console.log(`name`, error.name);
-        console.log(`stack`, error.stack);
+        // console.log(`code`, error.code);
+        // console.log(`message`, error.message);
+        // console.log(`name`, error.name);
+        // console.log(`stack`, error.stack);
         // return false;
         config.extraClasses = ['snackColor'];
         if (error.code === 'auth/invalid-email') {
@@ -127,7 +174,7 @@ export class AuthService {
     };
 
     this.db.object(path).update(data)
-      .catch(error => console.log(error));
+      .catch(error => console.log());
   }
 
   getUserData(uid: string) {
@@ -142,6 +189,6 @@ export class AuthService {
     };
 
     this.db.object(path).update(data)
-      .catch(error => console.log(error));
+      .catch(error => console.log());
   }
 }

@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs/Rx';
-import { AuthService } from '../services/auth.service';
 import * as firebase from 'firebase/app';
 
 import { QuoteFile } from '../models/quote-file.model';
+import { AuthService } from '../services/auth.service';
 
 import { MatSnackBar, MatSnackBarConfig,
   MatSnackBarHorizontalPosition,
@@ -17,17 +17,36 @@ export class QuoteService {
   user: any;
   quoteFiles: FirebaseListObservable<QuoteFile[]>;
   quoteFile: QuoteFile;
-  userName: Observable<string>;
   quoteNumbers = [];
+
+  displayName: string;
+  userId: string;
+  getUserData: any;
+  userData: any = {};
 
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
 
-  constructor(private db: AngularFireDatabase, private afAuth: AngularFireAuth,
-    private snackBar: MatSnackBar) {
+  constructor(private db: AngularFireDatabase,
+    private afAuth: AngularFireAuth,
+    private snackBar: MatSnackBar,
+    private authService: AuthService) {
     this.afAuth.authState.subscribe(auth => {
       if (auth !== undefined && auth !== null) {
         this.user = auth;
+      }
+    });
+
+    this.user = this.authService.authUser();
+    this.user.subscribe(user => {
+      if (user) {
+        this.userId = user.uid;
+        this.getUserData = this.authService.getUserData(this.userId);
+        this.getUserData.subscribe(snapshots => {
+          snapshots.forEach(snapshot => {
+            this.userData[snapshot.key] = snapshot.val();
+          });
+        });
       }
     });
   }
@@ -67,7 +86,7 @@ export class QuoteService {
       quote.suppliedIn.length > 0 &&
       quote.proofType.length > 0
     ) {
-      console.log('validateQuote() was successful...');
+      // console.log('validateQuote() was successful...');
       return true;
     } else if (quote.client.length === 0) {
       return this.snackBar.open(`Please supply client name`, '', config);
@@ -122,33 +141,33 @@ export class QuoteService {
     } else if (quote.proofType.length === 0) {
       return this.snackBar.open(`Please specify proof type`, '', config);
     } else {
-      console.log('validateQuote() was not successful...');
-      console.log(quote.client.length);
-      console.log(quote.email.length);
-      console.log(quote.address.length);
-      console.log(quote.phone !== undefined);
-      console.log(quote.date !== undefined);
-      console.log(quote.fileName !== undefined);
-      console.log(quote.noKinds !== undefined);
-      console.log(quote.qKinds !== undefined);
-      console.log(quote.cost.length);
-      console.log(quote.width !== undefined);
-      console.log(quote.height !== undefined);
-      console.log(quote.labelsPer !== undefined);
-      console.log(quote.gap !== undefined);
-      console.log(quote.knife.length);
-      console.log(quote.charge.length);
-      console.log(quote.stock.length);
-      console.log(quote.colour.length);
-      console.log(quote.embel.length);
-      console.log(quote.orient.length);
-      console.log(quote.appliedBy.length);
-      console.log(quote.adhesive.length);
-      console.log(quote.overPrint.length);
-      console.log(quote.core !== undefined);
-      console.log(quote.windStyle !== undefined);
-      console.log(quote.suppliedIn.length);
-      console.log(quote.proofType.length);
+      // console.log('validateQuote() was not successful...');
+      // console.log(quote.client.length);
+      // console.log(quote.email.length);
+      // console.log(quote.address.length);
+      // console.log(quote.phone !== undefined);
+      // console.log(quote.date !== undefined);
+      // console.log(quote.fileName !== undefined);
+      // console.log(quote.noKinds !== undefined);
+      // console.log(quote.qKinds !== undefined);
+      // console.log(quote.cost.length);
+      // console.log(quote.width !== undefined);
+      // console.log(quote.height !== undefined);
+      // console.log(quote.labelsPer !== undefined);
+      // console.log(quote.gap !== undefined);
+      // console.log(quote.knife.length);
+      // console.log(quote.charge.length);
+      // console.log(quote.stock.length);
+      // console.log(quote.colour.length);
+      // console.log(quote.embel.length);
+      // console.log(quote.orient.length);
+      // console.log(quote.appliedBy.length);
+      // console.log(quote.adhesive.length);
+      // console.log(quote.overPrint.length);
+      // console.log(quote.core !== undefined);
+      // console.log(quote.windStyle !== undefined);
+      // console.log(quote.suppliedIn.length);
+      // console.log(quote.proofType.length);
       return false;
     }
   }
@@ -189,12 +208,13 @@ export class QuoteService {
       addInfo: quote.addInfo,
       stage: 'requested',
       quoteOwner: 'null',
+      quoteCreator: this.userData['displayName']
     };
     this.quoteFiles.update(quoteNum, quoteFile);
     config.duration = 3000;
     config.extraClasses = ['snackColorSuccess'];
     this.snackBar.open(`Quote ${quoteNum} successfully requested`, '', config);
-    console.log('Completed submitQuote()...');
+    // console.log('Completed submitQuote()...');
   }
 
   getQuotes(): FirebaseListObservable<QuoteFile[]> {
@@ -248,5 +268,10 @@ export class QuoteService {
   updateQuoteOwner(id: string, quoteOwner: any) {
     const temp = this.getQuoteById(id);
     temp.set('quoteOwner', quoteOwner);
+  }
+
+  getUser() {
+    return this.authService.authUser();
+    // return this.user;
   }
 }

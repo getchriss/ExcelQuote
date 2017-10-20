@@ -5,7 +5,7 @@ export const FADE_IN_ANIMATION = [
         transition('* => *', [
             query(':self', [
                 style({ opacity: 0 }),
-                animate(500, style({ opacity: 1 })),
+                animate(600, style({ opacity: 1 })),
             ], { optional: true })
         ])
     ])

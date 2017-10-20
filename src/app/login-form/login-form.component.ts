@@ -3,10 +3,8 @@ import { FormControl, Validators } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
 
 import { AuthService } from '../services/auth.service';
-import { LogServiceService } from '../services/log-service.service';
 import { Router } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { MatSnackBar } from '@angular/material';
 
 @Component({
@@ -38,6 +36,13 @@ export class LoginFormComponent {
   login() {
     console.log('login() called from login-form component');
     this.authService.login(this.email, this.password);
+    // if (login === true) {
+      // console.log('It worked');
+    // } else {
+      // const elm = <HTMLElement>document.getElementById('spinner');
+      // elm.classList.remove('hidden');
+      // console.log(':( *sad emoji*');
+    // }
   }
 
   handleSubmit(event) {

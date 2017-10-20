@@ -156,7 +156,7 @@
               <div>
                 <span class="nonInput">Gap between labels if larger than 4mm</span>
                 <mat-form-field class="full-width" [hideRequiredMarker]="true">
-                  <input matInput [(ngModel)]="quote.gap" maxlength="5" value="4mm" name="gap" type="number" required>
+                  <input matInput [(ngModel)]="quote.gap" maxlength="5" name="gap" type="number" required>
                   <span class="matsuffix" matSuffix>mm</span>
                   <mat-error *ngIf="globalFormControl.hasError('required')">
                     Gap between is

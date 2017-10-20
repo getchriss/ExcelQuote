@@ -1,3 +1,4 @@
+@import url(../users.css);
 * {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -7,34 +8,58 @@
   user-select: none;
 }
 
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .quote.hidden {
   display: none;
 }
 
-.container {
-  flex: 1 0 auto;
-  /* padding: var(--space) var(--space) 0; */
+mat-tab-group {
+  /* margin-top: 100px; */
+  width: 100%;
+}
+
+mat-tab-group .mat-tab-header>>> {
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+}
+
+.row {
+  position: relative;
+  width: 100%;
+}
+
+.godBox {
+  position: relative;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 100%;
   width: 100%;
   background-color: #F0F0F0;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+}
+
+.container {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  z-index: 999;
 }
 
 .container-body {
-  position: relative;
   margin-right: auto;
   margin-left: auto;
-  /* padding-left: 15px; */
-  /* padding-right: 15px; */
+  padding-top: 170px;
+  padding-left: 15px;
+  padding-right: 15px;
+  position: relative;
+  height: 84.5vh;
   max-width: 940px;
   display: flex;
 }
@@ -44,7 +69,6 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .titleContainer {
-  /* border: 1px solid red; */
   background-color: #472155;
   height: 60px;
 }
@@ -58,6 +82,9 @@ p {
     width: 100%;
     top: 62px;
     position: absolute;
+  }
+  .container-body {
+    height: 73.5vh;
   }
 }
 
@@ -119,17 +146,12 @@ input {
 }
 
 .populationContainer {
-  /* border: 1px solid red; */
-  position: absolute;
   display: flex;
   margin: auto;
-  top: 200px;
   max-width: 940px;
   right: 0;
   bottom: 0;
   left: 0;
-  padding-left: 10px;
-  padding-right: 10px;
   overflow-y: scroll;
   overflow-x: hidden;
   -ms-overflow-style: none;
@@ -162,9 +184,6 @@ input {
   mat-toolbar {
     height: 50px;
   }
-  .populationContainer {
-    top: 200px;
-  }
   .populationHead {
     margin-top: 6px;
   }
@@ -194,7 +213,6 @@ mat-toolbar {
 }
 
 .searchContainer {
-  /* border: 1px solid blue; */
   padding: 0 10px!important;
   position: absolute;
   margin: auto;
@@ -227,7 +245,6 @@ mat-toolbar {
   right: 0;
   margin: auto;
   width: 100%;
-  /* min-width: 363px; */
   margin-top: 7.5px;
   margin-bottom: 7.5px;
   height: 70px;
@@ -236,7 +253,6 @@ mat-toolbar {
   -webkit-box-shadow: 0px 4px 12px -2px rgba(0, 0, 0, 0.36);
   -moz-box-shadow: 0px 4px 12px -2px rgba(0, 0, 0, 0.36);
   box-shadow: 0px 4px 12px -2px rgba(0, 0, 0, 0.36);
-  /* opacity: 0; */
 }
 
 a {
@@ -246,6 +262,7 @@ a {
 .quoteInnerContainer {
   border-radius: 5px;
   border-left: solid 7px #5D398A;
+  position: relative;
   display: flex;
   height: 100%;
   background-size: 200% 100%;
@@ -254,9 +271,6 @@ a {
 }
 
 .quoteInnerContainer:hover {
-  /* color: rgba(255, 255, 255, 1); */
-  /* background-color: rgba(255, 255, 255, 1); */
-  /* background-position: -100% 100%; */
   cursor: pointer;
 }
 
@@ -273,9 +287,6 @@ a {
 .quoteInnerContainer span {
   pointer-events: none;
 }
-
-
-/* .quoteInnerContainer:hover span, */
 
 .quoteInnerContainer.focused span {
   transition: all 0.3s cubic-bezier(0.000, 0.000, 0.230, 1);
@@ -341,6 +352,23 @@ a {
 .feed {
   position: relative;
   /* height: 100%; */
+}
+
+.acol {
+  position: absolute;
+  right: 0px;
+  top: 15px;
+}
+
+.quoteOpen {
+  margin: auto;
+  font-family: 'Open Sans', sans-serif;
+  padding: 10px 16px;
+}
+
+.noClick {
+  pointer-events: none!important;
+  cursor: default!important;
 }
 
 /* .feed:before {

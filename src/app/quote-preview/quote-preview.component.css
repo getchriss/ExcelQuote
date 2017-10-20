@@ -144,6 +144,9 @@ p {
 
 .container-footer {
   bottom: 0;
+  left: 0;
+  right: 0;
+  margin:auto;
   position: fixed;
   width:100%;
   max-width: 940px;

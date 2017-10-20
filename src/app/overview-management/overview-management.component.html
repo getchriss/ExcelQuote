@@ -2,10 +2,9 @@
   <app-navbar [compTitle]="compTitle"></app-navbar>
 </div>
 <div class="container-body">
-  <div class="row" fxLayout="row">
+  <div class="row contain" fxLayout="column">
     <mat-tab-group mat-stretch-tabs mat-selected="selectedIndex">
       <mat-tab label="Quote Requests">
-        <br>
         <div class="populationContainer">
           <div class="feed" fxLayout="column" fxFlex="grow">
             <!-- {{feedLength}} -->
@@ -38,7 +37,6 @@
         </div>
       </mat-tab>
       <mat-tab label="Pending Quotes">
-        <br>
         <div class="populationContainer">
           <div class="feed" fxLayout="column" fxFlex="grow">
             <div *ngFor="let quoteFile of feed | async" class="quote">
@@ -64,7 +62,6 @@
         </div>
       </mat-tab>
       <mat-tab label="Completed Quotes">
-        <br>
         <div class="populationContainer">
           <div class="feed" fxLayout="column" fxFlex="grow">
             <div *ngFor="let quoteFile of feed | async" class="quote">

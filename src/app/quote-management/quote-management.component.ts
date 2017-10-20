@@ -5,6 +5,7 @@ import { QuoteService } from '../services/quote.service';
 import { FirebaseListObservable } from 'angularfire2/database';
 import { FADE_IN_ANIMATION } from '../_animations/fade_in.animation';
 
+import { AuthService } from '../services/auth.service';
 import { QuoteFile } from '../models/quote-file.model';
 
 @Component({
@@ -20,16 +21,37 @@ export class QuoteManagementComponent implements OnInit, OnChanges {
   quoteArray = [];
   compTitle = 'EXISTING QUOTES';
 
-  constructor(private quoteFile: QuoteService) { }
+  displayName: string;
+  userId: string;
+  getUserData: any;
+  userData: any = {};
+
+  constructor(private quoteFile: QuoteService, private auth: AuthService ) {
+    this.displayName = quoteFile.userData['displayName'];
+    // console.log(this.displayName);
+  }
 
   ngOnInit() {
     this.feed = this.quoteFile.getQuotes();
     this.feed.subscribe(snapshot => {
-      let i = 0;
+      const i = 0;
       snapshot.forEach(snapshots => {
         const tempKey = snapshots.$key;
         this.quoteArray.push(tempKey);
       });
+    });
+    this.quoteFile.getUser().subscribe(user => {
+      if (user) {
+        this.userId = user.uid;
+        this.getUserData = this.auth.getUserData(this.userId);
+        this.getUserData.subscribe(snapshots => {
+          snapshots.forEach(snapshot => {
+            this.userData[snapshot.key] = snapshot.val();
+            this.displayName = this.userData['displayName'];
+            console.log(this.displayName);
+          });
+        });
+      }
     });
   }
 
@@ -61,4 +83,19 @@ export class QuoteManagementComponent implements OnInit, OnChanges {
     }
   }
 
+  searchQuotesTrigger(elmId) {
+    const elm = <HTMLInputElement>document.getElementById(elmId);
+    // console.log(elm);
+    elm.value = '';
+    const feed = document.getElementById('feed');
+    const quotes = feed.getElementsByClassName('quote');
+    for (let i = 0; i < quotes.length; i++) {
+      const id = quotes[i].getElementsByClassName('quoteID')[0];
+      const name = quotes[i].getElementsByClassName('quoteName')[0];
+      // if ((id && id.innerHTML.indexOf(filter) > -1) || (name && name.innerHTML.toLowerCase().indexOf(filter) > -1)) {
+        quotes[i].classList.remove('hidden');
+      // }
+    }
+  }
 }
+
