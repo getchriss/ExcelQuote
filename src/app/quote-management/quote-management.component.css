@@ -370,6 +370,9 @@ a {
   pointer-events: none!important;
   cursor: default!important;
 }
+.quoteOpen.null {
+  display: none;
+}
 
 /* .feed:before {
   content: ' ';

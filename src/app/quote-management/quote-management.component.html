@@ -73,7 +73,7 @@
                         {{ quoteFile.$key }}
                       </span>
                     </div>
-                    <div [ngClass]="'quoteOpen acol ' + (quoteFile.quoteOwner)">
+                    <div [ngClass]="'quoteOpen ' + (quoteFile.quoteOwner) + [(quoteFile.quoteOwner !== 'null')?'acol ' + (quoteFile.quoteOwner):'']">
                       <span>{{ quoteFile.quoteOwner }}</span>
                     </div>
                   </div>
