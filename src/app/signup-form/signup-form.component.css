@@ -1,7 +1,6 @@
 @import "~@angular/material/prebuilt-themes/purple-green.css";
-
 .full-width {
-  width:100%;
+  width: 100%;
 }
 
 #logo {
@@ -19,26 +18,25 @@
   min-width: 60px;
 }
 
-
 .material-icons {
-  color:#FFFFFF;
+  color: #FFFFFF;
   font-weight: 200!important;
   margin-right: 10px;
 }
 
 .signUpContainer {
-    position: absolute;
-    margin: auto;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    max-width: 312px;
-    height: 100px;
-    background-color: rgba(0, 0, 0, 0);
-    border: 0px;
-    border-radius: 3px;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  max-width: 312px;
+  height: 100px;
+  background-color: rgba(0, 0, 0, 0);
+  border: 0px;
+  border-radius: 3px;
 }
 
 .rememberMe {
@@ -46,26 +44,26 @@
   font-size: 13px;
 }
 
->>>input[_ngcontent-c7] {
+:host >>>in put {
   color: #FFFFFF;
   width: 100%;
   max-width: 312px;
   font-size: 17px;
 }
 
->>>[_ngcontent-c7] .mat-input-placeholder {
+ :host >>> .mat-input-placeholder {
   color: #FFFFFF;
 }
 
->>>[_ngcontent-c7] .mat-input-placeholder.mat-form-field-placeholder.mat-float {
+ :host >>> .mat-input-placeholder.mat-form-field-placeholder.mat-float {
   color: #FFFFFF;
 }
 
->>>[_ngcontent-c7] .mat-form-field-ripple {
+ :host >>> .mat-form-field-ripple {
   background-color: #5D398A
 }
 
->>>[_ngcontent-c7] .mat-form-field-placeholder-wrapper {
+ :host >>> .mat-form-field-placeholder-wrapper {
   top: -1.2em;
   color: #FFFFFF;
 }
@@ -74,21 +72,76 @@
   letter-spacing: 5px;
 }
 
-[_ngcontent-c7] .mat-raised-button[disabled] {
+:host >>> .mat-raised-button[disabled] {
   background-color: rgba(255, 255, 255, .12);
 }
 
-
->>>[_ngcontent-c7] .mat-form-field-underline {
-  background-color: #FFFFFF;
+ :host >>> .mat-form-field-underline {
+  background-color: #FFF!important;
 }
 
-[_ngcontent-c7] .rbtn {
-  background-color: #FFFFFF;
-  color: #472155;
+:host >>> .mat-raised-button[disabled] {
+    background-color: rgba(255, 255, 255, .12)!important;
 }
 
-[_ngcontent-c7]>>>.mat-ripple-element {
+:host >>> .rbtn {
+  background-color: #FFF!important;
+  color: #472155!important;
+}
+
+:host >>> .mat-ripple-element {
   background-color: rgba(93, 57, 138, 0.35)!important;
 }
 
+#fadePage {
+  -webkit-animation: fadein 1s;
+  -moz-animation: fadein 1s;
+  -ms-animation: fadein 1s;
+  -o-animation: fadein 1s;
+  animation: fadein 1s;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-ms-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

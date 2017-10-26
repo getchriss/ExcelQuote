@@ -153,34 +153,34 @@ export const RouterAnimation = [
             ])
         ]),
         transition('login => signup', [
-            query(':enter, :leave', style({ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 })),
-            query(':leave', style({ zIndex: 100 })),
-            query(':enter', style({ transform: 'translateY(100%)' })),
-            group([
-                query(':leave', [
-                    animate('500ms cubic-bezier(.35,0,.25,1)', style({ transform: 'translateY(-100%)' })),
-                    animateChild()
-                ]),
-                query(':enter', [
-                    animate('500ms cubic-bezier(.35,0,.25,1)', style({ transform: 'translateY(0%)' })),
-                    animateChild()
-                ])
-            ])
+            // query(':enter, :leave', style({ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 })),
+            // query(':leave', style({ zIndex: 100 })),
+            // query(':enter', style({ transform: 'translateY(100%)' })),
+            // group([
+            //     query(':leave', [
+            //         animate('500ms cubic-bezier(.35,0,.25,1)', style({ transform: 'translateY(-100%)' })),
+            //         animateChild()
+            //     ]),
+            //     query(':enter', [
+            //         animate('500ms cubic-bezier(.35,0,.25,1)', style({ transform: 'translateY(0%)' })),
+            //         animateChild()
+            //     ])
+            // ])
         ]),
         transition('signup => login', [
-            query(':enter, :leave', style({ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 })),
-            query(':leave', style({ zIndex: 100 })),
-            query(':enter', style({ transform: 'translateY(-100%)' })),
-            group([
-                query(':leave', [
-                    animate('500ms cubic-bezier(.35,0,.25,1)', style({ transform: 'translateY(100%)' })),
-                    animateChild()
-                ]),
-                query(':enter', [
-                    animate('500ms cubic-bezier(.35,0,.25,1)', style({ transform: 'translateY(0%)' })),
-                    animateChild()
-                ])
-            ])
+            // query(':enter, :leave', style({ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 })),
+            // query(':leave', style({ zIndex: 100 })),
+            // query(':enter', style({ transform: 'translateY(100%)' })),
+            // group([
+            //     query(':leave', [
+            //         animate('500ms cubic-bezier(.35,0,.25,1)', style({ transform: 'translateY(-100%)' })),
+            //         animateChild()
+            //     ]),
+            //     query(':enter', [
+            //         animate('500ms cubic-bezier(.35,0,.25,1)', style({ transform: 'translateY(0%)' })),
+            //         animateChild()
+            //     ])
+            // ])
         ]),
         transition('login => dash', [
             query(':enter, :leave', style({ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 })),

@@ -21,6 +21,15 @@
               </div>
               <div>
                 <mat-form-field class="full-width" [hideRequiredMarker]="true">
+                  <input matInput [(ngModel)]="quote.client" placeholder="Contact name" name="contact" required>
+                  <mat-error *ngIf="globalFormControl.hasError('required')">
+                    Contact name
+                    <strong>required</strong>
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field class="full-width" [hideRequiredMarker]="true">
                   <input matInput [(ngModel)]="quote.email" placeholder="Email" name="email" [formControl]="emailFormControl">
                   <mat-error *ngIf="emailFormControl.hasError('pattern')">
                     Please enter a valid email address
@@ -238,7 +247,7 @@
                   <mat-button-toggle value="Hand" class="btn-primary">Hand</mat-button-toggle>
                 </mat-button-toggle-group>
               </div>
-              <div>
+              <!-- <div>
                 <p>Select Adhesive</p>
                 <div class="selectMarg">
                   <mat-form-field class="full-width" [hideRequiredMarker]="true">
@@ -249,7 +258,7 @@
                     </mat-select>
                   </mat-form-field>
                 </div>
-              </div>
+              </div> -->
               <div>
                 <p>Overprinting</p>
                 <mat-button-toggle-group [(ngModel)]="quote.overPrint" #group="matButtonToggleGroup" name="overPrint">

@@ -1,14 +1,15 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 
-import { Router } from '@angular/router';
+// import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @Component({
   selector: 'app-signup-form',
   templateUrl: './signup-form.component.html',
-  styleUrls: ['./signup-form.component.css'],
-  encapsulation: ViewEncapsulation.Emulated
+  styleUrls: ['./signup-form.component.css']
+  // encapsulation: ViewEncapsulation.Emulated
 })
 export class SignupFormComponent {
 
@@ -17,7 +18,7 @@ export class SignupFormComponent {
   displayName: string;
   errorMsg: string;
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService) { }
 
   globalFormControl = new FormControl('', [
     Validators.required]);

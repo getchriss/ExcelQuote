@@ -58,26 +58,30 @@
   text-align: right;
 }
 
->>>input[_ngcontent-c1] {
+:host >>>input {
   color: #FFFFFF;
   width: 100%;
   max-width: 312px;
   font-size: 17px;
 }
 
->>>[_ngcontent-c1] .mat-input-placeholder {
+:host >>> .mat-input-placeholder {
+
   color: #FFFFFF;
 }
 
->>>[_ngcontent-c1] .mat-input-placeholder.mat-form-field-placeholder.mat-float {
+:host>>> .mat-input-placeholder.mat-form-field-placeholder.mat-float {
+
   color: #FFFFFF;
 }
 
->>>[_ngcontent-c1] .mat-form-field-ripple {
+:host>>> .mat-form-field-ripple {
+
   background-color: #5D398A
 }
 
->>>[_ngcontent-c1] .mat-form-field-placeholder-wrapper {
+:host>>> .mat-form-field-placeholder-wrapper {
+
   top: -1.2em;
   color: #FFFFFF;
 }
@@ -86,16 +90,19 @@
   letter-spacing: 5px;
 }
 
->>>[_ngcontent-c1] .mat-form-field-underline {
+:host>>> .mat-form-field-underline {
+
   background-color: #FFFFFF;
 }
 
-[_ngcontent-c1] .rbtn {
+:host>>> .rbtn {
+
   background-color: #FFFFFF;
   color: #472155;
 }
 
-[_ngcontent-c1] >>> .mat-ripple-element {
+:host>>> .mat-ripple-element {
+
   background-color: rgba(93, 57, 138, 0.35)!important;
 }
 
@@ -148,6 +155,61 @@
     -webkit-transform: scale(1.0);
   }
 }
+
+#fadePage {
+  -webkit-animation: fadein 1s;
+  -moz-animation: fadein 1s;
+  -ms-animation: fadein 1s;
+  -o-animation: fadein 1s;
+  animation: fadein 1s;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-ms-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
 
 
 /* .mat-form-field-placeholder {

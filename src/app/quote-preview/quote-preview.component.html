@@ -192,13 +192,13 @@
         <h5>Supplied in</h5>
         <p id="suppliedIn">{{currentQuote.suppliedIn}}</p>
       </div>
-      <div *ngIf="currentQuote.adhesive" class="item">
+      <!-- <div *ngIf="currentQuote.adhesive" class="item">
         <button class="btn btn-default btn-copy" mat-button type="button" (click)="copyToClipboard('adhesive')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;
           <i class="material-icons">content_copy</i>
         </button>
         <h5>Adhesive</h5>
         <p id="adhesive">{{currentQuote.adhesive}}</p>
-      </div>
+      </div> -->
       <div *ngIf="currentQuote.addInfo" class="item">
         <button class="btn btn-default btn-copy" mat-button type="button" (click)="copyToClipboard('addInfo')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;
           <i class="material-icons">content_copy</i>
@@ -248,7 +248,7 @@
         <p>{{currentQuote.core}}</p>
         <p>{{currentQuote.windStyle}}</p>
         <p>{{currentQuote.suppliedIn}}</p>
-        <p>{{currentQuote.adhesive}}</p>
+        <!-- <p>{{currentQuote.adhesive}}</p> -->
         <p>{{currentQuote.addInfo}}</p>
       </div>
     </div>

@@ -1,7 +1,7 @@
 <div class="dash-wrapper">
   <div id="logo"></div>
 </div>
-<mat-card class="loginContainer mat-elevation-z0" flex="flex">
+<mat-card class="loginContainer mat-elevation-z0" flex="flex" id="fadePage">
   <mat-card-content>
     <mat-grid-list cols="1" rows="4" [rowHeight]="70">
       <mat-grid-tile class="alternate-theme">
@@ -26,12 +26,12 @@
     </mat-grid-list>
     <mat-grid-list cols="2" [rowHeight]="42">
       <mat-grid-tile-footer cols="2">
-        <!-- <mat-slide-toggle id="rememberMe" class="rememberMe" [(ngModel)]="rememberMe" [checked]="rememberMe" (change)="toggleEditable($event)"> -->
-        <!-- <span>&nbsp; &nbsp; Remember me</span> -->
-        <!-- </mat-slide-toggle> -->
-        <!-- <span class="forgot full-width"> -->
-        <!-- <a (click)="resetPassword()" style="text-decoration:none;color:#FFFFFF;">Forgot your password?</a> -->
-        <!-- </span> -->
+        <!-- <mat-slide-toggle id="rememberMe" class="rememberMe" [(ngModel)]="rememberMe" [checked]="rememberMe" (change)="toggleEditable($event)">
+        <span>&nbsp; &nbsp; Remember me</span>
+        </mat-slide-toggle>
+        <span class="forgot full-width">
+        <a (click)="resetPassword()" style="text-decoration:none;color:#FFFFFF;">Forgot your password?</a>
+        </span> -->
       </mat-grid-tile-footer>
     </mat-grid-list>
     <mat-grid-list cols="1" rows="4" [rowHeight]="50" style="margin-top:80px;">

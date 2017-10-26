@@ -79,7 +79,7 @@ export class QuoteService {
       quote.embel.length > 0 &&
       quote.orient.length > 0 &&
       quote.appliedBy.length > 0 &&
-      quote.adhesive.length > 0 &&
+      // quote.adhesive.length > 0 &&
       quote.overPrint.length > 0 &&
       quote.core !== undefined &&
       quote.windStyle !== undefined &&
@@ -128,8 +128,9 @@ export class QuoteService {
       return this.snackBar.open(`Please select a orientation`, '', config);
     } else if (quote.appliedBy.length === 0) {
       return this.snackBar.open(`Please specify label application type`, '', config);
-    } else if (quote.adhesive.length === 0) {
-      return this.snackBar.open(`Please specify an adhesive`, '', config);
+    // } 
+    // else if (quote.adhesive.length === 0) {
+    //   return this.snackBar.open(`Please specify an adhesive`, '', config);
     } else if (quote.overPrint.length === 0) {
       return this.snackBar.open(`Please select overprint option`, '', config);
     } else if (quote.core === undefined) {
@@ -199,7 +200,7 @@ export class QuoteService {
       embel: quote.embel,
       orient: quote.orient,
       appliedBy: quote.appliedBy,
-      adhesive: quote.adhesive,
+      // adhesive: quote.adhesive,
       overPrint: quote.overPrint,
       core: quote.core,
       windStyle: quote.windStyle,
@@ -254,11 +255,11 @@ export class QuoteService {
     });
   }
 
-  getAdhesive(): FirebaseListObservable<QuoteFile[]> {
-    return this.db.list('/misc/adhesive', {
-      preserveSnapshot: true
-    });
-  }
+  // getAdhesive(): FirebaseListObservable<QuoteFile[]> {
+  //   return this.db.list('/misc/adhesive', {
+  //     preserveSnapshot: true
+  //   });
+  // }
 
   updateStage(id: string, stageName: string) {
     const temp =  this.getQuoteById(id);

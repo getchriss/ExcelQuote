@@ -17,7 +17,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 @Injectable()
 export class AuthService {
   private user: Observable<firebase.User>;
-  private authState: any;
+  authState: any;
   private userName: string;
   private login_error: string;
   rememberMe: true;
@@ -42,7 +42,9 @@ export class AuthService {
   }
 
   get currentUserId(): string {
-    return this.authState !== null ? this.authState.uid : '';
+    console.log(this.authState.uid);
+    // return this.authState !== null ? this.authState.uid : '';
+    return ' ';
   }
 
   login(email: string, password: string) {
@@ -64,10 +66,9 @@ export class AuthService {
     console.log(elm);
     loginText.classList.add('hidden');
     elm.classList.remove('hidden');
-    // let success = false;
     this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then((user) => {
-        firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION);
+        firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
         this.authState = user;
         this.setUserStatus('online');
         this.router.navigate(['dash']);
@@ -75,7 +76,6 @@ export class AuthService {
         loginText.classList.remove('hidden');
         elm.classList.add('hidden');
         console.log('Successful login');
-        // success = true;
       })
       .catch((error: firebase.FirebaseError) => {
         const errorCode = error.code;
@@ -83,28 +83,19 @@ export class AuthService {
         config.extraClasses = ['snackColor'];
         if (error.code === 'auth/invalid-email') {
           this.snackBar.open(`Incorrect email or password`, '', config);
-          // console.log('Success is false 1');
           loginText.classList.remove('hidden');
           elm.classList.add('hidden');
-          console.log('error1');
-          // success = false;
         }  else if (error.code === 'auth/wrong-password') {
           this.snackBar.open(`Incorrect password`, '', config);
-          // console.log('Success is fgalse 2');
           loginText.classList.remove('hidden');
           elm.classList.add('hidden');
-          console.log('error2');
-          // success = false;
         } else if (error instanceof HttpErrorResponse) {
           loginText.classList.remove('hidden');
           elm.classList.add('hidden');
-          console.log('error3');
         }  else if (error instanceof Error) {
           loginText.classList.remove('hidden');
           elm.classList.add('hidden');
-          console.log('error4');
         } else {
-          console.log('error unknown');
           loginText.classList.remove('hidden');
           elm.classList.add('hidden');
         }
@@ -121,9 +112,13 @@ export class AuthService {
     }
 
   logout() {
-    this.setUserStatus('offline');
+    // console.log(this.afAuth.auth);
+      // .then((user) => {
+    // console.log(this.afAuth.auth);
+    // this.setUserStatus('offline');
     this.router.navigate(['login']);
     this.afAuth.auth.signOut();
+      // });
   }
 
   signUp(email: string, password: string, displayName: string) {
@@ -150,11 +145,6 @@ export class AuthService {
         config.horizontalPosition = this.horizontalPosition;
         config.duration = 3000;
         config.extraClasses = ['snackColor'];
-        // console.log(`code`, error.code);
-        // console.log(`message`, error.message);
-        // console.log(`name`, error.name);
-        // console.log(`stack`, error.stack);
-        // return false;
         config.extraClasses = ['snackColor'];
         if (error.code === 'auth/invalid-email') {
           return this.snackBar.open(`Please enter a valid email address`, '', config);

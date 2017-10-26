@@ -1,6 +1,5 @@
-import { Component, Inject, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { CookieService } from 'ngx-cookie-service';
 
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
@@ -10,8 +9,8 @@ import { MatSnackBar } from '@angular/material';
 @Component({
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
-  styleUrls: ['./login-form.component.css'],
-  encapsulation: ViewEncapsulation.Emulated
+  styleUrls: ['./login-form.component.css']
+  // encapsulation: ViewEncapsulation.Emulated
 })
 
 export class LoginFormComponent {
@@ -20,13 +19,11 @@ export class LoginFormComponent {
   errorMsg: any;
   passReset = false;
   rememberMe = false;
-  cookieValue = 'UNKNOWN';
   private name: String = 'logService';
   // @localStorage() public email: string = '';
   // @localStorage() public rememberMe: boolean = false;
 
   constructor(private authService: AuthService, private router: Router,
-    private cookieService: CookieService,
     private snackBar: MatSnackBar) { }
 
     globalFormControl = new FormControl('', [
@@ -56,13 +53,10 @@ export class LoginFormComponent {
       // Do a thing
       console.log('toggle set to false!');
       this.rememberMe = false;
-      this.cookieService.deleteAll();
     } else {
       // Do another thing
       console.log('toggle set to true!');
       this.rememberMe = true;
-      this.cookieService.set('rememberMe', 'true', 2030);
-      this.cookieValue = this.cookieService.get('isChecked');
     }
   }
 

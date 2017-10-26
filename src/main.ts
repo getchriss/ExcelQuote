@@ -5,6 +5,7 @@ import { AppModule } from './app/app.module';
 import 'web-animations-js/web-animations.min';
 import { environment } from './environments/environment';
 
+
 if (environment.production) {
   enableProdMode();
 }

@@ -10,7 +10,7 @@ import { MatButtonModule,  MatToolbarModule, MatIconModule, MatDialogModule, Mat
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -98,6 +98,6 @@ import { CookieService } from 'ngx-cookie-service';
     CookieService,
   ],
   bootstrap: [AppComponent],
-  entryComponents: [ConfirmComponent]
+  entryComponents: [ConfirmComponent],
 })
 export class AppModule { }

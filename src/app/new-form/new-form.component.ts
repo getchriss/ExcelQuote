@@ -67,7 +67,7 @@ export class NewFormComponent implements OnInit, OnChanges {
   finishes = '';
   orient = '';
   appliedBy = '';
-  adhesive = '';
+  // adhesive = '';
   overPrint = '';
   core: number;
   windStyle: string;
@@ -77,7 +77,7 @@ export class NewFormComponent implements OnInit, OnChanges {
 
   $stocks: any;
   $finishes: any;
-  $adhesives: any;
+  // $adhesives: any;
   $embelishments: any;
   $userFile: any;
 
@@ -104,7 +104,7 @@ export class NewFormComponent implements OnInit, OnChanges {
     finishes: this.finishes,
     orient: this.orient,
     appliedBy: this.appliedBy,
-    adhesive: this.adhesive,
+    // adhesive: this.adhesive,
     overPrint: this.overPrint,
     core: this.core,
     windStyle: this.windStyle,
@@ -175,7 +175,7 @@ export class NewFormComponent implements OnInit, OnChanges {
   ngOnInit() {
     this.$stocks = this.form.getStocks();
     this.$finishes = this.form.getFinishes();
-    this.$adhesives = this.form.getAdhesive();
+    // this.$adhesives = this.form.getAdhesive();
     this.$embelishments = this.form.getEmbelishment();
     this.date = new Date();
   }
