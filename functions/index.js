@@ -42,7 +42,7 @@ exports.sendNotificationEmail = functions.database.ref('/quotes/').onWrite(event
     // const email = 'joshp@exceldp.co.nz';
     // const displayName = 'josh';
 
-    return sendUpdateEmail(quoteNum, client);
+    // return sendUpdateEmail(quoteNum, client);
 });
 
 function sendUpdateEmail(quoteNum, client) {

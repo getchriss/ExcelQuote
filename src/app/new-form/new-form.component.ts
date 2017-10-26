@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, HostBinding, Injectable, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, OnChanges, HostBinding, Injectable, ViewChild, ViewEncapsulation, DoCheck } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 // import { slideIn } from '../_animations/index';
@@ -35,7 +35,8 @@ const PHONE_REGEX = /^(\((03|04|06|07|09)\)\d{7})|(\((021|022|025|027|028|029)\)
   encapsulation: ViewEncapsulation.Emulated
 })
 
-export class NewFormComponent implements OnInit, OnChanges {
+export class NewFormComponent implements OnInit, OnChanges, DoCheck {
+  isSet = false;
 
   clipboard: any;
   files: FileList;
@@ -46,6 +47,7 @@ export class NewFormComponent implements OnInit, OnChanges {
   quoteNumbers: any = [];
 
   client = '';
+  contact = '';
   email = '';
   address = '';
   phone = '';
@@ -62,8 +64,10 @@ export class NewFormComponent implements OnInit, OnChanges {
   charge = '';
   stock = '';
   colour = '';
+  flexoNotes = 'hidden';
   finish = '';
   embel = '';
+  embelNotes= 'hidden';
   finishes = '';
   orient = '';
   appliedBy = '';
@@ -83,6 +87,7 @@ export class NewFormComponent implements OnInit, OnChanges {
 
   quote: any = {
     client: this.client,
+    contact: this.contact,
     email: this.email,
     address: this.address,
     phone: this.phone,
@@ -99,8 +104,10 @@ export class NewFormComponent implements OnInit, OnChanges {
     charge: this.charge,
     stock: this.stock,
     colour: this.colour,
+    flexoNotes: this.flexoNotes,
     finish: this.finish,
     embel: this.embel,
+    embelNotes: this.embelNotes,
     finishes: this.finishes,
     orient: this.orient,
     appliedBy: this.appliedBy,
@@ -178,6 +185,30 @@ export class NewFormComponent implements OnInit, OnChanges {
     // this.$adhesives = this.form.getAdhesive();
     this.$embelishments = this.form.getEmbelishment();
     this.date = new Date();
+  }
+
+  ngDoCheck() {
+    const elem = <HTMLTextAreaElement>document.getElementById('noteField');
+    const elem2 = <HTMLTextAreaElement>document.getElementById('flexoNoteField');
+    if (elem === null) {
+      if (this.quote.embelNotes !== 'hidden') {
+        this.quote.embelNotes = 'hidden';
+      }
+    } else {
+      if (this.quote.embelNotes === 'hidden') {
+        this.quote.embelNotes = '';
+      }
+    }
+
+    if (elem2 === null) {
+      if (this.quote.flexoNotes !== 'hidden') {
+        this.quote.flexoNotes = 'hidden';
+      }
+    } else {
+      if (this.quote.flexoNotes === 'hidden') {
+        this.quote.flexoNotes = '';
+      }
+    }
   }
 
   ngOnChanges() { }
@@ -277,6 +308,10 @@ export class NewFormComponent implements OnInit, OnChanges {
     this.files = files;
   }
 
+  updateProp(property, value) {
+    this.quote[property] = value;
+    // console.log(this.quote[property]);
+  }
 
   sendEmail() {
     const params: URLSearchParams = new URLSearchParams();

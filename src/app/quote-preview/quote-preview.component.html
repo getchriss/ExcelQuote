@@ -17,8 +17,17 @@
         <!-- <input #text> -->
         <!-- <hr> -->
       </div>
+      <div *ngIf="currentQuote.contact" class="item">
+        <button class="btn btn-default btn-copy" mat-button type="button" (click)="copyToClipboard('contact')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;
+          <i class="material-icons">content_copy</i>
+        </button>
+        <h5>Contact name</h5>
+        <p id="contact">{{currentQuote.contact}}</p>
+        <!-- <input #text> -->
+        <!-- <hr> -->
+      </div>
       <div *ngIf="currentQuote.email" class="item">
-        <button class="btn btn-default btn-copy" mat-button type="button" (click)="copyToClipboard('client')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;
+        <button class="btn btn-default btn-copy" mat-button type="button" (click)="copyToClipboard('email')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;
           <i class="material-icons">content_copy</i>
         </button>
         <h5>Email</h5>
@@ -131,6 +140,20 @@
         <h5>Colour</h5>
         <p id="colour">{{currentQuote.colour}}</p>
       </div>
+      <div *ngIf="currentQuote.flexoink" class="item">
+        <button class="btn btn-default btn-copy" mat-button type="button" (click)="copyToClipboard('flexoink')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;
+          <i class="material-icons">content_copy</i>
+        </button>
+        <h5>Flexo ink</h5>
+        <p id="flexoink">{{currentQuote.flexoink}}</p>
+      </div>
+      <div *ngIf="currentQuote.flexoNotes" class="item">
+        <button class="btn btn-default btn-copy" mat-button type="button" (click)="copyToClipboard('flexoNotes')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;
+          <i class="material-icons">content_copy</i>
+        </button>
+        <h5>Flexo ink notes</h5>
+        <p id="flexoNotes">{{currentQuote.flexoNotes}}</p>
+      </div>
       <div *ngIf="currentQuote.finish" class="item">
         <button class="btn btn-default btn-copy" mat-button type="button" (click)="copyToClipboard('finish')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;
           <i class="material-icons">content_copy</i>
@@ -147,8 +170,15 @@
         <button class="btn btn-default btn-copy" mat-button type="button" (click)="copyToClipboard('embel')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;
           <i class="material-icons">content_copy</i>
         </button>
-        <h5>Embelishments</h5>
+        <h5>Embellishments</h5>
         <p id="embel">{{currentQuote.embel}}</p>
+      </div>
+      <div *ngIf="currentQuote.embelNotes" class="item">
+        <button class="btn btn-default btn-copy" mat-button type="button" (click)="copyToClipboard('embelNotes')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;
+          <i class="material-icons">content_copy</i>
+        </button>
+        <h5>Embellishment notes</h5>
+        <p id="embelNotes">{{currentQuote.embelNotes}}</p>
       </div>
       <div *ngIf="currentQuote.orient" class="item">
         <button class="btn btn-default btn-copy" mat-button type="button" (click)="copyToClipboard('orient')" *ngIf="userData.type == 'admin'">Copy&nbsp; &nbsp; &nbsp; &nbsp;
@@ -224,6 +254,7 @@
       </div>
       <div class="hidden" id="copyAll">
         <p>{{currentQuote.client}}</p>
+        <p>{{currentQuote.contact}}</p>
         <p>{{currentQuote.email}}</p>
         <p>{{currentQuote.address}}</p>
         <p>{{currentQuote.phone}}</p>

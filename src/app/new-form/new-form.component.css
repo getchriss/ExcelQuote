@@ -32,19 +32,14 @@ main div {
   margin-top: 10px;
 }
 
-main div p {
-  margin-top: 5px;
-  margin-bottom: 5px;
+main div p:not(.windingLabel) {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 mat-button-toggle-group {
-  margin-bottom: 30px;
+  margin-bottom: 40px;
   margin-top: 15px;
-}
-
-.selectMarg {
-  padding-top: 12px;
-  padding-bottom: 18px;
 }
 
 p>input>label {
@@ -76,8 +71,13 @@ mat-select {
   width: 100%;
 } */
 
+p span {
+  color: #95989A;
+}
+
 .upload {
   /* color: #6e6e6e; */
+  margin-top: 5px!important;
   color: #95989A;
   position: absolute;
   font-size: 13px;
@@ -87,6 +87,15 @@ mat-select {
   -ms-animation: fadein 1.5s;
   -o-animation: fadein 1.5s;
   animation: fadein 1.5s;
+}
+
+.windingP {
+  margin-top: 0px!important;
+  margin-bottom: 0px!important;
+  color: #95989A;
+  position: absolute;
+  font-size: 13px;
+  display: none;
 }
 
 @keyframes fadein {
@@ -117,11 +126,11 @@ button span.mat-button-wrapper label[for="userFile"] {
   letter-spacing: 5px;
 }
 
->>> .mat-form-field-underline {
+>>>.mat-form-field-underline {
   background-color: #8b8b8b;
 }
 
->>> .mat-form-field-placeholder {
+>>>.mat-form-field-placeholder {
   color: #8b8b8b;
 }
 
@@ -130,9 +139,8 @@ button span.mat-button-wrapper label[for="userFile"] {
 }
 
 >>>.mat-select-invalid {
-  color:red!important;
+  color: red!important;
 }
-
 
 >>>.removeB .mat-form-field-underline {
   background-color: transparent!important;
@@ -210,24 +218,29 @@ button span.mat-button-wrapper label[for="userFile"] {
   color: #5D398A;
 }
 
+.hideSection {
+  clear: both;
+  display: block;
+  visibility: visible;
+}
+
+@media only screen and (max-width: 751px) {
   .hideSection {
     clear: both;
+    display: none;
+    visibility: none;
+  }
+  .windingLabel {
+    left: 0px;
+  }
+  .mobileOnly {
     display: block;
-    visibility: visible;
   }
+}
 
-  @media only screen and (max-width: 751px) {
-    .hideSection {
-      clear: both;
-      display: none;
-      visibility: none;
-    }
-    .windingLabel {
-      left: 0px;
-    }
-  }
-
-
+.mobileOnly {
+  display: none;
+}
 
 .windingBox::-webkit-scrollbar {
   width: 5px;
@@ -301,10 +314,9 @@ mat-button-toggle:nth-child(2).windingOpt {
 }
 
 .noBorder label {
-  display:block;
-  width:100%;
+  display: block;
+  width: 100%;
 }
-
 
 .btn-primary {
   background-color: #FFF;

@@ -57,8 +57,10 @@ export class QuoteService {
     config.horizontalPosition = this.horizontalPosition;
     config.duration = 2500;
     config.extraClasses = ['snackColor'];
+    console.log(quote.flexoNotes);
     if (
       quote.client.length > 0 &&
+      quote.contact.length > 0 &&
       quote.email.length > 0 &&
       quote.address.length > 0 &&
       quote.phone !== undefined &&
@@ -75,8 +77,10 @@ export class QuoteService {
       quote.charge.length > 0 &&
       quote.stock.length > 0 &&
       quote.colour.length > 0 &&
+      quote.flexoNotes.length > 0 &&
       quote.finish.length > 0 &&
       quote.embel.length > 0 &&
+      quote.embelNotes.length > 0 &&
       quote.orient.length > 0 &&
       quote.appliedBy.length > 0 &&
       // quote.adhesive.length > 0 &&
@@ -89,6 +93,8 @@ export class QuoteService {
       // console.log('validateQuote() was successful...');
       return true;
     } else if (quote.client.length === 0) {
+      return this.snackBar.open(`Please supply client name`, '', config);
+    } else if (quote.contact.lengt === 0) {
       return this.snackBar.open(`Please supply client name`, '', config);
     } else if (quote.email.length === 0 ) {
       return this.snackBar.open(`Please supply an email address`, '', config);
@@ -120,10 +126,14 @@ export class QuoteService {
       return this.snackBar.open(`Please select stock type`, '', config);
     } else if (quote.colour.length === 0) {
       return this.snackBar.open(`Please specify color style`, '', config);
-    } else if (quote.finishes.length === 0) {
+    } else if (quote.flexoNotes.length === 0) {
+      return this.snackBar.open(`Please specify flexo ink colour(s)`, '', config);
+    } else if (quote.finish.length === 0) {
       return this.snackBar.open(`Please specify finish style(s)`, '', config);
     } else if (quote.embel.length === 0) {
       return this.snackBar.open(`Please select embelishment style`, '', config);
+    } else if (quote.embelNotes.length === 0) {
+      return this.snackBar.open(`Please specify embelishment notes - eg. Foil colours`, '', config);
     } else if (quote.orient.length === 0) {
       return this.snackBar.open(`Please select a orientation`, '', config);
     } else if (quote.appliedBy.length === 0) {
@@ -180,6 +190,7 @@ export class QuoteService {
     this.quoteFiles = this.getQuotes();
     const quoteFile = {
       client: quote.client,
+      contact: quote.contact,
       email: quote.email,
       address: quote.address,
       phone: quote.phone,
@@ -196,8 +207,11 @@ export class QuoteService {
       charge: quote.charge,
       stock: quote.stock,
       colour: quote.colour,
+      flexoink: quote.flexoink,
+      flexoNotes: quote.flexoNotes,
       finish: quote.finish,
       embel: quote.embel,
+      embelNotes: quote.embelNotes,
       orient: quote.orient,
       appliedBy: quote.appliedBy,
       // adhesive: quote.adhesive,

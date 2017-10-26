@@ -21,7 +21,7 @@
               </div>
               <div>
                 <mat-form-field class="full-width" [hideRequiredMarker]="true">
-                  <input matInput [(ngModel)]="quote.client" placeholder="Contact name" name="contact" required>
+                  <input matInput [(ngModel)]="quote.contact" placeholder="Contact name" name="contact" required>
                   <mat-error *ngIf="globalFormControl.hasError('required')">
                     Contact name
                     <strong>required</strong>
@@ -113,6 +113,7 @@
                 </mat-form-field>
               </div>
               <div>
+                <br>
                 <p>Include delivery costs?</p>
                 <mat-button-toggle-group [(ngModel)]="quote.cost" #group="matButtonToggleGroup" name="cost">
                   <mat-button-toggle value="Yes" class="btn-primary">Yes</mat-button-toggle>
@@ -210,6 +211,33 @@
                 </mat-button-toggle-group>
               </div>
               <div>
+                <p>Flexo ink
+                  <span>- if applicable</span>
+                </p>
+                <div class="selectMarg">
+                  <mat-form-field class="full-width" [hideRequiredMarker]="true">
+                    <mat-select placeholder="Flexo ink" [(ngModel)]="quote.flexoink" name="flexoink" #flexoInk required>
+                      <mat-option value="One Colour">One Colour</mat-option>
+                      <mat-option value="Two Colours">Two Colours</mat-option>
+                      <mat-option value="Three Colours">Three Colours</mat-option>
+                      <mat-option value="None">None</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  <!-- -->
+                  <mat-card *ngIf="flexoInk.value === 'One Colour' || flexoInk.value === 'Two Colours' || flexoInk.value === 'Three Colours'">
+                    <mat-form-field class="full-width" [hideRequiredMarker]="true">
+                      <textarea id="flexoNoteField" rows="3" #flexoNoteField matInput (keyup)="updateProp('flexoNotes', flexoNoteField.value)" name="flexoNotes"
+                        placeholder="Please specify colour(s)" required></textarea>
+                      <mat-error *ngIf="globalFormControl.hasError('required')">
+                        Flexo ink notes are
+                        <strong>required</strong>
+                      </mat-error>
+                    </mat-form-field>
+                  </mat-card>
+                  <!-- -->
+                </div>
+              </div>
+              <div>
                 <p>Select Finish</p>
                 <div class="selectMarg">
                   <mat-form-field class="full-width" [hideRequiredMarker]="true">
@@ -222,15 +250,28 @@
                 </div>
               </div>
               <div>
-                <p>Select Embelishment</p>
+                <p>Select Embellishment</p>
                 <div class="selectMarg">
                   <mat-form-field class="full-width" [hideRequiredMarker]="true">
-                    <mat-select placeholder="Embleishments" [(ngModel)]="quote.embel" name="embel" required>
+                    <mat-select placeholder="Embellishments" [(ngModel)]="quote.embel" name="embel" #embolFoil required>
                       <mat-option *ngFor="let embel of $embelishments | async" [value]="embel.val()">
                         {{embel.val()}}
                       </mat-option>
+                      <mat-option value="No embellishment">No Embellishment</mat-option>
                     </mat-select>
                   </mat-form-field>
+                  <!-- -->
+                  <mat-card *ngIf="embolFoil.value === 'Cold Foiling' || embolFoil.value === 'Hot Foiling'">
+                    <mat-form-field class="full-width" [hideRequiredMarker]="true">
+                      <textarea id="noteField" rows="3" #embelNoteField matInput (keyup)="updateProp('embelNotes', embelNoteField.value)" name="embelNotes"
+                        placeholder="Please specify foil colour(s)" required></textarea>
+                      <mat-error *ngIf="globalFormControl.hasError('required')">
+                        Embellishment notes are
+                        <strong>required</strong>
+                      </mat-error>
+                    </mat-form-field>
+                  </mat-card>
+                  <!-- -->
                 </div>
               </div>
               <div>
@@ -283,9 +324,10 @@
               </div>
               <div>
                 <p>Winding style</p>
-                <p class="upload">Scroll left or right to select a winding type style.</p>
-                <br>
-                <br>
+                <p class="windingP mobileOnly">Scroll left or right to select a winding type style.</p>
+                <span class="mobileOnly">
+                  <br>
+                </span>
                 <mat-button-toggle-group [(ngModel)]="quote.windStyle" class="windingBox mat-elevation-z0" #group="matButtonToggleGroup"
                   name="windStyle">
                   <mat-button-toggle class="windingOpt" value="1">
@@ -321,7 +363,6 @@
                     <p class="windingLabel">8</p>
                   </mat-button-toggle>
                 </mat-button-toggle-group>
-                <br>
               </div>
               <div>
                 <p>Supplied In</p>

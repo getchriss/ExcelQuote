@@ -1,0 +1,11 @@
+CHANGE LOG // 
+=[==========================================================================================================
+=[Friday, 27 October 2017.
+=[----------------------------------------------------------------------------------------------------------
+=[Fixed - save auth-user login/logout function
+=[Fixed - new form padding and margins
+=[Added - Contact name to new form(user) and form preview(admin+user[completed])
+=[Added - Embellishment option added 'No Embellishment'.
+=[Added - Notes field to embellishment on foil selection in new form and form preview(admin+user[completed])
+=[Added - Ink / Flexo ink options added to new form/preview along with notes section.
+=[----------------------------------------------------------------------------------------------------------
